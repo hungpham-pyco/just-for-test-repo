@@ -1,0 +1,16 @@
+#iNavSANavLvl3 a {
+  @include font-size-only(12px); 
+  width: 120px - 2px;
+  font-weight: normal !important;
+  text-align: center !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+#iNavSANavLvl3 .thisSection {
+  background: #61636e !important;
+}
+
+#iNavSANavLvl3 .thisSection a {
+  //color: #bfbfbf !important;
+}

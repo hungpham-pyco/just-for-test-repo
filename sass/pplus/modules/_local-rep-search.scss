@@ -1,0 +1,65 @@
+.search-rep {
+	margin: 20px 0 40px;
+	input {
+		font-style: italic;
+		text-align: center;
+		width: 184px;
+		padding: 5px 2px;
+	}
+	h3 {
+		@include font-size(14px,14px);
+		text-transform: uppercase;
+		color: $black;
+		font-weight: bold;
+		margin-bottom: 7px;
+	}
+	p {
+		@include font-size(14px,18px);
+	}
+	.left {
+		@include float-left;
+		@include grid-column(6,-40px);
+		padding: 20px;
+		margin-left: 0;
+		background: $light-grey;
+	}
+	.right {
+		@include float-right;
+		@include grid-column(9);
+		margin-right: 0;
+		padding: 0 0 0 5px;;
+	}
+}
+.local-rep-results {
+	margin: 15px 0 0;
+	padding: 0;
+	li {
+		list-style: none;
+		padding-bottom: 20px;
+		margin-bottom: 20px;
+		border-bottom: 1px solid $light-grey;
+		div {
+			margin-left: 40px;
+		}
+		p {
+			@include font-size(18px,18px);
+			margin-bottom: 5px;
+		}
+		.name {
+			color: $purple;
+			@include font-size(22px,22px);
+			margin-bottom: 5px;
+		}
+		.title {
+			color: $grey;
+			font-style: italic;
+			@include font-size(17px,17px);
+			margin-bottom: 10px;
+		}
+		img {
+			@include float-left;
+			margin-left: -40px;
+		}
+		
+	}
+}

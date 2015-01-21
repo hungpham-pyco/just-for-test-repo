@@ -1,0 +1,17 @@
+// ==========================================================================
+// Background
+// ==========================================================================
+@mixin sprite-background-image($map, $sprite, $dimensions: false, $offset-x: 0, $offset-y: 0) {
+  @include sprite($map, $sprite, $dimensions, $offset-x, $offset-y);
+  background-image: $map;
+  background-repeat: no-repeat;
+}
+// ==========================================================================
+// Icon Sprites
+// ==========================================================================
+$icon-sprites: sprite-map("pplus/sprite/*.png"
+	,$sprite-demo-pagination-left-arrow-spacing: 10px
+	,$sprite-demo-pagination-right-arrow-position: 100%
+	,$sprite-logo-pplus-spacing: 30px
+  //, $new-position: 100%, $new-spacing: 15px, $new-repeat: no-repeat
+);

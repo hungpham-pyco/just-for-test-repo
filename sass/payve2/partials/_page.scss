@@ -1,0 +1,540 @@
+body, select, input, textarea {
+	color: $white;
+	@include font-size(14px, 16px);
+	@include font-arial(false, false);
+}
+
+/* *****************************************************/
+/* Header styles 
+/* *****************************************************/
+/* *************Need to be styled for payve based on my css ***************/
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+} 
+h1 {
+	color: $blue-dark;
+	@include font-benton-sans(medium);
+}
+h2 {
+	color:$blue-dark;
+	@include font-arial(true, false);
+	@include font-size(20px, 20px); 
+	margin-bottom: 10px;
+	a {
+		color:$blue-dark;
+	}
+}
+h3,h4,h5,h6 {
+  margin-bottom: 5px;
+  @include font-size(16px, 16px);
+  font-weight: bold;
+}
+
+/* Other general styles */
+form {
+	display: block;
+	margin-top: 0em;
+}
+p {
+	@include font-arial;
+	@include font-size(16px, 20px);
+	color:$grey;
+	margin:0 0 15px;
+	
+	.pdf {
+		background: url('../i/payve2/icnPdf.png') no-repeat 0 50%;
+		padding: 8px 0 8px 28px;
+	}
+}
+img {
+	border: 0;
+}
+a {
+	color:$blue;
+	text-decoration:none;
+	&:hover {
+		text-decoration: underline;
+	}
+	&.cta {
+		font-weight:bold;
+	}
+}
+sup {
+	@include font-size(10px,10px);
+	top: -.75em;
+		.ie7 &,
+		.ie8 &,
+		.ie9 & {
+			top: -1em;
+		}
+}
+.bold {
+  font-weight: bold;
+}
+.italic {
+  font-style: italic;
+}
+.no-margin {
+  margin: 0;
+}
+
+/* *****************************************************/
+/* Bar with GlobalCorporate Payments and share widgets */
+/* *****************************************************/
+#subHeaderWrapper {
+  background: $white;
+  height: 58px;
+  border-bottom: 1px solid $light-grey;
+}
+#subHeaderContent {
+	height:100%;
+		
+		.subHeader {
+			display: inline;
+			@include float-left;
+			width: 40%;
+
+				span { 
+					display: block;
+					@include font-benton-sans;
+					@include font-size(17px,17px);
+	    
+					text-transform: uppercase;
+					color: $blue-dark;
+					font-weight: bold;
+					margin: 13px 0 0 0;
+					padding: 0;
+					border-bottom: 0;
+
+						&:first-line {
+							color: $grey;
+							font-weight: normal;
+						}
+				}
+		}
+		.right-content {
+			@include float-right;
+			display: inline;
+			margin-top: 15px;
+		}
+}
+
+
+/* *************************************/
+/* Bar with Payve logo and tagline */
+/* *************************************/
+#masthead_wrapper {
+	background-image: inline-image("../i/payve2/bg-masthead.png");
+	background-repeat: repeat-x;
+	background-position: 0 bottom;
+	background-color: $white;
+	.ie7 & {
+		background-image: image-url("../i/payve2/bg-masthead.png");
+	}
+	height:76px;
+}
+#masthead {
+	
+	p {
+		color:$blue-dark;
+		@include font-size(25px, 80px);
+		@include font-benton-sans;
+		@include float-right;
+		margin-bottom: 0;
+	}
+}
+#payve {
+	width: 188px - 11px;
+	height: 71px - 24px;
+	padding: 24px 0 0 11px;
+	@include inline-block;
+	border:1px solid $light-grey;
+	border-top: none;
+	a img {
+		border: none;
+	}
+	.ie7 & {
+		@include float-left;
+	}
+}
+
+/* *************************************/
+/* Box styles in the left column */
+/* *************************************/
+.box {
+	border:1px solid $light-grey;
+	margin-bottom:20px;
+	padding:12px 10px 15px;
+	background-color:$white;
+
+	h3 {
+		color: $purple;
+		@include font-size(18px, 20px);
+		margin:0;
+		margin-bottom:10px;
+		@include font-benton-sans;
+		font-weight: bold;
+	}
+	p {
+		color:$grey;
+		@include font-size(14px, 18px); 
+		font-weight:normal;
+		margin:0;
+		margin-bottom:15px;
+		@include font-arial;
+	
+		span {
+			font-weight:bold;
+		}
+	}
+}
+
+
+/* *************************************/
+/* Content area */
+/* *************************************/
+#titleContent,
+#introBlurb,
+#subContent {
+	//margin-left: 50px - 10px; //minus ten pixels from column gutters
+}
+#titleContent {
+	position:relative;
+}
+
+.pageHeader {
+	color: $green;
+	@include font-benton-sans;
+	@include font-size(28px, 28px);
+	margin: 0;
+}
+p.intro {
+	color:#8a8a8a;
+	@include font-arial;
+	@include font-size(20px, 24px); 
+	margin-bottom: 20px;
+}
+#contentWrapper {
+	h1 {
+		margin-bottom: 20px;
+	}
+}
+
+/* Used for the ROI green ribbon */
+#msgContent {
+	background-color:$green;
+	height:72px;
+	padding-left:50px - 10px;  //minus 10px from column gutter
+	margin-bottom:31px;
+
+	 p {
+		font-weight:bold;
+		@include font-size(26px, 72px);
+		color:#fcfdfe;
+		@include font-benton-sans;
+	}
+}
+
+#pageSolutions #subContent {
+	margin-top:34px;
+}
+
+#subContent > h2 {
+	margin-top: 40px;
+}
+
+/* ******************************************************************/
+/* Styles for Image Columns: Image on left and text floated on right:
+   Used in Solutions Page and Insights Page */
+/* ******************************************************************/
+#subContent .imgCol {
+	overflow:hidden;
+	
+	.imgMain {
+		@include float-left;
+	}
+	h4 {
+		color:$grey;
+		@include font-size(16px, 16px);
+		font-weight:bold;
+		margin-bottom:5px;
+	}
+	h2, h4 {
+		margin-top:0;
+	}
+}
+
+
+/* Styles specific for Solutons page */
+#pageSolutions #subContent .imgCol {
+	padding-left: 131px;
+	margin-bottom:30px;
+
+	.imgMain {
+		width:119px;
+		margin-left: -131px;
+	}
+}
+
+/* Styles specific for Insights page */
+#pageInsights #subContent { 
+	h3 {
+		margin-bottom:20px;
+	}
+	.imgCol {
+		padding-left: 150px;
+		margin-bottom:25px;
+		
+		.imgMain {
+			width:132px;
+			margin-left: -150px;
+		}
+		p {
+			margin-bottom:7px;
+		}
+		.cta img {
+			@include float-left;
+			margin-right:8px;
+		}
+	}
+	.ctaAll  .cta {
+		margin-top:35px;
+		display:block;
+	}
+}
+
+
+/* *************************************/
+/* Payment Platform Page */
+/* *************************************/
+.tabs {
+	padding-left:0;
+	margin-top:30px;
+	margin-bottom:0;
+	
+	li {
+		list-style:none;
+		@include float-left;
+		background:$grey-bg;
+		border :1px solid $light-grey;
+		border-left: 0;
+		border-bottom: 0;
+		&.ui-tabs-active {
+			background:$white;
+			color:$blue-dark;
+			a {
+				border-bottom: 1px solid $white;
+				cursor: text;
+			}
+		}
+		&:first-child {
+			border-left: 1px solid $light-grey;
+		}
+	}
+	a {
+		padding:0 18px;
+		display:inline-block;
+		height: 45px;
+		color:$blue-dark;
+		@include font-size(16px,45px);
+		font-weight:bold;
+		@include font-arial;
+		text-decoration:none;
+		text-transform:uppercase;
+		outline:none;		
+	}
+}
+.tabContent {
+	background-color:$white;
+	border: 1px solid #d3d3d3;
+	//border-top: 0;
+	padding:20px 20px 15px 20px;
+	margin-top:-1px;
+}
+
+#tabs .imgCol {
+	overflow:hidden;
+	padding-right: 316px;
+
+	.imgMain {
+		@include float-right;
+		width:292px;
+		margin-right: -316px;
+	}
+}
+	
+
+/* *************************************/
+/* Form ROI Calculator */
+/* *************************************/
+.roi-form {
+	input[type="text"] {
+		color:$med-grey;
+		font-weight: bold;
+		width:260px;
+		height:16px;
+		padding:7px 10px;
+		text-align:right;
+		font-weight:bold;
+		font-size:18px;
+		@include font-arial;
+	}
+}
+
+fieldset {
+	margin:0;
+	padding:14px 0 10px;
+	border:none;
+	height:36px;
+
+	label, 
+	span {
+		@include float-left;
+		width:390px;
+		text-align:left;
+		color:#8a8a8a;
+		@include font-arial;
+		@include font-size(16px, 20px);
+
+		&.error {
+			position:absolute;
+			display:none;
+			top:-14px;
+			right:0px;
+			text-align:right;
+			color:#c10000;
+			@include font-size(14px, 14px);
+		}
+	}
+	.rightCol {
+		@include float-right;
+		position:relative;
+	}
+
+	.ctaButton {
+		border:none;
+		position: relative;
+		@include float-left;
+		top: 0;
+		.ie7 & {
+			@include float-right;
+		}
+	}
+	.resetButton {
+		color:$blue;
+		background: none;
+		cursor: pointer;
+		font-size:12px;
+		font-weight:normal;
+		margin-right:15px;
+		margin-top:5px;
+		border:none;
+		@include float-left;
+		&:hover {
+			text-decoration: underline;
+		}
+		.ie7 & {
+			@include float-right;
+		}
+	}
+}
+#formMain {
+	margin-bottom:30px;	
+}
+.formButtons {
+	@include float-right;
+	.ie7 & {
+		width: 100%;
+		text-align: right;
+			fieldset {
+				width: 35%;
+				.resetButton {
+				@include float-left;
+			}
+		}
+	}
+}
+#formResults {
+	height:100%;
+	padding-top:10px;
+}
+.entryResult {
+	padding:16px 0;
+	border-bottom: 1px solid $light-grey;
+	margin:0;	
+	clear:both;
+	color:$med-grey;
+	@include font-arial;
+	font-weight:bold;
+	dt {
+		@include float-left;
+		width:390px;
+		font-size:16px;
+	}
+	dd {
+		@include float-right;
+		width:260px;
+		margin-left:55px;
+		text-align:right;
+		@include font-size(22px, 22px);
+	}
+}
+#resultTotal {
+	border-bottom:none;
+	dt {
+		font-size:18px;
+		color:$green;
+		text-transform:uppercase;
+	}
+	dd {
+		font-size:26px;
+		color:$green;
+	}
+}
+	
+
+/* *************************************/
+/* Clearfix */
+/* *************************************/
+.clearfix:before, 
+#subHeaderContent::before, 
+.content::before, 
+.header::before, 
+.perspectives-header::before, 
+.expandable-header span::before, 
+.ie7 ul.perspectives::before, 
+.clearfix::after, 
+#subHeaderContent::after, 
+.content::after, 
+.header::after, 
+.perspectives-header::after, 
+.expandable-header span::after, 
+.ie7 ul.perspectives::after {
+	content: "";
+	display: table;
+}
+.clearfix:after, 
+#subHeaderContent::after, 
+.content::after, 
+.header::after, 
+.perspectives-header::after, 
+.expandable-header span::after, 
+.ie7 ul.perspectives::after,
+
+.entryResult dd:after {
+	clear: both;
+}
+.clearfix:after  {
+  content: "";
+  display: table;
+  clear: both;
+}
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.clearfix {
+    *zoom: 1;
+}
+

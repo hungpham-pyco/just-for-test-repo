@@ -1,0 +1,129 @@
+.body-block {
+
+	hr {
+		width: 100%;
+		display: inline-block; // avoids collapsing margins
+		border-top: 2px solid $black;
+		margin: 25px 0;
+	}
+	
+	h3 {
+		@include font-size(36px,38px);
+		letter-spacing:-0.025em;
+		strong {
+			@extend .h4;
+		}
+	}
+	h3, h4 {
+		margin: 15px 0;
+	}
+
+	ul {
+		margin: 15px 0;
+		padding-left: 20px;
+		li {
+			margin: 0 0 25px 0;
+			@include font-size(14px, 18px);
+		}
+		&.chapters {
+			color: $sqrl;
+			margin: 22px 0;
+			padding: 0;
+			@include no-bullets();
+			li {
+				@include font-size-only(14px);
+				strong {
+					display: block;
+				}
+				margin-bottom: 20px;
+			}
+		}
+	}
+	
+	ol {
+		li {
+			@include font-benton-sans('regular');
+			@include font-size(16px,22px);
+			letter-spacing:.025em;
+			color:$crow;
+			
+			@include responsive(small) {
+				@include font-size(13px,20px);
+			}
+		}
+	}
+
+	.cta-block {
+		margin-top: 15px;
+		clear: both;
+		a {
+			@include font-size(14px);
+			text-decoration: underline;
+		}
+		.share-amex {
+			margin-top: 15px;
+		}
+	}
+
+	.image-with-text {
+		margin: 45px 0 15px 0;
+		overflow: auto;
+		.image {
+			@include fluid-column(3,0,18,0,false);
+			@include fluid-offset-right(1);
+			img {
+				max-width: 100%;
+				height: auto;
+				.oldie & {
+					width: auto;
+					max-width: 100%;
+				}
+			}
+		}
+		.text {
+			@include fluid-column(14,0,18,0,false);
+			p {
+				&:first-of-type {
+					margin-top: 0;
+				}
+				&.title {
+					margin-top: 0;
+					margin-bottom: 0;
+				}
+			}
+		}
+		@include responsive('med') {
+			.image {
+				@include fluid-column(4,0,18,0,false);
+			}
+			.text {
+				@include fluid-column(13,0,18,0,false);
+			}
+		}
+		@include responsive('small') {
+			overflow: visible;
+			.image {
+				@include fluid-column(23,0,23,0,false);
+				margin: 0 0 15px 0;
+			}
+			.text {
+				@include fluid-column(19,0,23,0,false);
+				@include fluid-offset-right(2);
+			}
+		}
+	}
+
+	.video-block { 
+		width: 100%;
+		@extend .clearfix;
+		background: #000;
+		margin: 20px 0;
+		.player-wrapper {
+			margin: 0 auto;
+			float: none;
+			width: 100%;
+			max-height: 300px;
+		}
+	}
+
+}

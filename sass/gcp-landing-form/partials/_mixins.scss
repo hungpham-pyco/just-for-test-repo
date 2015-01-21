@@ -1,0 +1,295 @@
+@mixin content-block($width){
+	width:$width;
+	margin: 0 auto;
+}
+
+// Responsive mixins for inline usage
+@mixin responsive($size){
+	@if ($size == small) {
+		@include max-screen($break-md){
+			@content;
+		}
+	}
+	@else if($size == med) { 
+		@include screen($break-md + 1, $break-lg){
+			@content;
+		}
+	}
+	@else if ($size == large) {
+		@include min-screen($break-lg + 1){
+			@content;
+		}
+	}
+	@else if ($size == lessthanlarge) {
+		@include max-screen($break-lg){
+			@content;
+		}
+	}
+	@else if ($size == morethansmall) {
+		@include min-screen($break-md + 1){
+			@content;
+		}
+	}
+
+}
+
+@mixin arrow($direction,$size,$color,$type:arrow){
+	width: 0;
+	height: 0;
+	display: inline-block;
+	$arrow: $size solid $color;
+	$transp: $size solid transparent;
+	@if ($type == arrow) { 
+		@if ($direction == right) {
+			border-top: $transp;
+			border-bottom: $transp;
+			border-left: $arrow;
+			.ie7 & {
+				vertical-align: middle;
+			}
+		}
+		@else if ($direction == left) {
+			border-top: $transp;
+			border-bottom: $transp;
+			border-right: $arrow;
+			.ie7 & {
+				vertical-align: middle;
+			}
+		}
+		@else if ($direction == up) {
+			border-left: $transp;
+			border-right: $transp;
+			border-bottom: $arrow;
+		}
+		@else if ($direction == down) {
+			border-left: $transp;
+			border-right: $transp;
+			border-top: $arrow;
+		}
+	}
+	@else if ($type == corner) {
+		@if ($direction == bottomright) {
+			border-bottom: $arrow;
+			border-right: $arrow;
+			border-left: $transp;
+			border-top: $transp;
+		}
+		@else if ($direction == bottomleft) {
+			border-bottom: $arrow;
+			border-left: $arrow;
+			border-right: $transp;
+			border-top: $transp;
+		}
+		@else if ($direction == topleft) {
+			border-left: $arrow;
+			border-top: $arrow;
+			border-right: $transp;
+			border-bottom: $transp;
+		}
+		@else if ($direction == topright) {
+			border-right: $arrow;
+			border-top: $arrow;
+			border-left: $transp;
+			border-bottom: $transp;
+		}
+	}
+}
+
+@mixin backgroundPattern($color) {
+	background-image: image-url('gcp2/amex-pattern_#{$color}.png');
+}
+
+@function pixelPercentage($pixels,$columns) {
+	/* Function for converting hard pixel values into relative percentage values */
+	/* Usage:
+		pixels = defined in layout or design
+		columns = number of grid columns in container
+	*/
+	$containerWidth: grid-column-width($columns) / 1px; /* max possible width of a grid area; converted unitless by dividing by 1px */
+	@return percentage($pixels / $containerWidth); /* calculated percentage based on container width */
+}
+@mixin clearfix(){
+	&:before,
+	&:after {
+		content: "";
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+
+	*zoom: 1;
+}
+
+@mixin btn($bgcolor,$hoverbgcolor,$textcolor,$size:small){
+	background-color: $bgcolor;
+	color: $textcolor;
+	@include font-benton-sans(bold);
+	text-decoration: none;
+	display: inline-block;
+	@include border-radius(5px);
+	text-transform: uppercase;
+	text-decoration: none;
+	text-align: center;
+	padding: 0 15px;
+	&:hover,
+	&:focus,
+	&:visited {
+		color: $textcolor;
+		text-decoration: none;
+	}
+	&:hover, &:focus {
+		background-color: $hoverbgcolor;
+	}
+	@if ($size == large) {
+		height: 39px;
+		@include border-radius(5px);
+		@include font-size-only(14px);
+		line-height: 40px;
+		letter-spacing: 0;
+	}
+
+	@if ($size == small) {
+		height: 32px;
+		@include border-radius(3px);
+		@include font-size-only(12px);
+		line-height: 34px;
+		letter-spacing: 0;
+	}
+}
+
+// basic 2 color background gradient mixin, no custom colorstops
+@mixin bg-grad($startcolor, $stopcolor, $startdir:left) {
+	background-color: $startcolor;
+	@include background-image(linear-gradient($startdir, $startcolor, $stopcolor));
+	background-image: -ms-linear-gradient($startdir, $startcolor 0%, $stopcolor 100%);
+	@if ($startdir == left) {
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$startcolor}, endColorstr=#{$stopcolor}, gradientType='1');    	
+	}
+	@else {
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$startcolor}, endColorstr=#{$stopcolor}, gradientType='0');    	
+	}
+}
+
+@mixin worldservicepattern($percent:15) {
+	@if ($percent == 45){
+		background-image: image-url('gcp2/amex-ws-pattern_45.png');
+	}
+	@else {
+		background-image: image-url('gcp2/amex-ws-pattern_15.png');
+	}
+}
+
+// old ie alpha-transparent backgrounds, must convert rbga() to #argb first
+// http://hammerspace.co.uk/2011/10/cross-browser-alpha-transparent-background-css
+@mixin oldietransbg($argbcode) {
+	background:none;
+	-ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$argbcode},endColorstr=#{$argbcode});
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$argbcode},endColorstr=#{$argbcode});
+	zoom: 1;
+}
+
+@mixin gcplpbox($fluidWidth,$textColor,$float:none) {
+	.box {
+		@include fluid($fluidWidth);
+		float: $float;
+		margin: 0 0 0 0;
+		color: $textColor;
+
+		h2 {
+			@include font-size(21px, 32px);
+			letter-spacing: -0.025em;
+			@include font-benton-sans('bold');
+			color: #002463;
+		}
+		h3 {
+			@include font-size(36px, 40px);
+			letter-spacing: -0.025em;
+			@include font-benton-sans('light');
+		}
+	}
+}
+
+/* Reference Headline styles in the context of others */
+@mixin headline($headline-style, $context:false){
+	@if ($headline-style == 1) {
+		@include font-benton-sans('light');
+		font-weight: normal;
+		@if($context) {
+			@include font-size(48px,50px,0,$context);
+			@include responsive(small) {
+				@include font-size(42px,44px,0,$context);
+			}
+		}
+		@else{
+			@include font-size(48px,50px);
+			@include responsive(small) {
+				@include font-size(42px,44px);
+			}
+		}
+		letter-spacing: -.025em;
+	}
+	@if ($headline-style == 2) {
+		@include font-benton-sans('bold');
+		@if($context) {
+			@include font-size(30px,32px,0,$context);
+			@include responsive(small) {
+				@include font-size(18px,20px,0,$context);
+			}
+		}
+		@else{
+			@include font-size(30px,32px);
+			@include responsive(small) {
+				@include font-size(18px,20px);
+			}
+		}
+	}
+	@if ($headline-style == 3) {
+		@include font-benton-sans('light');
+		font-weight: normal;
+		@if($context) {
+			@include font-size(36px,38px,0,$context);
+			@include responsive(small) {
+				@include font-size(30px,32px,0,$context);
+			}
+		}
+		@else {
+			@include font-size(36px,38px);
+			@include responsive(small) {
+				@include font-size(30px,32px);
+			}
+		}
+		letter-spacing: -.025em;
+	}
+	@if ($headline-style == 4) {
+		@include font-benton-sans('bold');
+		@if($context) {
+			@include font-size(24px,26px,0,$context);
+			@include responsive(small) {
+				@include font-size(21px,18px,0,$context);
+			}
+		}
+		@else {
+			@include font-size(24px,26px);
+			@include responsive(small) {
+				@include font-size(21px,18px);
+			}
+		}
+	}
+	@if ($headline-style == 5) {
+		@include font-benton-sans('bold');
+		@if($context) {
+			@include font-size(16px,18px,0,$context);
+			@include responsive(small) {
+				@include font-size(14px,18px,0,$context);
+			}
+		}
+		@else {
+			@include font-size(16px,18px);
+			@include responsive(small) {
+				@include font-size(14px,18px);
+			}
+		}
+	}
+}

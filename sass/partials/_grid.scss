@@ -1,0 +1,83 @@
+//-----------------------------------
+// Defaults
+//-----------------------------------
+$column-width: 60px !default;
+$gutter-width: 20px !default;
+$columns: 12 !default;
+
+
+//-----------------------------------
+// Column Widths
+//-----------------------------------
+@mixin grid($i, $plus: 0) {
+  width: grid-width($i, $plus);
+}
+@function grid-width($i, $plus: 0) {
+  @return $column-width * $i + $gutter-width * ($i - 1) + $plus;
+}
+
+//-----------------------------------
+// Containers
+//-----------------------------------
+@mixin grid-page($i: $columns, $plus: 0) {
+  @extend .clearfix;
+  width: grid-width($i, $plus + $gutter-width);
+  margin: 0 auto;
+}
+@mixin grid-row($page: false) {
+  @extend .clearfix;
+  width: auto;
+  
+  // rows directly inside a page don't need the negative margin
+  @if $page {
+    margin: 0 0;
+  } @else {
+    margin: 0 (-$gutter-width / 2);
+  }
+}
+
+//-----------------------------------
+// Columns
+//-----------------------------------
+@mixin grid-column($i: false, $plus: 0) {
+	margin: 0 ($gutter-width / 2);
+	float: left;
+	.ie6 & { display: inline; }
+	
+	@if $i {
+		@include grid($i, $plus);
+	}
+}
+@mixin grid-column-empty($i: 1, $position: after) {
+	$margin: grid-width($i, $gutter-width);
+	margin-#{if($position == after, right, left)}: $margin;
+}
+
+//-----------------------------------
+// Default Styles
+//-----------------------------------
+// columns widths
+@for $i from 1 through $columns {
+  //.grid-#{$i} { @include grid($i); }
+}
+
+// containers
+.page {
+	@include grid-page;
+}
+.row {
+	@include grid-row;
+}
+.page > .row {
+  @include grid-row(true);
+}
+
+// columns
+.column {
+	@include grid-column;
+}
+
+// Box
+.box {
+	margin-bottom: $gutter-width;
+}

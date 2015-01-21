@@ -1,0 +1,20 @@
+/* custom */
+.ui-loader {
+  background-color: black;
+  position: fixed;
+  z-index: 4003;
+  h1 {
+	color: white;
+  }
+  .ui-icon-loading {
+	background-image: image-url("loading.gif");
+	width: 16px;
+	height: 16px;
+	margin-bottom: 1em;
+  }
+}
+
+.ui-loader-preload {
+  display: none;
+  background-image: image-url("loading.gif");
+}

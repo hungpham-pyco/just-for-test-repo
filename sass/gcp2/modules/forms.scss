@@ -1,0 +1,385 @@
+/************************************/
+/* Promo Groups */
+/************************************/
+/* DEPENDENCIES */
+@import 'compass';
+@import 'gcp2/partials/grid';
+@import 'gcp2/partials/fluid';
+@import 'gcp2/partials/base';
+@import 'gcp2/partials/fonts';
+@import 'gcp2/partials/bentonsans';
+@import 'gcp2/partials/sprites';
+@import 'gcp2/partials/media-queries';
+@import 'gcp2/partials/mixins';
+@import 'gcp2/partials/buttons';
+@import 'gcp2/partials/utilities';
+@import 'gcp2/partials/type';
+
+/* BASE FORM STYLES */
+
+input[type="text"], 
+select, 
+textarea {
+	border: 1px solid #a5b3b4;
+	@include border-radius(3px);
+	padding: 6px 16px;
+	color: $crow;
+	@include font-size(12px);
+	@include font-benton-sans('regular');
+	&:focus {
+		outline-color: $lightteal;
+	}
+}
+
+input[type="submit"] {
+	border: 0;
+	@include btn($deepblue,#1d4f9c,$white,large);
+}
+
+
+.radio-option-horizontal {
+	display: inline-block;
+}
+
+%labelerror { 
+	margin: 5px 0;
+	color: #c80404;
+	@include font-benton-sans('medium');
+	@include font-size(12px);
+}
+
+label {
+	&.error {
+		@extend %labelerror
+	}
+}
+
+.form-error {
+	@include fluid-column(17,0,$grid-columns,0,false);
+	@include fluid-offset-left(1,0);
+	margin: 10px 0;
+	p {
+		color: #c80404;
+	}
+}
+
+.form-container {
+	@extend .clearfix;
+}
+
+
+.modal-form {
+	display: none;
+	margin: 0 auto;
+	max-width: 960px;
+
+		@include responsive('lessthansmall') {
+			width: 100%;
+			overflow: hidden;
+		}
+	.main-container {
+		@include responsive('lessthansmall') {
+			width: 100%;
+			margin: 0;
+		}
+		&.form-bg {
+			margin: 0;
+			@include clearfix();
+			background-repeat: no-repeat;
+			@include responsive('morethansmall'){
+				background-image: image-url('gcp2/to_delete/form-background.jpg');
+			}
+			.ie8 & {
+				background-image: image-url('gcp2/to_delete/form-background.jpg'); 
+			}
+		}
+		&.confirm {
+			min-height: 400px;
+		}
+
+		@include responsive('small') {
+			background-color: $white;
+		}
+		@include fluid-row();
+		padding-bottom: 50px;
+		@include responsive('small') {
+			padding-bottom: 0;
+		}
+	}
+	h3 {
+		@extend .h1;
+		@include fluid-column(17,0,$grid-columns,0,false);
+		@include fluid-offset-left(1,0);
+		@include responsive('lessthanlarge') {
+			@include fluid-column(22,0,$grid-columns,0,false);
+		}
+	}
+	// for now: hide these on old form
+	.headlines {
+		background: none;
+		border-width: 0;
+		display: block;
+		h4 {
+			display: none;
+		}
+	}
+	.form-wrapper, form {
+		@include fluid-column(22,0,$grid-columns,0,false);
+		@include fluid-offset-left(1,0);
+		@include fluid-offset-right(1,0);
+		> fieldset {
+			margin-top: 40px;
+			@include responsive('small') {
+				margin-top: 15px;
+			}
+			legend { 
+				@include fluid-column(9,0,22,0,false);
+				@extend .body-1;
+				line-height: 24px;
+				color: $koala;
+				@include responsive('lessthanlarge') {
+					@include fluid-column(22,0,22,0,false);
+				}
+			}
+		}
+		.form-content {
+			@include fluid-column(11,0,22,0,false);
+			@include fluid-offset-left(2,0,22);
+			@include responsive('lessthanlarge') {
+				@include fluid-column(22,0,22,0,false);
+				margin: 60px 0 20px 0;
+			}
+			
+			.note {
+				padding: 5px 0;
+				@include font-size(12px,15px);
+			}
+			.form-row {
+				@extend .clearfix;
+				margin: 22px 0;
+				&.radio,
+				&.checkbox  {
+					legend {
+						width: 100%;
+						@include font-size(12px,15px);
+						color: $sqrl;
+						margin-bottom: 15px;
+						span {
+							display: block;
+						}
+					}
+				}
+				&:first-of-type{
+					margin-top: 0;
+				}
+				/* disables auto-zoom on ios devices */
+				@include responsive('lessthanlarge') {
+					input[type='text'],input[type='number'],textarea {
+						font-size: 16px;
+					}
+				}
+				input {
+					&[type="submit"] {
+						float: right;
+					}
+				}
+				select, 
+				input[type="text"], 
+				textarea {
+					width: 100%;
+					box-sizing: border-box;
+				}
+				.radio-option-horizontal, 
+				.radio-option-vertical {
+					input[type="radio"] {
+						vertical-align: middle;
+					}
+					label {
+						display: inline-block;
+						margin: 5px;
+						color: $sqrl;
+						@include font-size(12px,15px);
+					}
+				}
+				.radio-option-horizontal {
+					margin-right: 15px;
+				}
+				.checkbox-option-horizontal,
+				.checkbox-option-vertical {
+					input {
+						display: inline-block;
+						vertical-align: top;
+						margin-top: 3px;
+					}
+					label {
+						display: inline-block;
+						padding-left: 10px;
+						color: $crow;
+						width: 90%;
+						@include font-size(12px,15px);
+						&.error {
+							@extend %labelerror;
+							padding-left: 0;
+							width: 100%;
+						}
+					}
+				}
+
+				.checkbox-option-horizontal {
+					margin-right: 15px;
+				}
+
+				em {
+					font-style: normal;
+					clear: both;
+					display: block;
+					float: right;
+					@include font-size(12px,16px);
+					color: $crow;
+					margin-top: 10px;
+				}
+			}
+		}
+		.form-disclaimer {
+			margin-top: 25px;
+			@include fluid-column(11,0,22,0,false);
+			@include fluid-offset-left(11,0,22);
+			@include responsive('lessthanlarge') {
+				@include fluid-column(22,0,22,0,false);
+				margin: 20px 0;
+			}
+			p {
+				@include font-size(12px,16px);
+				color: $crow;
+			}
+		}
+	}
+	.confirm-wrapper {
+		p {
+			@extend .body-2;
+			color: $koala;
+			@include fluid-column(22,0,$grid-columns,0,false);
+			@include fluid-offset-left(1,0);
+		}
+	}
+}
+
+/* CALL BACK STYLES */
+
+.modal-form.call-back {
+	background-color: $white;
+	.main-container {
+		.ie8 & {
+			background-image: none;
+		}
+	}
+	// TO DO: remove this once all content is migrated to disclaimer field
+	#disclaimerSubheading {
+		display: none;
+	}
+	max-width: 890px;
+	h3 {
+		float: none;
+	}
+
+	h4 {
+		// for now: display on new form
+		display: block;
+		@extend	p;
+		// formula for fluid-offset-left(1,0), but using PADDING
+		padding-left: fluid-column-width(1,0) + fluid-gutter-width() * 3;
+		padding-top: 20px;
+		padding-bottom: 65px;
+		background-repeat: no-repeat;
+		background-position: left bottom;
+		background-image: image-url('gcp2/form-background-02.png');
+	}
+		
+	.form-bg {
+		background-image: none;
+	}
+
+	.confirm {
+		min-height: 0;
+		background-image: image-url('gcp2/form-background-02.png');
+		background-repeat: no-repeat;
+		background-position: left bottom;
+		padding-bottom: 65px;
+	}
+
+	.form-wrapper,
+	form {
+			
+		> fieldset {
+			margin-top: 20px;
+				
+			legend { 
+				@include fluid-column(22,0,$grid-columns,0,false);
+
+				h4 {
+					padding: 0;
+					background: none;
+				}
+
+				.call-us {
+					h4 {
+						@extend h3;
+						margin-left: 0;
+						width: 100%;
+					}
+				}
+
+				.request-call-back {
+					margin-top: 45px;
+				}
+			}
+		}
+		.form-content {
+			width: 100%;
+			float: none;
+			margin-left: 0;
+			@include clearfix();
+			@include responsive('large') {
+				.form-row {
+					@include fluid-column(11,0,$grid-columns,0,false);
+					margin-top: 11px;
+					margin-bottom: 11px;
+
+					&:nth-child(odd) {
+						@include fluid-offset-right(2,0);
+						clear:left;	
+					}
+
+					&:first-of-type {
+						margin-top: 11px;
+					}
+
+					&.radio,
+					&.checkbox,
+						{
+						@include fluid-column(24,0,$grid-columns,0,false);
+						@include fluid-offset-right(0,0);
+					}
+
+					input {
+						&[type="submit"] {
+							float: left;
+							@include fluid-column(7,0,9,0,false);
+						}
+					}
+
+					em {
+						float: left;
+					}
+				}
+
+					
+			}
+				
+		}
+		.form-disclaimer {
+			@include fluid-column(22,0,$grid-columns,0,false);
+			@include fluid-offset-left(0,0);
+		}
+	}
+}

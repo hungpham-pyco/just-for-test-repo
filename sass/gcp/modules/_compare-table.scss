@@ -1,0 +1,91 @@
+table {
+	width: 100%;
+	table-layout: fixed;
+	margin-bottom: 20px;
+	border-top: 1px solid $blue;
+	border-bottom: 1px solid $blue;
+	border-collapse: collapse;
+
+	& table {
+		border: 0;
+	}
+	td, 
+	th {
+		text-align: center;
+		color: $blue;
+		padding: 5px 2px;
+		@include font-size(14px,14px);
+	}
+	thead {
+		border-bottom: 2px solid $blue;
+	}
+	tbody {
+		th {
+		text-align: left;
+		width: 50%;
+		}
+	}
+	.odd {
+		td,
+		th {
+			background-color: #d3dfee;
+		}
+	}
+	.checked {
+		@include replace-text("../i/gcp/checkmark.png",50%,50%);
+	}
+}
+table.compare {
+	width: 100%;
+	border-collapse: collapse;
+	empty-cells: show;
+	table-layout: fixed;
+	margin-bottom: 20px;
+	border: 0;
+	th,
+	td {
+		border: solid $light-grey;
+		border-width: 1px 0 1px 1px;
+		@include font-size(12px,14px);
+		color: $grey;
+		padding: 10px;
+		&:first-child {
+			border-left: 0;
+		}
+	}
+	th {
+		background-color: $background;
+		font-weight: normal;
+		text-align: left;
+	}
+	td {
+		text-align: center;
+		// for nested table tds
+		& td {
+			border: 0;
+			@include font-size(14px,16px);
+		}
+	}
+	thead {
+		border-bottom: 0;
+		th {
+			background-color: #fff;
+			color: $purple !important;
+			text-align: center;
+			padding-top: 62px;
+			background-repeat: no-repeat;
+			background-position: 50% 0;
+			border-top: 0;
+		}
+	}
+	.checked {
+		@include replace-text("../i/gcp/checkmark.png",50%,50%);
+	}
+	.category {
+		font-weight: bold;
+		text-align: left;
+		width: auto;
+		@include font-size(14px,14px);
+		color: $purple;
+	}
+}

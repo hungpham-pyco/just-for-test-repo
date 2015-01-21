@@ -1,0 +1,226 @@
+/* BASE FORM STYLES */
+
+input[type="text"], select, textarea {
+	border: 1px solid #a5b3b4;
+	@include border-radius(3px);
+	padding: 6px 16px;
+	color: $crow;
+	@include font-size(12px);
+	@include font-benton-sans('regular');
+	&:focus {
+		outline-color: $lightteal;
+	}
+}
+
+input[type="submit"] {
+	border: 0;
+	@include btn($deepblue,#1d4f9c,$white,large);
+}
+
+
+.radio-option-horizontal {
+	display: inline-block;
+}
+
+label {
+	&.error {
+		margin: 5px 0;
+		color: #c80404;
+		@include font-benton-sans('medium');
+		@include font-size(12px);
+	}
+}
+
+.form-error {
+	@include fluid-column(17,0,$grid-columns,0,false);
+	@include fluid-offset-left(1,0);
+	margin: 10px 0;
+	p {
+		color: #c80404;
+	}
+}
+
+.form-container {
+	@extend .clearfix;
+}
+
+
+.modal-form {
+	margin: 0 auto;
+	max-width: 960px;
+		@include responsive('lessthansmall') {
+			width: 100%;
+			overflow: hidden;
+		}
+	.main-container {
+		@include responsive('lessthansmall') {
+			width: 100%;
+			margin: 0;
+		}
+		&.form-bg {
+			@include responsive('morethansmall'){
+				background: image-url('gcp2/to_delete/form-background.jpg') no-repeat;
+			}
+			.oldie & {
+				background: image-url('gcp2/to_delete/form-background.jpg') no-repeat;
+			}
+		}
+		@include responsive('small') {
+			background-color: $white;
+		}
+		@include fluid-row();
+		padding-bottom: 50px;
+		@include responsive('small') {
+			padding-bottom: 0;
+		}
+	}
+	h3 {
+		@extend .h1;
+		@include fluid-column(17,0,$grid-columns,0,false);
+		@include fluid-offset-left(1,0);
+		@include responsive('lessthanlarge') {
+			@include fluid-column(22,0,$grid-columns,0,false);
+		}
+	}
+	.form-wrapper, form {
+		@include fluid-column(22,0,$grid-columns,0,false);
+		@include fluid-offset-left(1,0);
+		@include fluid-offset-right(1,0);
+		> fieldset {
+			margin-top: 40px;
+			@include responsive('small') {
+				margin-top: 15px;
+			}
+			legend { 
+				@include fluid-column(9,0,22,0,false);
+				@extend .body-1;
+				line-height: 24px;
+				color: $koala;
+				@include responsive('lessthanlarge') {
+					@include fluid-column(22,0,22,0,false);
+				}
+			}
+		}
+		.form-content {
+			@include fluid-column(11,0,22,0,false);
+			@include fluid-offset-left(2,0,22);
+			@include responsive('lessthanlarge') {
+				@include fluid-column(22,0,22,0,false);
+				margin: 60px 0 20px 0;
+			}
+			.form-row {
+				@extend .clearfix;
+				margin: 22px 0;
+				&:first-of-type{
+					margin-top: 0;
+				}
+				/* disables auto-zoom on ios devices */
+				@include responsive('lessthanlarge') {
+					input[type='text'],input[type='number'],textarea {
+						font-size: 16px;
+					}
+				}
+				input {
+					&[type="submit"] {
+						float: right;
+					}
+				}
+				select, input[type="text"] {
+					width: 100%;
+
+					box-sizing: border-box;
+				}
+				fieldset.radio {
+					legend {
+						display: block;
+						width: 100%;
+						@include font-size(12px,15px);
+						color: $sqrl;
+						margin-bottom: 15px;
+					}
+				}
+				.radio-option-horizontal {
+					margin-right: 15px;
+					label {
+						display: inline-block;
+						margin: 5px;
+						color: $crow;
+						@include font-size(12px,15px);
+					}
+				}
+				em {
+					font-style: normal;
+					clear: both;
+					display: block;
+					float: right;
+					@include font-size(12px,16px);
+					color: $crow;
+					margin-top: 10px;
+				}
+			}
+		}
+		.form-disclaimer{
+			margin-top: 25px;
+			@include fluid-column(11,0,22,0,false);
+			@include fluid-offset-left(11,0,22);
+			@include responsive('lessthanlarge') {
+				@include fluid-column(22,0,22,0,false);
+				margin: 20px 0;
+			}
+			p {
+				@include font-size(12px,16px);
+				color: $crow;
+			}
+		}
+	}
+	.confirm-wrapper {
+		p {
+			@extend .body-2;
+			color: $koala;
+			@include fluid-column(22,0,$grid-columns,0,false);
+			@include fluid-offset-left(1,0);
+		}
+	}
+}
+
+/* jquery ui modal */
+.ui-dialog .ui-dialog-content {
+	background: $white;
+	padding: 70px 15px 15px 15px;
+	@include responsive('lessthanlarge') {
+		width: 100%;
+		overflow: hidden;
+	}
+	@include responsive('small') {
+		padding: 45px 0 15px 0;
+	}
+}
+.ui-dialog {
+	@include responsive('lessthanlarge') {
+		padding: 0;
+		width: 100%;
+	}
+}
+
+
+.ui-dialog-titlebar-close {
+	position: relative;
+	.ui-icon-closethick {
+		width: 27px;
+		height: 31px;
+		position: absolute;
+		right: 15px;
+		top: 30px;
+		@include sprite-background-image($sprite,icon-x,false,5,9);
+		z-index: 10001;
+	}
+}
+
+.ui-widget-overlay {
+	top: 0;
+	left: 0;
+	position: absolute;
+	background: #939598;
+	opacity: .69;
+	filter:Alpha(Opacity=69);
+}

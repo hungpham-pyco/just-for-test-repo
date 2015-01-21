@@ -1,0 +1,496 @@
+.card-page {
+	@include backgroundPattern('grey');
+}
+
+/* Card Benefits Nav */
+.card-benefits-nav {
+	background: $white;
+	padding: 25px 0 25px 0;
+	ul {
+		@extend .clearfix;
+		list-style-type: none;
+		margin: 0 0 0 -20px;
+		padding: 0;
+		@include responsive(med) {
+			@include fluid-column(22,0,$grid-columns,0,false);
+			@include fluid-offset(1,0,left);
+		}
+		@include responsive(small) {
+			@include fluid-column(20,0,$grid-columns,0,false);
+			@include fluid-offset(2,0,left);
+		}
+		li {
+			float: left;
+			margin: 0 0 0 20px;
+			@include responsive(med) {
+				margin: 0 20px 0 0;
+			}
+			@include responsive(small) {
+				margin: 0;
+				width: 100%;
+			}
+			&.title {
+				@include font-benton-sans(bold);
+				@include font-size(13px);
+				text-transform: uppercase;
+				color: $grey;
+				line-height: 30px;
+				width: 100%;
+				margin-right: 0;
+				@include responsive(med) {
+					width: auto;
+					margin-right: 20px;
+				}
+			}
+		}
+	}
+	a {
+		@include font-benton-sans(medium);
+		@include font-size(15px);
+		line-height: 30px;
+		text-decoration: none;
+		@include responsive(lessthanlarge) {
+			@include font-size(14px);
+		}
+	}
+}
+.anchor {
+	height: 20px;
+	margin-top: -20px;
+}
+
+.card-benefits {
+	padding-top: 35px;
+	background-color: #ececec;
+	@include background-image(linear-gradient(top,color-stops(#dfdfdf, #e5e5e5 10%, #f3f3f3 20%, #e8e8e8 50%, #e5e5e5 70%, #f3f3f3 90%, #e2e2e2 100%)));
+	.title {
+		margin-bottom: 10px;
+		margin-top: 15px;
+		position: relative;
+		.top {
+			@include font-benton-sans(regular);
+			@include font-size(13px, 14px);
+			color: $crow;
+			margin-bottom: 10px;
+			a {
+				color: $crow;
+				text-decoration: none;
+				.arrow {
+					@include arrow(up,5px,$crow);
+					vertical-align: middle;
+					.ie7 & {
+						margin-right: 5px;
+					}
+				}
+			}
+			.topic-cta {
+				display: inline-block;
+				margin-left: 15px;
+				a {
+					display: inline-block;
+					margin-left: 15px;
+						.arrow {
+							@include arrow(right,5px,$crow);
+							vertical-align: middle;
+							margin-left: 5px;
+							.ie7 & {
+							margin-left: 5px;
+						}
+					}
+				}
+			}
+		}
+		.ie7 & {
+			min-height: 1px;
+		}
+		&.has-image {
+			margin-bottom: 160px;
+			@include responsive(med) {
+				margin-bottom: 100px;
+			}
+			@include responsive(small) {
+				margin-bottom: 20px;
+			}
+			h2, 
+			.top, 
+			.benefit-terms {
+				padding-left: 492px;
+				@include responsive(med) {
+					padding-left: 326px;
+				}
+				@include responsive(small) {
+					padding-left: 0;
+				}
+			}
+		}
+		@include responsive(med) {
+			padding-left: 37px;
+		}
+		@include responsive(small) {
+			@include fluid-column(20);
+			@include fluid-offset(2,0,left);
+		}
+	}
+	.figure {
+		max-height: 248px;
+		left: 0;
+		position: absolute;
+		top: -3px;
+		max-width: 450px;
+		z-index: 1;
+		img {
+			width: 100%;
+			height: auto;
+		}
+		@include responsive(med) {
+			max-height: 178px;
+			max-width: 325px;
+		}
+		@include responsive(small) {
+			position: relative;
+			margin-top: 10px;
+		}
+	}
+	.module-shadow-left-right:after {
+		@include border-radius(30%);
+		@include box-shadow(0 0 30px #000);
+		width: 99%;
+		@include responsive(small) {
+			height: 60%;
+			top: 20%;
+		}
+	}
+	.box {
+		border-color: $koala;
+		border-style: solid;
+		border-width: 3px 3px 3px 0;
+		color: $grey;
+		display: inline-block;
+		margin: 0 0 10px 0;
+		h2 {
+			display: inline-block;
+			@include font-benton-sans(bold);
+			@include font-size(36px, 30px);
+			letter-spacing: -.03em;
+			.box-extender {
+				border-color: $koala;
+			}
+		}
+		.box-extender {
+			border-color: $koala;
+		}
+	}
+	ul {
+		@extend .clearfix;
+		list-style-type: none;
+		margin: 0 0 30px 0;
+		padding: 0;
+		@include responsive(med) {
+			@include fluid-column(22,5px,$grid-columns,0,false);
+			@include fluid-offset(1,0,left);
+			float: none;
+		}
+		li {
+			/* 3 Column */
+			@include fluid-column(7,0,$grid-columns,0,false);
+			@include fluid-offset(1,0,right);
+			/* 5 Column */
+			ul.tag-5 & {
+				@include fluid-column(4,5px,$grid-columns,0,false);
+				@include fluid-offset(1,0,right);
+			}
+
+			@include font-benton-sans();
+			margin-bottom: 10px;
+				ul {
+					list-style-type: disc;
+					padding-left: 10%;
+					li {
+						@extend .body-2;
+						color: $crow;
+						display: list-item;
+						width: 100%;
+						float: none;
+						margin: 10px 0;
+					}
+				}
+			@include responsive(med) {
+				@include fluid-column(10,0,22,0,false);
+				@include fluid-offset(2,0,right,22);
+				&:nth-child(2n) {
+					margin: 0;
+				}
+			}
+			@include responsive(small) {
+				@include fluid-column(20,0,$grid-columns,0,false);
+				@include fluid-offset(2,0,left);
+			}
+			&.fifth {
+				ul.tag-5 & {
+					margin: 0;
+				}
+			}
+			@include responsive(large) {
+				ul.tag-5 & {
+					&:nth-child(5n) {
+						margin: 0;
+					}
+					&.push {
+						@include fluid-offset(5,0,right);
+						+ li {
+							@include fluid-offset(1,0,right);
+						}
+					}
+				}
+			}
+			.ie7 & {
+				margin-bottom: 1em;
+			}
+			.oldie & {
+				&.push {
+					@include fluid-offset(5,0,right);
+					+ li {
+						@include fluid-offset(1,0,right);
+					}
+				}
+			}
+		}
+		h3 {
+			@extend .h5;
+		}
+		p {
+			@extend .body-2;
+			color: $crow;
+			&.disclaimer {
+				@include font-size(11px);
+			}
+			a {
+				font-size: 100%;
+				font-weight: normal;
+				text-decoration: underline;
+			}
+		}
+		a {
+			@include font-benton-sans('medium');
+			@include font-size(13px, 16px);
+			text-decoration: none;
+			.arrow {
+				@include arrow(right,4px,$blue);
+			}
+		}
+	}
+}
+
+.benefit-disclaimer {
+	@include clearfix();
+	@include font-size(13px);
+	sup {
+		@include font-size(15px,17px,0,13px);
+		line-height: 10px;
+	}
+	@include responsive(med) {
+		padding-left: 37px;
+	}
+	@include responsive(small) {
+		@include fluid-column(20);
+		@include fluid-offset(2,0,left);
+		margin-bottom: 20px;
+	}
+}
+
+.benefit-terms {
+	margin: 0 0 15px 0;
+	a {
+		@include font-size(13px);
+	}
+}
+
+
+/***********************************/
+/* CARD PAGE FOOTER */
+/***********************************/
+.detail-footer-wrapper {
+	padding: 0 0 35px 0;
+	@include backgroundPattern('grey');
+	z-index: 0;
+	position: relative;
+	.content-block {
+		a {
+			@include font-size(14px,35px);
+			display: inline-block;
+			font-weight: bold;
+			text-decoration: none;
+			color: $darkteal;
+		}
+	}
+	@include responsive(lessthanlarge) {
+		padding-bottom: 0;
+	}
+	.detail-footer {
+		background-color: $white;
+		position: relative;
+		padding: 23px 0;
+		@include responsive(lessthanlarge) {
+			padding-bottom: 0;
+		}
+		.main-container {
+			padding: 0;
+		}
+		/* SHADOW */
+		@include responsive(large) {
+			&:after {
+				position: absolute;
+				content: '';
+				z-index: -1;
+				@include box-shadow(0 0 37px rgba(0, 0, 0, .75));
+				@include border-radius(100%);
+				bottom: 0;
+				left: 20%;
+				right: 20%;
+				width: 70%;
+				height: 20px;
+			}
+		}
+		.slideshow {
+			@include clearfix();
+			min-height: 105px;
+			&.slideshow-wide {
+				@include fluid-row(false);
+				width: 100%;
+				margin: 0;
+			}
+			@include responsive(med) {
+				@include clearfix();
+				@include fluid-column(22,0,$grid-columns,0,false);
+				@include fluid-offset-left(1);
+				height: auto;
+				&.slideshow-wide {
+					@include clearfix();
+					@include fluid-column(22,0,$grid-columns,0,false);
+					@include fluid-offset-left(1);
+					height: auto;
+				}
+			}
+			@include responsive(small) {
+				@include clearfix();
+				@include fluid-column(22,0,$grid-columns,0,false);
+				@include fluid-offset-left(1);
+				@include fluid-offset-right(1);
+				height: auto;
+			}
+		}
+	}
+}
+
+@import 'gcp-platinum-card/modules/slideshow';
+
+/****************/
+/* HERO BANNER */
+/***************/
+.hero-3 {
+	@include responsive('large') {
+		min-height: 240px;
+	}
+	.oldie & {
+		height: auto !important;
+	}
+}
+
+.product-hero {
+	@extend .clearfix;
+	position: relative;
+	z-index: 0;
+	.main-container {
+		padding: 35px 0;
+	}
+	.figure {
+		@include fluid-column(7, -20px);
+		@include fluid-offset(1, 20px, right);
+		float: left;
+		img {
+			width: 100%;
+			height: auto;
+		}
+		@include responsive(med) {
+			@include fluid-column(10);
+			@include fluid-offset(1,0,left);
+		}
+		@include responsive(small) {
+			@include fluid-column(18);
+			@include fluid-offset(3,0,left);
+			float: none;
+			text-align: center;
+		}
+	}
+	.hero-content {
+		@include fluid-column(16);
+		padding-top: 0;
+		h1 {
+			@include font-benton-sans(bold);
+			@include font-size(41px, 42px);
+			color: $sqrl;
+			letter-spacing: -.02em;
+			margin: 0 0 25px 0;
+			width: 100%;
+			.ie7 & {
+				margin-top: 0;
+			}
+			strong {
+				display: block;
+				@include font-benton-sans(regular);
+				@include font-size(20px, 22px, 0, 41px);
+				color: $darkteal;
+				margin: 25px 0 0 0;
+				width: 100%;
+				letter-spacing: 0;
+			}
+		}
+
+		@include responsive(med) {
+			@include fluid-column(11);
+			@include fluid-offset(1,0,left);
+			h1 {
+				@include font-size(36px, 38px);
+				margin-top: 0;
+				strong {
+					@include font-size(18px, 20px, 0, 36px);
+				}
+			}
+		}
+		@include responsive(small) {
+			@include fluid-column(20);
+			@include fluid-offset(2,0,left);
+			float: none;
+			h1 {
+				@include font-size(30px, 32px);
+				margin-bottom: 15px;
+				strong {
+					@include font-size(14px, 16px, 0, 30px);
+				}
+			}
+		}
+	}
+}
+
+/* SHADOWS */
+%module-shadow { 
+	content: '';
+	position: absolute;
+	z-index: -1;
+	@include box-shadow(0 0 40px rgba(0, 0, 0, 0.45));
+	@media print {
+		display: none;
+	}
+}
+
+.module-shadow-left-right:after {
+	@extend %module-shadow;
+	@include border-radius(45%);
+	top:5%;
+	left:0%;
+	width:100%;
+	height:89%;
+	@media print {
+		display: none;
+	}
+}

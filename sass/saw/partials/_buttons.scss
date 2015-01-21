@@ -1,0 +1,106 @@
+@import "compass/css3/inline-block";
+@import "compass/css3/images";
+
+//-----------------------------------------------
+// Defaults
+//-----------------------------------------------
+$button-font-size: 13px !default;
+$button-line-height: 16px !default;
+$button-letter-spacing: 0 !default;
+
+//-----------------------------------------------
+// Custom
+//-----------------------------------------------
+.button, button {
+  text-decoration: none;
+  @include photoshop-drop-shadow(120, 5px, 0, 5px, rgba(#000, 0.34));
+  margin-bottom: 1em;
+  span {
+    @include font-benton-sans(medium);
+    @include font-size($button-font-size, $button-line-height, $button-letter-spacing);
+    @include link-color(#333333, #333333);
+    text-align: center;
+    text-transform: uppercase;
+    padding: 11px 15px; //11px 25px;
+    @include background-image(linear-gradient(#fdd988, #f9a235));
+    .no-cssgradients.no-svg & { //IE 7, IE 8
+      @include filter-gradient(#fdd988, #f9a235);
+    }
+  }
+}
+
+.aside, .dialog {
+  .button, button {
+    @include photoshop-drop-shadow(120, 2px, 0, 5px, rgba(#000, 0.34));
+    span {
+      @include font-size(11px, $button-line-height, $button-letter-spacing);
+      padding: 5px 25px;
+    }
+  }
+}
+
+.right-column.rebate {
+	.button, button {
+		margin-bottom: 2em;
+	}
+}
+
+//-----------------------------------------------
+// Fix Button Font Size
+//-----------------------------------------------
+@mixin button-font-size($font-size:$button-font-size, $line-height: $button-line-height, $letter-spacing: $button-letter-spacing, $base-font-size: $base-font-size) {
+  .button, button {
+    span {
+      @include font-size($font-size, $line-height, $letter-spacing, $base-font-size);
+    }
+  }
+}
+
+//-----------------------------------------------
+// Base Button Styles
+// Similar to jQuery UI Buttons
+//-----------------------------------------------
+
+// <button><span>my button</span></button>
+// <a href="#" class="button"><span>my button</span></a>
+
+// HTML buttons
+.button {
+  @include inline-block;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// Form buttons
+button {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  
+  .ie7 &, .ie6 & {
+    // removes extra side padding in IE
+    overflow: visible;
+  }
+  
+  &::-moz-focus-inner {
+    // overrides extra padding in Firefox
+    border: none;  
+    padding: 0;
+  }
+}
+
+// shared styles
+.button, button {
+  cursor: pointer;
+  vertical-align: middle;
+  background-position: left center;
+  background-repeat: no-repeat;
+  
+  span {
+    display: block; 
+    white-space: nowrap;
+    background-position: right center;
+  }
+}

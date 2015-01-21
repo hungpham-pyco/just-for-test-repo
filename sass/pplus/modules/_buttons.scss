@@ -1,0 +1,36 @@
+// BASE BLOCK BUTTON STYLES
+.btn {
+	@include background-image(linear-gradient(#43a438, #37882e));   
+	.no-cssgradients & {       
+		@include filter-gradient(#43a438, #37882e);   
+	}
+	color: #FFF !important;
+	font-size: 12px;
+	font-weight: bold;
+	display: inline-block;
+	text-transform: uppercase;
+	text-decoration: none;
+	line-height: 30px;
+	height: 30px;
+	margin: 5px 0;
+	padding: 0 10px;
+	text-align: center;
+	border: 1px solid #C2C4CD;
+	background-repeat: no-repeat;	
+	&:hover,
+	&:focus,
+	&:visited {
+		color: #FFF;
+		text-decoration: none;
+	}
+}
+
+
+// google voice revision
+.btn span.gc-cs-link {
+	color: #fff !important;
+}
+// iOS revision to override phone number linking
+.btn a {
+	color: #fff !important;
+}

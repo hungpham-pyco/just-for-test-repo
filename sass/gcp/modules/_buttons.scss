@@ -1,0 +1,171 @@
+// BASE BLOCK BUTTON STYLES
+.btn {
+	background-color: #64264D;
+	color: #FFF;
+	font-size: 12px;
+	font-weight: bold;
+	display: block;
+	text-transform: uppercase;
+	text-decoration: none;
+	line-height: 40px;
+	height: 40px;
+	margin: 5px 0;
+	padding: 0 10px 0 45px;
+	border: 1px solid #C2C4CD;
+	background-repeat: no-repeat;
+	background-position: 10px 50%;
+	
+	&:hover,
+	&:focus,
+	&:visited {
+		color: #FFF;
+		text-decoration: none;
+	}
+}
+.btn-blue {
+	@extend .btn;
+	background-color: #001f68;
+}
+.btn-inverse {
+	@extend .btn;
+	background-color: #fafafa;
+	color: #64264D;
+
+	&:hover,
+	&:focus,
+	&:visited {
+		color: #64264D;
+		text-decoration: none;
+	}
+}
+
+.btn-opaque {
+	@extend .btn; 
+	color: $grey;
+	border: 0;
+	background-color: $white;
+
+	&:hover,
+	&:focus,
+	&:visited {
+		color: $grey;
+		text-decoration: none;
+	}
+}
+.btn-nobox {
+	color: #64264D;
+	display: block;
+	font-weight: bold;
+	margin: 10px 0;
+	text-align: center;
+	span {
+		font-weight: normal;
+		color: $grey;
+	}
+	strong {
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+}
+.btn-two-line {
+	@extend .btn;
+	min-height: 40px;
+	height: auto;
+	line-height: 17px;
+	padding-top: 9px;
+	padding-bottom: 3px;
+}
+
+// btn classes for landing page promos
+.promo .btn {
+	@include inline-block;
+	@include font-size(14px);
+	padding: 0 25px;
+	line-height: 30px;
+	height: 30px;
+}
+
+// btn classes for inline body prombackground-position
+.inline-promo .btn {
+	@include inline-block;
+	@include font-size(14px);
+	@include border-radius(5px);
+	@include float-right;
+	border: 0;
+	background-color: #003366;
+	padding: 0 15px;
+	line-height: 34px;
+	height: 34px;
+	text-transform: none;
+}
+
+.block-promo .btn{ 
+	@extend .btn;
+	@include inline-block;
+	@include font-size(14px);
+	@include border-radius(5px);
+	border: 0;
+	background-color: #003366;
+	padding: 0 15px;
+	line-height: 34px;
+	height: 34px;
+	text-transform: none;
+	color:#FFF;
+}
+
+
+.phone-btn {
+	background-image: url(../i/gcp/icn-btn-phone.png);
+}
+.phone-grey-btn {
+	background-image: url(../i/gcp/icn-btn-phone-grey.png);
+}
+.email-btn {
+	background-image: url(../i/gcp/icn-btn-email.png);
+}
+.email-btn-inverse {
+	background-image: url(../i/gcp/icn-btn-email-inverse.png);
+}
+.apply-btn {
+	background-image: url(../i/gcp/icn-btn-apply.png);
+}
+
+// generic class for btn to float right of p
+.inline-btn {
+	margin: 10px 12px;
+	p {
+		@include float-left;
+		margin-top: 18px;
+		width: 735px;
+	}
+	.btn {
+		@include float-right;
+		margin-left: 10px;
+	}
+}
+
+// google voice revision
+.btn span.gc-cs-link {
+	color: #fff !important;
+}
+// iOS revision to override phone number linking
+.btn a {
+	color: #fff !important;
+}
+
+// news feed download button
+.news-download {
+	 @include border-radius(5px);
+	 @include background-image(linear-gradient(#235dc0, #234278));
+	 @include inline-block;
+	 font-weight: bold;
+	 font-size: 12px;
+	 background-color: #22519f;
+	 background-position: 0 50%;
+	 padding: 11px 13px;
+	 border: 0;
+	 height: auto;
+	 line-height: 18px;
+	 text-transform: none;
+	 a { color: #fff; }
+}	

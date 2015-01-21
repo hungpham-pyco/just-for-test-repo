@@ -1,0 +1,565 @@
+.hero-1 {
+	@include responsive('large') {
+		min-height: 530px;
+	}
+	h1 {
+		@include text-shadow(1px 1px 7px $white);
+	}
+}
+
+.hero-2 {
+	@include responsive('large') {
+		min-height: 280px;
+		&.bg-darkteal {
+			min-height: 0;
+			.main-container {
+				padding: 54px 0;
+			}
+		}
+	}
+	.oldie & {
+		height: 280px;
+	}
+	&.detail {
+		// on detail page a
+		.cta-block {
+			@extend .clearfix;
+			@include fluid-column(5,0,$grid-columns,0,false);
+			@include fluid-offset-left(3);
+			@include responsive('lessthanlarge') {
+				@include fluid-column(22,0,$grid-columns,0,false);
+				@include fluid-offset-left(1);
+			}
+			.cta {
+				text-align: center;
+				margin-top: 15px;
+				border-collapse: none;
+				a {
+					@include font-size(14px);
+					text-decoration: underline;
+					color: $white;
+					display: block;
+				}
+				@include responsive('lessthanlarge') {
+					text-align: left;
+				}
+			}
+		}
+		h1 {
+			@include fluid-column(16,0,$grid-columns,0,false);
+			@include responsive('lessthanlarge') {
+				@include fluid-column(22,0,$grid-columns,0,false);
+				@include fluid-offset-left(1);
+			}
+		}
+	}
+}
+
+.hero-3 {
+	@include responsive('large') {
+		min-height: 240px;
+		&.bg-darkteal {
+			min-height: 0;
+			.main-container {
+				padding: 54px 0;
+			}
+		}
+	}
+	.oldie & {
+		height: auto !important;
+	}
+}
+
+.hero-4 {
+	@include responsive('large') {
+		min-height: 732px;
+	}
+	h1 {
+		@include text-shadow(1px 1px 7px $white);
+	}
+}
+
+.show-border { 
+	margin-bottom: 53px;
+	&.shadow-wrapper {
+		padding-bottom: 53px;
+		margin-bottom: 0;
+	}
+}
+.header {
+	&.bg-darkteal {
+		h1, h2 {
+			color: $white;
+		}
+		h1 {
+			strong {
+			display: block;
+			@include headline(5,48px);
+			margin-top: 15px;
+			}
+		}
+	}
+	h1 {
+		margin-bottom: 0;
+		strong {
+			@include headline(2,48px);
+			display: block;
+			letter-spacing: 0;
+		}
+		@include responsive(small) {
+			margin-bottom: 15px;
+			strong {
+				@include headline(2,42px);
+				letter-spacing: 0;
+			}
+		}
+		.ie7 & {
+			margin-top:15px;
+		}
+	}
+	h2 {
+		margin-top: 0;
+		letter-spacing:.025em;
+	}
+
+	.article-hdr {
+		background-repeat: no-repeat;
+		color: $white;
+		@extend .hero-2;
+		.main-container {
+			h1 {
+				@extend .h2;
+			}
+			@include responsive(med) {
+				padding: 20px 0;
+			}
+			@include responsive(small) {
+				padding: 20px 0;
+			}
+			h2 {
+				@extend .h1;
+				margin-bottom: 10px;
+			}
+			@include responsive(lessthanlarge){
+				h1, h2 {
+				@include fluid-offset-left(1);
+				}
+			}
+		}
+	}
+
+
+	.home-hdr, 
+	.landing-hdr {
+		background-repeat: no-repeat;
+		background-position: center top;
+		&.with-promo-wrapper,
+		&.landing-c {
+			position: relative;
+			@extend .hero-1;
+			min-height: 450px;
+			margin-bottom: 53px;
+			.oldie &{
+				height: 477px;
+				margin-bottom: 53px;
+			}
+			&.hide-border {
+				@extend .hero-4;
+				margin-bottom: 0;
+				.oldie &{
+					height: 732px;
+					margin-bottom: 0px;
+				}
+			}
+			@include responsive(lessthanlarge) {
+				margin-bottom: 0;
+			}
+
+		}
+		@include responsive(lessthanlarge) {
+			background: none;
+			min-height: 0;
+			margin-bottom: 0;
+		}
+		@include responsive(med) {
+			.hdr-content {
+				@include clearfix();
+				width: 100%;
+			}
+		}
+		&.with-promo-wrapper {
+			.content {
+				@include responsive(large) {
+					padding: 50px 0 0 0;
+				}
+			}
+			.request-banner,
+			.short-form {
+				.content {
+					@include responsive(large) {
+						padding: 20px 0 0 0;
+					}
+				}
+			}
+		}
+		.content {
+			padding: 35px 0 0 0;
+			@include responsive(med) {
+				padding: 20px 0 0 0;
+			}
+			@include responsive(small) {
+				padding: 15px 0 0 0;
+			}
+		}
+		&.landing-c {
+			.content {
+				padding: 0;
+			}
+		}
+	}
+
+	.detail-hdr {
+		background-repeat: no-repeat;
+		background-position: center top;
+		.main-container {
+			@include responsive(med) {
+				padding-bottom: 54px;
+			}
+			@include responsive(small) {
+				padding-bottom: 32px;
+			}
+		}
+		.content {
+			padding: 0;
+		}
+		@include responsive(small) {
+			background-position: center bottom;
+		}
+	}
+
+	.hdr-content {
+		@include clearfix();
+		#{headings()}, 
+		p { 
+			@include responsive(med) {
+				margin: 0;
+			}
+			@include responsive(lessthanlarge) {
+				@include fluid-column(22,0,$grid-columns,0,false);
+				@include fluid-offset-left(1);
+			}
+		}
+
+		h1 {
+			@include responsive(small) {
+				margin-bottom: 15px;
+			}
+		}
+		h2 {
+			margin-bottom: 5px;
+		}
+		p {
+			@include fluid-column(10,0,$grid-columns,0,false);
+			&.extended { 
+				@include fluid-column(16,0,$grid-columns,0,false);
+			}
+			margin-top: 1em;
+			@include responsive (lessthanlarge) {
+				@include fluid-column(22,0,$grid-columns,0,false);
+			}
+			&.cta {
+				clear: both;
+				a {
+					@extend .cta-link;
+				}
+				html.ie7 & {
+					margin-top: 10px;
+				}
+				@include responsive (lessthanlarge) {
+					margin-top: 5px;
+				}
+			}
+			a.btn {
+				@include btn($deepblue,#1d4f9c,$white,small);
+			}
+		}
+	}
+	
+	.landing-hdr {
+		.hdr-content {
+			padding-bottom: 60px;
+			@include responsive(lessthanlarge) {
+				padding-bottom: 20px;
+			}
+		}
+		.promo-wrapper {
+			margin: 0 auto;
+		}
+		h1 {
+			em {
+				font-style: normal;
+				display: block;
+				@include font-benton-sans('bold');
+				@include headline(5,48px);
+				@include responsive(large) {
+					margin-top: 26px;
+				}
+				@include responsive(lessthanlarge) {
+					margin-top: 20px;
+				}
+				letter-spacing: 0;
+			}
+			@include responsive(med) {
+				em {
+					@include font-size(16px, 16px, 0, 48px);
+					letter-spacing: -.01em;
+				}
+			}
+			@include responsive(small) {
+				width: auto;
+				em {
+					@include font-size(14px, 20px, 0, 40px);
+					letter-spacing:-.026em;
+				}
+			}
+		}
+	}
+
+	.detail-hdr {
+		h1 {
+			@include fluid-column(16,0,$grid-columns,0,false);
+			@include responsive(med) {
+				padding-bottom: 10px;
+			}
+			@include responsive(small) {
+			}
+		}
+		p {
+			letter-spacing: .01em;
+			margin-top:0;
+		}
+	}
+
+}
+
+/* LANDING PAGE C CONTENT STYLES */
+.landing-c {
+	.media {
+		@include fluid-column(10,0,$grid-columns,0,false);
+		img {
+			width: 100%;
+			height: auto;
+		}
+		@include responsive('small') {
+			@include fluid-column(22,0,$grid-columns,0,false);
+			@include fluid-offset-left(1);
+			text-align: center;
+			img {
+				max-width: 440px;
+			}
+		}
+	}
+	.content {
+		@include fluid-column(13,0,$grid-columns,0,false);
+		@include fluid-offset-left(1);
+		
+		h1 {
+			// bump down font size slightly
+			@include font-size(45px);
+		}
+
+		h2 {
+			@include font-size(24px);
+			line-height: 1.5em;
+			margin-top: 35px;
+		}
+
+		@include responsive('lessthanlarge') {
+			h1, 
+			h2 {
+				width: 100%;
+				margin-left: 0;
+			}
+			@include responsive('small') {
+				@include fluid-column(22,0,$grid-columns,0,false);
+				@include fluid-offset-left(1);
+			}
+		}
+
+		.copy {
+			@extend .clearfix;
+		}
+		.links {
+			@extend .clearfix;
+		}
+		.quick-links {
+			@include fluid-column(7,0,13,0,false);
+			ul {
+				padding: 0;
+				margin: 12px 0 0 0;
+				@include no-bullet;
+				li {
+					margin: 0;
+					display: block;
+					width: 50%;
+					float: left;
+					a {
+						font-weight: bold;
+						.arrow-right {
+							@include arrow(right, 5px, $darkteal);
+						}
+						&:hover {
+							.arrow-right {
+								@include arrow(right, 5px, #5daac0);
+							}
+						}
+					}
+				}
+			}
+			@include responsive('med') {
+				@include fluid-column(13,0,13,0,false);
+				ui {
+					li {
+						float: none;
+						width: auto;
+					}
+				}
+			}
+			@include responsive('small') {
+				@include fluid-column(22,0,22,0,false);
+			}
+		}
+		.cta {
+			@include fluid-column(4,0,13,0,false);
+			@include fluid-offset-left(1);
+			padding-top: 5px;
+			a { 
+				@extend .btn;
+				i {
+					display: none;
+				}
+			}
+			@include responsive('med') {
+				@include fluid-column(13,0,13,0,false);
+				@include fluid-offset-left(0);
+				margin-top: 15px;
+			}
+			@include responsive('small') {
+				@include fluid-column(22,0,22,0,false);
+				text-align: center;
+			}
+		}
+	}
+}
+
+.product-hero {
+	background-color: rgba(255,255,255,.4);
+	@extend .clearfix;
+	position: relative;
+	z-index: 0;
+	.main-container {
+		padding: 35px 0;
+	}
+	.figure {
+		@include fluid-column(7, -20px);
+		@include fluid-offset(1, 20px, right);
+		float: left;
+		img {
+			width: 100%;
+			height: auto;
+		}
+		@include responsive(med) {
+			@include fluid-column(10);
+			@include fluid-offset(1,0,left);
+		}
+		@include responsive(small) {
+			@include fluid-column(18);
+			@include fluid-offset(3,0,left);
+			float: none;
+			text-align: center;
+		}
+	}
+	.hero-content {
+		@include fluid-column(16);
+		h1 {
+			@include font-benton-sans(bold);
+			@include font-size(41px, 42px);
+			color: $sqrl;
+			letter-spacing: -.02em;
+			margin: 0 0 25px 0;
+			width: 100%;
+			.ie7 & {
+				margin-top: 0;
+			}
+			strong {
+				display: block;
+				@include font-benton-sans(regular);
+				@include font-size(20px, 22px, 0, 41px);
+				color: $darkteal;
+				margin: 25px 0 0 0;
+				width: 100%;
+				letter-spacing: 0;
+			}
+		}
+
+		@include responsive(med) {
+			@include fluid-column(11);
+			@include fluid-offset(1,0,left);
+			h1 {
+				@include font-size(36px, 38px);
+				margin-top: 0;
+				strong {
+					@include font-size(18px, 20px, 0, 36px);
+				}
+			}
+		}
+		@include responsive(small) {
+			@include fluid-column(20);
+			@include fluid-offset(2,0,left);
+			float: none;
+			h1 {
+				@include font-size(30px, 32px);
+				margin-bottom: 15px;
+				strong {
+					@include font-size(14px, 16px, 0, 30px);
+				}
+			}
+		}
+	}
+}
+
+/* LANDING PAGE D */
+.landing-page-d {
+	background-repeat: no-repeat;
+	background-position: center top;
+	.copy,
+	.cta {
+		@include fluid-column(18,0,$grid-columns,0,false);
+	}
+	h1 {
+		strong {
+			@include font-size(18px, 24px, 0, 48px);
+		}
+	}
+
+	.hero-2 {
+		min-height: 240px;
+	}
+
+	@include responsive('lessthanlarge') {
+		.header {
+			.main-container {
+				@include fluid-column(22,0,$grid-columns,0,false);
+				@include fluid-offset-left(1);
+				@include fluid-offset-left(2);
+				padding-top: 30px;
+				h1,
+				.copy {
+					float: none;
+					margin-left: 0;
+					width: 100%;
+				}
+			}
+		}
+	}
+}

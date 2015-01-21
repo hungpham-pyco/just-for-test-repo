@@ -1,0 +1,53 @@
+// Here's where we define some default constants
+@import 'saw/partials/base';
+
+// Then we'll import the compass extension
+@import 'html5-boilerplate';
+@import 'compass/css3';
+@import 'compass/utilities/sprites/base';
+
+// Now, you can simply include everything
+// (except media) by uncommeting this line
+//@include html5-boilerplate;
+
+// Or, you can pick and choose only the sections
+// you want by using the these includes
+//@include html5-boilerplate-reset;
+//@include html5-boilerplate-fonts;
+//@include html5-boilerplate-styles;
+//@include html5-boilerplate-helpers;
+
+// Or, you can import the 'overrides' partial if
+// you want more control over individual mixins
+@import 'saw/partials/inav-overrides';
+@import 'partials/overrides';
+@import 'partials/grid';
+@import 'partials/divider';
+@import 'partials/fonts';
+@import 'amex/partials/bentonsans';
+@import 'partials/mixins';
+
+// jQuery UI Base
+@import 'saw/jquery.ui/base/jquery.ui.core';
+@import 'saw/jquery.ui/base/jquery.ui.dialog';
+@import 'saw/jquery.ui/base/jquery.ui.selectmenu';
+@import 'saw/jquery.ui/base/jquery.ui.tabs';
+@import 'saw/jquery.ui/base/jquery.ui.tooltip';
+@import 'saw/jquery.ui/base/jquery.ui.loading';
+
+// jQuery UI Theme
+@import 'saw/jquery.ui/theme/jquery.ui.dialog';
+@import 'saw/jquery.ui/theme/jquery.ui.tabs';
+@import 'saw/jquery.ui/theme/jquery.ui.loading';
+
+// Finally, put your own styles in these partials
+// and add more as needed (i.e. forms, tables, nav)
+@import 'saw/partials/form';
+@import 'saw/partials/buttons';
+@import 'saw/partials/layout';
+@import 'partials/amex-inav';
+@import 'saw/partials/page';
+@import 'amex/partials/postinavmsg';
+
+// Media should come last
+//@import 'partials/media';

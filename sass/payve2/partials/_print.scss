@@ -1,0 +1,81 @@
+// ==|== print styles =======================================================
+// Print styles.
+// Inlined to avoid required HTTP connection: h5bp.com/r
+// ==========================================================================
+
+@media print {
+	* {
+		//background: transparent !important;
+		// Black prints faster: h5bp.com/s 
+		color: black !important;
+		text-shadow: none !important;
+		filter:none !important;
+		-ms-filter: none !important;
+	}
+
+
+	// h5bp.com/t 
+	thead {
+		display: table-header-group;
+	} 
+
+	tr, img {
+		page-break-inside: avoid;
+	}
+
+	img {
+		max-width: 100% !important;
+	}
+
+	p, h2, h3 {
+		orphans: 3;
+		widows: 3;
+	}
+
+	h2, h3 {
+		page-break-after: avoid;
+	}
+
+	#mainColumn,
+	#rightColumn,
+	#contentWrapper,
+	#main,
+	#subHeaderContent {
+		float: none;
+		margin: 0;
+		text-align: left;
+		border: 0;
+	}
+	#leftColumn,
+	#header,
+	#footer {
+		display: none;
+	}
+	.cta,
+	.cta a,
+	.btn {
+		border: 0 !important;
+		padding: 0 !important;
+	}
+
+	.homepage {
+		.slide-content {
+			position: relative;
+			width: auto;
+		}
+		#masthead,
+		#subHeaderContent {
+			padding: 0; 
+			width: auto;
+		}
+		#masthead_wrapper {
+			background: #fff;
+		}
+		.slide-button-prev,
+		.slide-button-next {
+			display: none;
+		}
+	}
+}
+
+

@@ -1,0 +1,153 @@
+// request info banner
+// ribbon promos
+.ribbon-promo { 
+	@include box-sizing(border-box);
+	padding: 20px;
+	@extend .abs;
+	right: 0;
+	top: -10px;
+	bottom: -10px;
+	@include bg-grad(#666567, #7f7e80, left);
+	color: #FFF;
+	&:before, 
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0px;
+		z-index: -10;
+		@include arrow(bottomright,5px,#021736,corner);
+		left: -10px;
+	}
+	&:after {
+		@include arrow(topright,5px,#021736,corner);
+		bottom: 0px;
+		top: auto;
+	}
+	.card-page & {
+		padding-right: 10px;
+	}
+}
+
+.request-banner {
+	background: #ececec;
+	@include background-image(linear-gradient(top, #b2b2b3 0%, #cacacb 10%, #ececec 50%, #cacacb 90%, #b2b2b3 100%));
+	color: $grey;
+	.detail & {
+		// if promo viewer is below a ribbon on detail page, add more margin
+		+ .main-container .articles {
+			margin-top: 65px;
+		}
+	}
+	.main-container {
+		position: relative;
+		min-height: 250px;
+	}
+	.banner-content {
+		@include fluid-column(17,0,$grid-columns,0,false);
+		padding: 38px 0; 
+	}
+	h2 {
+		@extend .h1;
+		color: $grey;
+		margin: 0 0 20px 0;
+		.card-page & { 
+			@include font-size(48px,50px);
+			@include fluid-column(14,0,17,0,false);
+		}
+	}
+	p {
+		@include fluid-column(16,0,17,0,false);
+		@extend .body-2;
+		color: $grey;
+		margin-bottom: 0;
+		a[href^="tel"]{
+			color: $white;
+			@include font-size(15px,17px,0,12px);
+			&:hover {
+				color: $white;
+			}
+		}
+	}
+	@include responsive(med) {
+		.banner-content {
+			@include fluid-column(22);
+			@include fluid-offset(1,0,left);
+		}
+	}
+	@include responsive(small) {
+		.banner-content {
+			@include fluid-column(20);
+			@include fluid-offset(2,0,left);
+		}
+		h2 {
+			@include font-size(30px, 32px);
+		}
+		p {
+			@include font-size(13px, 17px);
+		}
+	}
+	.ribbon-promo {
+		width: 240px;
+		z-index: 100;
+		&:before, &:after {
+			z-index: 0;
+		}
+		.ie7 & {
+			width: 200px;
+		}
+		p {
+			@include font-benton-sans('medium');
+			@include font-size(12px, 19px);
+			margin-bottom: 1em;
+			color: $white;
+			strong {
+				@include font-benton-sans(bold);
+				@include font-size-only(14px, 12px);
+				font-weight: bold;
+			}
+			.oldie & {
+				@include font-benton-sans(medium);
+			}
+		}
+		@include responsive(lessthanlarge) {
+			display: none;
+		}
+		.cta {
+			@extend .abs;
+			bottom: 20px;
+			left: 20px;
+			a {
+				@include font-benton-sans('bold');
+				text-transform: uppercase;
+				color: $plat3;
+				.arrow-right {
+					display: inline-block;
+					margin-left: 5px;
+					@include arrow('right',4px,$plat3);
+				}
+			}
+			.card-page & {
+				@extend .static;
+				a {
+					@include font-size(14px,18px);
+				}
+			}
+		}
+	}
+	h3 {
+		@include font-benton-sans(bold);
+		@include font-size(20px, 20px);
+		letter-spacing: 0;
+		color: $white;
+		margin: 0;
+		margin-bottom: 18px;
+	}
+	h4 {
+		@include font-benton-sans(bold);
+		@include font-size(18px, 20px);
+		letter-spacing: 0;
+		color: $white;
+		margin: 0;
+		margin-top: 15px;
+	}
+}

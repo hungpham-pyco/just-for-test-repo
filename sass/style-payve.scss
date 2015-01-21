@@ -1,0 +1,66 @@
+// COMPASS CSS3 MIXINS
+@import 'compass';
+
+// SET BASE VARIABLES
+@import 'payve/partials/base';
+
+// PROJECT MIXINS
+@import 'payve/partials/mixins';
+
+//@import 'payve/partials/sprites';
+//@import 'payve/partials/sprite-replace-text';
+
+// H5BP NORMALIZE CSS IMPLEMENTATION - KITCHEN SINK VERSION
+@import 'payve/partials/normalize';
+
+// ...OR INCLUES ONLY WHAT YOU WANT FROM NORMALIZE CSS
+// @import 'payve/partials/normalize/display';
+ @import 'payve/partials/normalize/base';
+// @import 'payve/partials/normalize/links';
+// @import 'payve/partials/normalize/typography';
+// @import 'payve/partials/normalize/lists';
+// @import 'payve/partials/normalize/embedded';
+// @import 'payve/partials/normalize/figures';
+// @import 'payve/partials/normalize/forms';
+// @import 'payve/partials/normalize/tables';
+// @import 'payve/partials/normalize/chromeframe';
+
+ 
+// ==|== primary styles =====================================================
+// Author:
+// ==========================================================================
+ 
+// BASE CONTENT/TYPOGRAPHY STYLES
+//@import 'payve/partials/content';
+
+// LAYOUT STYLES
+@import 'payve/partials/grid';
+@import 'payve/partials/layout';
+@import 'payve/partials/fonts';
+@import 'amex/partials/bentonsans';
+@import 'payve/partials/page';
+@import 'payve/partials/imported-styles';
+@import 'amex/partials/postinavmsg';
+
+// jQUERY UI
+@import 'payve/partials/jquery-ui';
+@import 'payve/partials/jquery.ui.overrides';
+
+// MODULES
+@import 'payve/modules/buttons';
+//@import 'payve/modules/table';
+//@import 'payve/modules/pagination';
+
+// LAYOUT-SPECIFIC
+//@import 'payve/partials/page-home';
+//@import 'payve/modules/local-rep-search';
+//@import 'payve/modules/demo-section';
+
+// MEDIA QUERIES
+// @import 'payve/partials/mq';
+
+// H5BP NON-SEMANTIC UTILITIY CLASSES
+@import 'payve/partials/utilities';
+
+// H5BP PRINT STYLES AND YOUR OWN
+@import 'payve/partials/print';

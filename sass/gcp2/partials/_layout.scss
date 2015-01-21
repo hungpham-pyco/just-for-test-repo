@@ -1,0 +1,349 @@
+html, body {
+  //height: 100%;
+  background: $background;
+  @include backgroundPattern('grey');
+}
+
+body{
+	.body { 
+		position: relative;
+		.ie7 & {
+			position: static;
+		}
+	}
+	.content-block {
+		@include fluid-row(24);
+		max-width: 980px;
+		margin: 0px auto;
+		@include responsive(med) {
+			@include fluid-row(20);
+			@include fluid-offset(1,0,right);
+			@include fluid-offset(1,0,left);
+		}
+		@include responsive(small) {
+			@include fluid-row(18);
+			@include fluid-offset(2,0,right);
+			@include fluid-offset(2,0,left);
+		}
+	}
+	.body-block {
+		padding: 50px 0;
+		@include fluid-column(18,0,$grid-columns,0,false);
+		@include responsive(small) {
+			@include fluid-column(23,0,$grid-columns,0,false);
+			padding: 15px 0;
+		}
+	}
+	.main-container {
+		@include grid-page(12,-20,true);
+		.row {
+			@include grid-row(true);
+		}
+	
+	
+
+}
+
+// DROP SHADOWS
+	 %module-shadow { 
+		content: '';
+		position: absolute;
+		z-index: -1;
+		@include box-shadow(0 0 40px rgba(0, 0, 0, 0.45));
+		@media print {
+			display: none;
+		}
+	 }
+	.module-shadow-left:after {
+		@extend %module-shadow;
+		@include border-radius(48%);
+		top: 5%;
+		left: 0%;
+		width: 50%;
+		height: 89%;
+		@media print {
+			display: none;
+		}
+	}
+	.module-shadow-right:after {
+		@extend %module-shadow;
+		@include border-radius(48%);
+		top: 5%;
+		left: 50%;
+		width: 50%;
+		height: 89%;
+		@media print {
+			display: none;
+		}
+	}
+	.module-shadow-left-right:after {
+		@extend %module-shadow;
+		@include border-radius(45%);
+		top:5%;
+		left:0%;
+		width:100%;
+		height:89%;
+		@media print {
+			display: none;
+		}
+	}
+	.module-shadow-bottom:after {
+		@extend %module-shadow;
+		@include border-radius(100%);
+		bottom: 0px;
+		left: 10%;
+		right: 10%;
+		width: 80%;
+		height: 50%;
+		@media print {
+			display: none;
+		}
+	}
+
+	.center-shadow {
+		@include center-shadow();
+	}
+}
+
+#stickyFormDialog {
+	display: none;
+}
+
+.header {
+	@include fluid-row(true);
+	position: relative;
+	z-index: 100;
+	.main-container {
+		padding: 54px 0 0 0;
+		#{headings()}{
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+		@include responsive(med) {
+			padding: 50px 0;
+			#{headings()}{
+				@include fluid-column(20);
+				@include fluid-offset(1,0,left);
+			}
+		}
+		@include responsive(small) {
+			padding: 12px 0 27px 0;
+			#{headings()}{
+				@include fluid-column(19);
+				@include fluid-offset(2,0,left);
+				@include fluid-offset(3,0,right);
+			}
+		}
+	}
+}
+
+/******************/
+/* BORDER HEADERS */
+/******************/
+.box {
+	box-sizing: border-box;
+	border-style: solid;
+	border-width: 3px;
+	padding: 16px 0;
+	/* COLIN: TO DO: FIGURE OUT BETTER NAMING FOR THIS */
+	&.box-left, 
+	&.box-empty-right {
+		border-right-width: 0;
+		padding-left: 25px;
+	}
+	&.box-right, 
+	&.box-empty-left {
+		border-left-width: 0;
+		padding-right: 25px;
+		@include responsive(small) {
+			padding-right: 10px;
+		}
+	}
+}
+
+.box-white {
+	border-color: $white;
+}
+.box-koala {
+	border-color: $koala;
+}
+.box-extender {
+	border-style: solid;
+	border-top-width: 3px;
+	border-bottom-width: 3px;
+	border-left-width: 0px;
+	border-right-width: 0px;
+}
+
+.extender {
+	position: relative;
+}
+
+.extend-item {
+	display: none;
+	top: 0px;
+	bottom: 0px;
+	position: absolute;
+	&.box-extender{
+		top: -3px;
+		bottom: -3px;
+	}
+}
+
+.faq-nav {
+	background: #e6e7e8;
+}
+.faq-wrapper {
+	padding: 0 0 100px 0;
+	.faq-nav {
+		padding: 35px 0;
+		@include responsive(small) {
+			padding-top: 0;
+		}
+		ul {
+			@include fluid-row(false);
+			list-style:none;
+			padding: 0;
+			margin: 0;
+			li {
+				@include fluid-column(21);
+				@include font-size(20px,22px);
+				margin: 15px 0;
+				a {
+					display: block;
+					width: 100%;
+					height: 100%;
+				}
+				@include responsive(med) {
+					@include fluid-offset(1,0,left);
+				}
+			}
+		}
+		@include responsive(small) {
+			display: none;
+		}
+	}
+	.faq-answer {
+		@extend .clearfix;
+		padding: 100px 0 0 0;
+		@include responsive(biggerthansmall) {
+			&:first-of-type { 
+				padding-top: 80px;
+			}
+		}
+		@include responsive(med) {
+			padding-top: 55px;
+			@include fluid-offset(1,0,left);
+			@include fluid-offset(1,0,right);
+		}
+		@include responsive(small) {
+			padding: 15px 0;
+			cursor: pointer;
+		}
+		h3 {
+			@include responsive(small) {
+				@include fluid-column(18);
+				@include fluid-offset(2,0,left);
+			}
+		}
+		.faq-answer-text {
+			@include single-transition(max-height, .75s, ease-in, 0);
+			@include responsive(small) {
+				@include fluid-column(20);
+				@include fluid-offset(2,0,left);
+				@include fluid-offset(2,0,right);
+				max-height: 0;
+				overflow: hidden;
+			}
+			&.expanded {
+				max-height: 1500px;
+			}
+		}
+		.top {
+			@include responsive(small) {
+				display: none;
+			}
+		}
+	}
+	@include responsive(small) {
+		padding-bottom:80px;
+	}
+}
+
+.shadow-wrapper {
+	z-index: 0;
+	position: relative;
+}
+.related-promo-wrapper {
+	margin: 50px 0;
+	background: $white;
+	position: relative;
+	.main-container {
+		padding: 28px 0 39px 0;
+		@include responsive(small) {
+			padding-bottom: 20px;
+		}
+		h2 { 
+			@include fluid-column(7);
+			margin: 0;
+			@include responsive(lessthanlarge) { 
+				@include fluid-column(24);
+				text-align: center;
+				margin-bottom:30px;
+			}
+			@include responsive(small) {
+				@include fluid-column(22);
+				@include fluid-offset(1,0,right);
+				@include fluid-offset(1,0,left);
+				margin-bottom: 12px;
+				text-align: center;
+			}
+		}
+		.related-promo {
+			@include fluid-column(6);
+			@include fluid-offset(1,0,right);
+			@include fluid-offset(1,0,left);
+			@include responsive(lessthanlarge){ 
+				@include fluid-column(10);
+				@include fluid-offset(1,0,right);
+				@include fluid-offset(1,0,left);
+			}
+			@include responsive(small) {
+				@include fluid-column(22);
+				@include fluid-offset(1,0,right);
+				@include fluid-offset(1,0,left);
+				margin-top: 12px;
+				margin-bottom: 12px;
+			}
+			h3 {
+				min-height: 50px;
+				margin: 0;
+				padding: 0;
+				@include responsive(lessthanlarge){
+					height: auto;
+				}
+				@include responsive (small) {
+					@include fluid-row();
+				}
+			}
+			p,a {
+				@include responsive(small) {
+					@include fluid-row();
+				}
+			}
+			p {
+				margin: 15px auto;
+			}
+		}
+	}
+	&:after {
+		@extend %module-shadow;
+		@include box-shadow(0 0 37px rgba(0, 0, 0, 1));
+		@include border-radius(100%);
+		bottom: 0;
+		left: 10%;
+		right: 10%;
+		width: 75%;
+		height: 20px;
+	}
+}

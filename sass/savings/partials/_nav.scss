@@ -1,0 +1,145 @@
+.search {
+	@include sprite-background-image ($icon-sprites, "icon-search",false, 8px, 5px);
+	font-style: italic;
+	height: 20px;
+	width: 140px;
+	padding: 4px 4px 4px 30px;
+	border: 1px solid $light-grey;
+}
+.nav {
+	ul {
+		list-style-type: none;
+		margin: 15px 0 50px;
+		padding: 0;
+	}
+	
+	li {
+		list-style: none;
+		margin-bottom: -1px;
+		padding: 1px 0;
+		@include font-size(16px,16px);
+		
+		&.about a {
+			@include sprite-background-image ($icon-sprites, "icon-about",false, 0, 32px);
+		}
+		&.travel a {
+			@include sprite-background-image ($icon-sprites, "icon-travel",false, 0, 30px);
+		}
+		&.business-services a {
+			@include sprite-background-image ($icon-sprites, "icon-business-services",false, 0, 30px);
+		}
+		&.dining a {
+			@include sprite-background-image ($icon-sprites, "icon-dining",false, 0, 27px);
+		}
+		&.limited-offers a {
+			@include sprite-background-image ($icon-sprites, "icon-limited-offers",false, 0, 26px);
+		}
+		&.gift a {
+			@include sprite-background-image ($icon-sprites, "icon-gift",false, 0, 29px);
+		}
+		&:hover,
+		&.thisSection {
+			background-image: url('../i/savings/bg-nav-border.png'),url('../i/savings/bg-nav-border.png');
+			background-position: left top, left bottom;
+			background-repeat: no-repeat;
+			.ie7 &,
+			.ie8 & {
+				border-top: 1px solid $light-grey;
+				border-bottom: 1px solid $light-grey;
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+		}
+		&:hover + .thisSection {
+			background: url('../i/savings/bg-nav-border.png') no-repeat left bottom;
+			.ie8 & {
+				border-top: 1px solid $light-grey;
+				border-bottom: 1px solid $light-grey;
+			}
+		}
+		&.thisSection + :hover {
+			background: url('../i/savings/bg-nav-border.png') no-repeat left bottom;
+			.ie8 & {
+				border-top: 1px solid $light-grey;
+				border-bottom: 1px solid $light-grey;
+				background-image: none;
+			}
+		}
+	}
+	
+	a {
+		display: block;
+		text-decoration: none;
+		padding: 0 5px 0 40px;
+		@include font-size(16px,80px);
+		.ie7 & {
+			height: 74px;
+		}
+		//@include sprite-background-image ($icon-sprites, "icon-dining",false, 0, 27px);
+		&:hover {
+			text-decoration: none;
+		}
+		&:link,
+		&:visited {
+			color: $purple;
+		}
+		
+		&:focus,
+		&.current {
+			background-color: $background;
+			color: $purple;
+		}
+	}
+}
+.filters {
+	h3 {
+		font-weight: normal;
+		color: $grey;
+		@include font-size(14px,14px);
+		border-bottom: 1px solid $light-grey;
+		margin: 0 40px 10px 0;
+		padding-bottom: 5px;
+		#mainColumn & {
+			border-bottom: 0;
+			color: $purple;
+			@include font-benton-sans('bold');
+			line-height: 18px;
+		}
+	}
+	.select-wrapper {
+		border-bottom: 1px solid $light-grey;
+	}
+	select {
+		margin-bottom: 25px;
+		width: 160px;
+	}
+	ul {
+		#mainColumn & {
+			@extend .clearfix;
+			margin-top: 30px;
+		}
+	}
+	li {
+		@include font-size(14px,14px);
+		margin-bottom: 15px;
+
+		&.selected {
+			@include sprite-background-image ($icon-sprites, "arrow-blue");
+			span {
+				padding-left: 15px;
+				font-weight: bold;
+			}
+		}
+		#mainColumn & {
+			@include font-size(18px,18px);
+			@include grid-column(4,40px);
+			@include grid-offset-right(1);
+			margin-bottom: 10px;
+			margin-left: 0;
+			a {
+				color: #068990;
+			}
+		}
+	}
+
+}

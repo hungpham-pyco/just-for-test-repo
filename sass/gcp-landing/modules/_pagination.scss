@@ -1,0 +1,33 @@
+.pagination {
+	border-top: 1px solid $light-grey;
+	text-align: right;
+	background: none !important;
+	padding: 0 !important;
+	@include no-bullets;
+	ul {
+		text-align: center;
+		@include float-right;
+		padding-top: 10px;
+	}
+	li {
+		@include float-left;
+		border-left: 1px solid $light-grey;
+		padding: 5px 10px;
+		&.one {
+			border-left: 0;
+		}
+		&.page-prev,
+		&.page-next {
+			border-left: 0;
+			font-weight: bold;
+		}
+
+		.ie9 & {
+			text-indent: 0 !important;
+			margin-left: 0 !important;
+			&:before {
+			content: ' ' !important;
+			}
+		}
+	}
+}

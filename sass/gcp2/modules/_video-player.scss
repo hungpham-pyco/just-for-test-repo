@@ -1,0 +1,44 @@
+
+.video-playlist {
+	@include clearfix();
+	.video-body {
+		@extend .vh;
+	}
+}
+
+.player-wrapper {
+	@include fluid-column(13,0,$grid-columns,0,false);
+	@include fluid-offset-left(1,0);
+	@include responsive(lessthanlarge) {
+		@include fluid-column(22,0,$grid-columns,0,false);
+		@include fluid-offset-left(1,0);
+		@include fluid-offset-right(1,0);
+	}
+	h3{ 
+		@extend .h5;
+		padding-top: 18px;
+		margin-bottom: 20px;
+	}
+	.video-player,
+	.yt-wrapper {
+		position: relative;
+		height: 0;
+		padding-bottom: 56.25%; /* 16:9 aspect ratio */
+		img {
+			width: 100%;
+			height: auto;
+		}
+		// youtube embed:
+		iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.disclaimer {
+		color: $koala;
+		@extend .body-2;
+	}
+}

@@ -1,0 +1,82 @@
+// Pagination
+.pagination {
+	@include font-size(12px, 12px);
+	margin-bottom: 30px;
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+	li {
+		@include font-benton-sans('regular');
+		color: $grey-three;
+		display: inline;
+		text-transform: uppercase;
+		&.current {
+			@include font-benton-sans('bold');
+			color: $grey-three;
+			cursor: default;
+			padding: 1px 5px;
+		}
+		&.first,
+		&.last { 
+			color: $grey-ten;
+			&.has-link {
+				color: $grey-three;
+				@include font-benton-sans('bold');
+			}
+		}
+		&.first {
+			padding-right: 5px;
+			.arrow {
+				@include arrow(left,5px,$grey-ten);
+				margin-right: 2px;
+				&.on {
+					@include arrow(left,5px,$grey-ten);
+				}
+			}
+			&.has-link {
+				.arrow {
+					@include arrow(left,5px,$grey-three);
+					margin-right: 2px;
+					&.on {
+						@include arrow(left,5px,$grey-three);
+					}
+				}
+			}
+		}
+		&.last {
+			padding-left: 5px;
+			.arrow {
+				@include arrow(right,5px,$grey-ten);
+				margin-left: 2px;
+				&.on {
+					@include arrow(right,5px,$grey-ten);
+				}
+			}
+			&.has-link {
+				.arrow {
+					@include arrow(right,5px,$grey-three);
+					margin-left: 2px;
+					&.on {
+						@include arrow(right,5px,$grey-three);
+					}
+				}
+			}
+		}
+	}
+	a {
+		color: $grey-three;
+		display: inline-block;
+		padding: 1px 5px;
+		text-decoration: none;
+	}
+	@include responsive(small) {
+		@include clearfix();
+		ul {
+			@include fluid-column(20);
+			@include fluid-offset-left(2);
+			@include fluid-offset-right(2);
+		}
+	}
+}

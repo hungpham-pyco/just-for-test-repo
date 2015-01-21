@@ -1,0 +1,742 @@
+body{
+	
+	.bg-body {
+		background: $background;
+	}
+
+	/* Patterns */
+	.bg-darkpurple {
+		background-color: $darkpurple;
+		@include backgroundPattern('darkpurple');
+	}
+
+	.bg-midgrey {
+		@include backgroundPattern('midgrey');
+	}
+	
+	.bg-grey {
+		@include backgroundPattern('grey');
+	}
+	
+
+	.bg-turquoise {
+		background-color: $turquoise;
+		@include backgroundPattern('turquoise');
+	}
+	
+	.bg-darkteal {
+		background-color: $darkteal;
+		@include backgroundPattern('darkteal');
+	}
+
+	.bg-koala {
+		background-color: $koala;
+	}
+
+	.bg-pengo {
+		background-color: $pengo;
+	}
+
+	.bg-white {
+		background-color: $white;
+	}
+
+	.bg-pattern-ws_45 {
+		@include worldservicepattern(45);
+	}
+
+	.bg-pattern-ws_15 {
+		@include worldservicepattern();
+	}
+	
+	.promo-module-background {
+		background-color: $pengo;
+		@include responsive(lessthanlarge) {
+			@include backgroundPattern('midgrey');
+		}
+		&.white-bg {
+			background-color: #fff;
+		}
+		&.with-center-shadow {
+			&:after {
+				@include center-shadow();
+			}
+		}
+	}
+
+	/***********************************/
+	/* TYPOGRAPHY */
+	/***********************************/
+	@import 'gcp2/partials/type';
+
+	button {
+		&:focus {
+			outline: none;
+		}
+	}
+
+	/**********************************/
+	/* SHARE AMEX */
+	/**********************************/
+	
+	/* Detail Page A*/
+	.share-amex {
+		@extend .clearfix;
+		padding-top: 10px;
+	}
+		
+	.shareamex-container-multi {
+		position: relative;
+		display: block !important;
+			.shareamex-morebox {
+				top: auto !important;
+				left: auto !important;
+			}
+	}
+	// applies inside of .detail header
+
+	.detail {
+		.shareamex-container-multi {
+			width: 100% !important;
+			float: none !important;
+			.shareamex-morebox {
+				right: -40px;
+				bottom: -55px;
+				ul {
+					float: left !important;
+					li {
+						float: left !important;
+					}
+				}
+			}
+			.shareamex-container {
+				display: block !important;
+				width: 100% !important;
+				ul {
+					text-align: center;
+					float: none !important;
+					@include responsive('lessthanlarge') {
+						float: left;
+					}
+				}
+				li { 
+					display: inline-block;
+					float: none !important;
+					@include responsive('lessthanlarge') {
+						display: block;
+						float: left !important;
+					}
+				}
+			}
+
+			@include responsive('lessthanlarge') {
+				@include fluid-column(22,0,$grid-columns,0,false);
+				padding: 15px 0 !important;
+				text-align: left !important;
+				.shareamex-morebox {
+					right: auto;
+					bottom: -65px;
+				}
+			}
+		}
+	}
+	.body-block {
+	// applies inside of .body-block
+		.shareamex-morebox {
+			right: -60px;
+			bottom: -25px;
+			ul {
+				margin-top: 10px;
+			}
+		}
+	}
+	
+	/***********************************/
+	/* SUBNAVIGATION */
+	/***********************************/
+	@import 'gcp2/partials/subnavigation';
+
+	/***********************************/
+	/* BENEFITS SUBHEADS */
+	/***********************************/
+	.promo-benefits {
+		.box {
+			margin: 55px 0 60px 0;
+			border-color: #a7a6a9;
+			h2 {
+				@include font-size(36px,30px);
+				color: $crow;
+			}
+			.box-extender {
+				border-color: #a7a6a9;
+			}
+		}
+	}
+
+/***********************************/
+/* Hero Banners */
+/***********************************/
+@import 'gcp2/partials/hero-banners';
+
+/***********************************/
+/* Header Promo Wrapper */
+/**********************************/
+	.promo-wrapper{
+		margin-top: 25px;
+		position: absolute;
+		width: 100%;
+		max-width: 980px;
+		min-height: 293px;
+		background-color: $white;
+		@include responsive(large) {
+			&:after {
+				@include center-shadow();
+			}
+		}
+		@include responsive(lessthanlarge){ 
+			@include clearfix();
+			clear: both;
+			position: static;
+			max-width: auto;
+		}
+	}
+	
+	.mobile-footer {
+		display: none;
+		background-color: $deepblue;
+		text-align: center;
+		z-index: 10000;
+		bottom: 0;
+		position: fixed !important;
+		width:100%;
+		a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			padding: 10px 0;
+			letter-spacing:.04em;
+			text-align: center;
+			color: $white;
+			@include text-shadow(0 1px 1px rgba(0,0,0,.75));
+			text-decoration: none;
+			text-transform: uppercase;
+			@include font-size(12px,18px);
+			&:focus {
+				outline: thin dotted;
+				background-color: #1d4f9c
+			}
+		}
+		@include responsive(small){ 
+			display: block;
+		}
+	}
+
+
+	.main-container {
+		margin: 0 auto;
+		@include fluid-page($grid-columns,-4,true,false);
+
+		/* MEDIA QUERIES FOR MAIN CONTAINER */
+		@include responsive(large) {
+			/* large styles go here*/
+		}
+
+		@include responsive(med) {
+			/* med styles go here*/
+
+		}
+		
+		@include responsive(small) {
+		/* small styles go here*/
+			
+		}
+	}
+
+	
+
+	/************************************/
+	/* FAQ  */
+	/************************************/
+	.faq-wrapper {
+		background-color: #f2f2f2;
+		@include backgroundPattern('grey');
+		.faq-nav {
+			ul {
+				list-style:none;
+				li {
+					@include fluid-column(18,0,$grid-columns,0,false);
+					@extend .h5;
+					a {
+						text-decoration: none;
+						color: $darkteal;
+					}
+				}
+			}
+		}
+		.faq-answer {
+			clear: both;
+			@include fluid-column(18,0,$grid-columns,0,false);
+			a.top { 
+				text-decoration: none;
+				span.arrow-up {
+					margin: 0 5px 5px 0;
+					line-height: 24px;
+					@include arrow(up,5px,$darkteal);
+				}
+			}
+			@include responsive(small) {
+				width: 100%;
+				margin: 0;
+				padding: 4%;
+				border-top: 1px solid #9b9b9b;
+				h4 {
+					@include font-size(18px,22px);
+					padding-right: 5%;
+				}
+				.faq-answer-text {
+					margin: 0;
+				}
+				background: image-url('gcp2/grey-arrow-left.png') 98% 15px no-repeat;
+				&:first-of-type{ 
+					border: none;
+				}
+			}
+		}
+		
+		@include responsive(small) {
+			background: $white;
+		}
+	}
+
+	/***********************************/
+	/* ADDITIONAL RESOURCES */
+	/***********************************/
+	.related-promo-wrapper {
+		background-color: $white;
+		.main-container {
+			#{headings()} {
+				color: $darkpurple;
+			}
+			h3 {
+				@extend .h5;
+			}
+		}
+	}
+}
+
+/************************************/
+/* ARTICLE LANDING SUBNAV */
+/************************************/
+.article-nav {
+	background-color: $background;
+	border-bottom: 1px solid $mouse;
+	border-top: 1px solid $mouse;
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		.ie7 & {
+			@extend .clearfix;
+		}
+		li {
+			display: inline-block;
+			margin-right: 24px;
+			.ie7 & {
+				float: left;
+			}
+			&:last-child {
+				margin: 0;
+			}
+			a {
+				@include font-benton-sans(medium);
+				@include font-size(14px, 15px);
+				color: $grey;
+				display: block;
+				padding: 10px 0;
+				text-decoration: none;
+				&.active {
+					@include font-benton-sans(bold);
+					color: $blueSingaporeBlue;
+				}
+				.oldie & {
+					&.active {
+						@include font-benton-sans(bold);
+					}
+				}
+			}
+		}
+	}
+	.topics-btn {
+		@include font-benton-sans(bold);
+		@include font-size(12px, 35px);
+		background: $white;
+		border: 0;
+		border-bottom: 1px solid $mouse;
+		color: $grey;
+		display: none;
+		padding-left: 20px;
+		text-align: left;
+		text-decoration: none;
+		width: 100%;
+		text-transform: uppercase;
+		i.arrow {
+			margin: 0 5px 5px 2px;
+			line-height: 12px;
+			@include arrow(down,4px,$grey);
+			vertical-align: middle;
+		}
+	}
+	@include responsive(lessthanlarge) {
+		@include box-shadow(0 2px 5px rgba($grey, .60));
+		background-color: $white;
+		border: 0;
+		position: relative;
+		z-index: 2;
+		ul {
+			@include box-shadow(0 2px 5px rgba($grey, .60));
+			background-color: $white;
+			display: none;
+			left: 0;
+			position: absolute;
+			top: 36px;
+			li {
+				border-bottom: 1px solid $mouse;
+				display: block;
+				margin: 0;
+				a {
+					@include font-size(18px, 30px);
+					padding: 0 0 0 20px;
+				}
+			}
+		}
+		.topics-btn {
+			display: block;
+			&.open {
+				i.arrow {
+					border: 0;
+					@include arrow(up,4px,$grey);
+				}	
+			}
+		}
+	}
+}
+
+/************************************/
+/* BACKGROUND COLOR BLOCKS */
+/************************************/
+.bg-block {
+	position: relative;
+	.bg-color {
+		height: 80%;
+		left: 0;
+		position: absolute;
+		top: 10%;
+		width: 100%;
+		z-index: 1;
+	}
+	.main-container {
+		position: relative;
+		z-index: 2;
+	}
+	// TODO: Replace with background pattern from Jordan
+	.bg-gray-trans {
+		background: rgba(0, 0, 0, .03);
+	}
+}
+
+/*************************************/
+/* QUICK LINKS */
+/************************************/
+.quick-links {
+	h3 {
+		@extend .h5;
+		@extend .all-caps;
+	}
+	.promo-container & {
+		@include fluid-column(8,0,$grid-columns,0,false);
+		padding-left: (fluid-column-width(1) + fluid-gutter-width($grid-columns) * 3);
+		border-left: 1px solid #e4e4e4;
+		h3 {
+			@include font-size(14px,16px);
+			float: none;
+			width: 100%;
+			margin: 0;
+			@include responsive(lessthanlarge) {
+				float: none;
+				width: 100%;
+				margin: 0;
+			}
+			@include responsive(small) {
+				@include font-size(13px,15px);
+			}
+		}
+		@include responsive(med) {
+			@include fluid-column(9,0,$grid-columns,0,false);
+			@include fluid-offset-right(1);
+		}
+		@include responsive(small) {
+			margin-top: 25px;
+			@include fluid-column(22,0,$grid-columns,0,false);
+			padding-left: 0;
+			border-left-width: 0;
+			@include fluid-offset-left(1);
+			@include fluid-offset-right(1);
+		}
+	}
+}	
+
+/***********************************/
+/* CARD PAGE FOOTER */
+/***********************************/
+.detail-footer-wrapper {
+	padding: 0 0 35px 0;
+	@extend .bg-grey;
+	@extend .shadow-wrapper;
+	.content-block {
+		@include responsive('large') {
+			padding: 20px;
+		}
+		a {
+			@include font-size(14px,35px);
+			display: inline-block;
+			font-weight: bold;
+			text-decoration: none;
+			color: $darkteal;
+		}
+	}
+	@include responsive(lessthanlarge) {
+		padding-bottom: 0;
+	}
+	.detail-footer {
+		background-color: $white;
+		position: relative;
+		padding: 23px 0;
+		@include responsive(lessthanlarge) {
+			padding-bottom: 0;
+		}
+		.main-container {
+			padding: 0;
+		}
+		/* SHADOW */
+		@include responsive(large) {
+			&:after {
+				position: absolute;
+				content: '';
+				z-index: -1;
+				@include box-shadow(0 0 37px rgba(0, 0, 0, .75));
+				@include border-radius(100%);
+				bottom: 0;
+				left: 20%;
+				right: 20%;
+				width: 70%;
+				height: 20px;
+			}
+		}
+		.slideshow {
+			@include clearfix();
+			@include fluid-column(20,0,$grid-columns,0,false);
+			min-height: 105px;
+			&.slideshow-wide {
+				@include fluid-row(false);
+				width: 100%;
+				margin: 0;
+			}
+			@include responsive(med) {
+				@include clearfix();
+				@include fluid-column(22,0,$grid-columns,0,false);
+				@include fluid-offset-left(1);
+				height: auto;
+				&.slideshow-wide {
+					@include clearfix();
+					@include fluid-column(22,0,$grid-columns,0,false);
+					@include fluid-offset-left(1);
+					height: auto;
+				}
+			}
+			@include responsive(small) {
+				@include clearfix();
+				@include fluid-column(22,0,$grid-columns,0,false);
+				@include fluid-offset-left(1);
+				@include fluid-offset-right(1);
+				height: auto;
+			}
+		}
+		
+		.quick-links {
+			@include fluid-column(4,0,$grid-columns,0,false);
+			h3 {
+				@include responsive(med){
+					@include fluid-column(4,0,$grid-columns,0,false);
+					@include fluid-offset-left(1);
+				}
+				@include responsive(small){
+					@include fluid-column(22,0,$grid-columns,0,false);
+					@include fluid-offset-left(1);
+				}
+			}
+			@include responsive(lessthanlarge) {
+				@include clearfix();
+				background: rgba(255,255,255,.45);
+				border-top: 1px solid $mouse;
+				width: 100%;
+				padding: 16px 0;
+			}
+			@include responsive(small) {
+				padding: 10px 0;
+				@include fluid-column(22,0,$grid-columns,0,false);
+				@include fluid-offset-left(1);
+			}
+		}	
+	}
+}
+
+.divider {
+	height: 40px;
+	&.with-title {
+		@include font-benton-sans('bold');
+		@include font-size(16px, 40px);
+		color: #fff;
+		text-align: center;
+		color: #fff;
+		margin-bottom: 30px;
+		position: relative;
+		.arrow {
+			@include arrow(down,20px,#858d90);
+			bottom: -20px;
+			left: 50%;
+			margin-left: -20px;
+			position: absolute;
+		}
+		@include responsive(small) {
+			margin-bottom: 0;
+			line-height: 1.2;
+			padding: 10px 0;
+			height: auto;
+
+			.arrow {
+				display: none;
+			}
+		}
+	}
+}
+
+.disclaimer {
+	.landing-page-d & {
+		background-color: $white;
+		padding: 40px 0;
+		h3 {
+			@extend .h5;
+			margin-top: 20px;
+		}
+		p {
+			@extend p.disclaimer;
+		}
+	}
+}
+
+.benefit-column {
+	@include fluid-column(12,0,$grid-columns,0,false);
+	float: right;
+	&.left {
+		float: left;
+	}
+	@include responsive(lessthanlarge) {
+		@include fluid-column(22,0,$grid-columns,0,false);
+		@include fluid-offset-left(1);
+		float: none;
+		&.left {
+			float: none;
+		}
+	}
+	@include responsive(small) {
+		margin: 0;
+		width: 100%;
+	}
+	h3, h2 {
+		margin-top: 0;
+	}
+	.promo {
+		background-color: #fff;
+		color: $crow;
+		margin-bottom: 20px;
+		@include responsive(small) {
+			margin-bottom: 0;
+		}
+		&.grey {
+			background: rgba(130, 139, 142, .15);
+			.oldie & {
+				@include oldietransbg('#26828B8E');
+			}
+		}
+		&.blue {
+			background: rgba(0, 109, 141, .08);
+			.oldie & {
+				@include oldietransbg('#14006D8D');
+			}
+		}
+		img {
+			width: 100%;
+			height: auto;
+		}
+		a.appstore {
+			width: auto;
+			display: inline-block;
+			margin: 10px 10px 0 0;
+		}
+		.content {
+			@include font-benton-sans('regular');
+			padding: 37px;
+			@include responsive(small) {
+				padding: 37px 20px;
+			}
+		}
+		h3 {
+			@extend .h5;
+			margin-bottom: 10px;
+		}
+		h2 {
+			@extend .h3;
+			sup {
+				font-size: 12px;
+				vertical-align: super;
+			}
+		}
+		li {
+			margin-bottom: 5px;
+		}
+	}	
+}
+
+/***********************************/
+/* ARTICLE PAGE */
+/***********************************/
+@import 'gcp2/pages/article-page';
+
+/***********************************/
+/* ARTICLE LANDING */
+/***********************************/
+@import 'gcp2/pages/article-landing';
+
+/************************************/
+/* POST INAV MESSAGE */
+/************************************/
+// post iNav Message 
+.post-inav-message {
+	background: #FFFFFF;
+	border-bottom: 1px solid #f6f7f6;
+	.message-container{
+		@extend .main-container;
+		margin: 0 auto;
+		padding: 21px 0 11px 27px;
+		&.info{
+			background: url('../i/amex/icn-info.gif') no-repeat left 22px;
+			p{
+				color: $sqrl;
+				@include font-size(12px, 16px);
+				letter-spacing:-0.01em;
+				margin: 0 0 15px 0;
+			}
+		}
+	}
+}

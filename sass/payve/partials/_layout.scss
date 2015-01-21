@@ -1,0 +1,44 @@
+html, body {
+  background: $white;
+}
+body {
+	min-width: 960px;
+}
+
+#container {
+  min-height: 100%;
+  position: relative;
+  .ie6 & {
+    height: 100%;
+  }
+  .ie7 & {
+    z-index: 1;
+  }
+}
+
+// Page
+.body {
+  padding-bottom: 10px;
+}
+.header,
+#header {
+    #iNavHeaderCont,
+    #iNavSANavCont,
+    #iNav_header_wrap {
+      margin: 0 auto;
+  }
+}
+.footer,
+#footer {
+  #iNavNGI_FooterMain.iNavFreeFloat #iNavNGI_FooterCont,
+  #iNav_footer {
+    margin: 0 auto;
+  }
+}
+#subHeaderContent,
+.content {
+  @include grid-page();
+}
+.halfWidth {
+	@include grid-column(12);
+}

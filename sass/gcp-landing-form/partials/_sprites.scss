@@ -1,0 +1,103 @@
+// ==========================================================================
+// Background
+// ==========================================================================
+@mixin sprite-background-image($map, $sprite, $dimensions: false, $offset-x: 0, $offset-y: 0) {
+  @include sprite($map, $sprite, $dimensions, $offset-x, $offset-y);
+  background-image: $map;
+  background-repeat: no-repeat;
+}
+
+@mixin sprite-class-background-image($map, $sprite, $dimensions: false, $offset-x: 0, $offset-y: 0) {
+  @if $offset-x or $offset-y {
+    @extend .sprite-map;
+    @include sprite-background-position($map, $sprite, $offset-x, $offset-y);
+    @if $dimensions {
+      height: image-height(sprite-file($map, $sprite));
+      width: image-width(sprite-file($map, $sprite));
+    }
+  } @else {
+    @if $dimensions {
+      @extend .sprite-#{$sprite}-with-dimensions;
+    } @else {
+      @extend .sprite-#{$sprite};
+    }
+  }
+}
+
+// ==========================================================================
+// Sprites
+// ==========================================================================
+$sprite: sprite-map("gcp2/sprite/*.png"
+  //, $sprite-new-position: 100%, $sprite-new-spacing: 15px, $sprite-new-repeat: no-repeat
+  , $sprite-grey-arrow-left-58-position: 50%
+  , $sprite-grey-arrow-right-58-position: 50%
+  , $sprite-wh-arrow-down-position: 50%
+  , $sprite-grey-arrow-down-position: 50%
+  , $sprite-grey-arrow-up-position: 50%
+  , $sprite-icn-home-position: 50%
+  , $sprite-black-arrow-right-tiny-position: 50%
+  , $sprite-icon-x-position: 50%
+  , $sprite-grey-arrow-left-58-spacing: 80px
+  , $sprite-grey-arrow-right-58-spacing: 80px
+  , $sprite-grey-arrow-left-44-spacing: 80px
+  , $sprite-grey-arrow-right-44-spacing: 80px
+  , $sprite-grey-arrow-left-32-spacing: 80px
+  , $sprite-grey-arrow-right-32-spacing: 80px
+  , $sprite-wh-arrow-down-spacing: 40px
+  , $sprite-wh-arrow-right-spacing: 40px
+  , $sprite-grey-arrow-down-spacing: 40px
+  , $sprite-grey-arrow-up-spacing: 40px
+  , $sprite-icn-home-spacing: 40px
+  , $sprite-black-arrow-right-tiny-spacing: 300px
+);
+$retina: sprite-map("gcp2/sprite-retina/*.png"
+  //, $retina-new-position: 100%, $retina-new-spacing: 15px, $retina-new-repeat: no-repeat
+  , $sprite-retina-arrow-left-position: 50%
+  , $sprite-retina-arrow-right-position: 50%
+);
+
+$sprite-names: sprite-names($sprite);
+
+@mixin sprite-classes($size: normal) {
+  $map: true;
+  $background-size: false;
+  @if $size == retina {
+    $map: $retina;
+    $background-size: true;
+  } @else {
+    $map: $sprite;
+  }
+  $prefix: sprite-map-name($map);
+
+  .sprite-map {
+    background-image: $map;
+    background-repeat: no-repeat;
+    @if $background-size {
+      $width: 0px;
+      @each $sprite-name in $sprite-names {
+        $tmp-width: image-width(sprite-file($map, $sprite-name));
+        @if $tmp-width > $width {
+          $width: $tmp-width;
+        }
+      }
+      @include background-size($width/2 auto);
+    }
+  }
+
+  @each $sprite-name in $sprite-names {
+    .sprite-#{$sprite-name} {
+      @extend .sprite-map;
+      @include sprite($map, $sprite-name);
+    }
+    .sprite-#{$sprite-name}-with-dimensions {
+      @extend .sprite-map;
+      @include sprite-background-position($sprite, $sprite-name);
+      @if $background-size {
+          height: image-height(sprite-file($sprite, $sprite-name));
+          width: image-width(sprite-file($sprite, $sprite-name));
+      } @else {
+        @include sprite-dimensions($map, $sprite-name);
+      }
+    }
+  }
+}

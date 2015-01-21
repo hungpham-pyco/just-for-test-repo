@@ -1,0 +1,133 @@
+﻿.promo-group-content {
+	&.multi-action {
+		li {
+			@include fluid-page();
+			background: none;
+			border: 3px solid $plat1;
+
+			
+			@include responsive('med') {
+				@include fluid-column(22,0,$grid-columns,0,false);
+				@include fluid-offset-left(1);
+			}
+
+			p {
+				color: $grey;
+				padding: 15px 0;
+			}
+			.cta {
+				padding: 0;
+				a {
+					@include font-benton-sans('bold');
+					color: $darkteal;
+					.arrow-right {
+						display: inline-block;
+						margin-left: 5px;
+						@include arrow('right',5px,$darkteal);
+					}
+				}
+			}
+		}
+	}
+}
+
+.promo-multi-action {
+	.hero{
+		@include fluid-column(10,0,$grid-columns,0,false);
+		height: 399px;
+		@include responsive('med') {
+			width: 100%;
+			height: 233px
+		}
+		@include responsive('small') {
+			height: 200px;
+		}
+	}
+	.content {
+		@include fluid-column(12,0,$grid-columns,0,false);
+		@include fluid-offset-left(1);
+		background: none;
+		.headlines {
+			margin-top: 40px;
+			h2 {
+				color: $plat1;
+				padding-top: 0;
+				text-align: left;
+			}
+		}
+		.body {
+			margin-bottom: 0;
+		}
+		.quicklinks {
+			@include clearfix();
+			margin: 40px 0;
+			ul {
+				list-style: none;
+				padding: 0;
+				li {
+					display: inline-block;
+					float: left;
+					max-width: 50%;
+					border: 0;
+					&:nth-of-type('even') {
+						margin-right: 30px;
+					}
+					a {
+						@include btn($deepblue,#1d4f9c,$white,small);
+						@include font-benton-sans('light');
+					}
+				}
+			}
+		}
+		/* MEDIUM */
+				
+		@include responsive('lessthanlarge') {
+			@include fluid-column(18,0,22,0,false);
+			@include fluid-offset-left(2);
+			padding: 25px 0;
+			.headlines {
+				width: 100%;
+				margin-top: 0;
+			}
+			.body {
+				width: 100%;
+			}
+			.quicklinks {
+				width: 100%;
+				ul {
+					list-style: none;
+					padding: 0;
+					li {
+						margin-left: 0;
+					}
+				}
+			}
+		}
+		/* Small */
+				
+		@include responsive('small') {
+			padding: 33px 0;
+			.headlines {
+				h2 {
+					@include font-size(14px,18px);
+				}
+			}
+			.body {
+				width: 100%;
+			}
+			.quicklinks {
+				width: 100%;
+				ul {
+					list-style: none;
+					padding: 0;
+					li {
+						display: block;
+						text-align: center;
+						max-width: 100%;
+						margin: 15px 0;
+					}
+				}
+			}
+		}
+	}
+}

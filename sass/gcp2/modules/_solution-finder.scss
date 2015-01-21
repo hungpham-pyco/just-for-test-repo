@@ -1,0 +1,318 @@
+body .solution-finder {
+	@extend .bg-pengo;
+	box-sizing: border-box;
+	min-height: 438px;
+	background-repeat: no-repeat;
+	position: relative;
+	padding: 47px 0;
+	background-position: center bottom;
+	@include clearfix();
+	html.ie7 & {
+		min-height: 0;
+	}
+	@include responsive(large) { 
+		&:after {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			@include box-shadow(0 0 37px rgba(0, 0, 0, 1));
+			@include border-radius(100%);
+			bottom: 0;
+			left: 10%;
+			right: 10%;
+			width: 75%;
+			height: 20px;
+		}
+	}
+	@include responsive(med) {
+		min-height: 520px;
+	}
+
+	@include bsfbox(12,$crow);
+
+	.headlines {
+		border-bottom:none;
+		background:none;
+		
+		h2 {
+			@extend .h1;
+			@include font-size(45px, 48px);
+			@include responsive(med) {
+				@include font-size(32px,38px);
+			}
+
+			@include responsive(small) {
+				@include font-size(24px,26px);
+			}
+		}
+
+		h3 {
+			@include headline(3);
+			@include responsive(med) {
+				@include font-size(24px,26px);
+			}
+
+			@include responsive(small) {
+				@include font-size(16px,20px);
+			}
+		}
+
+		@include responsive(lessthanlarge) {
+			@include fluid-offset-left(1,0);
+			@include fluid-offset-right(1,0);
+		}
+
+		
+	}
+	.arrow-tip {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 40px;
+		right: -40px;
+		.ie7 & {
+			height: 100%;
+			border-right: 1px solid transparent;
+			right: -41px;
+		}
+		img {
+			width: auto;
+			height: 100%;
+			opacity: .58;
+			.oldie & {
+				width: 40px;
+				display: block;
+				zoom: 1;
+			}
+			.ie8 & {
+				filter:alpha(opacity=58);
+			}
+		}
+		@include responsive(med) {
+			width: 20px;
+			right: -20px;
+		}
+		@include responsive(small) {
+			display: none;
+		}
+	}
+
+	.arrow {
+		@extend .clearfix;
+		padding: 0 0 24px 0;
+		background-color: rgba(255,255,255,.6);
+		.ie8 & {
+			@include oldietransbg('#99FFFFFF');
+		}
+		.ie7 & {
+			background-color: $white;
+		}
+		position: relative;
+		@include fluid-column(23,0,$grid-columns,0,false);
+		.extend-item {
+			background-color: rgba(255,255,255,.6);
+			.ie8 & {
+				@include oldietransbg('#99FFFFFF');
+			}
+			.ie7 & {
+				background-color: $white;
+			}
+		}
+		@include responsive(small) {
+			@include fluid-column(24,0,$grid-columns,0,false);
+			background: none;
+			text-align: center;
+			.extend-item {
+				top: -30000px;
+				height: 0;
+				width: 0;
+			}
+		}
+
+		h5 {
+			@include fluid-column(17,0,21,0,false);
+			color: $darkteal;
+			margin: 0;
+			@include responsive(lessthanlarge) {
+				@include fluid-offset-left(1,0,21);
+			}
+			@include responsive(small) {
+				text-align: center;
+				@include fluid-column(20,0,$grid-columns,0,false);
+				@include fluid-offset-left(1,0);
+			}
+		}
+
+		p {
+			@include fluid-column(21,0,21,0,false);
+			margin-bottom: 14px;
+			@include font-size(22px, 30px);
+			@include responsive(lessthanlarge){
+				@include fluid-column(19,0,21,0,false);
+				@include fluid-offset-left(1,0,21);
+				@include fluid-offset-right(2,0,21);
+				@include font-size(16px, 18px);
+			}
+			@include responsive(small) {
+				display: none;
+			}
+		}
+
+		@include responsive(lessthanlarge) {
+			@include fluid-column(22,0,$grid-columns,0,false);
+		}
+	}
+
+	.arrow-options {
+		box-sizing: border-box;
+		margin-top: 20px;
+		@include fluid-column(24,0,21,0,false);
+		@include clearfix();
+		@include responsive(med) {
+			@include fluid-column(20,0,21,0,false);
+			@include fluid-offset-left(1,0,21);
+		}
+		@include responsive(small) {
+			@include fluid-column(22,0,$grid-columns,0,false);
+			@include fluid-offset-left(1,0);
+		}
+		
+		.btn {
+			display: inline-block;
+			margin-left: 10px;
+			@include btn($deepblue,#1d4f9c,$white,large);
+			@include responsive(lessthanlarge) { 
+				clear: both;
+				display: block;
+				@include btn($deepblue,#1d4f9c,$white,large);
+			}
+
+			@include responsive(small) {
+				margin: 10px auto;
+			}
+		}
+	}
+}
+
+// ui menu
+.selectmenu-holder {
+	background-color: #fff;
+	cursor: pointer;
+	@include fluid-column(10,0,21,0,false);
+	position: relative;
+	border: 3px solid $koala;
+	@extend .clearfix;
+	padding: 5px 0;
+	text-align: left;
+	min-height: 39px;
+	@include border-radius(8px);
+	@include responsive(lessthanlarge) {
+		border-width: 2px;
+	}
+	@include responsive(med) {
+		@include fluid-column(16,0,22,0,false);
+	}
+	@include responsive(small) {
+		@include fluid-column(22,0,$grid-columns,0,false);
+		@include fluid-offset-left(1,0);
+		margin-bottom: 15px;
+	}
+	/* UI SELECT */
+	.ui-selectmenu {
+		position: relative;
+		color: $sqrl;
+		width: 100%;
+		@include font-benton-sans('bold');
+		@include font-size(14px);
+		text-transform: uppercase;
+		margin:0;
+		padding: 8px 0 8px 5px;
+		list-style: none;
+		&.ui-state-active {
+		}
+		@include responsive(lessthanlarge) {
+			@include font-benton-sans('regular');
+		}
+		@include responsive(small) {
+			@include font-size(11px);
+		}
+	}
+	a.ui-selectmenu {
+		text-decoration: none;
+		padding-right: 30px;
+	}
+	i.grey-arrow {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		width: 30px;
+		border-left: 3px solid $koala;
+		@include responsive(lessthanlarge) {
+			border-left-width: 2px;
+		}
+		background-image: image-url('gcp2/sprite/grey-arrow-down.png');
+		background-position: center center;
+		background-repeat: no-repeat;
+		&.up {
+			background-image: image-url('gcp2/sprite/grey-arrow-up.png');
+		}
+	}
+}
+.ui-selectmenu-menu {
+	position: absolute;
+	width: 100;
+	display: none;
+	list-style: none;
+	padding: 0;
+	background-color:#fff;
+	border-top: 0;
+	&.ui-selectmenu-open {
+		display: block;
+		top: -5px;
+		left: -5px;
+		@include fluid-column(10,0,12,0,false);
+		border: 3px solid $koala;
+		border-top: 0;
+		width: 300px;
+		margin-left: -3px;
+		@include responsive(lessthanlarge) { 
+			border-width: 2px;
+			margin-left: -2px;
+		}
+		@include responsive(small) {
+			width: 100%;
+		}
+	}
+	li {
+		padding: 5px 0 5px 5px;
+		a {
+			outline: none;
+			@include font-benton-sans('bold');
+			@include font-size(14px);
+			text-decoration: none;
+			text-transform: uppercase;
+			color: $sqrl;
+			width: 100%;
+			display: block;
+			@include responsive(lessthanlarge) {
+				@include font-benton-sans('regular');
+			}
+			@include responsive(small) {
+				@include font-size(11px);
+			}
+		}
+		&:hover {
+			background-color: $sqrl;
+			a {
+				color: #fff;
+			}
+		}
+	}
+}
+
+span.ui-selectmenu-status {
+	display: inline-block;
+	width: 85%;
+	margin-left: 5px;
+}

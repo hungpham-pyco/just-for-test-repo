@@ -1,0 +1,288 @@
+/************************************/
+/* Business Trends & Insights */
+/************************************/
+
+
+$articleNavPadding: 20px;
+
+@mixin topic-colors {
+	background: $crow;
+
+	////
+	// Disabling topic colors per client request, but retaining here for future functionality
+	////
+
+	// &.all-topics {
+	// 	background: $red;
+	// }
+
+	// &.topic-green {
+	// 	background: $topic-green;
+	// }
+
+	// &.topic-lightblue {
+	// 	background: $topic-lightblue;
+	// }
+
+	// &.topic-darkblue {
+	// 	background: $topic-darkblue;
+	// }
+
+	// &.topic-lightpurple {
+	// 	background: $topic-lightpurple;
+	// }
+
+	// &.topic-darkpurple {
+	// 	background: $topic-darkpurple;
+	// }
+}
+
+.article-landing-2 {
+	&.article-landing-hero {
+		background-position: center top;
+		background-repeat: no-repeat;
+		h1 {
+			padding: 25px 0;
+
+			// font-size: 40px;
+			@include font-size(40px, 40px);
+			color: $sqrl;
+			font-weight: bold;
+
+			span {
+				display: block;
+
+				// font-size: 20px;
+				@include font-size(7px, 7px);
+				color: $darkteal;
+				font-weight: normal;
+			}
+		}
+
+		@include responsive('lessthanlarge') {
+			h1 {
+				padding: 5px;
+			}
+		}
+	}
+
+	&.article-nav,
+	&.articles {
+		@include inline-block(top);
+		margin-right: -4px; // fixes inline-block margin bug
+
+		@include responsive('lessthanlarge') {
+			display: block;
+			margin-right: 0;
+		}
+	}
+
+	&.article-nav {
+		// width: 230px;
+		// width: grid-column-width(6);
+		@include fluid-column(6,0,$grid-columns,0,false);
+		float: none;
+		padding: 20px 0;
+		border: none;
+
+		background: #7a7e8d;
+
+		h3 {
+			@include font-size(22px);
+			color: $white;
+		}
+
+		.article-nav-padding {
+			margin: 0 $articleNavPadding;
+		}
+
+		ul {
+			margin-top: $articleNavPadding;
+		}
+
+		.article-nav-topic {
+			display: block;
+			margin: 0;
+			padding: 0 0 0 $articleNavPadding;
+
+			a {
+				display: block;
+				color: $white;
+			}
+
+			&.active,
+			&:hover {
+				@include topic-colors;
+
+				a {
+					background: $crow;
+
+					span {
+						display: block;
+						// padding-left: 8px;
+					}
+				}
+			}
+		}
+
+		@include responsive('lessthanlarge') {
+			width: auto;
+
+			h3 {
+				display: none;
+			}
+
+			.article-nav-topic {
+				@include topic-colors;
+
+				a {
+					background: $crow;
+				}
+			}
+		}
+	}
+
+	&.articles {
+		// width: 753px;
+		// width: grid-column-width(18.25);
+		@include fluid-column(18,0,$grid-columns,0,false);
+		float: none;
+		margin-top: 0;
+		padding: 0;
+		background: transparent;
+
+		.articles-list {
+			@include clearfix;
+			list-style: none;
+
+			margin: 0 0 0 fluid-gutter-width();
+			padding: 0;
+
+			li {
+				// float: left;
+				// @include inline-block(top);
+				// width: 238px;
+				@include fluid-column(6,0,18,0,false);
+				float: none;
+				// margin-left: 8px;
+				margin-bottom: 8px;
+				@include box-shadow($elfnt 1px 1px 2px);
+				@include single-transition(box-shadow, .5s);
+				&:hover {
+					@include box-shadow(rgba(0,0,0,.4) 1px 1px 10px);
+				}
+				.article-preview {
+					background: $white;
+					padding: 17px 13px;
+
+					cursor: pointer;
+
+					a {
+						color: $crow;
+					}
+				}
+
+				h2 {
+					position: static;
+					margin: 0;
+					padding: 0;
+					background: transparent;
+
+					@include font-size(22px);
+					color: $crow;
+					font-weight: normal;
+					text-transform: none;
+					word-wrap: normal;
+				}
+
+				h3 {
+					@include topic-colors;
+					padding: 0 0 0 13px;
+
+					@include font-size(10px);
+					text-transform: uppercase;
+
+					a {
+						display: block;
+
+						color: $white;
+
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+
+					span {
+						display: block;
+						padding: 8px 0;
+						background: $crow;
+
+						line-height: normal;
+					}
+				}
+
+				p {
+					@include font-size(14px);
+				}
+
+				.article-thumbnail {
+					overflow: hidden;
+
+					img {
+						width: 100%;
+						height: auto;
+
+						@include transition-duration(.5s);
+
+						&.hovered {
+							@include transform(scale(1.1));
+						}
+					}
+				}
+
+				&.article-sizer {
+					// width: 238px;
+					@include fluid-column(6,0,18,0,false);
+					float: none;
+				}
+
+				&.article-spotlight {
+					// width: 484px;
+					@include fluid-column(12,0,18,0,false);
+					float: none;
+				}
+
+				@include responsive('small') {
+					&,
+					&.article-spotlight {
+						width: auto;
+					}
+				}
+			}
+
+			@include responsive('lessthanlarge') {
+				margin-left: 0;
+			}
+		}
+
+		@include responsive('lessthanlarge') {
+			width: auto;
+		}
+	}
+
+	.pagination {
+		border-top: none;
+	}
+
+	#infscr-loading {
+		font-style: italic;
+		@include responsive('morethansmall') {
+			position: absolute;
+			bottom: 0;
+		}
+	}
+}
+
+.shareamex-container-multi {
+	display: block;
+}

@@ -1,0 +1,157 @@
+.homepage {
+	#main {
+		min-width: 1300px; //1300px
+		@include box-shadow(none);
+		background: transparent;
+	}
+	#subHeaderWrapper {
+		position: absolute;
+		width: 100%;
+		left: 0;
+		min-width: 1300px;
+		z-index: 200;
+		background: $white;
+		background: rgba(255,255,255,0.8);
+	}
+	
+	#contentWrapper {
+		background-image: none;
+		width: 960px;
+		margin: 0 auto;
+		@include box-shadow(0px 0px 3px rgba(0,0,0,0.20));
+		 .ie7 &,
+		 .ie8 & {
+			border: 1px solid $light-grey;
+			border-top: 0;
+		 }
+		padding-top: 25px;
+		background-color: #fff;
+	}
+	
+	#mainColumn {
+		@include grid-column(16);
+		@include grid-offset-right(1);
+		@include grid-offset-left(1);
+		
+		.cta {
+			float: left;
+			display: inline;
+			margin-bottom: 1em;
+			& a {
+			  font-size: 14px;
+			  line-height: 16px;
+				padding-left: 100px;
+				padding-right: 10px;
+			}
+			+ .cta {
+				border-top: 1px solid $light-grey;
+			}
+		}
+		
+		.related {
+			clear: both;
+			border-bottom: 1px solid $light-grey;
+			margin-bottom: 2em;
+		}
+		
+		.menu {
+			a {
+				@include font-size(18px,18px);
+			}
+		}
+	}
+	.cardmember a {
+		background: url(../i/gcp/bg-home-cardmember-cta.png) no-repeat 0 50%;
+		padding-top: 20px;
+	}
+	&.homepage-b .cardmember a {
+		background: url(../i/gcp/bg-cardmember-cta.png) no-repeat 0 50%;
+		padding-top: 20px;
+	}
+	&.homepage-a .program-admin a, 
+	&.homepage-c .program-admin a	{
+		background: url(../i/gcp/bg-home-pro-admin.png) no-repeat 0 0;
+		padding-top: 15px;
+	}
+	&.homepage-b .program-admin a {
+		background: url(../i/gcp/bg-home-b-pro-admin.png) no-repeat 0 40%;
+		padding-top: 15px;
+	}
+	.why-amex a {
+		background: url(../i/gcp/bg-home-amex-cta.png) no-repeat 12px 45%;
+	}
+}
+
+.homepage-a {
+	#mainColumn {
+		.cta {
+			width: 48%;
+			
+			+ .cta {
+				margin-left: 3.3%;
+			}
+		}
+	}
+}
+
+.homepage-b {
+	#mainColumn {
+		.cta {
+			width: 32%;
+			
+			+ .cta {
+				margin-left: 1.5%;
+			}
+			
+			a {
+				padding-left: 55px;
+				font-size: 12px;
+				line-height: 14px;
+			}
+		}
+		
+		.menu a {
+			@include font-size(18px,18px);
+		}
+	}
+}
+
+.homepage-c {
+	background: #fafafa;
+	@include background(linear-gradient(top, #eaeaeb, #fff 313px, #fff) repeat-x 0 283px);
+	
+	#main {
+		@include box-shadow(none);
+		background-color: transparent;
+	}
+	
+	#contentWrapper {
+		@include box-shadow(none);
+		background: transparent;
+	}
+
+	#mainColumn {
+		@include grid-column(17);
+		@include grid-offset-right(1);
+		
+		.cta {
+			width: 45%;
+			.ie7 & {
+				width: 44%;
+			}
+			
+			+ .cta {
+				margin-left: 9.3%;
+			}
+		}
+	}
+	
+	#rightColumn {
+		@include grid-column(6);
+		
+		.btn {
+			padding-left: 85px;
+			background-position: 50px 50%;
+		}
+	}
+}
