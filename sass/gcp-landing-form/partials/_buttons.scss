@@ -1,0 +1,39 @@
+.btn {
+	@include btn($deepblue,#1d4f9c,$white,small);
+	&.large {
+		@include btn($deepblue,#1d4f9c,$white,large);
+	}
+}
+
+.btn-white {
+	@include btn($white,$white,$darkteal,small);
+	&.large {
+		@include btn($white,$white,$darkteal,large);
+	}
+}
+
+.btn-darkteal {
+	@include btn($darkteal,$darkteal,$white,small);
+	&.large {
+		@include btn($darkteal,$darkteal,$white,large);
+	}
+
+	&.btn-disabled {
+		color: #aaa;
+
+		cursor: default;
+	}
+}
+
+.ribbon-promo {
+	.btn {
+		@extend .btn;
+		@include font-size-only(15px);
+	}
+	&.blue {
+		.btn {
+			background-color: white;
+			color: #197b98;
+		}
+	}
+}

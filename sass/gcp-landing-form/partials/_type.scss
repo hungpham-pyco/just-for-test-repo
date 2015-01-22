@@ -1,0 +1,185 @@
+﻿/*************/
+/* HEADLINES */
+/************/
+#{headings()}, headline-1, .headline-2, .headline-3, .headline-4 {
+	color: $crow;
+	margin: 0;
+}
+h1, .h1 {
+	@include font-benton-sans('light');
+	font-weight: normal;
+	@include font-size(48px,50px);
+	letter-spacing: -.025em;
+	@include responsive(small) {
+		@include font-size(32px,36px);
+	}
+}
+
+
+h2, .h2 {
+	@include font-benton-sans('bold');
+	@include font-size(30px,32px);
+	letter-spacing: 0;
+	@include responsive(small) {
+		@include font-size(18px,20px);
+	}
+}
+
+h3, .h3 {
+	@include font-benton-sans('light');
+	font-weight: normal;
+	@include font-size(36px,38px);
+	letter-spacing: -.025em;
+	@include responsive(small) {
+		@include font-size(30px,32px);
+	}
+}
+
+h4, .h4 {
+	@include font-benton-sans('bold');
+	@include font-size(24px,26px);
+	letter-spacing: 0;
+	@include responsive(small) {
+		@include font-size(21px,18px);
+	}
+}
+
+h5, .h5 {
+	@include font-benton-sans('bold');
+	@include font-size(16px,18px);
+	letter-spacing: 0;
+	@include responsive(small) {
+		@include font-size(14px,18px);
+	}
+	&.subsection {
+		text-transform: uppercase;
+		@include font-size(14px);
+		letter-spacing:.14em;
+		@include fluid-offset(1,0,left);
+		@include fluid-offset(1,0,right);
+		margin-bottom: 15px;
+		&.with-border {
+			border-top: 1px solid $mouse;
+			margin-top: 35px;
+			padding-top: 35px;
+		}
+	}
+}
+
+/* BODY COPY */
+p {
+	color: $crow;
+	&.intro {
+		@include font-size(18px,24px);
+	}
+}
+p, p.body-1, .body-1{
+	@include font-benton-sans('regular');
+	@include font-size(16px,22px);
+	letter-spacing:.025em;
+	@include responsive(small) {
+		@include font-size(13px,20px);
+	}
+}
+
+.body-2, p.body-2{
+	@include font-benton-sans('regular');
+	@include font-size(13px,20px);
+	letter-spacing:.025em;
+}
+
+.body-3, p.body-3 {
+	@include font-benton-sans('book');
+	@include font-size(12px,14px);
+}
+
+/* LINKS */
+a {
+	color: $blue;
+	text-decoration: none;
+	&:hover {
+		color: #5daac0;
+	}
+	&.tel,	&[href^="tel"] {
+		@include font-benton-sans('bold');
+	}
+	&:focus {
+		color: #5daac0;
+		outline: thin dotted;
+	}
+}
+
+.cta-link {
+	text-transform: uppercase;
+	font-size: 14px;
+	@include font-benton-sans('medium');
+	i.arrow-right {
+		margin: 0 6px;
+		@include arrow(right,5px,$darkteal);
+		html.ie7 & {
+			vertical-align: middle;
+		}
+	}
+	&:hover {
+		color: #5daac0;
+		i.arrow-right {
+			@include arrow(right,5px,#5daac0);
+		}
+	}
+}
+
+/* statistics */ 
+
+.stats {
+	color: $deepblue;
+	@include font-size(95px,89px);
+	letter-spacing: -.045em;
+	&.statistic-1 {
+		@include font-benton-sans('light');
+	}
+	
+	&.statistic-2 {
+		@include font-benton-sans('medium');
+	}
+	
+	&.statistic-3 {
+		@include font-benton-sans('regular');
+	}
+}
+
+/* TEXT-COLOR */
+
+.txt-mouse{
+	color: $mouse;
+}
+
+.txt-pengo {
+	color: $pengo;
+}
+
+.txt-crow {
+	color: $crow;
+}
+
+.txt-sqrl {
+	color: $sqrl;
+}
+
+.txt-darkteal {
+	color: $darkteal;
+}
+
+.txt-white {
+	color: $white;
+}
+
+
+
+/* HELPERS */
+.all-caps {
+	text-transform: uppercase;
+}
+
+.lc {
+	text-transform: lowercase;
+}

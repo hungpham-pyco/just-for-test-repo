@@ -1,0 +1,193 @@
+// Tab - Accordian Navigation
+.tab-wrap {
+	@include clearfix;
+	list-style-type: none;
+	margin: 0 0 10px 0;
+	padding: 0;
+	li {
+		@extend .gray-hdr;
+		float: left;
+		margin-left: 10px;
+		text-align: center;
+		&.active {
+			@extend .gray-hdr-active;
+			span {
+				background-color: $white;
+				color: $grey-three;
+			}
+			a {
+				color: $white;
+			}
+		}
+		&:first-child {
+			margin: 0 0 1px 0;
+		}
+		@include responsive(lessthanlarge) {
+			float: none;
+			margin: 0 0 1px 0;
+			text-align: left;
+			a {
+				padding: 0 13px;
+				position: relative;
+			}
+			span {
+				position: absolute;
+				right: 13px;
+				top: 30%;
+			}
+		}
+		@include responsive(small) {
+			@include clearfix;
+			a {
+				@include fluid-column(20);
+				@include fluid-offset-left(2);
+				padding: 0;
+			}
+			span {
+				right: 0;
+			}
+		}
+	}
+	span {
+		@include border-radius(5px);
+		@include font-benton-sans(bold);
+		@include font-size-only(12px, 18px);
+		@include line-height(12px, 12px);
+		background-color: #a4a5a9;
+		color: $white;
+		display: inline-block;
+		margin-left: 5px;
+		padding: 4px 6px;
+	}
+	a {
+		color: $grey-nine;
+		display: block;
+	}
+	&.bottom {
+		display: none;
+		@include responsive(lessthanlarge) {
+			display: block;
+		}
+	}
+}
+
+[data-tabnum="3"] {
+	li {
+		width: 296px;
+		@include responsive(lessthanlarge) {
+			width: 100%;
+		}
+	}
+}
+
+// Toggle tab navigation
+.toggle {
+	@include clearfix();
+	@include border-radius(5px);
+	background-color: $grey-eight;
+	border: 2px solid $grey-eight;
+	float: right;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	li {
+		@include font-benton-sans(bold);
+		float: left;
+		text-transform: uppercase;
+	}
+	span,
+	.active {
+		@include border-radius(5px);
+		@include font-size(11px, 25px);
+		background-color: $white;
+		color: $grey-four;
+		display: block;
+		padding: 0 20px;
+		&:hover {
+			color: $grey-four;
+		}
+	}
+	a {
+		@include border-radius(5px);
+		@include font-size(11px, 25px);
+		background-color: $grey-eight;
+		color: $white;
+		display: block;
+		padding: 0 20px;
+		&:hover {
+			color: #d3d3d3;
+		}
+	}
+	@include responsive(lessthanlarge) {
+		float: left;
+	}
+	@include responsive(small) {
+		@include fluid-offset-left(2);
+		span,
+		a {
+			line-height: 14px;
+			padding: 5px;
+		}
+		li {
+			width: 100px;
+		}
+	}
+}
+
+// Expanding tab content sections
+.expanding {
+	.tab-section {
+		@include clearfix;
+	}
+	.tab-header {
+		@extend .gray-hdr;
+		padding: 0 15px;
+		margin-bottom: 1px;
+		line-height: 46px;
+		width: 100%;
+		span {
+			display: block;
+		}
+		a {
+			color: $grey-three;
+			display: block;
+			outline: 0;
+		}
+		@include responsive(small) {
+			padding: 0;
+			span,
+			a {
+				@include fluid-column(20);	
+				@include fluid-offset-left(2);
+				float: none;
+			}
+		}
+	}
+	.tab-content {
+		@extend .vh;
+	}
+	&.no-init,
+	.active {
+		.tab-header {
+			@extend .gray-hdr-active;
+			a {
+				color: $white;
+			}
+		}
+		.tab-content {
+			@extend .no-vh;
+			@include responsive(small) {
+				@include fluid-column(20);	
+				@include fluid-offset-left(2);
+				float: none;
+			}
+			padding: 25px 0;
+		}
+	}
+	p.cta {
+		text-align: right;
+		@include responsive(small) {
+			text-align: left;
+		}
+	}
+}

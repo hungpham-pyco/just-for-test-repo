@@ -1,0 +1,332 @@
+.slides {
+	position: relative;
+	margin: 0 auto;
+	width: 1300px;
+	height: 313px;
+
+	.slide-button-prev,
+	.slide-button-next {
+		display: block;
+		position: absolute;
+		z-index: 100;
+		
+		a {
+			@extend .ir;
+			display: block;
+			height: 100%;
+			background-position: 50% 50%;
+			
+			@include transition(background-position .2s ease-in-out);
+		
+			&:focus {
+				outline: 0;
+			}
+		}
+	}
+	
+	.slide-button-prev {
+		a {
+			background-image: url(../i/gcp/btn-slides-prev.png);
+		}
+	}
+
+	.slide-button-next {
+		a {
+			background-image: url(../i/gcp/btn-slides-next.png);
+		}
+	}
+
+	.indicators {
+		position: absolute;
+		z-index: 100;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		
+		li {
+			float: left;
+			display: inline;
+			margin-bottom: 0;
+		}
+		
+		a {
+			float: left;
+			display: inline;
+		}
+	}
+	
+	// Extra class for indicators
+	.ui-state-disabled {
+		a {
+			cursor: default;
+		}
+	}
+}
+
+.slide {
+	position: absolute;
+	width: 1300px;
+	height: 313px;
+	display: none;
+}
+
+.slides .ui-state-active {
+	display: block;
+}
+
+.slide-content {
+	position: absolute;
+
+	h2 {
+		color: $purple;
+		margin: 0;
+		font-weight: bold;
+	}
+
+	p {
+		color: $grey;
+		margin: 0;
+		@include font-size(14px, auto, 0, 16px);
+	}
+}
+
+// "A" THEME - Dot-based slide indicators, prev/next controls attached to the content, content center/bottom positioned
+.slides-a {
+	.slide-button-prev,
+	.slide-button-next {
+		top: 224px;
+		width: 30px;
+		height: 47px;
+		
+		a {
+			background-color: #a2a4ab !important;
+			overflow-y: visible !important;
+		}
+		
+		&:after {
+			content: '';
+			width: 0;
+			height: 0;
+			border-top: 3px solid transparent;
+			border-bottom: 3px solid #6c6f74;
+			position: absolute;
+			top: -6px;
+		}
+	}
+
+	.slide-button-prev {
+		left: 165px;
+		
+		a {
+			&:hover {
+				background-position: -3px 50%;
+			}
+		}
+		
+		&:after {
+			border-right: 2px solid #6c6f74;
+			border-left: 3px solid transparent;
+			left: 0;
+		}
+	}
+	
+	.slide-button-next {
+		left: 1105px;
+		
+		a {
+			&:hover {
+				background-position: 3px 50%;
+			}
+		}
+		
+		&:after {
+			border-left: 2px solid #6c6f74;
+			border-right: 4px solid transparent;
+			left: 30px - 5px;
+		}
+	}
+	
+	.indicators {
+		top: 160px;
+		left: 50%;
+		
+		li {
+			margin-left: 10px;
+		}
+		
+		a {
+			@extend .ir;
+			background: #808080 !important;
+			background: rgba(255,255,255,0.5) !important;
+			width: 10px;
+			height: 10px;
+			@include border-radius(50%);
+			@include box-shadow(2px 2px 2px rgba(0,0,0,0.3));
+			
+			&.ui-state-active {
+				background-color: #FFF !important;
+			}
+		}
+	}
+	
+	.slide-content {
+		background-color: #f8f9f9;
+		width: 960px;
+		height: 132px;
+		top: 181px;
+		left: 50%;
+		margin-left: -480px;
+
+		h2 {
+			@include font-size(22px, auto, 0, 16px);
+			margin: 25px 260px 0 55px;
+		}
+
+		p, ul {
+			margin-left: 55px;
+			margin-right: 260px;
+		}
+		
+		p, li {
+			@include font-size(12px);
+			line-height: 18px;
+		}
+		
+		li {
+			margin-bottom: 0;
+		}
+
+		.btn {
+			position: absolute;
+			top: 38px;
+			left: 725px;
+			background-color: #3d9633;
+			width: 188px; // Minus left and right padding from .btn base class
+			padding-left: 0;
+			padding-right: 0;
+			text-align: center;
+			height: 45px;
+			@include font-size(14px, 45px, 0, 16px);
+			.gcp-sg & {
+				background-color: $blueSingaporeBlue;
+			}
+		}
+	}
+}
+
+// "B" THEME - Unified grey control bar with text-labeled indicators. Content left/center positioned
+.slides-b {
+	$slide-controls-height: 45px;
+	
+	height: 339px;
+	
+	.slide-button-prev,
+	.slide-button-next {
+		height: $slide-controls-height;
+		width: 70px;
+		top: 293px;
+		background-repeat: no-repeat;
+		
+		a {
+			background-color: #4b515f !important;
+		}
+	}
+
+	.slide-button-prev {
+		padding-left: 38px;
+		left: 175px - 38px; // Minus left padding
+		background-image: url(../i/gcp/bg-slides-b-left-shadow.png);
+		background-position: 0 100%;
+
+		a {
+			&:hover {
+				background-position: 40% 50%;
+			}
+		}
+	}
+
+	.slide-button-next {
+		left: 1055px;
+		padding-right: 38px;
+		background-image: url(../i/gcp/bg-slides-b-right-shadow.png);
+		background-position: 100% 100%;
+		
+		a {
+			&:hover {
+				background-position: 60% 50%;
+			}
+		}
+	}
+	
+	.indicators {
+		width: 810px;
+		top: 293px;
+		left: 245px;
+		
+		li {
+			width: 161px;
+			border-left: 1px solid #616873;
+			
+			&:first-child {
+				border-left: 0;
+				width: 162px;
+			}
+		}
+		
+		a {
+			padding-top: 8px;
+			height: $slide-controls-height - 8px;
+			width: 100%;
+			color: $white;
+			background-color: #818797;
+			text-align: center;
+			font-weight: bold;
+			line-height: 15px;
+			
+			&:hover,
+			&:focus {
+				text-decoration: none;
+				background-color: #4b515f !important;
+			}
+			
+			&.ui-state-active {
+				background-color: $green !important;
+				cursor: default;
+			}
+		}
+	}
+	
+	.slide-content {
+		left: 0;
+		top: 97px;
+		padding-left: 175px;
+		padding-right: 35px;
+		width: 685px - 175px - 35px + 20px; // Subtract left and right padding.  20 px added to fit content
+		height: 158px;
+		background: #FFF;
+		background: rgba(255,255,255,0.95);
+		
+		h2 {
+			text-transform: uppercase;
+			@include font-size(18px);
+			margin-top: 20px;
+		}
+		
+		p {
+			@include font-size(12px, 18px);
+			margin-bottom: 0.75em;
+			
+			a {
+				text-decoration: underline;
+			}
+		}
+		
+		.btn {
+			@include inline-block;
+			@include font-size(10px);
+			padding: 0 25px;
+			line-height: 30px;
+			height: 30px;
+		}
+	}
+}

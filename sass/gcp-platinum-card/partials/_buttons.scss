@@ -1,0 +1,55 @@
+.btn {
+	@include btn($deepblue,#1d4f9c,$white,small);
+	&.large {
+		@include btn($deepblue,#1d4f9c,$white,large);
+	}
+	&.plat {
+		@include btn($plat1,#a7a6a9,$white,small);
+	}
+	&.grey {
+		@include btn($grey,$plat1,$white,small);
+	}
+}
+
+.btn-white {
+	@include btn($white,$white,$darkteal,small);
+	&.large {
+		@include btn($white,$white,$darkteal,large);
+	}
+}
+
+.btn-darkteal {
+	@include btn($darkteal,$darkteal,$white,small);
+	&.large {
+		@include btn($darkteal,$darkteal,$white,large);
+	}
+
+	&.btn-disabled {
+		color: #aaa;
+
+		cursor: default;
+	}
+}
+
+.ribbon-promo {
+	.btn {
+		@extend .btn;
+		@include font-size-only(15px);
+	}
+	&.blue {
+		.btn {
+			background-color: white;
+			color: #197b98;
+		}
+	}
+}
+
+// reset button
+.antibtn {
+	text-transform: none;
+	padding: 0;
+	margin: 0;
+	background: none;
+	border-width: none;
+	text-align: left;
+}

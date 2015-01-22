@@ -1,0 +1,115 @@
+.promo-featured-addtl-text { 
+	padding-bottom: 100px;
+	.primary-content {
+		h2, h3 {
+			@include fluid-page(24);
+			margin: 0 auto;
+			@include responsive('lessthanlarge') {
+				@include fluid-column(22,0,$grid-columns,0,true);
+				@include fluid-offset-left(1);
+			}
+		}
+		h3 {
+			margin-bottom: 30px;
+		}
+	}
+
+	.copy {
+		@include fluid-page(24);
+		margin: 0 auto;
+		
+		@include responsive('med') {
+			@include fluid-column(20,0,$grid-columns,0,false);
+			@include fluid-offset-left(2);
+		}
+		@include responsive('small') {
+			@include fluid-column(22,0,$grid-columns,0,false);
+			@include fluid-offset-left(1);
+		}
+		
+		.contact-block {
+			@include fluid-column(10,0,$grid-columns,0,false);
+			@include fluid-offset-right(1);
+			&:nth-child(even) {
+				@include fluid-offset-left(2);
+			}
+			/* OLD IE FALLBACK */
+			&.even {
+				@include fluid-offset-left(2);
+			}
+			h4 {
+				margin-top: 25px;
+				@extend .all-caps;
+				margin-bottom: 15px;
+			}
+			h5 {
+				@include font-benton-sans('bold');
+				margin-bottom: 5px;
+			}
+			p {
+				@extend .body-2;
+				margin-top: 0;
+				strong {
+					@extend .all-caps;
+					@include font-size(14px,16px,0,13px);
+				}
+			}
+			@include responsive('med') {
+				@include fluid-column(8,0,20,0,false);
+			}
+			@include responsive('small') {
+				@include fluid-column(22,0,22,0,true);
+				&:nth-child(even) {
+					@include fluid-offset-left(0);
+				}
+				&.even {
+					@include fluid-offset-left(0);
+				}
+				p {
+					&:first-of-type {
+						margin-top: 0;
+					}
+				}
+			}
+		}
+	}
+
+	.featured-addtl-text {
+		@include fluid-page(24);
+		@include responsive('small') {
+			@include fluid-column(22,0,$grid-columns,0,true);
+			@include fluid-offset-left(1);
+		}
+	}
+	.secondary-content {
+		@include fluid-column(10,0,$grid-columns,0,true);
+		@include fluid-offset-left(7);
+		border: 3px solid #cbcdce;
+		border-left-width: 0;
+		border-right-width: 0;
+		padding: 30px 0 30px 0;
+		margin-top: 30px;
+		h3 {	
+			@extend .all-caps;
+			@include font-benton-sans('regular');
+			@include font-size(24px,28px);
+			text-align: left;
+			margin-bottom: 18px;
+		}
+		p {
+			margin: 0;
+		}
+		@include responsive('med') {
+			@include fluid-column(14,0,$grid-columns,0,true);
+			@include fluid-offset-left(5);
+		}
+
+		@include responsive('small') {
+			@include fluid-column(22,0,22,0,true);
+			h3 {
+				width: 100%;
+				margin: 0 0 18px 0;
+			}
+		}
+	}
+}

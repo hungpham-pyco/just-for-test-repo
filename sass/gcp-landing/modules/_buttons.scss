@@ -1,0 +1,92 @@
+// BASE BLOCK BUTTON STYLES
+.btn {
+	background-color: #64264D;
+	color: #FFF;
+	font-size: 12px;
+	font-weight: bold;
+	display: block;
+	text-transform: uppercase;
+	text-decoration: none;
+	line-height: 40px;
+	height: 40px;
+	margin: 5px 0;
+	padding: 0 10px 0 45px;
+	border: 1px solid #C2C4CD;
+	background-repeat: no-repeat;
+	background-position: 10px 50%;
+	
+	&:hover,
+	&:focus,
+	&:visited {
+		color: #FFF;
+		text-decoration: none;
+	}
+}
+.btn-nobox {
+	color: #64264D;
+	font-weight: bold;
+	display: block;
+	text-align: center;
+	span {
+		font-weight: normal;
+	}
+}
+.btn-two-line {
+	@extend .btn;
+	min-height: 40px;
+	height: auto;
+	line-height: 17px;
+	padding-top: 9px;
+	padding-bottom: 3px;
+}
+
+.phone-btn {
+	background-image: url(../i/gcp/icn-btn-phone.png);
+}
+
+.email-btn {
+	background-image: url(../i/gcp/icn-btn-email.png);
+}
+
+// google voice revision
+.btn span.gc-cs-link {
+	color: #fff !important;
+}
+// iOS revision to override phone number linking
+.btn a {
+	color: #fff !important;
+}
+
+// pagination button
+.pagination-button {
+	 @include border-radius(5px);
+	 @include inline-block;
+	 font-weight: bold;
+	 font-size: 12px;
+	 background-position: 0 50%;
+	 padding: 11px 13px;
+	 border: 0;
+	 height: auto;
+	 line-height: 18px;
+	 text-transform: none;
+	 &.continue {
+		@include background-image(linear-gradient(#23427a, #012763));
+		background-color: #0e316c;
+		margin-left: 10px;
+		float: right;
+		a { 
+			color: #fff; 
+		}
+	 }
+	 &.back {
+		@include background-image(linear-gradient(#f7f7f7, #eaebeb));
+		background-color: #f0f1f1;
+		float: right;
+		a { 
+			color: #000 !important; 
+		}
+	 }
+	 &.first-page {
+		float: none !important;
+	 }
+}	

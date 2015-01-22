@@ -1,0 +1,39 @@
+//--------------------------------
+// Link Color
+// Boilerplate defines all of the link states and they're a pain to override
+//--------------------------------
+@mixin link-color($color, $hover: false, $active: false, $visited: false) {
+  // set color for the link
+  @if $color == default {
+    color: $link-color;
+  } @else {
+    color: $color;
+  }
+  
+  // set the hover color
+  @if $hover == false {
+    &:hover { color: $color; }
+  } @else if $hover == default {
+    &:hover { color: $link-hover-color; }
+  } @else {
+    &:hover { color: $hover; }
+  }
+  
+  // set the active color
+  @if $active == false {
+    &:active { color: $color; }
+  } @else if $active == default {
+    &:active { color: $link-active-color; }
+  } @else {
+    &:active { color: $active; }
+  }
+  
+  // set the visited color
+  @if $visited == false {
+    &:visited { color: $color; }
+  } @else if $visited == default {
+    &:visited { color: $link-visited-color; }
+  } @else {
+    &:visited { color: $visited; }
+  }
+}

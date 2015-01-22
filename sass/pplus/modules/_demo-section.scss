@@ -1,0 +1,82 @@
+.demo {
+	h2 {
+		color: $grey;
+		@include font-size(16px, 20px);
+		margin-bottom: 20px;
+	}
+	ul, ol {
+		padding-left: 20px;
+	}
+	li {
+		margin-bottom: 15px;
+	}
+	.demo-large-text {
+		@include font-size(16px,24px);
+	}
+	.blue-bold {
+		color: $purple;
+		font-weight: bold;
+	}
+
+	// landing page/how it works
+	.landing {
+		background: #fff url('/i/pplus/demo-landing-hero.jpg')  no-repeat 0 0 !important;
+		padding: 148px 40px 40px !important;
+		& p {
+			@extend .demo-large-text;
+		}
+	}
+	
+	// what is PP
+	.what-is-pp {
+		padding-right: 200px !important;
+		background: #fff url('/i/pplus/demo-what-is-pplus.png')  no-repeat right 0 !important;
+		.ie7 & {
+			width: 479px !important;
+		}
+		& p {
+			@extend .demo-large-text;
+		}
+	}
+	
+		// who should participate
+	.who-should-participate {
+		background: #fff url('/i/pplus/demo-who-participate.jpg')  no-repeat right 35px !important;
+		> div {
+			padding-right: 275px - 40px !important;
+		}
+		div.cta {
+			padding-right: 0 !important;
+		}
+		
+	}
+	
+		// whats my incentive
+	.whats-my-incentive {
+		background: #fff url('/i/pplus/demo-incentive.jpg')  no-repeat right 45px !important;
+		padding-right: 275px !important;
+	}
+	
+		// how do i sign up
+	.sign-up {
+		padding-right: 350px !important;
+		background: #fff url('/i/pplus/demo-sign-up.jpg')  no-repeat right 90px !important;
+		.ie7 & {
+			width: 329px !important;
+		}
+	}
+	// cta used on who should participate
+	& .cta {
+		border-top: 1px solid $light-grey;
+		padding-top: 20px;
+		p {
+			@extend .demo-large-text;
+			@include float-left;
+			width: 370px;
+		}
+		& .btn {
+			@include float-right;
+			padding: 3px 50px;
+		}
+	}
+}

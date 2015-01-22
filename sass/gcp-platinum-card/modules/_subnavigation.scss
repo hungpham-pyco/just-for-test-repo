@@ -1,0 +1,187 @@
+.nav-container {
+	width: 100%;
+	height: 45px;
+	$experimental-support-for-svg: true;
+	@include background-image(linear-gradient(left,color-stops($white, $white 50%, $grey 51%, $grey 100%)));
+	.oldie & {
+		background: $white; 
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#4d4f53',GradientType=1 );
+	}
+	&.is-stuck {
+		position: fixed;
+		bottom: 0;
+		z-index: 1000;
+		margin-bottom: 0;
+		// webkit redraw bugfix
+		-webkit-transform: scale3d(1,1,1);
+	}
+	&.bottom-stuck {
+		position: absolute;
+		bottom: 0;
+		z-index: 1000;
+		margin-bottom: 0;
+	}
+	@include responsive('lessthanlarge') {
+		background: $grey;
+	}
+	@include responsive('small') {
+		height: auto;
+		&.is-stuck, &.bottom-stuck {
+			position: static;
+		}
+	}
+}
+
+ul.navigation {
+	@extend .rel;
+	z-index: 1;
+	width: 100%;
+	box-sizing: border-box;
+	max-width: 980px;
+	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+	@extend .clearfix;
+	li {
+		@extend .rel;
+		float: left;
+		margin: 0;
+		height: 45px;
+		@include skewX(40deg);
+		background-color: $grey;
+		border: 0 solid $white;
+		border-right-width: 1px;
+		a {
+			@include responsive('small') {
+				// hide secondary links on mobile
+				display: none;
+				&:first-of-type {
+					display: inline-block;
+				}
+			}
+		}
+		a:first-of-type {
+			@extend %inlineblock;
+			width: 100%;
+			height: 100%;
+			padding: 0 30px;
+			text-align: left;
+			text-transform: uppercase;
+			text-decoration: none;
+			color: $white;
+			@include font-benton-sans('medium');
+			@include font-size(12px,50px);
+			letter-spacing: .05em;
+			span {
+				display: inline-block;
+				@include skewX(-40deg);
+				&.hide-from-nav {
+					display: none;
+				}
+			}
+			@include responsive('med') {
+				padding: 0 28px;
+			}
+			&:focus {
+				outline: thin dotted $white;
+				background-color: $plat1;
+			}
+		}
+		// :first-of-type doesn't work in old ie
+		.oldie & {
+			// hide all navs...
+			a {
+				display: none;
+			}
+			// but show the first one tagged with first-of-type
+			a.first-of-type {
+				display: inline-block;
+				width: 100%;
+				height: 100%;
+				padding: 0 35px;
+				text-align: left;
+				text-transform: uppercase;
+				text-decoration: none;
+				color: #FFF;
+				@include font-size(14px,50px);
+				span {
+					display: inline-block;
+					@include skewX(-40deg);
+					&.hide-from-nav {
+						display: none;
+					}
+				}
+				&:focus {
+					outline: thin dotted $white;
+					background-color: $plat1;
+				}
+			}
+		}
+		&.nav-promo {
+			background-color: #FFF;
+			margin-left: -40px;
+			width: 158px;
+			margin-right: 10.5px;
+			border-width: 0px;
+			position: relative;
+			@include skewX(0deg);
+			padding-top: 0;
+			img {
+				position: absolute;
+				margin-top: -41px;
+				max-width: 80px;
+				margin-left: 31px;
+			}
+			strong { 
+				display: block;
+				@include font-benton-sans('bold');
+				@include font-size(9px,12px);
+				color: $grey;
+				text-align: center;
+				@extend .all-caps;
+				padding: 15px 7px;
+			}
+			&:before {
+				border: none;
+				width: 0;
+			}
+			@include responsive('lessthanlarge') {
+				display: none;
+			}
+		}
+		&.selected, 
+		&:hover {
+			background-color: $plat1;
+			&.nav-promo {
+				background-color: $white;
+			}
+		}
+		@include responsive('small') {
+			@include skewX(0deg);
+			width: 100%;
+			float: none;
+			padding: 5px;
+			height: auto;
+			a {
+				@include font-size(12px, 30px);
+				@include font-benton-sans('bold');
+				@include skewX(40deg);
+				span {
+					@include skewX(40deg);
+				}
+			}
+		}
+	}
+}
+
+select#language {
+	border: 1px solid #a5b3b4;
+	@include border-radius(3px);
+	padding: 6px 16px;
+	color: $crow;
+	@include font-size(12px);
+	@include font-benton-sans('regular');
+	&:focus {
+		outline-color: $lightteal;
+	}
+}

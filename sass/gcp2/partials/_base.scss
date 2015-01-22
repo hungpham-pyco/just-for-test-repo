@@ -1,0 +1,66 @@
+//////////////////////////////////////
+// BASE SETTINGS
+//////////////////////////////////////
+$base-font-size: 16px;
+//////////////////////////////////////
+// COLORS
+//////////////////////////////////////
+$black: #222;
+$white: #fff;
+$light-grey: #ccc;
+$grey: #4d4f53;
+$blue: #006890;
+$blueSingaporeBlue: #002663;
+$blueSingaporeNav: #006890;
+$teal: #0097b0;
+$red: #c30;
+$green: #00693C;
+$background: #f4f4f4;
+
+//gcp2 Colors 
+$deepblue: #053379;
+$turquoise: #00a1bb;
+$darkpurple: #61194b;
+$darkteal: #006d8d;
+$lightteal: #88d3e1;
+$lightgreen: #2aba23;
+
+//platinum card colors
+$plat1: #8c9598;
+
+//gcp2 grays
+$crow: #4e4d4f;
+$wolf: #deddd5;
+$sqrl: #717072;
+$koala: #7f8a8d;
+$elfnt: #e6e6e6;
+$mouse: #a7a6a9;
+$pengo: #f0f0f0;
+
+//article landing topics
+$topic-green: #48a942;
+$topic-lightblue: #83d2e3;
+$topic-darkblue: #007697;
+$topic-lightpurple: #926fb0;
+$topic-darkpurple: #851f73;
+// $topic-color-
+
+
+
+// Grid
+$grid-column-width: 31px;
+$grid-gutter-width: 10px;
+$grid-columns: 24;
+
+$grid-css: true;
+$grid-clearfix-extend: false;
+@mixin grid-clearfix($extend) {
+	@extend .clearfix;
+}
+
+//////////////////////////////////////
+// BREAKPOINTS
+//////////////////////////////////////
+$break-lg: 800px;
+$break-md: 660px;
+$break-sm: 320px;

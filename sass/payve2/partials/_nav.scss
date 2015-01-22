@@ -1,0 +1,123 @@
+.nav {
+	margin-bottom:20px;
+	margin-top:-5px;
+	border: 1px solid $light-grey;
+	border-bottom: none;
+	background: $grey-bg;
+
+
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+
+
+		a, span {
+			display: block;
+			text-decoration: none;
+			padding: 5px 30px 5px 15px;
+			@include font-size(16px,33px);
+			color:$blue-dark;
+			&:hover {
+				text-decoration: none;
+			}
+			&:link, &:visited {
+				color: $blue-dark;
+			}
+		}
+		span {
+			&:link, &:visited {
+				color: $blue-dark;
+			}
+		}
+
+
+
+		li.level0 {
+			border-bottom: 1px solid $light-grey;
+			margin-bottom: 0;
+			
+			a {
+				font-weight: bold;
+			}
+
+			// first level current state
+			&.current {
+				background-color: $white;
+				span {
+					font-weight: bold;
+					background-color: #6d6c6e;
+					color: $white;
+				}
+			}
+
+			// first level hover state
+			a:hover {
+				color: $white;
+				background-color: #6d6c6e;
+			}
+		}
+
+
+		// second level
+		li.level1 {
+
+			a,
+			span {
+				font-weight: normal;
+				@include font-size(14px,14px);
+				padding: 6px 0 6px 15px !important;
+			}
+
+			text-transform: uppercase;
+			margin: 0;
+			border: 0;
+			
+			// second level current state
+			&.current {
+				@include font-size(14px,14px);
+				background-color: #6d6c6e; 
+				padding-bottom: 0;
+				a,
+				span {
+					@include font-size(16px,16px);
+					color: $white; 
+					font-weight: normal;
+					
+				}
+
+				//for tertiary colors when expanded
+				ul {
+					background-color: $white; 
+					color: $blue-dark;
+					padding: 5px 0;
+				}
+			}
+		}
+
+		// tertiary level
+		li.level2 {
+			@include font-size(14px,14px);
+			padding: 5px 0 5px 30px;
+
+
+			a {
+				color: $blue-dark !important;
+				padding: 0 !important;
+				text-transorm: normal;
+				&:hover {
+					background: $white;
+					color: #8a8a8a !important; 
+				}
+			}
+
+			&.current {
+				a,
+				span {
+					padding: 0;
+					color: #8a8a8a;
+				}
+			}
+		}
+}

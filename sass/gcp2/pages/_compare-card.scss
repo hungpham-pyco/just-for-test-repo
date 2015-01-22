@@ -1,0 +1,989 @@
+body{
+
+
+	button {
+		&:focus {
+			outline: none;
+		}
+	}
+
+	.mobile-footer {
+		display: none;
+		background-color: $deepblue;
+		text-align: center;
+		z-index: 10000;
+		bottom: 0;
+		position: fixed !important;
+		width:100%;
+		a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			padding: 10px 0;
+			letter-spacing:.04em;
+			text-align: center;
+			color: $white;
+			@include text-shadow(0 1px 1px rgba(0,0,0,.75));
+			text-decoration: none;
+			text-transform: uppercase;
+			@include font-size(12px,18px);
+			&:focus {
+				outline: thin dotted;
+				background-color: #1d4f9c
+			}
+		}
+		@include responsive(small) { 
+			display: block;
+		}
+	}
+
+	.main-container {
+		margin: 0 auto;
+		@include fluid-page($grid-columns,-4,true,false);
+	}
+
+	/***********************************/
+	/* TYPOGRAPHY */
+	/***********************************/
+	@import 'gcp2/partials/type';
+
+	/***********************************/
+	/* SUBNAVIGATION */
+	/***********************************/
+	@import 'gcp2/partials/subnavigation';
+
+	/************************************/
+	/* COMPARE PAGE */
+	/************************************/
+
+		.compare-banner {
+			background: $darkteal;
+			min-height:153px;
+			position: relative;
+			@include responsive(lessthanlarge) {
+				background: $darkteal;
+			}
+			&:after { 
+				content: '';
+				position: absolute;
+				z-index: -1;
+				@include box-shadow(0 0 35px rgba(33, 33, 33, .45));
+				@include border-radius(10%);
+				bottom: 0px;
+				left: 0%;
+				right: 0%;
+				margin: 0 auto;
+				width: 100%;
+				max-width: 980px;
+				height: 89%;
+				height: 20px;
+				@include responsive(lessthanlarge) { 
+					display: none;
+				}
+			}
+			@include responsive(small) {
+				background: $darkteal;
+				min-height: 0;
+			}
+			.banner-content {
+				@extend .clearfix;
+				margin: 0 auto;
+				padding: 28px 0 35px 0;
+				color: $white;
+				@include responsive(med) {
+					@include fluid-row(true);
+				}
+				@include responsive(small){
+					width: 100%;
+					@include fluid-row(true);
+					padding: 0;
+				}
+				h1 {
+					color: $white;
+					font-weight: normal;
+					@include responsive (med) {
+						@include font-size(48px);
+						@include fluid-column(22,0,$grid-columns,0,false);
+						@include fluid-offset(1,0,left);
+					}
+					@include responsive(small) {
+						width: 100%;
+						padding: 15px 0;
+						@include fluid-column(15,0,$grid-columns,0,false);
+						@include fluid-offset(2,0,left);
+					}
+				}
+				p {
+					letter-spacing: .02em;
+					color: $white;
+					margin: 10px 0;
+					@include responsive (med) {
+						@include font-size(13px,20px);
+					}
+					@include responsive(small) {
+						display: none;
+					}
+					a {
+						color: $white;
+						font-weight: bold;
+						&:hover,
+						&:visited {
+							color: $white;
+						}
+					}
+					a[href^="tel"] {
+						text-decoration: none;
+						color: $white;
+						&:hover {
+							color: $white;
+						}
+					}
+					a.cta-link {
+						color: $white;
+						i.arrow-right {
+							margin: 0 6px;
+							@include arrow(right,5px,$white);
+							html.ie7 & {
+								vertical-align: middle;
+							}
+						}
+						&:hover {
+							color: $white;
+							i.arrow-right {
+								@include arrow(right,5px,$white);
+							}
+						}
+					}
+				}
+			
+				.smaller {
+					font-size: 11px;
+					@include inline-block;
+					margin: 0 5px 0 10px;
+				}
+				.btn {
+					@include btn($white,$white,$darkteal,large);
+					@include box-shadow(rgba(0,0,0,.5) 1px 2px 1px);
+					padding-left: 16px;
+					padding-right: 16px;
+					margin-bottom:10px;
+						&:focus {
+							outline: thin dotted;
+							background-color: #f0f0f0;
+						}
+					@include responsive(small) {
+						display: none;
+					}
+				}
+				.banner-headline-intro {
+					@include fluid-column(16);
+					strong {
+						text-transform: uppercase;
+						font-weight: bold;
+						@include font-size(14px,18px);
+						color: $white;
+					}
+					@include responsive(med) {
+						@include fluid-column(15,0,$grid-columns,0,false);
+						@include fluid-offset(1,0,left);
+					}
+				}
+				.banner-cta {
+					@include fluid-column(5);
+					@include fluid-offset(3,0,left);
+					padding-top: 12px;
+					text-align: right;
+					@include responsive(med) {
+						padding-top: 25px;
+						@include fluid-column(6);
+						@include fluid-offset(1,0,right);
+						@include fluid-offset(1,0,left);
+						text-align: center;
+					}
+					@include responsive(small) {
+						display: none;
+					}
+				}
+			}
+		}
+
+	.post-compare-container {
+		@extend .clearfix;
+		@extend .main-container;
+		border-bottom: 1px solid $wolf;
+		@include responsive(lessthanlarge) {
+			padding-top: 20px;
+		}
+	}
+
+	.compare-selection-drawer {
+		@extend .clearfix;
+		padding-top: 27px;
+		position: relative;
+		z-index: 0;
+		.view-selection-content {
+			width: 100%;
+		}
+		&.is-stuck {
+			@include responsive('large') {
+				background: $pengo;
+				position:fixed;
+				width: 100%;
+				top: 48px;
+				padding-top: 35px;
+				margin-bottom: 0;
+				z-index: 3;
+				.view-selection-content {
+					margin-bottom: 16px;
+					#descriptionRow, 
+					#checkboxRow, 
+					#selectInstructions {
+						display: none;
+					}
+					// wider widths if there are only two items
+					&.cards-count-2 {
+						thead .selection-control {
+							width: 92px;
+						}
+					}
+				}
+			}
+			.oldie & {
+				background: $pengo;
+				position:fixed;
+				width: 100%;
+				top: 48px;
+				padding-top: 35px;
+				margin-bottom: 0;
+				z-index: 3;
+				.view-selection-content {
+					margin-bottom: 16px;
+					#descriptionRow, 
+					#checkboxRow, 
+					#selectInstructions {
+						display: none;
+					}
+				}
+			}
+		}
+		@include responsive(small) {
+			padding-top: 0;
+		}
+		.shadow-container { 
+			position: relative;
+			background-color: $pengo;
+			&:after {
+				content: '';
+				position: absolute;
+				z-index: -1;
+				@include box-shadow(0 0 15px rgba(33, 33, 33, .35));
+				bottom: 0;
+				width: 100%;
+				height: 20px;
+				@include responsive(lessthanlarge){
+					display: none;
+				}
+			}
+			.ie7 & { 
+				background-color: transparent; 
+			}
+		}
+		.view-selection-content {
+			border: none;
+			border-spacing: 5px 0;
+			border-collapse: separate;
+			margin-bottom: 40px;
+			&.viewall {
+				margin-bottom: 16px;
+			}
+			caption {
+				display: none;
+			}
+			// wider widths if there are only two items
+			&.cards-count-2 {
+				thead .selection-control {
+					width: 188px;
+				}
+			}
+			thead {
+				border-bottom: 40px solid $pengo;
+				@include responsive(small) {
+					display: block;
+					border-bottom: 0;
+				}
+				th, td {
+					cursor: pointer;
+					text-align: center;
+					&.selected, 
+					&.hover {
+						background-color: $white;
+					}
+					label {
+						color: #848689;
+						text-transform: uppercase;
+						@include font-size(10px);
+						padding: 0 5px;
+						&:disabled {
+							color: #aaa;
+						}
+						a[href^="tel"] {
+							color: #848689;
+							&:hover {
+								color: #848689;
+							}
+						}
+					}
+				}
+				.selection-control {
+					width: 111px;
+					text-align: center;
+					font-size: 11px;
+					padding-right: 14px;
+					vertical-align: top;
+					cursor: auto;
+					p {
+						font-size: 10px;
+						line-height: 12px;
+						color: $blueSingaporeBlue;
+					}
+					.current-selection-label {
+						font-weight: bold;
+						font-size: 29px;
+						color: $blueSingaporeBlue;
+						margin-bottom: 10px;
+						line-height: 20px;
+						@include text-shadow(#999 1px 1px 3px);
+							em {
+								@include inline-block;
+								font-family: "Times New Roman",serif;
+								font-size: 14px;
+								font-style: italic;
+								vertical-align: middle;
+								margin: 0 3px;
+							}
+							strong {
+								font-weight: normal;
+								text-transform: uppercase;
+								font-size: 16px;
+							}
+						@include responsive(lessthanlarge) {
+							display: none;
+						}
+					}
+					.selection-controllers {
+						background:#fff;
+						@include border-radius(15px);
+						border: 1px solid $mouse;
+						padding: 5px;
+						p{
+							font-size: 10px;
+							color: $sqrl;
+							margin-bottom: 0;
+						}
+						.compare-selection{
+							background: none;
+							letter-spacing:.04em;
+							border: none;
+							width: 100%;
+							cursor: pointer;
+							display: block;
+							text-decoration: none;
+							font-size: 12px;
+							color: $sqrl;
+							text-transform: uppercase;
+							padding: 4px 0;
+							&.selected {
+								padding: 8px 0;
+								background-color: $sqrl;
+								color: $white;
+								@include border-radius(20px);
+								&:focus {
+									background-color: #999;
+								}
+								&:hover {
+									background-color: $sqrl;
+									color: $white;
+								}
+							}
+							&:hover, 
+							&:focus {
+								@include border-radius(20px);
+								background-color: $pengo;
+							}
+						}
+					}
+					@include responsive(lessthanlarge) {
+						display: none;
+					}
+				}
+				th {
+					width: 109px;
+					text-align: center;
+					@include font-size(11px,12px);
+					vertical-align: top;
+					a {
+						@include inline-block;
+						letter-spacing: -.025em;
+						font-weight: bold;
+						color: $blueSingaporeBlue;
+						text-decoration: none;
+						padding-top: 8px;
+					}
+					p {
+						font-size: 11px;
+					}
+				}
+				#descriptionRow {
+					td {
+						vertical-align: top;
+						p {
+							color: #494c50;
+							padding: 0 1px;
+							margin: 0;
+							font-size: 11px;
+							line-height: 12px;
+						}
+					}
+					@include responsive(lessthanlarge) {
+						display: none;
+					}
+				
+				}
+				#nameRow {
+					@include responsive(lessthanlarge) {
+						display: none;
+					}
+				}
+				#imageRow {
+					td {
+						padding-top: 5px;
+						.close-btn { 
+							@extend .abs;
+							cursor: pointer;
+							right: -5000px;
+							top: -5000px;
+							width: 0;
+							height: 0;
+							@include responsive(lessthanlarge) {
+								display: none;
+							}
+						}
+						&.selected, 
+						&.hover {
+							@include border-top-radius(10px);
+						}
+						&.selected {
+							.close-btn {
+								top: -8px;
+								right: -6px;
+								width: 16px;
+								height: 16px;
+							}
+						}
+						.image-wrap {
+							min-height: 17px;
+							img {
+								width: 100%;
+								max-width: 95px;
+								height: auto;
+								.oldie & {
+									width: 95px;
+								}
+							}
+						}
+						@include responsive(lessthanlarge) {
+							width: 100%;
+							@include fluid-row(true);
+							@include clearfix();
+							display: block;
+							border-bottom: 1px solid $mouse;
+							padding: 15px 0;
+							@include font-size(12px,13px);
+							.rel {
+								@include clearfix();
+							}
+							.image-wrap {
+								@include fluid-column(8,0,$grid-columns,0,false);
+								@include fluid-offset(1,0,left);
+								img {
+									max-width: none;
+								}
+							}
+							.card-description-mobile {
+								@include fluid-column(10,0,$grid-columns,0,false);
+								@include fluid-offset(1,0,left);
+								@include font-benton-sans('normal');
+								text-align: left;
+								color: $sqrl;
+								@include responsive(med) {
+									@include font-size(20px,24px);
+									p {
+										@include font-size(14px,18px);
+									}
+								}
+								@include responsive(small) {
+									p {
+										display: none;
+									}
+								}
+								a {
+									margin-top:15px;
+									display: block;
+									color: $deepblue;
+									text-decoration: none;
+									@include font-benton-sans('bold');
+								}
+								.arrow-right {
+									margin-left: 6px;
+									@include arrow(right,5px,$deepblue);
+								}
+							}
+						}
+						&.selection-control {
+							@include responsive(lessthanlarge) {
+								display: none;
+							}
+						}
+					}
+					@include responsive(small) {
+						display: block;
+					}
+				}
+				#checkboxRow {
+					td { 
+						height: 29px;
+						&.selected, 
+						&.hover {
+							@include border-bottom-radius(10px);
+						}
+						&.disabled {
+							color: #aaa;
+						}
+					}
+					@include responsive(lessthanlarge) {
+						display: none;
+					}
+				}
+			}
+			@include responsive(lessthanlarge) {
+				background: $white;
+				border-spacing: 0;
+				border-collapse: collapse;
+				padding: 0;
+				margin: 0;
+				width: 100%;
+			}
+		}
+
+		button#clearSelection {
+			font-size: 11px;
+			color: $blueSingaporeBlue;
+			background: none;
+			padding: none;
+			text-align: center;
+			width: 100%;
+			border: none;
+			cursor: pointer;
+			text-decoration: none;
+			&.disabled {
+				color: #aaa;
+				cursor: arrow;
+				&:hover {
+					text-decoration: none;
+				}
+			}
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	.view-container {
+		width: 100%;
+		background: $pengo;
+		z-index: 5;
+		padding-top: 50px;
+		@include responsive(lessthanlarge) {
+			padding-top: 0;
+		}
+		.view-grid {
+			@extend .clearfix;
+			width: 975px;
+			margin: 0 auto;
+			padding: 0;
+			border: 0;
+			border-bottom: 1px solid $elfnt;
+			@include responsive(lessthanlarge) {
+				width: 100%;
+				background: $white;
+			}
+			table {
+				width: 100%;
+				border: 0;
+				margin-bottom: 20px;
+				@include responsive(lessthanlarge) {
+					display: none;
+				}
+			}
+			tbody.feature {
+				&:first-child {
+					.spacer {
+						display: none;
+					}
+				}
+				td,th {
+					border-top: 1px solid $pengo;
+					border-bottom:1px solid $wolf;
+					box-sizing: border-box;
+					text-align: center;
+					font-size: 11px;
+					padding: 10px;
+					min-height: 37px;
+					vertical-align: middle;
+					color: $grey;
+					font-weight: normal;
+					&.even{
+						background-color: lighten($pengo,3%);
+						@media print {
+							border-left: 1px solid $pengo;
+							border-right: 1px solid $pengo;
+						}
+					}
+					&.odd {
+						background-color: $pengo;
+					}
+					&.compare-header { 
+						font-size: 13px;
+						padding: 12px;
+					}
+				}
+				th {
+					text-align: left;
+				}
+			}
+			tr {
+				&.view-row {
+					border-bottom: 1px solid $wolf;
+					th {
+						width: 123px;
+						color: #000;
+					}
+					td {
+						width: 113px;
+					}
+				}
+				&.spacer {
+					border: none;
+					td {
+						padding: 0;
+						height: 20px;
+					}
+				}
+			}
+		}
+	}
+
+	.disclaimer-area {
+		border-top:1px solid $wolf;
+		padding:50px 0;
+		@extend .main-container;
+		@include responsive(lessthanlarge) {
+			display: none;
+			height: 0;
+		}
+	}
+
+	.view-all {
+		@include responsive(lessthanlarge) {
+			display: none;
+		}
+	}
+
+	span.checked-item {
+		@media screen {
+			// mixin hack since extend doesn't work in this media query
+			@include image-repacement();
+			margin:0 auto;
+			width: 20px;
+			height: 21px;
+			background: image-url('gcp2/icn-check.png') no-repeat;
+		}	
+		@media print {
+			// If browser supports this, it shows a check; otherwise shows the replaced text.
+			content: url('../i/gcp2/icn-check.png');
+		}
+	}
+
+	.collapser {
+		width: 20px;
+		height: 20px;
+		line-height: 20px;
+		text-align: center;
+		display: inline-block;
+		text-decoration: none;
+		background: $white;
+		border:1px solid $sqrl;
+		color: #828487;
+		@include font-benton-sans(regular);
+		margin-right:5px;
+		cursor: pointer;
+		&:hover {
+			background: $light-grey;
+		}
+	}
+
+	.compare-header {
+		background: lighten($pengo,3%);
+		padding:10px;
+		@include font-benton-sans(light);
+		color: $grey;
+		font-size:13px;
+		text-transform: uppercase;
+		text-align: left;
+	}
+
+	.compare-row, 
+	.view-row {
+		clear:both;
+	}
+
+	.compare-table, 
+	.view-table {
+		margin-bottom:17px;
+	}
+
+	.apply-cta {
+		clear: both;
+		float: right;
+		width: 50%;
+		margin-top: 25px;
+		text-align: right;
+		padding-bottom: 50px;
+		color: $deepblue;
+		a[href^="tel"] {
+			color: $deepblue;
+		}
+		.spaced-text {
+			@include inline-block;
+			margin: 0 15px;
+			font-size: 10px;
+		}
+		.btn {
+			@include btn($deepblue,#1d4f9c,$white,large);
+		}
+		@include responsive(lessthanlarge){
+			text-align: center;
+			float: none;
+			margin: 0px auto;
+			strong {
+				font-size: 14px;
+				margin-bottom: 15px;
+				display: block;
+			}
+			.spaced-text {
+				display: none;
+			}
+		}
+	}
+
+	.compare-card-container {
+		@extend .clearfix;
+		background-color:$white;
+		padding: 42px 0 20px 0;
+		margin-top: -50px;
+		.label {
+			text-align:left;
+			@include font-size(13px,15px);
+			color: $sqrl;
+			a[href^="tel"] {
+				color: $sqrl;
+				&:hover {
+					color: $sqrl;
+				}
+			}
+		}
+		.compare-container {
+			@extend .clearfix;
+			@extend .row;
+			border: 0;
+			table {
+				border: 0;
+				@extend .main-container;
+				@include responsive(lessthanlarge) {
+					display: none;
+				}
+				thead.compare-grid {
+					border-bottom: 0;
+					background-color: $white;
+					max-width: 980px;
+					&.is-stuck {
+						@include responsive('large') {
+							position: fixed;
+							top: 48px;
+							padding-top: 35px;
+							width: 100%;
+							z-index: 3;
+						}
+						.oldie & {
+							position: fixed;
+							top: 48px;
+							padding-top: 35px;
+							width: 100%;
+							z-index: 3;
+						}
+						// wider widths if there are only two items
+						.card-count-2 {
+							td.label {
+								width: 520px;
+							}
+						}
+					}
+				}
+				.card-selections {
+					td.label {
+						width: 290px;
+						background: none;
+						vertical-align: middle;
+						p {
+							font-size: 13px;
+							color: $sqrl;
+						}
+					}
+					th {
+						width: 192px;
+						padding: 7px 15px;
+						height: 62px;
+						text-align: left;
+						vertical-align: middle;
+						height: 92px;
+						.selected-img{
+							float: left;
+							margin-right: 3px;
+							width: 65px;
+						}
+						.selected-info {
+							float: right;
+							width: 124px;
+							line-height: 0.8;
+							
+							&.-no-image {
+								width: 100%;
+								float: none;
+							}
+						}
+						a {
+							margin: 0px;
+							font-size: 10px;
+							color: $blueSingaporeBlue;
+							text-decoration: none;
+						}
+						h3.card-name {
+							font-size: 11px;
+							text-transform: uppercase;
+							@include font-benton-sans(bold);
+							color: $blueSingaporeBlue;
+							margin-bottom: 0;
+							&.empty {
+								color: $grey;
+								padding-top: 0;
+								text-align: center;
+							}
+						}
+					}
+				}
+			}
+			th.compare-header {
+				background-color: $pengo;
+			}
+			tr.compare-row {
+				border-bottom: 1px solid #e5e5e5;
+				td {
+					width: 23.63888888889%;
+					text-align: center;
+					padding: 9px 8px 5px 8px;
+					height: 32px;
+					color: $crow;
+					vertical-align: middle;
+					@include font-size(12px);
+					&.even {
+						background-color: darken($white,2%);
+					}
+					&.odd {
+						background-color: $white;
+					}
+				}
+				th {
+					width: 248px;
+					text-align: left;
+					font-size: 14px;
+					color: #000;
+					padding-left: 42px;
+					padding-right: 20px;
+					vertical-align: middle;
+					font-weight: normal;
+				}
+			}
+		}
+	}
+
+	// tooltip
+	.tooltip {
+		@include border-radius(8px);
+		@include font-arial(bold);
+		@include font-size-only(13px, 13px);
+		@include line-height(14px, 13px);
+		background-color: #787a7d;
+		color: $white;
+		display: inline-block;
+		margin-left: 8px;
+		padding: 1px 4px;
+		position: relative;
+		text-decoration: none;
+		vertical-align: 16%;
+		&:hover, 
+		&:visited {
+			color: $white;
+		}
+		.ie7 & {
+			vertical-align: baseline;
+		}
+		@media print {
+			content: '';
+		}
+		span {
+			background-color: $white;
+			border: 1px solid $light-grey;
+			bottom: 20px;
+			font-weight: normal;
+			left: -20px;
+			padding: 10px;
+			position: absolute;
+			text-transform: none;
+			width: 260px;
+			z-index: 10;
+			p {
+				@include font-size-only(14px,13px);
+				@include line-height(18px, 14px);
+				@include font-arial();
+				color: $blueSingaporeBlue;
+				margin: 0;
+			}
+			@media print { 
+				position: static;
+				display: inline-block;
+				padding-top: 5px;
+				height: 20px;
+				border: none;
+				width: auto;
+			}
+		}
+	}
+}
+
+@media print {
+	#subHeaderWrapper, 
+	#header {
+		display: none;
+	}
+}
+
+@import 'gcp2/modules/breadcrumbs';

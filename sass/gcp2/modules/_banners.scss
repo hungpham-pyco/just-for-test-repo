@@ -1,0 +1,241 @@
+// ribbon promos
+.ribbon-promo { 
+	@include box-sizing(border-box);
+	padding: 20px;
+	position: absolute;
+	right: 0;
+	top: -10px;
+	bottom: -10px;
+	&:before, 
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0px;
+		z-index: -10;
+		@include arrow(bottomright,5px,#021736,corner);
+		left: -10px;
+	}
+	&:after {
+		@include arrow(topright,5px,#021736,corner);
+		bottom: 0px;
+		top: auto;
+	}
+	&.blue { 
+		background-color: $blue;
+		color: #FFF;
+	}
+	&.gray-grad {
+		@include bg-grad(#666567, #7f7e80, left);
+		color: #FFF;
+	}
+}
+
+// request info banner
+.request-banner,
+.short-form {
+	background: $darkteal;
+	color: $white;
+	.detail & {
+		// if promo viewer is below a ribbon on detail page, add more margin
+		+ .main-container .articles {
+			margin-top: 65px;
+		}
+	}
+
+	.promo-wrapper & {
+		@include fluid-column(8,0,$grid-columns,0,false);
+		@include fluid-offset(1,0,left);
+		padding: 10px 25px 5px 25px;
+		margin-top: 14px;
+		margin-bottom: 14px;
+		@include border-radius(10px);
+		@include responsive('lessthanlarge') {
+			width: 100%;
+			margin-left: 0;
+			@include border-radius(0);
+			padding-bottom: 0;
+		}
+		.main-container {
+			min-height: 0;
+			padding-top: 0;
+			.banner-content,
+			.content {
+				width: 100%;
+				float: none;
+				margin-bottom: 20px;
+				padding: 0;
+				h2 {
+					@include font-benton-sans(bold);
+					@include font-size(18px,16px);
+					color: $white;
+					margin: 0 0 10px 0;
+				}
+
+				p {
+					@include font-size(12px,16px);
+					clear: left;
+				}
+				@include responsive('lessthanlarge') {
+					padding: 20px 0;
+				}
+			}
+		}
+
+		.ribbon-promo {
+			width: 100%;
+			position: relative;
+			top: auto;
+			bottom: auto;
+			padding: 0;
+			.input-text {
+				border-top:1px solid #efefef;
+				&:first-child {
+					border:none;
+				}
+			}
+			label {
+				display: none;
+			}
+			button {
+				width: 100%;
+				margin:10px 0  0;
+				padding-right: 0;
+				text-transform: uppercase;
+			}
+
+			&.form-container {
+				padding: 0;
+			}
+			.fields-container {
+				background: $white;
+				@include border-radius(5px);
+			}
+
+			&:before,
+			&:after {
+				display: none;
+			}
+		}
+	}
+	.main-container {
+		position: relative;
+		min-height: 250px;
+	}
+	.banner-content {
+		@include fluid-column(17,0,$grid-columns,0,false);
+		padding: 38px 0; 
+	}
+	h2 {
+		@extend .h1;
+		color: $white;
+		margin: 0 0 20px 0;
+	}
+	p {
+		@extend .body-2;
+		color: $white;
+		margin-bottom: 0;
+		a[href^="tel"]{
+			color: $white;
+			@include font-size(15px,17px,0,12px);
+			&:hover {
+				color: $white;
+			}
+		}
+	}
+	@include responsive(med) {
+		.banner-content {
+			@include fluid-column(22);
+			@include fluid-offset(1,0,left);
+		}
+	}
+	@include responsive(small) {
+		.banner-content {
+			@include fluid-column(20);
+			@include fluid-offset(2,0,left);
+		}
+		h2 {
+			@include font-size(30px, 32px);
+		}
+		p {
+			@include font-size(13px, 17px);
+		}
+	}
+	.ribbon-promo {
+		width: 240px;
+		z-index: 100;
+		&:before, &:after {
+			z-index: 0;
+		}
+		.ie7 & {
+			width: 200px;
+		}
+		p {
+			@include font-benton-sans();
+			@include font-size(12px, 14px);
+			margin-bottom: 1em;
+			strong {
+				@include font-benton-sans(bold);
+				@include font-size-only(14px, 12px);
+				font-weight: bold;
+			}
+			.oldie & {
+				@include font-benton-sans(medium);
+			}
+		}
+		@include responsive(lessthanlarge) {
+			display: none;
+			.promo-wrapper & { 
+				display: block;
+			}
+		}
+		> div,
+		.fields-container {
+			@include border-radius(5px);
+			@include box-shadow(rgba(#000, 0.6) -1px 1px 2px);
+			background: $white;
+			position: relative;
+			z-index: 2;
+		}
+	}
+	h3 {
+		@include font-benton-sans(bold);
+		@include font-size(20px, 20px);
+		letter-spacing: 0;
+		color: $white;
+		margin: 0;
+	}
+	input[type="text"] {
+		@include font-benton-sans('medium');
+		@include font-size(14px);
+		background: none;
+		border: 0;
+		border-bottom: 1px solid $pengo;
+		padding: 6px 10px;
+		width: 90%;
+		&:last-child,
+		&.last {
+			border: 0;
+		}
+	}
+	button {
+		@include font-benton-sans(bold);
+		@include font-size(18px);
+		background-color: transparent;
+		border: 0;
+		color: $white;
+		margin: 5px -20px -20px -20px;
+		padding: 15px 20px 10px 0;
+		text-align: right;
+		width: 240px;
+		.arrow {
+			margin-left: 6px;
+			@include arrow(right,5px,$white);
+			.ie7 & {
+				vertical-align: middle;
+			}
+		}
+		&:focus {
+			outline: 1px dotted white;
+		}
+	}
+}

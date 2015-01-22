@@ -1,0 +1,7 @@
+- only include the css for the widgets that are used
+- never alter the css in the base directory
+- add a new file that extends the base file in the theme directory
+
+Example:
+@import "jquery.ui/base/jquery.ui.dialog"; // contains the base styles for the widget, no visual styles
+@import "jquery.ui/theme/jquery.ui.dialog"; // contains only the styles needed to style the widget

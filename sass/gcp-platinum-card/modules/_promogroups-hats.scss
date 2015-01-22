@@ -1,0 +1,85 @@
+﻿.main-container {
+	&.promo-group {
+		margin-top: 45px;
+		margin-bottom: 45px;
+		.intro-content {
+			margin-top: 64px;
+		}
+	}
+}
+
+.benefit-column {
+	@include fluid-column(12,0,$grid-columns,0,false);
+	float: right;
+	&.left {
+		float: left;
+	}
+	@include responsive(lessthanlarge) {
+		@include fluid-column(22,0,$grid-columns,0,false);
+		@include fluid-offset-left(1);
+		float: none;
+		&.left {
+			float: none;
+		}
+	}
+	@include responsive(small) {
+		margin: 0;
+		width: 100%;
+	}
+	h3, h2 {
+		margin-top: 0;
+	}
+	.promo {
+		background-color: #fff;
+		color: $crow;
+		margin-bottom: 20px;
+		@include responsive(small) {
+			margin-bottom: 0;
+		}
+		img {
+			width: 100%;
+			height: auto;
+		}
+		.content {
+			@include font-benton-sans('regular');
+			padding: 37px;
+			@include responsive(small) {
+				padding: 37px 20px;
+			}
+		}
+		h3 {
+			@extend .h5;
+			margin-bottom: 10px;
+		}
+		h2 {
+			@extend .h3;
+		}
+		ul {
+			list-style: none;
+			margin: 20px 0;
+			padding: 0;
+		}
+		li {
+			margin-bottom: 3px;
+			@include font-size(13px);
+			@include font-benton-sans('light');
+			h4 {
+				@include font-size(18px,20px);
+				@include font-benton-sans('bold');
+			}
+			strong {
+				@include font-benton-sans('bold');
+			}
+		}
+		.cta-link {
+			@extend .antibtn;
+			color: $teal;
+			@include font-size(12px);
+			.arrow-right {
+				display: inline-block;
+				margin-left: 5px;
+				@include arrow('right',4px,$teal);
+			}
+		}
+	}	
+}

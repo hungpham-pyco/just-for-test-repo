@@ -1,0 +1,199 @@
+.cta {
+	border: 1px solid $light-grey;
+	background-color: #FAFAFA;
+	+ .cta {
+		border-top: 0;
+	}
+	
+	a {
+		@include font-size(14px,16px);
+		background-position: left center;
+		background-repeat: no-repeat;
+		color: $purple;
+		font-weight: bold;
+		text-decoration: none;
+		display: block;
+
+		padding: 15px 5px 15px 58px;
+		
+		&:hover,
+		&:focus {
+			background-color: #F2F2F2;
+		}
+		
+		&:first-line {
+			font-weight: normal;
+			color: $black;
+		}
+		.black {
+			color: $black;
+		}
+		.purple {
+			color: $purple;
+		}
+
+		.normal {
+			font-weight: normal;
+		}
+
+
+		/* arrow	---- */
+		&:after {
+			content: ' ';
+			display: inline-block;
+			width: 0;
+			height: 0;
+			border-top: 6px solid transparent;
+			border-bottom: 6px solid transparent;
+			border-left: 6px solid $purple;
+			position: relative;
+			bottom: 0;
+			left: 8px;
+		}
+		/* IE7 arrow */
+		.ie7 & span {
+			background: url(../i/gcp/cta-arrow.png) no-repeat 0 right;
+			display: inline-block;
+			width: 10px;
+			height: 14px;
+		}
+	}
+}
+.link-arrow a {
+    /* arrow  ---- */
+    &:after {
+      content: ' ';
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 6px solid $purple;
+      position: relative;
+      bottom: 0;
+      left: 8px;
+    }
+}
+
+.link-arrow-down a {
+    /* arrow  ---- */
+    &:after {
+		content: ' ';
+		display: inline-block;
+		width: 0;
+		height: 0;
+		border-left: 6px solid transparent;
+		border-right: 6px solid transparent;
+		border-top: 6px solid $purple;
+		position: relative;
+		bottom: 2px;
+		left: 8px;
+    }
+}
+
+.cardmember a {
+	background: url(../i/gcp/bg-cardmember-cta.png) no-repeat 0 35%;
+}
+
+.program-admin a {
+		background: url(../i/gcp/bg-pro-admin.png) no-repeat 0 35%;
+		padding-top: 10px;
+}
+
+.dropdown {
+	position: relative;
+	
+	a {
+		&:focus {
+			outline: 0;
+		}
+
+	/* arrow	---- */
+		&:after {
+			content: ' ';
+			display: inline-block;
+			width: 0;
+			height: 0;
+			border-left: 6px solid transparent;
+			border-right: 6px solid transparent;
+			border-top: 6px solid $purple;
+			position: relative;
+			bottom: -4px;
+			left: 8px;
+		}
+
+		/* IE7 arrow */
+		.ie7 & span {
+			background: url(../i/gcp/cta-arrow-down.png) no-repeat 0 right;
+			display: inline-block;
+			width: 16px;
+			height: 11px;
+		}
+	}
+	
+	.menu {
+		background-color: #FFF;
+		position: absolute;
+		left: -1px !important;
+		width: 100%;
+		@include box-shadow(4px 3px 4px rgba(0,0,0,0.5));
+		list-style-type: none;
+		border: solid #C2C4CD; // Use a variable along with button border color
+		border-width: 0 1px 1px 1px;
+		padding: 0;
+		margin: 0;
+		display: none;
+		outline: 0;
+		
+		z-index: 999;
+		
+		li {
+			border-top: 1px solid #C2C4CD;
+			list-style-type: none;
+			margin-bottom: 0;
+				.ie9 & {
+				text-indent: 0 !important;
+				margin-left: 0 !important;
+				&:before {
+				content: ' ' !important;
+				}
+			}
+		}
+		
+		a {
+			display: block;
+			color: $purple;
+			text-transform: capitalize;
+			padding: 15px 23px 15px 15px !important;
+			min-height: 0;
+			background: url(../i/gcp/icn-nav-arrow-lg.png) no-repeat 95% 53% !important;
+			
+			&:first-line {
+				color: $purple;
+			}
+			
+			@include font-size(14px,14px);
+			font-weight: normal;
+			text-transform: none;
+			
+			
+			&:hover,
+			&:focus,
+			&.ui-state-focus {
+				background-color: $background !important;
+			}
+			
+			&:after {
+				border: 0 !important;
+			}
+		}
+	}
+}
+
+.show-menu {
+	background-color: #F2F2F2;
+	
+	.menu {
+		display: block;
+	}
+}

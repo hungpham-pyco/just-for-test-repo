@@ -1,0 +1,59 @@
+#subHeaderWrapper {
+	background: $white;
+	height: 57px;
+}
+#subHeaderContent {
+	@include grid-page();
+
+	h1 {
+		border-bottom: 0;
+	}
+	.subHeader {
+		@include float-left;
+		width: 40%;
+		span {
+			display: block;
+			@include font-benton-sans;
+			@include font-size(15px,15px);
+			background: image-url('amex/gcp-logo.png') 0 0 no-repeat;
+			display: block;
+			height: 28px;
+			text-indent: -9999px;
+			width: 164px;
+			br {
+				display: none;
+			}
+			text-transform: uppercase;
+			color: $purple;
+			font-weight: bold;
+			margin: 13px 0 0 0;
+			padding: 4px 0 0 0;
+			border-bottom: 0;
+			&:first-line {
+				color: $grey;
+				font-weight: normal;
+			}
+			span.alt {
+				color: $grey;
+				font-weight: normal;
+				@include font-size(16px,16px);
+					&:first-line {
+					color: $purple;
+					font-weight: bold;
+				}
+			}
+		}
+	}
+
+	.right-content {
+		float: right;
+		display: inline;
+		margin-top: 15px;
+	}
+	select {
+		vertical-align: top;
+		margin: 7px 10px 0 10px;
+		@include font-size(12px,12px);
+		@include float-left;
+	}
+}

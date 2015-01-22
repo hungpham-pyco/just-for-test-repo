@@ -1,0 +1,150 @@
+.slides {
+	//position: relative;
+	//margin: 0 auto;
+	width: 1398px;
+	height: 489px;
+	z-index: 10;
+
+	.slide-button-prev,
+	.slide-button-next {
+		position: absolute;
+		width: 38px;
+		height: 68px;
+		top: 250px;
+		cursor: pointer;
+		z-index: 20;
+	
+		a {
+			@extend .ir;
+			display: block;
+			height: 100%;
+			
+			background-repeat: no-repeat;
+			@include transition(background-position .2s ease-in-out);
+		
+			&:focus {
+				outline: 0;
+			}
+		}
+	}
+
+	.slide-button-prev {
+		left: 35px;
+		a {
+			background: url('../i/payve2/left-arrow.png') 3px 50%;
+			&:hover {
+				background-position:  0 50%;
+			}
+		}
+	}
+
+	.slide-button-next {
+		right: 35px;
+		a {
+			background: url('../i/payve2/right-arrow.png') 0 50%;
+			&:hover {
+				background-position:  3px 50%;
+			}
+		}
+	}
+
+	.indicators {
+		display: none;
+	}
+	
+	// Extra class for indicators
+	.ui-state-disabled {
+		a {
+			cursor: default;
+		}
+	}
+}
+
+.slide {
+	//position: absolute;
+	width: 1398px;
+	height: 489px;
+	display: none; //none
+	z-index: 10;
+}
+
+.slides .ui-state-active {
+	display: block;
+}
+
+.slide-content {
+	position: absolute;
+
+	h2 {
+		color: $purple;
+		margin: 0;
+		font-weight: bold;
+	}
+
+	p {
+		color: $grey;
+		margin: 0;
+		@include font-size(14px, auto, 0, 16px);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Showcase
+-------------*/
+
+#awOnePageButton .view-slide
+{
+	display: none;
+}
+
+/* This class is removed after the showcase is loaded */
+/* Assign the correct showcase height to prevent loading jumps in IE */
+.showcase-load
+{
+	height: 489px; /* Same as showcase javascript option */
+	overflow: hidden;
+}
+/* Container when content is shown in slider */
+.showcase {
+	width: 1398px;
+	height: 489px;
+	z-index: 10;
+	
+	//position: relative;
+	//margin: auto;
+}
+/* Navigation arrows */
+.showcase-arrow-previous, .showcase-arrow-next {
+	position: absolute;
+	background: url('../i/payve2/arrows-slideshow.png') no-repeat;
+	width: 35px;
+	height: 68px;
+	top: 250px;
+	cursor: pointer;
+	z-index: 20;
+}
+	
+.showcase-arrow-previous {
+	left: 35px;
+}
+.showcase-arrow-next {
+	right: 35px;
+	background-position: -35px 0;
+}
+/* Content */
+.showcase-content-wrapper {
+	display: table-cell;
+}

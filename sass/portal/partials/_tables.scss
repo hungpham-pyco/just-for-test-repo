@@ -1,0 +1,171 @@
+// tables
+table.base {
+	margin-bottom: 30px;
+	width: 100%;
+	th, 
+	td {
+		@include font-size(12px);
+		&.just-center {
+			text-align: center;
+		}
+	}
+	th {
+		@include font-benton-sans(medium);
+		background-color: $grey-seven;
+		color: $grey-five;
+		text-align: left;
+		text-transform: uppercase;
+		@include responsive(med) {
+			@include font-size(10px);
+		}
+		&.sort {
+			border-bottom: 2px solid $blue-one;
+		}
+		div {
+			position: relative;
+		}
+		a {
+			display: block;
+			padding: 15px 17px 10px 15px;
+			position: relative;
+			color: $grey-five;
+		}
+	}
+	td {
+		border-bottom: 1px solid $grey-ten;
+		border-top: 1px solid $grey-ten;
+		color: #000;
+		padding: 15px 10px;
+		&:nth-child(2n) {
+			background-color: #fbfbfb;
+		}
+		&.even {
+			background-color: #fbfbfb;
+		}
+	}
+	@include responsive(small) {
+		margin-bottom: 30px;
+	}
+	// sort styles: only show if the parent table has 
+	// the class ".sortable"
+	&.sortable {
+		th {
+			vertical-align: bottom;
+			padding-bottom: 0;
+			a{
+				// border below on selected table heading
+				border-bottom: 2px solid $grey-seven;
+				&.asc, 
+				&.des {
+					border-bottom: 2px solid $blue-five;
+					&:hover {
+						border-bottom: 2px solid $blue-five;
+					}
+				}
+				// hover state on table headings that are not selected
+				&:hover {
+					border-bottom: 2px solid #b8d5e8;
+				}
+				// if href ends with asc, show up arrow
+				&[href$='asc']{
+					&:hover {
+						span {
+							@include sprite-background-image($sprite, "sort-asc", true);
+						}
+					}
+					// if already sorted, maintain current arrow on hover
+					&.des {
+						&:hover {
+							span {
+								@include sprite-background-image($sprite, "sort-des", true);
+							}
+						}
+					}
+				}
+				// if href ends with desc, show down arrow
+				&[href$='desc'] {
+					&:hover {
+						span {
+							@include sprite-background-image($sprite, "sort-des", true);
+						}
+					}
+					// if already sorted, maintain current arrow on hover
+					&.asc {
+						&:hover {
+							span {
+								@include sprite-background-image($sprite, "sort-asc", true);
+							}
+						}
+					}
+				}
+				// arrow 
+				span {
+					position: absolute;
+					right: 10px;
+					top: 15;
+				}
+
+				// arrow styles based on sort direction
+				&.asc {
+					span {
+						@include sprite-background-image($sprite, "sort-asc", true);
+					}
+				}
+				&.des {
+					span {
+						@include sprite-background-image($sprite, "sort-des", true);
+					}
+				}
+			}
+		}
+	}
+}
+
+table.mng-table {
+	th {
+		width: 16%;
+	}
+	@include responsive(small) {
+		th,
+		td {
+			display: none;
+			&:first-child,
+			&:nth-child(2) {
+				display: table-cell;
+			}
+		}
+	}
+}
+
+table.radio-table {
+	th {
+		width: 16%;
+	}
+	@include responsive(small) {
+		th,
+		td {
+			display: none;
+			&:first-child {
+				display: table-cell;
+			}
+		}
+		.show {
+			display: table-cell;
+		}
+	}
+}
+
+table.files-table {
+	th {
+		a {
+			margin-left: 10px;
+			position: static;
+		}
+	}
+}
+
+tbody.loading {
+	td {
+		@include opacity(0.25);
+	}
+}

@@ -1,0 +1,138 @@
+// for static, non-modal page
+.non-modal-login {
+	.intro {
+		@include font-size(14px, 18px);
+		padding: 10px 0 10px 0;
+		border-bottom: 1px solid $purple;
+	}
+}
+.form {
+	//padding-left: 25px; 
+	img {
+		@include float-right;
+	}
+	label {
+		@include font-size(14px, 14px);
+		&.checkbox {
+			@include font-size(12px, 12px);
+		}
+	}
+	h2 {
+		@include font-size(14px, 14px);
+		margin-bottom: 5px;
+	}
+	input {
+		margin-bottom: 10px;
+	}
+	.form-cta {
+		margin-bottom: 25px;
+	}
+	.ie7 & .btn {
+		float: none;
+	}
+	.error {
+		color: $red;
+		margin: -7px 0 10px;
+		@include font-size(12px, 12px);
+		display: block;
+	}
+}
+// END for static, non-modal page
+ 
+.amex-dialog {
+	.ui-dialog-titlebar {
+		background-color: $purple; 
+		color: $white;
+		border-bottom: 0;
+		padding-left: 30px; 
+		padding-bottom: 0;
+	}
+	.ui-dialog-title {
+		@include font-size(18px, 50px);
+	}
+	p {
+		@include font-size(14px, 18px);
+	}
+	.amex-dialog-content {
+		padding: 10px 30px;
+	}
+	.amex-dialog-content + .amex-dialog-content {
+		border-top: 1px solid $purple;
+	}
+	.legal p {
+		@include font-size(12px, 12px);
+	}
+	label {
+		display: block;
+		margin-bottom: 5px;
+	}
+	input[type="text"],
+	input[type="email"] {
+		width: 360px;
+		&.digits {
+			width: 150px;
+		}
+	}
+	#newsletter-signup {
+		input {
+			margin-bottom: 15px;
+		}
+	}
+	#warning-dialog {
+		h2 {
+			margin-top: 30px;
+			@include font-size(16px, 16px);
+		}
+	}
+	#terms-dialog {
+		> div {
+			padding: 40px 20px 30px;
+		}
+		p {
+			@include font-size(11px, 12px);
+		}
+	}
+}
+
+
+.loading-dialog {
+	.ui-dialog-titlebar {
+		display: none;
+	}
+	
+	.loading {
+		font-size: 18px;
+		font-weight: bold;
+		text-align: center;
+		padding-top: 30px;
+	}
+}
+
+// Overlays
+.ui-widget-overlay {
+	background: #000;
+	opacity: .5;
+	filter:Alpha(Opacity=50);
+}
+
+// Loading
+
+.ui-loader {
+  background-color: black;
+  position: fixed;
+  z-index: 10003; // appear over dialogs
+  h1 {
+	color: white;
+  }
+  .ui-icon-loading {
+	background-image: image-url("loading.gif");
+	width: 16px;
+	height: 16px;
+	margin-bottom: 1em;
+  }
+}
+
+.ui-loader-preload {
+  display: none;
+  background-image: image-url("loading.gif");
+}

@@ -1,0 +1,26 @@
+.pagination {
+	border: 1px solid $light-grey;
+	@include grid-column(18,10px);
+	@include box-sizing(border-box);
+	@include font-size(17px, 17px);
+	background: #fff;
+	margin: 10px 0;
+	padding: 20px 15px;
+	@include float-right;
+	.ie7 & {
+		width: 688px;
+	}
+		a {
+				height: 14px;
+			}
+		.left {
+			@include float-left;
+			@include sprite-background-image ($icon-sprites, "demo-pagination-left-arrow",false,0,2px);
+			padding-left: 20px;
+		}
+		.right {
+			@include float-right;
+			@include sprite-background-image ($icon-sprites, "demo-pagination-right-arrow",false,100%,2px);
+			padding-right: 20px;
+		}
+}

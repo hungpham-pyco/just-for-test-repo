@@ -1,0 +1,51 @@
+body {
+  @extend .sprite-bg-header;
+  //background-image: image-url('bg-header.png');
+  background-repeat: repeat-x;
+  min-width: 1080px;
+}
+
+// Page
+#container {
+  min-width: 1080px;
+  > section, > .section {
+	  @include grid-page();
+  }
+  > section.full-width, > .section.full-width {
+	width: auto;
+	margin: 0;
+	.content {
+	  @include grid-page();
+	  //@include grid-page($plus: -$gutter-width);
+	  //padding: 0 ($gutter-width / 2);
+	}
+  }
+}
+#header,
+#main {
+  @include grid-page();
+  > section, > .section {
+	@include grid-row(true);
+	clear: both;
+	margin-bottom: 10px;
+  }
+  > .section-last {
+	margin-bottom: 30px;
+  }
+}
+
+
+// fix AMEX header, footer
+#iNavNGI_FooterCont {
+  margin: 0 auto !important;
+}
+#iNavNGI_Header {
+  width: 957px + 23px !important;
+  margin: 0 0 0 -23px !important;
+}
+#iNavHeaderCont, #iNavSANavCont {
+  width: 100% !important;
+}
+.iNavShadow {
+  min-width: 0 !important;
+}

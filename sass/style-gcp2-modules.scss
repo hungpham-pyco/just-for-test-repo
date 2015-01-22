@@ -1,0 +1,60 @@
+// styles from gcp2 modules folder
+
+// COMPASS CSS3 MIXINS
+@import 'compass';
+@import 'gcp2/partials/grid';
+@import 'gcp2/partials/fluid';
+
+@import 'gcp2/partials/jquery-ui/jquery-ui-tabs';
+@import 'gcp2/partials/jquery-ui/jquery-ui-dialog';
+
+// SET BASE VARIABLES
+@import 'gcp2/partials/base';
+@import 'gcp2/partials/fonts';
+@import 'gcp2/partials/bentonsans';
+@import 'gcp2/partials/sprites';
+
+// MEDIA QUERIES MIXINS
+@import 'gcp2/partials/media-queries';
+
+// PROJECT MIXINS
+@import 'gcp2/partials/mixins';
+@import 'gcp2/partials/buttons';
+@import 'gcp2/partials/utilities';
+@import 'gcp2/partials/type';
+
+
+/***********************************/
+/* SOLUTION FINDER */
+/***********************************/
+@import 'gcp2/modules/solution-finder';
+
+/************************************/
+/* CAROUSEL */
+/************************************/
+@import 'gcp2/modules/carousel';
+
+/***********************************/
+/* LIST STYLES */
+/***********************************/
+@import 'gcp2/modules/list';
+
+/************************************/
+/* PROMO GROUPS */
+/************************************/
+@import 'gcp2/modules/promo-groups';
+
+/************************************/
+/* PROMO MODULES */
+/************************************/
+@import 'gcp2/modules/promo-modules';
+
+/************************************/
+/* BANNER STYLES */
+/************************************/
+@import 'gcp2/modules/banners';
+
+/************************************/
+/* VIDEO PLAYER */
+/************************************/
+@import 'gcp2/modules/video-player';

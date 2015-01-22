@@ -1,0 +1,25 @@
+﻿.breadcrumb {
+	clear: both;
+	max-width: 660px;
+	padding: 10px 0 0 5px;
+	color: #053379;
+	@include font-size(13px);
+	font-weight: bold;
+	background: #fff;
+
+	// hide on small devices
+	@include responsive('small') {
+		display: none;
+	}
+	a,
+	a:visited {
+		color: #053379;
+		&:hover {
+			color: #5daac0;
+		}
+		&:focus {
+			color: #5daac0;
+			outline: thin dotted;
+		}
+	}
+}

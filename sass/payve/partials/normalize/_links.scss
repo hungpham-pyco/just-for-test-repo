@@ -1,0 +1,27 @@
+// =============================================================================
+// Links
+// =============================================================================
+
+a {
+	color: $blue;
+
+	&:visited {
+		color: $blue;
+	}
+	
+	&:hover {
+		color: $red
+	}
+	
+	&:focus {
+		outline: thin dotted;
+	}
+
+	// Improve readability when focused and hovered in all browsers: h5bp.com/h
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
+
+

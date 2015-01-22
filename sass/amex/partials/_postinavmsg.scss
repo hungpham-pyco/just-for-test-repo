@@ -1,0 +1,17 @@
+// post iNav Message 
+.post-inav-message{
+	background: #FFFFFF;
+	border-bottom: 1px solid #f6f7f6;
+	.message-container{
+		width: 933px;
+		margin: 0 auto;
+		padding: 21px 0 11px 27px;
+		&.info{
+			background: url('../i/amex/icn-info.gif') no-repeat left 22px;
+			p{
+				color:#585858;
+				letter-spacing:-0.01em;
+			}
+		}
+	}
+}

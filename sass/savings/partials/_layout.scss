@@ -1,0 +1,94 @@
+html, body {
+	//height: 100%;
+	background: $background;
+}
+
+body {
+	min-width: 960px;
+}
+
+#container {
+	min-height: 100%;
+	//position: relative; commented out to resolve ShareAmex + positioning
+	.ie6 & {
+		height: 100%;
+	}
+	.ie7 & {
+		z-index: 1;
+	}
+}
+
+// Page
+.body {
+	position: relative;
+}
+.header,
+#header {
+	#iNavHeaderCont,
+	#iNavSANavCont,
+	#iNav_header_wrap {
+		margin: 0 auto;
+	}
+}
+.footer,
+#footer {
+	#iNavNGI_FooterMain.iNavFreeFloat #iNavNGI_FooterCont,
+	#iNav_footer {
+		margin: 0 auto;
+	}
+}
+#subHeaderContent,
+#main,
+#headerPage {
+	@include grid-page();
+}
+#main {
+	background-image: inline-image("savings/bg-nav.png");
+	background-repeat: repeat-y;
+	background-position: 0 0;
+	.ie7 & {
+		background-image: image-url("savings/bg-nav.png");
+  }
+}
+#leftColumn {
+	@include grid-column(5,10px);
+	margin-right: 0; // contentWrapper needs to touch leftColumn for gradient
+	padding-top: 25px;
+}
+#contentWrapper {
+	@include grid-column(18);
+	@include min-height(350px);
+	margin: 0;
+	margin-right: 5px;
+	padding: 25px 0 25px 40px;
+	position: relative;
+	z-index: 100;
+	background: url('../i/savings/bg-page-header.png') repeat-x 0 0;
+}
+#mainColumn {
+	@include grid-column(12);
+	margin-left: 0;
+	@include grid-offset-right(1);
+}
+#rightColumn {
+	@include grid-column(5);
+	margin-top: 25px;
+	margin-right: 0;
+}
+#mainColumn.landing + #rightColumn {
+	margin-top: 61px;
+}
+#contentBottomLeft {
+	@include grid-column(12);
+	margin-left: 0;
+	@include grid-offset-right(1);
+}
+#contentBottomRight {
+	@include grid-column(5);
+	margin-right: 0;
+}
+#contentBottomLeft,
+#contentBottomRight {
+	border-top: 1px solid $light-grey;
+	padding-top: 15px
+}

@@ -1,0 +1,51 @@
+#iNavLevel1_ID {
+	margin: 0 !important;
+}
+#iNav_Level1 {
+	li {
+		font-size: 11px !important;
+	}
+}
+#iNavLevel2 {
+	ul {
+		margin: 0;
+		padding: 0;
+		li {
+			font-size: 12px !important;
+		}
+	}
+}
+#iNav_DDA_Header,
+#iNav_DDA_Footer {
+	margin: 0 auto !important;
+	float: none !important;
+}
+#iNav_DDA_Footer {
+	a {
+		font-size: 10px !important;
+	}
+}
+#iNav_DDA_nav1,
+#iNav_DDA_utilLinks {
+	li {
+		height: auto !important;
+		a {
+		font-size: 11px !important;
+		}
+	}
+}
+#iNav_DDA_tier2Nav {
+	width: 77em !important;
+	background: #F5F5F5 !important;
+	margin-top: 40px !important;
+	li {
+		a {
+			font-size: 12px !important;
+		}
+	}
+}
+// Italy IE9 iNav fix
+#iNavNGI_Header #iNavSANav #iNavSANavCont ul#iNavSANavLvl3
+{
+width: 61.5em; /* 980px fix IE8, IE9 text wrapping */
+}

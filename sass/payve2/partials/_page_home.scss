@@ -1,0 +1,82 @@
+.homepage {
+	postion: relative;
+	
+	
+	#masthead, 
+	#subHeaderContent {
+		width: 1398px - 219px; 
+		padding-left: 219px;
+		margin: 0 auto;
+
+	}
+	#main {
+		width: 1398px;
+		height: 489px; 
+		overflow: hidden; 
+		background: transparent;
+		position: relative;
+	}
+
+	#masthead_wrapper {
+		background: rgba(243,243,243,0.9);
+		position: absolute;
+		top: 190px;
+		width: 100%;
+		height: 72px;
+		margin: 0 auto;
+		z-index: 1;
+		p {
+			margin-right: 225px;
+		}
+		.ie7 & {
+			left: 0;
+		}
+	}
+	#payve {
+		background-color: $white;
+	}
+	#leftColumn {
+		position: relative; 
+		margin: 76px 0 0 219px;
+		z-index: 1000;
+		.ie7 &,
+		.ie8 & {
+			position: absolute;
+			top: -4px;
+		}
+	}
+	.slide-content {
+		height: 94px;
+		width: 656px;
+		padding: 15px 20px;
+		background: rgba(255,255,255,0.9);
+		.ie7 &,
+		.ie8 & {
+			background-color: $white;
+		}
+		@include border-radius(10px 0 0 10px);
+		position: absolute;
+		right: 0;
+		top: 222px;
+		h2 {
+			color: $purple;
+			width: 550px;
+			margin-bottom: 15px;
+			@include font-size(32px,32px);
+		}
+		a {
+			color: $grey;
+			font-style: italic;
+			@include font-size(24px,24px);
+			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	#subHeaderWrapper {
+		min-width: 1300px;
+		background: $white;
+		background: rgba(255,255,255,0.8);
+	}
+}

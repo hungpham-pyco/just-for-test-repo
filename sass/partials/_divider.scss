@@ -1,0 +1,22 @@
+//-----------------------------------
+// Defaults
+//-----------------------------------
+$divider-image: "divider.png";
+
+//-----------------------------------
+// Container divider
+//-----------------------------------
+@mixin divider ($i, $image: $divider-image) {
+  background-repeat: repeat-y;
+  background-position: grid-width($i, $gutter-width/2) 0;
+  background-image: inline-image($image);
+  .ie7 &, .ie6 & { background-image: image-url($image); }
+}
+
+//-----------------------------------
+// Default Styles
+//-----------------------------------
+// columns widths
+@for $i from 1 through $columns {
+  //.divider-#{$i} { @include divider($i); }
+}

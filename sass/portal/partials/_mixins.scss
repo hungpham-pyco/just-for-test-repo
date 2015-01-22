@@ -1,0 +1,177 @@
+//Responsive mixins for inline usage
+@mixin responsive($size){
+	@if ($size == small) {
+		@include max-screen($break-md){
+			@content;
+		}
+	}
+	@else if($size == med) { 
+		@include screen($break-md + 1, $break-lg){
+			@content;
+		}
+	}
+	@else if ($size == large) {
+		@include min-screen($break-lg + 1){
+			@content;
+		}
+	}
+	@else if ($size == lessthanlarge) {
+		@include max-screen($break-lg){
+			@content;
+		}
+	}
+	@else if ($size == morethansmall) {
+		@include min-screen($break-md + 1){
+			@content;
+		}
+	}
+
+}
+
+@mixin arrow($direction,$size,$color,$type:arrow){
+	width: 0;
+	height: 0;
+	display: inline-block;
+	$arrow: $size solid $color;
+	$transp: $size solid transparent;
+	@if ($type == arrow) { 
+		@if ($direction == right) {
+			border-top: $transp;
+			border-bottom: $transp;
+			border-left: $arrow;
+			.ie7 & {
+				vertical-align: middle;
+			}
+		}
+		@else if ($direction == left) {
+			border-top: $transp;
+			border-bottom: $transp;
+			border-right: $arrow;
+			.ie7 & {
+				vertical-align: middle;
+			}
+		}
+		@else if ($direction == up) {
+			border-left: $transp;
+			border-right: $transp;
+			border-bottom: $arrow;
+		}
+		@else if ($direction == down) {
+			border-left: $transp;
+			border-right: $transp;
+			border-top: $arrow;
+		}
+	}
+	@else if ($type == corner) {
+		@if ($direction == bottomright) {
+			border-bottom: $arrow;
+			border-right: $arrow;
+			border-left: $transp;
+			border-top: $transp;
+		}
+		@else if ($direction == bottomleft) {
+			border-bottom: $arrow;
+			border-left: $arrow;
+			border-right: $transp;
+			border-top: $transp;
+		}
+		@else if ($direction == topleft) {
+			border-left: $arrow;
+			border-top: $arrow;
+			border-right: $transp;
+			border-bottom: $transp;
+		}
+		@else if ($direction == topright) {
+			border-right: $arrow;
+			border-top: $arrow;
+			border-left: $transp;
+			border-bottom: $transp;
+		}
+	}
+}
+
+@mixin backgroundPattern($color) {
+	background-image: image-url('portal/amex-pattern_#{$color}.png');
+}
+
+@function pixelPercentage($pixels,$columns) {
+	/* Function for converting hard pixel values into relative percentage values */
+	/* Usage:
+		pixels = defined in layout or design
+		columns = number of grid columns in container
+	*/
+	$containerWidth: grid-column-width($columns) / 1px; /* max possible width of a grid area; converted unitless by dividing by 1px */
+	@return percentage($pixels / $containerWidth); /* calculated percentage based on container width */
+}
+@mixin clearfix(){
+	&:before,
+	&:after {
+		content: "";
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+
+	*zoom: 1;
+}
+
+@mixin btn($bgcolor,$textcolor,$visited: #FFF,$fontsize:18px,$toppadding:8px,$bottompadding:17px,$borderradius: 5px){
+	background-color: $bgcolor;
+	color: $textcolor;
+	@include font-size($fontsize,$fontsize);
+	@include font-benton-sans(bold);
+	text-decoration: uppercase;
+	display: inline-block;
+	padding: $toppadding $bottompadding;
+	@include border-radius($borderradius);
+	text-transform: uppercase;
+	text-decoration: none;
+	text-align: center;
+	&:hover,
+	&:focus,
+	&:visited {
+		color: $visited;
+		text-decoration: none;
+	}
+}
+
+// basic 2 color background gradient mixin, no custom colorstops
+@mixin bg-grad($startcolor, $stopcolor, $startdir:left) {
+	background-color: $startcolor;
+	@include background-image(linear-gradient($startdir, $startcolor, $stopcolor));
+	background-image: -ms-linear-gradient($startdir, $startcolor 0%, $stopcolor 100%);
+	@if ($startdir == left) {
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$startcolor}, endColorstr=#{$stopcolor}, gradientType='1');    	
+	}
+	@else {
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$startcolor}, endColorstr=#{$stopcolor}, gradientType='0');    	
+	}
+}
+
+@mixin worldservicepattern($percent:15) {
+	@if ($percent == 45){
+		background-image: image-url('gcp2/amex-ws-pattern_45.png');
+	}
+	@else {
+		background-image: image-url('gcp2/amex-ws-pattern_15.png');
+	}
+}
+
+// old ie alpha-transparent backgrounds, must convert rbga() to #argb first
+@mixin oldietransbg($argbcode) {
+	background:none;
+	-ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$argbcode},endColorstr=#{$argbcode});
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$argbcode},endColorstr=#{$argbcode});
+	zoom: 1;
+}
+
+// input placeholder color
+@mixin placeholder {
+	&.placeholder { @content; }
+	&:-moz-placeholder { @content; }
+	&::-moz-placeholder { @content; }
+	&:-ms-input-placeholder { @content; }
+	&::-webkit-input-placeholder { @content; } 
+}

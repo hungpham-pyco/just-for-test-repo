@@ -1,0 +1,378 @@
+body, select, input, textarea {
+  color: $grey;
+  @include font-arial;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+h1 {
+  //margin-bottom: 10px;
+  padding-bottom: 7px;
+  color: $purple;
+  @include font-benton-sans(medium);
+  @include font-size(27px, 27px);
+  border-bottom: 2px dotted $light-grey;
+  font-weight: normal;
+} 
+h2 { 
+	color: $purple;
+	margin-bottom: 10px;
+	@include font-benton-sans(regular);
+	@include font-size(20px, 24px);
+}
+h3 {
+	color: $purple;
+	margin-bottom: 10px;
+	@include font-benton-sans(regular);
+	@include font-size(16px, 16px);
+}
+h4,h5,h6 {
+	margin-bottom: 5px;
+	@include font-size(12px, 12px);
+	font-weight: bold;
+}
+
+p,
+caption {
+	 @include font-size(12px,14px);
+	margin: 0 0 10px 0;
+	&.bold {
+		font-weight: bold;
+	}
+}
+.landing p {
+	@include font-size(14px,16px);
+}
+.landing hr {
+	margin: 40px 0;
+}
+p.intro {
+	@include font-size(16px,20px);
+}
+.bold {
+	font-weight: bold;
+}
+.italic {
+	font-style: italic;
+}
+.no-margin {
+	margin: 0;
+}
+.float-left {
+	@include float-left;
+}
+.float-right {
+	@include float-right;
+}
+a, a:active, a:visited {
+	color: $blue;
+	text-decoration: none;
+}
+a:hover {
+	color: $blue;
+	text-decoration: underline;
+}
+
+body {
+	ul {
+		padding-left: 0;
+		list-style-position: outside;
+		list-style: none;
+		margin: 0 0 10px 0;
+		li {
+			margin-bottom: 5px;
+			p {
+				@include font-size(16px,18px);
+			}
+		}
+	}
+}
+#subHeaderWrapper {
+	background: #e7eaf0;
+	height: 57px;
+}
+#subHeaderContent {
+	h1 {
+		border-bottom: 0;
+	}
+	.subHeader {
+		@include float-left;
+		width: 40%;
+		margin-left: 5px;
+		span { 
+			display: block;
+			@include font-benton-sans;
+			@include font-size(15px,15px);
+			background: image-url('amex/gcp-logo.png') 0 0 no-repeat;
+			display: block;
+			height: 28px;
+			text-indent: -9999px;
+			width: 164px;
+			br {
+				display: none;
+			}
+			text-transform: uppercase;
+			color: $purple;
+			font-weight: bold;
+			margin: 13px 0 0 0;
+			padding: 4px 0 0 0;
+			border-bottom: 0;
+			&:first-line {
+				color: $grey;
+				font-weight: normal;
+			}
+			span.alt {
+				color: $grey;
+				font-weight: normal;
+				@include font-size(16px,16px);
+				&:first-line {
+					color: $purple;
+					font-weight: bold;
+				}
+			}
+		}
+	}
+	.right-content {
+		float: right;
+		display: inline;
+		margin-top: 15px;
+	}
+	select {
+		vertical-align: top;
+		margin: 7px 10px 0 0;
+		@include font-size(12px,12px);
+	}
+}
+#headerPageWrapper {
+	height: 119px; 
+	background-color: #02226d;
+	border-bottom: 2px solid $white;
+}
+#headerPage {
+  height: 119px;
+  color: $white;
+  background: url('../i/savings/header-bg.png') no-repeat 0 0;
+  .header {
+	margin-left: 5px;
+	margin-top: 11px;
+	border-bottom: 0;
+	padding-bottom: 0;
+	@include font-benton-sans(medium);
+	@include font-size(36px, 36px);
+	@include single-text-shadow(3px,4px,3px, rgba(0,0,0,0.3));
+	font-weight: bold;
+	span {
+		@include font-size(10px, 16px);
+		font-weight: normal;
+	}
+	sup {
+		@include font-size(6px, 6px);
+		top: -1em;
+	}
+  }
+}
+#contentWrapper {
+	.card-bottom {
+		position: absolute; 
+		top: -2px; 
+		right: -5px;
+		z-index: 100;
+		width: 207px; 
+		height: 45px;
+		background: url("/i/savings/header-card-bottom.png") no-repeat 0 0;
+	}
+}
+.content-gradient {
+	position: absolute; 
+	top: 178px; 
+	left: 50%;
+	height: 38px;
+	width: 50%;
+	.ie7 & {
+		width: 49%;
+	}
+	z-index: 1;
+	background: url('../i/savings/bg-page-header.png') repeat-x 0 0;
+}
+
+// main column 'offer' module
+#results {
+	margin-bottom: 15px;
+	> li {
+		@extend .clearfix;
+		padding: 25px 0 20px 120px;
+		margin-bottom: 0;
+		border-top: 1px solid $light-grey;
+		&:first-child {
+			border-top: 0;
+		}
+		h3 {
+			@include font-size(16px,16px);
+			margin-bottom: 5px;
+			a {
+				color: $purple;
+			}
+		}
+		p {
+			//@include font-size(12px,16px); 
+			font-size: 12px;
+			line-height: 1.5;
+			display: block;
+			margin: 0;
+			&.address {
+				display: block;
+				margin-bottom: 1em;
+			}
+			&.truncate_ellipsis {
+				margin: 0;
+			}
+		}
+		.terms-summary {
+			font-size: 11px; // 8pt
+			p {
+				font-size: 11px; // 8pt
+			}
+		}
+		a.terms {
+			display: block;
+			margin: 10px 0 5px;
+			font-size: 12px;
+		}
+		p.truncate_more_link {
+			display: block;
+			margin: 5px 0 10px;
+			
+			a {
+				cursor: pointer;
+				font-size: 12px;
+			}
+		}
+
+		// Dining Offer Address show/hide
+		a.more {
+			clear: both;
+			cursor: pointer;
+			@include font-size(12px,16px);
+		}
+		img {
+			margin-left: -120px;
+			@include float-left;
+			width: 110px;
+		}
+		span.ui-truncate {
+			a.ui-truncate-action-more {
+				font-size: 12px;
+			}
+		}
+	}
+	.featured {
+		border-top: 6px solid $light-grey !important;
+		padding-top: 25px;
+		padding-right: 20px;
+		margin-top: 25px;
+		position: relative;
+		@include background-image(linear-gradient($background, $background, #ededed));  
+		.no-cssgradients & {       
+			background: url('../i/savings/bg-featured-ie.png') repeat-x 0 bottom;   
+		}
+		.featured-tab {
+			position: absolute; 
+			top: -12px;
+			right: 12px;
+			padding: 10px 15px;
+			color: $white;
+			@include font-size(12px,12px);
+			@include background-image(linear-gradient(#001b93,#0b2d67));  
+			.no-cssgradients & {       
+				@include filter-gradient(#001b93,#0b2d67);   
+			}
+			span {
+				@include sprite-replace-text-with-dimensions ($icon-sprites, "featured-tab-nub");
+				position: absolute; 
+				top: 0;
+				left: -6px;
+			}
+		}
+		.share-amex-icons {
+			padding-right: 0;
+		}
+	} 
+}
+.share-amex-icons {
+	@include float-right;
+	margin-top: 10px;
+	padding-right: 20px;
+}
+// repositioning overwrite for shareamex plus icon pop up
+div#shareamex-1-morebox {
+	top: 49px !important;
+}
+.form {
+	z-index: 100;
+}
+
+// right column classes
+.box {
+  margin-bottom: 20px;
+  img {
+	margin-bottom: 10px;
+  }
+  p {
+	@include font-size(14px,16px);
+  }
+  h2 {
+	color: $purple;
+	@include font-size(14px,14px);
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	span {
+		color: $grey; 
+		@include font-size(12px,12px);
+		font-weight: normal; 
+		margin-bottom: 0;
+	}
+  }
+}
+.newsletter h2 {
+	padding: 0 0 10px 45px;
+	border-bottom: 2px dotted $light-grey;
+	font-weight: bold;
+	text-transform: none;
+	@include sprite-background-image ($icon-sprites, "icon-newsletter", false, 0, 5px);
+	@include font-size(20px,20px);
+}
+#contentBottomLeft,
+#contentBottomRight {
+	p {
+		@include font-size(14px,14px);
+		padding-top: 5px;
+	}
+}
+//bottom graphic
+.bottom-graphic {
+  height: 21px;
+  background: url('../i/gcp/bottom-graphic.png') repeat-x 0 0;
+}
+
+
+
+//-----------------------------------
+// T&C styles
+//-----------------------------------
+@import "savings/partials/_terms-conditions";
+
+//-----------------------------------------------
+// Fix font size for users using 120dpi
+//-----------------------------------------------
+/*@media all and (min-resolution: 120dpi) {*/
+/*	html { font-size: 80%; }*/
+/*}*/
+//-----------------------------------------------
+// IE6/IE7 120DPI font size fix
+//-----------------------------------------------
+.body {
+	scrollbar-track-color:expression(
+	this.runtimeStyle.scrollbarTrackColor = "#fff",
+	((screen.deviceXDPI/screen.logicalXDPI) == 1) ? (document.body.style.fontSize = 1/(screen.logicalYDPI/96) +'em') : false
+	);
+}

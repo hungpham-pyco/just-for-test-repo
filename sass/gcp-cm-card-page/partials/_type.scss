@@ -1,0 +1,139 @@
+﻿/*************/
+/* HEADLINES */
+/************/
+#{headings()}, 
+headline-1, 
+.headline-2, 
+.headline-3, 
+.headline-4 {
+	color: $crow;
+	margin: 0;
+	.hide-from-headline {
+		display: none;
+	}
+}
+h1, .h1 {
+	@include font-benton-sans('light');
+	font-weight: normal;
+	@include font-size(40px,42px);
+	letter-spacing: -.025em;
+	@include responsive(small) {
+		@include font-size(32px,36px);
+	}
+}
+
+
+h2, .h2 {
+	@include font-benton-sans('bold');
+	@include font-size(30px,32px);
+	letter-spacing: 0;
+	@include responsive(small) {
+		@include font-size(18px,20px);
+	}
+}
+
+h3, .h3 {
+	@include font-benton-sans('light');
+	font-weight: normal;
+	@include font-size(36px,38px);
+	letter-spacing: -.025em;
+	@include responsive(small) {
+		@include font-size(30px,32px);
+	}
+}
+
+h4, .h4 {
+	@include font-benton-sans('bold');
+	@include font-size(21px,23px);
+	letter-spacing: 0;
+	@include responsive(small) {
+		@include font-size(21px,18px);
+	}
+}
+
+h5, .h5 {
+	@include font-benton-sans('bold');
+	@include font-size(13px,15px);
+	letter-spacing: 0;
+	@include responsive(small) {
+		@include font-size(14px,18px);
+	}
+}
+
+/* BODY COPY */
+p {
+	color: $crow;
+	&.intro {
+		@include font-size(18px,24px);
+	}
+	sup {
+		font-size: 7px;
+		top: -1.0em;
+	}
+}
+p, 
+p.body-1, 
+.body-1 {
+	@include font-benton-sans('regular');
+	@include font-size(16px,22px);
+	letter-spacing:.025em;
+	@include responsive(small) {
+		@include font-size(13px,20px);
+	}
+}
+
+.body-2, 
+p.body-2 {
+	@include font-benton-sans('regular');
+	@include font-size(13px,20px);
+	letter-spacing:.025em;
+}
+
+.body-3, 
+p.body-3 {
+	@include font-benton-sans('book');
+	@include font-size(12px,14px);
+}
+
+/* LINKS */
+a {
+	color: $darkteal;
+	text-decoration: none;
+	&:hover {
+		color: #5daac0;
+	}
+	&.tel,	&[href^="tel"] {
+		color: $grey;
+	}
+	&:focus {
+		color: #5daac0;
+		outline: thin dotted;
+	}
+}
+
+.cta-link {
+	// TODO - COLIN: Add support for color schemes here
+	@include btn(#ab833d,#bd9b60,$white,small);
+}
+
+.backtotop {
+	@include font-size(13px);
+	@include link-colors($grey, $grey, $grey, $grey);
+	margin: (100%/24);
+	&:before {
+		content: '';
+		margin: 0 3px;
+		margin-bottom: 4px;
+		@include arrow('up',4px,$grey);
+	}
+}
+
+
+/* HELPERS */
+.all-caps {
+	text-transform: uppercase;
+}
+
+.lc {
+	text-transform: lowercase;
+}

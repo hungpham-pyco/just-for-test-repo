@@ -1,0 +1,35 @@
+// COMPASS CSS3 MIXINS
+@import 'compass';
+ 
+@import 'gcp2/partials/grid';
+@import 'gcp2/partials/fluid';
+
+@import 'gcp2/partials/jquery-ui/jquery-ui-dialog';
+
+// SET BASE VARIABLES
+@import 'gcp2/partials/base';
+@import 'gcp2/partials/fonts';
+@import 'gcp2/partials/bentonsans';
+@import 'gcp2/partials/sprites';
+
+// MEDIA QUERIES MIXINS
+@import 'gcp2/partials/media-queries';
+
+// PROJECT MIXINS
+@import 'gcp2/partials/mixins';
+
+@import 'gcp2/partials/buttons';
+// H5BP NORMALIZE CSS IMPLEMENTATION - KITCHEN SINK VERSION
+@import 'gcp2/partials/normalize';
+
+// ==|== primary styles =====================================================
+// Author: 
+// ==========================================================================
+
+@import 'gcp2/partials/utilities';
+@import 'amex/partials/inav';
+@import 'gcp2/partials/layout';
+@import 'gcp2/pages/gsf';
+
+// AMEX
+@import 'amex/partials/shareamex';

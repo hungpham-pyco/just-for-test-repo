@@ -1,0 +1,1051 @@
+/************************************/
+/* Carousels */
+/************************************/
+
+/* HIDE BY DEFAULT */
+.carousel-outer-wrapper {
+	&.slideshow-homepage {
+	@include responsive('large') {
+		height: 351px;
+		overflow: hidden;
+	}
+	.oldie & {
+		height: 351px;
+		overflow: hidden;
+	}
+		.crsl-items, 
+		.crsl-nav {
+			display: none;
+		}
+	}
+	&.slideshow-cardlanding { 
+		@include responsive('large') {
+			min-height: 450px;
+			overflow: hidden;
+		}
+		.oldie & {
+			height:450px;
+			overflow: hidden;
+		}
+		.crsl-items, 
+		.crsl-nav {
+			display: none;
+		}
+	}
+}
+
+.carousel-outer-wrapper {
+	z-index: 0;
+	@include fluid-row(true);
+	
+	&.slideshow-homepage {
+		@include fluid-column(15,0,$grid-columns,0,false);
+		.home-hdr & {
+			@include responsive(large) {
+				margin: 0;
+				padding: 0 .05%;
+			}
+			.main-container {
+				padding: 25px 0;
+				@include responsive(small) {
+					padding: 32px 0;
+				}
+			}
+		}
+		@include responsive(lessthanlarge) {
+			width: 100%;
+			margin: 0;
+			background-color: $white;
+		}
+	}
+
+	&.slideshow-card {
+		.main-container {
+			padding: 0;
+		}
+	}
+
+	&.slideshow-cardlanding {
+		@include fluid-row(true);
+		@include responsive(lessthanlarge) {
+			width: 100%;
+		}
+	}
+
+	&.slideshow-fullwidth {
+		width: 100%;
+		background-color: $white;
+		padding: 40px 0;
+	}
+
+	&.slideshow-centeredpromo {
+		.main-container {
+			@extend .rel;
+			z-index: 1;
+			&:after {
+				@include center-shadow();
+			}
+			margin-bottom: 30px;
+		}
+	}
+
+	.landing-hdr & {
+		.main-container {
+			padding: 25px 0;
+		}
+	}
+
+	@include responsive(small) {
+		margin-bottom: 0;
+	}
+
+	/* General Item Description Text Styles */
+	.item-description {
+		box-sizing: border-box;
+		color: $darkteal;
+		strong {
+			display: block;
+		}
+		a {
+			text-decoration: none;
+		}
+	}
+
+	/* SLIDESHOW SPECIFIC ITEM DESCRIPTIONS */
+
+	/* HOME PAGE */
+	li.slideshow-homepage .slide-container .item-description {
+		padding: 5px 0 0 5px;
+		@include font-size(15px,14px);
+		@include font-benton-sans('regular');
+		.ie8 & {
+			@include font-benton-sans('light');
+		}
+		a {
+			display: block;
+			strong {
+				@include font-size(11px,12px,0,15px);
+				@include font-benton-sans('bold');
+			}
+		}
+		
+		body div.homepage & { 
+			color: $grey;
+		}
+		@include responsive(small) {
+			min-height: 0;
+			padding-top: 7px;
+			margin:0 auto;
+			text-align: center;
+		}
+		p {
+			color: $white;
+			@include font-size(12px);
+		}
+	}
+
+	/* CARD LANDING */
+	li.slideshow-cardlanding .slide-container .item-description {
+		h2 {
+			@extend .h4;
+			width: 100%;
+			min-height: 70px;
+			.oldie &{
+				height: 70px;
+			}
+			&:first-line {
+				font-family: Arial, Verdana, sans-serif;
+				font-size: 13px;
+				line-height: 13px;
+				@include responsive(med) {
+					font-size: 11px;
+				}
+				@include responsive(small) {
+					font-size: 12px;
+				}
+			}
+			@include responsive(lessthanlarge) {
+				margin-left: 0;
+				margin-bottom: 10px;
+			}
+		}
+		p {
+			@extend .body-2;
+			color: $darkteal;
+			font-weight: normal;
+			&:hover{
+				color: #5daac0;
+			}
+
+		}
+	}
+	
+	/* CARD DETAIL PAGE */
+	li.slideshow-card .slide-container .item-description {
+		color: $darkteal;
+		text-align: center;
+		@include font-size(12px,14px);
+		margin-top: 13px;
+		a {
+			strong {
+				display: block;
+				font-weight: normal;
+			}
+		}
+	}
+
+	/* FULL WIDTH */
+	li.slideshow-fullwidth .slide-container {
+		text-align: center;
+		.item-description {
+			text-align: center;
+			h3 {
+				min-height: 70px;
+				margin: 20px 0 30px 0;
+				text-align: center;
+				@include responsive(small) {
+					min-height: 0;
+					@include font-size(20px);
+					padding-bottom: 0;
+				}
+			}
+		}
+	}
+
+	/* TEXT ONLY */
+	li.slideshow-textonly .slide-container .item-description {
+		a {
+			strong {
+				@extend .h5;
+				text-transform: uppercase;
+			}
+		}
+		p {
+			padding-right: 10px;
+			@extend .body-1;
+		}
+		@include responsive(lessthanlarge) {
+			padding: 0 15px;
+		}
+		@include responsive(med) {
+			p {
+				padding-right: 0;
+			}
+		}
+		@include responsive(small) {
+			p {
+				padding-right: 0;
+				margin-top: 0;
+			}
+		}
+	}
+
+	
+	/* GENERAL CAROUSEL NAV STYLES */
+	.carousel-nav {
+		@include fluid-column(2,0,8,0,false);
+		&.hide-nav { 
+			button {
+				@extend .vh;
+			}
+		}
+		&.slideshow-homepage {
+			@include fluid-column(2,0,15,0,false);
+			@include responsive(small) {
+				@include fluid-column(5,0,$grid-columns,0,false);
+				text-align: center;
+			}
+			@include responsive(med) {
+				@include fluid-column(4,0,$grid-columns,0,false);
+				text-align: center;
+			}
+
+			&.hide-nav { 
+				height: 74px;
+				@include fluid-column(1,0,11,0,false);
+
+				@include responsive(lessthanlarge) {
+					@include fluid-column(1,0,$grid-columns,0,false);
+				}
+			}
+		}
+		button {
+			display: block;
+			@include border-radius(100%);
+			border: 3px solid $wolf;
+			background: $white;
+			height: 44px;
+			width: 44px;
+			padding: 0;
+			margin: 0 auto;
+			margin-top: 30px;
+			&:focus {
+				outline: thin dotted;
+			}
+			&.arrow-prev {
+				@include sprite-background-image($sprite,grey-arrow-left-44,false,10,8);
+			}
+			&.arrow-next {
+				@include sprite-background-image($sprite,grey-arrow-right-44,false,13,8);
+			}
+		}
+		&.slideshow-cardlanding {
+			button {
+				display: block;
+				@include border-radius(100%);
+				border: 3px solid $wolf;
+				width: 58px;
+				height: 58px;
+				&.arrow-prev {
+					@include sprite-background-image($sprite,grey-arrow-left-58,false,15,9);
+				}
+				&.arrow-next {
+					@include sprite-background-image($sprite,grey-arrow-right-58,false,18,9);
+				}
+				@include responsive(small) {
+					width: 44px;
+					height: 44px;
+					&.arrow-prev {
+						@include sprite-background-image($sprite,grey-arrow-left-44,false,10,8);
+					}
+					&.arrow-next {
+						@include sprite-background-image($sprite,grey-arrow-right-44,false,13,8);
+					}
+				}
+				@include max-screen(365px) {
+					height: 32px;
+					width: 32px;
+					&.arrow-prev {
+						@include sprite-background-image($sprite,grey-arrow-left-32,false,6,5);
+					}	
+					&.arrow-next {
+						@include sprite-background-image($sprite,grey-arrow-right-32,false,9,5);
+					}
+				}
+			}
+		}
+		&.slideshow-card, 
+		&.slideshow-textonly {
+			button {
+				width: 44px;
+				height: 44px;
+				&.arrow-prev {
+					@include sprite-background-image($sprite,grey-arrow-left-44,false,10,8);
+				}
+				&.arrow-next {
+					@include sprite-background-image($sprite,grey-arrow-right-44,false,13,8);
+				}
+			}
+		}
+		&.slideshow-cardlanding {
+			@include max-screen(365px){
+				button {
+					margin-top: 0;
+				}
+			}
+		}
+
+		&.hide-nav {
+			button {
+				border: none;
+				background: none;
+				cursor: default;
+			}
+		}
+	}
+
+	.main-container {
+		position: relative;
+		.row { 
+			@include responsive(small) {
+				padding-bottom:5px;
+			}
+		}
+		.carousel-mid-wrapper {
+			@include fluid-row(true);
+			@extend .clearfix;
+			.slideshow-homepage & {
+				padding: 50px 0 25px 0;
+			}
+			position: relative;
+			@include responsive(lessthanlarge) { 
+				margin: 0;
+			}
+			body div.homepage &{
+				padding: 0;
+				@include responsive(small) {
+					padding-bottom: 23px;
+				}
+				@include screen(350px,400px){
+					padding-bottom: 43px;
+				}
+			}
+
+			.carousel-copy {
+				@include fluid-column(9,0,15,0,false);
+				@include fluid-offset(1,0,left,15,0);
+				@include responsive(med) { 
+					@include fluid-column(13,0,$grid-columns,0,false);
+					@include fluid-offset(1,0,left,$grid-columns,0);
+				}
+				@include responsive(small) {
+					@include fluid-column(18,0,$grid-columns,0,false);
+					@include fluid-offset-right(3,0,$grid-columns,0);
+					@include fluid-offset-left(3,0,$grid-columns,0);
+				}
+				h2, p {
+					width: 100%;
+					display: block;
+				}
+				h2 {
+					@include responsive(med) {
+						margin-left: 0;
+						line-height: 30px;
+					}
+					@include responsive(small) {
+						display: none;
+					}
+				}
+				p {
+					margin: 10px 0;
+					@include responsive(small) {
+						text-align: center;
+					}
+				}
+			}
+
+			/* CARD LANDING PAGE */
+			&.slideshow-cardlanding {
+				@include responsive(small) {
+					padding-bottom: 35px;
+				}
+				.row {
+					@include fluid-row(true);
+					padding-bottom: 34px;
+					.carousel-copy {
+						@include fluid-column(13,0,$grid-columns,0,false);
+						@include fluid-offset-left(1);
+						h2 {
+							display: none;
+						}
+						p {
+							@extend .body-2;
+							margin: 5px 0 16px 0;
+							.oldie &{
+								@include font-benton-sans('medium');
+							}
+							@include responsive(med) {
+								@include font-size(14px,17px);
+							}
+						}
+						@include responsive(small) {
+							@include fluid-column(22,0,$grid-columns,0,false);
+							@include fluid-offset-left(1);
+							@include fluid-offset-right(1);
+							h2 {
+								display: block;
+								text-align: left;
+								margin: 0 0 15px 0;
+							}
+							p {
+								text-align: left;
+								margin: 0 0 15px 0;
+							}
+						}
+					}
+					.carousel-cta {
+						@include fluid-column(10,0,$grid-columns,0,false);
+						text-align: right;
+						.btn {
+							margin-right: 15px;
+							@include btn($deepblue,#1d4f9c,$white,large);
+						}
+						@include responsive(med) {
+							margin: 0;
+							.btn {
+								margin-left: 15px;
+								margin-right: 0;
+								line-height:2;
+								min-height:39px;
+								height:auto;
+							}
+						}
+						@include responsive(small) {
+							position: absolute;
+							width: 100%;
+							bottom: 0;
+							text-align: center;
+							.btn { 
+								margin: 0;
+							}
+						}
+					}
+				}
+				.carousel-nav {
+					@include fluid-column(2,0,$grid-columns,0,false);
+					padding-top: 35px;
+					@include responsive(med) {
+						@include fluid-column(3,0,$grid-columns,0,false);
+					}
+					@include responsive(small) {
+						@include fluid-column(4,0,$grid-columns,0,false);
+						text-align: center;
+						&.nxt, &.prev {
+							margin: 0;
+						}
+					}
+				}
+				.carousel-item-wrapper {
+					@include fluid-column(20,20,$grid-columns,0,false);
+					@include responsive(med) {
+						@include fluid-column(18,0,$grid-columns,0,false);
+					}
+					@include responsive(small) {
+						@include fluid-column(16,0,$grid-columns,0,false);
+						padding-bottom: 15px;
+					}
+					ul {
+						li { 
+							width: 100px;
+							.slide-container {
+								.item-description {
+									margin-top: 13px;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			/* CARD FULL WIDTH */
+			&.slideshow-fullwidth {
+				.row {
+					padding-bottom: 34px;
+				}
+				.carousel-copy {
+					width: 100%;
+					margin: 0;
+					p {
+						margin: 5px 0 16px 0;
+					}
+					@include responsive(lessthanlarge) {
+						@include fluid-column(22,0,$grid-columns,0,false);
+						@include fluid-offset-left(1);
+					}
+					.box {
+						@include fluid-column(7,0,$grid-columns,0,false);
+						margin-bottom: 32px;
+						@include responsive(lessthanlarge) {
+							@include fluid-column(15,0,22,0,false);
+							h2 {
+								display: block;
+							}
+						}
+					}
+					p {
+						clear: both;
+						width: 100%;
+						@include font-benton-sans('bold');
+					}
+				}
+				
+				.carousel-nav {
+					@include fluid-column(2,0,$grid-columns,0,false);
+					@include responsive(lessthanlarge) {
+						@include fluid-column(4,0,$grid-columns,0,false);
+					}
+					button {
+						margin-top: 60px;
+					}
+				}
+				
+				.carousel-item-wrapper {
+					@include fluid-column(20,0,$grid-columns,0,false); 
+					@include responsive(lessthanlarge) {
+						@include fluid-column(16,0,$grid-columns,0,false);
+					}
+					ul {
+						li {
+							height: auto;
+							img {
+								text-align: center;
+								max-width: 215px;
+							}
+						}
+					}
+				}
+			}
+
+			
+			/* CARD PAGE SLIDESHOW STYLES */
+			&.slideshow-card {
+				.row {
+					@include fluid-column(8,0,20,0,false);
+					@include responsive(med) {
+						@include fluid-column(6,0,22,0,false);
+						@include fluid-offset-right(3);
+					}
+					@include responsive(small) {
+						@include clearfix();
+						width: 100%;
+						margin-bottom: 30px;
+					}
+					.carousel-copy {
+						width: 100%;
+						margin: 0;
+						h2 {
+							margin: 0 0 25px 0;
+						}
+						p {
+							display: none;
+						}
+						@include responsive(small) {
+							h2 {
+								text-align: center;
+								display: block;
+							}
+						}
+					}
+					.carousel-cta {
+						width: 100%;
+						@include clearfix();
+						.btn {
+							@include btn($deepblue,#1d4f9c,$white,small);
+						}
+						@include responsive(med) {
+							@include fluid-offset-left(0,0,$grid-columns,0);
+							@include fluid-offset-right(0,0,$grid-columns,0);
+						}
+						@include responsive(small) {
+							position: static;
+						}
+
+					}
+				}
+				.carousel-nav {
+					@include fluid-column(2,0,18,0,false);
+					@include responsive(small) {
+						@include fluid-column(2,0,20,0,false);
+						button {
+							height: 32px;
+							width: 32px;
+							&.arrow-prev {
+								@include sprite-background-image($sprite,grey-arrow-left-32,false,6,5);
+								text-align: left;
+							}	
+							&.arrow-next {
+								text-align: right;
+								@include sprite-background-image($sprite,grey-arrow-right-32,false,9,5);
+							}
+						}
+					}
+				}
+				.carousel-item-wrapper {
+					@include fluid-column(8,0,20,0,false);
+					@include responsive(small) {
+						@include fluid-column(16,0,22,0,false);
+						@include fluid-offset-left(1,0,22,0);
+						@include fluid-offset-right(1,0,22,0);
+						min-height: 240px;
+					}
+					ul {
+						li { 
+							width: 100px;
+							@include font-benton-sans('regular');
+						}
+					}
+				}
+			}
+			
+			/* CENTERED PROMO */
+			&.slideshow-centeredpromo {
+				padding: 60px 0 100px 0;
+				background-color: $white;
+				@include worldservicepattern(2);
+				@extend .rel;
+				@include responsive(small) {
+					padding-bottom: 35px;
+				}
+				.row {
+					@include fluid-row(true);
+					padding-bottom: 34px;
+					.carousel-copy {
+						@include fluid-column(22,0,$grid-columns,0,false);
+						@include fluid-offset-left(1);
+						h2 {
+							width: 100%;
+							text-align: left;
+							@include font-size(32px, 36px);
+							color: $sqrl;
+						}
+						p {
+							@extend .body-2;
+							margin: 5px 0 16px 0;
+							.oldie &{
+								@include font-benton-sans('medium');
+							}
+							@include responsive(med) {
+								@include font-size(14px,17px);
+							}
+						}
+						@include responsive(small) {
+							@include fluid-column(22,0,$grid-columns,0,false);
+							@include fluid-offset-left(1);
+							@include fluid-offset-right(1);
+							h2 {
+								display: block;
+								text-align: left;
+								margin: 0 0 15px 0;
+							}
+							p {
+								text-align: left;
+								margin: 0 0 15px 0;
+							}
+						}
+					}
+					.carousel-cta {
+						@include fluid-column(12,0,$grid-columns,0,false);
+						@include fluid-offset-left(12);
+						text-align: right;
+						@extend .abs;
+						bottom: 15px;
+						right: 15px;
+						@include responsive('lessthanlarge') {
+							position: static;
+							@include fluid-column(12,0,$grid-columns,0,false);
+							@include fluid-offset-left(1);
+							text-align: left;
+						}
+						.btn {
+							@include btn($deepblue,#1d4f9c,$white,large);
+							margin-left: 0;
+						}
+					}
+				}
+				.carousel-nav {
+					@include fluid-column(2,0,$grid-columns,0,false);
+					@include fluid-offset-left(1);
+					padding-top: 35px;
+					
+					button {
+						display: inline;
+					}
+					
+					@include responsive(med) {
+						@include fluid-column(3,0,$grid-columns,0,false);
+						@include fluid-offset-left(0);
+					}
+					@include responsive(small) {
+						@include fluid-column(4,0,$grid-columns,0,false);
+						text-align: center;
+						&.nxt, &.prev {
+							margin: 0;
+						}
+					}
+					&.prev {
+						text-align: left;
+					}
+					&.nxt {
+						@include fluid-offset-left(0);
+						@include fluid-offset-right(1);
+						text-align: right;
+					}
+				}
+				.carousel-item-wrapper {
+					@include fluid-column(18,0,$grid-columns,0,false);
+					@include responsive(med) {
+						@include fluid-column(18,0,$grid-columns,0,false);
+					}
+					@include responsive(small) {
+						@include fluid-column(16,0,$grid-columns,0,false);
+						padding-bottom: 15px;
+					}
+					ul {
+						li { 
+							width: 100px;
+							.slide-container {
+								.item-description {
+									text-align: center;
+									margin-top: 13px;
+									@include font-size(20px, 24px);
+									font-weight: bold;
+									@include responsive('lessthanlarge') {
+										@include font-size(16px, 18px);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			/* TEXT ONLY SLIDESHOW STYLES */
+			&.slideshow-textonly {
+				.row {
+					@include fluid-column(8,0,20,0,false);
+					@include responsive(med) {
+						@include fluid-column(6,0,22,0,false);
+						@include fluid-offset-right(3);
+					}
+					@include responsive(small) {
+						@include clearfix();
+						width: 100%;
+						margin-bottom: 30px;
+					}
+					.carousel-copy {
+						width: 100%;
+						margin: 0;
+						p {
+							display: none;
+						}
+						@include responsive(small) {
+							h2 {
+								text-align: center;
+								display: block;
+							}
+						}
+					}
+					.carousel-cta {
+						width: 100%;
+						@include clearfix();
+						.btn {
+							@include btn($deepblue,#fff,#fff,13px);
+						}
+						@include responsive(med) {
+							@include fluid-offset-left(0,0,$grid-columns,0);
+							@include fluid-offset-right(0,0,$grid-columns,0);
+						}
+						@include responsive(small) {
+							position: static;
+						}
+
+					}
+				}
+				.carousel-item-wrapper {
+					ul {
+						li { 
+							@include font-benton-sans('regular');
+							.oldie & { 
+								height: 200px;
+								width: 185px;
+							}
+							.slide-container{
+								.item-description {
+									p {
+										padding-right: 10px;
+									}
+									@include responsive(med) {
+										p {
+											padding-right: 0;
+										}
+									}
+									@include responsive(small) {
+										p {
+											padding-right: 0;
+											margin-top: 0;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.carousel-cta {
+				@include fluid-column(5,0,15,0,false);
+				float: right;
+				@include responsive(med) {
+					@include fluid-column(7,0,$grid-columns,0,false);
+					@include fluid-offset-left(2,0,$grid-columns,0);
+					@include fluid-offset-right(1,0,$grid-columns,0);
+				}
+				@include responsive(small) {
+					position: absolute;
+					@include fluid-column(24,0,$grid-columns,0,false);
+					bottom: 0;
+					text-align: center;
+				}
+				.btn {
+					margin: 0;
+					@include btn($deepblue,#1d4f9c,$white,small);
+				}
+			}
+			
+			.carousel-item-wrapper {
+				@include fluid-column(20,0,$grid-columns,0,true);
+				body div.homepage & {
+					@include fluid-column(11,0,15,0,true);
+					@include responsive(med) {
+						@include fluid-column(16,0,$grid-columns,0,false);
+					}
+					@include responsive(small) {
+						@include fluid-column(14,0,$grid-columns,0,false);
+						padding-bottom: 15px;
+					}
+				}
+				position: relative;
+				overflow: hidden;
+				.carousel-positioner {
+					left: 0;
+					top: 0;
+				}
+				
+				/* HOMEPAGE */	
+				ul {
+					list-style: none;
+					padding: 0;
+					margin: 0;
+					@extend .clearfix;
+					li {
+						float:left;
+						height: 100px;
+						&.slideshow-homepage {
+							@include responsive(small) {
+								width: 100%;
+								text-align: center;
+								margin:0 auto;
+							}
+						}
+						.slide-container {
+							@include responsive(small) {
+							}
+							img {
+								width: 100%;
+								height: auto;
+								.ie7 & {
+									position: relative;
+									z-index: 10;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/* Styles for detail footer slideshows (full width) */
+
+.slideshow-wide {
+	@include responsive(lessthanlarge) {
+		padding: 15px 0;
+	}
+}
+
+.slideshow-wide .carousel-outer-wrapper {
+	.main-container {
+		padding: 0;
+		.carousel-mid-wrapper{
+			.row {
+				@include fluid-column(10,0,$grid-columns,0,false);
+				@include responsive(med) {
+					@include fluid-column(8,0,22,0,false);
+					@include fluid-offset-right(1);
+				}
+				@include responsive(small) {
+					@include clearfix();
+					width: 100%;
+					margin-bottom: 30px;
+				}
+				.carousel-copy {
+					width: 100%;
+					margin: 0;
+					p {
+						@include font-size(16px,24px);
+					}
+					h3 {
+						color: $crow;
+					}
+					@include responsive(med) {
+						h3 {
+							margin-top: 0;
+						}
+					}
+
+					@include responsive(small) {
+						h3 {
+							display: block;
+							text-align: center;
+							@include fluid-column(18,0,$grid-columns,0,false);
+							@include fluid-offset-left(3);
+							@include fluid-offset-right(3);
+						}
+					}
+				}
+				.carousel-cta {
+					width: 100%;
+					margin-top: 15px;
+					@include clearfix();
+					.btn {
+						@include btn($deepblue,#1d4f9c,$white,small);
+					}
+					@include responsive(med) {
+						@include fluid-offset-left(0,0,$grid-columns,0);
+						@include fluid-offset-right(0,0,$grid-columns,0);
+					}
+					@include responsive(small) {
+						position: static;
+					}
+				}
+			}
+			.carousel-nav {
+				@include fluid-column(2,0,$grid-columns,0,false);
+				&.prev {
+					text-align: left;
+				}
+				&.nxt {
+					text-align: right;
+				}
+				@include responsive(small) {
+					@include fluid-column(2,0,$grid-columns,0,false);
+					&.prev {
+						@include fluid-offset-left(1);
+						text-align: right;
+					}
+					&.nxt {
+						@include fluid-offset-right(1);
+						text-align: left;
+					}
+				}
+				button {
+					height: 47px;
+					width: 47px;
+					&.arrow-prev {
+						@include sprite-background-image($sprite,grey-arrow-left-44,false,12,8);
+					}
+					&.arrow-next {
+						@include sprite-background-image($sprite,grey-arrow-right-44,false,13,8);
+					}
+					@include responsive (small) {
+						height: 32px;
+						width: 32px;
+						&.arrow-prev {
+							@include sprite-background-image($sprite,grey-arrow-left-32,false,6,5);
+						}
+						&.arrow-next {
+							@include sprite-background-image($sprite,grey-arrow-right-32,false,9,5);
+						}
+					}
+				}
+				&.hide-nav {
+					button {
+						border: none;
+						background: none;
+						cursor: default;
+					}
+				}
+			}
+			.carousel-item-wrapper {
+				@include fluid-column(10,0,$grid-columns,0,false);
+				@include responsive(small) {
+					@include fluid-column(16,0,$grid-columns,0,false);
+					@include fluid-offset-left(1,0,$grid-columns,0);
+					@include fluid-offset-right(1,0,$grid-columns,0);
+				}
+			}
+		}
+	}
+}

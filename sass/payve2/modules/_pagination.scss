@@ -1,0 +1,40 @@
+.pagination {
+	//border-top: 1px solid $light-grey;
+	background: none !important;
+	padding: 10px 0 0 !important;
+	
+	
+	ul {
+		//@include inline-block;
+		@include float-left;
+		@include no-bullets; 
+		margin: 0;
+		padding: 0;
+	}
+	li {
+		@include float-left;
+		
+		a,
+		span {
+			@include float-left; 
+			padding: 4px 8px;
+		}
+	}
+	a,
+	span {
+		text-decoration: none; 
+		@include font-size(16px,16px);
+		color: $blue;
+		font-weight: bold;
+		&:first-child {
+			padding-left: 0;
+		}
+	}
+	span {
+		color: $med-grey;
+	}
+	p {
+		@include float-right;
+		padding-top: 4px;
+	}
+}

@@ -1,0 +1,29 @@
+// ==========================================================================
+// Background
+// ==========================================================================
+@mixin sprite-background-image($map, $sprite, $dimensions: false, $offset-x: 0, $offset-y: 0) {
+  @include sprite($map, $sprite, $dimensions, $offset-x, $offset-y);
+  background-image: $map;
+  background-repeat: no-repeat;
+}
+// ==========================================================================
+// Icon Sprites
+// ==========================================================================
+$icon-sprites: sprite-map("savings/sprite/*.png"
+	,$sprite-icon-about-spacing: 40px
+	,$sprite-icon-business-services-spacing: 40px
+	,$sprite-icon-dining-spacing: 35px
+	,$sprite-icon-limited-offers-spacing: 40px
+	,$sprite-icon-travel-spacing: 40px
+	,$sprite-icon-gift-spacing: 40px
+	,$sprite-icon-search-spacing: 20px
+	,$sprite-icon-newsletter-spacing: 20px 
+
+  //, $new-position: 100%, $new-spacing: 15px, $new-repeat: no-repeat
+);
+/* example
+div {
+	@include sprite-background-image ($icon-sprites, "filename-goes-here")
+	 @include sprite-background-image ($icon-sprites, "icon-search", false, 4px, 3px);
+}
+*/ 
