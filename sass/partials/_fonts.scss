@@ -1,0 +1,60 @@
+/*
+* This CSS resource incorporates links to font software which is
+* the valuable copyrighted property of WebType LLC, The Font Bureau,
+* Ascender Corporation and/or their suppliers. You may not
+* attempt to copy, install, redistribute, convert, modify or reverse
+* engineer this font software. Please contact WebType with any
+* questions: http://www.webtype.com
+*/
+
+/*
+* American Express is working on getting a license. Until then, we must pull the font.
+*@font-face {
+*    font-family: BentonSansMedium;
+*    src: url("../fonts/BentonSans-Medium/d8819cd9-bf6d-4a54-a16b-48a6fddad808-2.eot");
+*    src: local("?"),
+*    url("../fonts/BentonSans-Medium/d8819cd9-bf6d-4a54-a16b-48a6fddad808-3.woff") format("woff"),
+*    url("../fonts/BentonSans-Medium/d8819cd9-bf6d-4a54-a16b-48a6fddad808-1.ttf") format("truetype"),
+*    url("../fonts/BentonSans-Medium/d8819cd9-bf6d-4a54-a16b-48a6fddad808-4.svg#web") format("svg");
+*    font-style: normal;
+*    font-weight: normal;
+*}
+*/
+
+/*
+* American Express is working on getting a license. Until then, we must pull the font.
+*@font-face {
+*    font-family: BentonSansRegular;
+*    src: url("../fonts/BentonSans-Regular/310600de-61cf-46b0-aa47-889f601fb5e1-2.eot");
+*    src: local('?'),
+*    url("../fonts/BentonSans-Regular/310600de-61cf-46b0-aa47-889f601fb5e1-3.woff") format("woff"),
+*    url("../fonts/BentonSans-Regular/310600de-61cf-46b0-aa47-889f601fb5e1-1.ttf") format("truetype"),
+*    url("../fonts/BentonSans-Regular/310600de-61cf-46b0-aa47-889f601fb5e1-4.svg#web") format("svg");
+*    font-style: normal;
+*    font-weight: normal;
+*}
+*/
+/* END: WebType Fonts */
+
+//-----------------------------------------------
+// Use arial as the font-family
+//-----------------------------------------------
+@mixin font-arial ($bold: false, $italic: false) {
+  font-family: Arial, Helvetica, sans-serif;
+  @include font-props($bold, $italic);
+}
+
+//-----------------------------------------------
+// Use Benton Sans as the font-family
+//-----------------------------------------------
+@mixin font-benton-sans ($style: regular) {
+  // Style
+  @if $style == medium {
+	font-family: BentonSansMedium, Arial, Helvetica, sans-serif;
+  } @else if $style == light {
+	font-family: BentonSansLight, Arial, Helvetica, sans-serif;
+  } @else {
+	font-family: BentonSansRegular, Arial, Helvetica, sans-serif;
+  }
+  font-weight: normal;
+}

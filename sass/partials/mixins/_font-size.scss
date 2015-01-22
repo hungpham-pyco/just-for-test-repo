@@ -1,0 +1,73 @@
+//-----------------------------------------------
+// Mixin to make it easy to use YUI 3 Fonts with percentages 
+//-----------------------------------------------
+@mixin font-size ($font-size, $line-height: auto, $letter-spacing: 0, $base-font-size: $base-font-size) {
+	@include font-size-only($font-size, $base-font-size);
+	
+	@if $line-height != auto {
+		@include line-height($line-height, $font-size);
+	}
+	
+	@if $letter-spacing != 0 {
+		letter-spacing:  ceil(percentage($letter-spacing / 1000));
+	}
+}
+
+
+//-----------------------------------------------
+// Set only the font-size
+//-----------------------------------------------
+@mixin font-size-only ($font-size, $base-font-size: $base-font-size) {
+  font-size: ceil(percentage($font-size / $base-font-size));
+}
+
+//-----------------------------------------------
+// Set the line-height
+//-----------------------------------------------
+@mixin line-height ($line-height, $font-size: $base-font-size) {
+  line-height:  ceil(percentage($line-height / $font-size));
+}
+
+//-----------------------------------------------
+// Set Bold and Italic
+//-----------------------------------------------
+@mixin font-props($bold: false, $italic: false) {
+  // Bold
+  @if $bold == false {
+    font-weight: normal;
+  }
+  @if $bold != false {
+    font-weight: bold;
+  }
+  
+  // Italic
+  @if $italic == false {
+    font-style: normal;
+  }
+  @if $italic != false {
+   font-style: italic;
+  }
+}
+
+//-----------------------------------------------
+// Use arial as the font-family
+//-----------------------------------------------
+@mixin font-arial ($bold: false, $italic: false) {
+  font-family: Arial, Helvetica, sans-serif;
+  @include font-props($bold, $italic);
+}
+
+//-----------------------------------------------
+// Use helvetica as the font-family
+//-----------------------------------------------
+@mixin font-helvetica ($weight: roman, $bold: false, $italic: false) {
+  // Weight
+  @if $weight == light {
+    font-family:'HelveticaNeueW01-45Ligh', Helvetica, Arial, sans-serif;
+  } @else if $weight == thin {
+    font-family:'HelveticaNeueW01-Thin', Helvetica, Arial, sans-serif;
+  } @else {
+    font-family:'HelveticaNeueW01-55Roma', Helvetica, Arial, sans-serif;
+  }
+  @include font-props($bold, $italic);
+}

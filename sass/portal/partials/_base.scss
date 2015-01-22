@@ -1,0 +1,61 @@
+//////////////////////////////////////
+// BASE SETTINGS
+//////////////////////////////////////
+$base-font-size: 16px;
+//////////////////////////////////////
+// COLORS
+//////////////////////////////////////
+$black: #222;
+$white: #fff;
+$background: #f4f4f4;
+
+// portal blues
+$blue-one: #7aadc6; //text link
+$blue-two: #0e49a3; //button hover
+$blue-three: #597f91; //text link hover
+$blue-four: #0a3577; //button bg
+$blue-five: #006d8d; //subheader site title
+
+//portal grays
+$grey-one: #fafafa; //input bg color
+$grey-two: #cccccc; //borders
+$grey-three: #77787b; // bgrey header light, grey button, grey copy
+$grey-four:  #777679; //grey toggle
+$grey-five: #595959; // grey hero
+$grey-six: #525456; //grey button hover
+$grey-seven: #f6f6f6; // light grey background
+$grey-eight: #3b3b3b; // dark gray lattice background
+$grey-nine: #77787b; // color in tab header
+$grey-ten: #e5e5e5; // light grey used in table and 'inactive' pagination links 
+
+// site elements
+$text-link: $blue-one;
+$text-link-hover: $blue-three;
+$border: $grey-two;
+$button-bg: $blue-four;
+$button-bg-hover: $blue-two;
+$button-grey-bg: $grey-three;
+$button-grey-bg-hover: $grey-six;
+
+// system colors
+$blue-six: #81b7c6; // success message bg
+$red-one: #f6ae96; // error message bg
+$red-two: #ed5929; // error message border
+
+// Grid
+$grid-column-width: 31px;
+$grid-gutter-width: 10px;
+$grid-columns: 24;
+
+$grid-css: true;
+$grid-clearfix-extend: false;
+@mixin grid-clearfix($extend) {
+        @extend .clearfix;
+}
+
+//////////////////////////////////////
+// BREAKPOINTS
+//////////////////////////////////////
+$break-lg: 800px;
+$break-md: 660px;
+$break-sm: 320px;

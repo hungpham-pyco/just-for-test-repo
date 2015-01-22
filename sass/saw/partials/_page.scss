@@ -1,0 +1,344 @@
+@import "compass/css3";
+@import "compass/typography";
+
+//-----------------------------------------------
+// The following html5-boilerplate styles should
+// probably be customized for each site
+//-----------------------------------------------
+
+//-----------------------------------------------
+// Fix font size for users using 120dpi
+//-----------------------------------------------
+@media all and (min-resolution: 120dpi) {
+	html { font-size: 80%; }
+}
+//-----------------------------------------------
+// IE6/IE7 120DPI font size fix
+//-----------------------------------------------
+#header {
+	scrollbar-track-color:expression(
+	this.runtimeStyle.scrollbarTrackColor = "#fff",
+	((screen.deviceXDPI/screen.logicalXDPI) == 1) ? (document.body.style.fontSize = 1/(screen.logicalYDPI/96) +'em') : false
+	);
+}
+
+body, select, input, textarea {
+  color: $font-color;
+  // Set your base font here, to apply evenly
+  // font-family: Georgia, serif;
+}
+
+//Headers (h1, h2, etc) have no default font-size or margin; define those yourself
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  @include font-benton-sans(regular);
+  color: $dark-blue;
+  a {
+	color: $dark-blue;
+	&:hover,
+	&:active,
+	&:visited {
+	  color: $dark-blue;
+	}
+  }
+}
+h3.icon-saw, h4.icon-saw { padding-top: 6px; }
+
+#main > h1, .section h2, .alternate h1 {
+  color: $font-color;
+  text-transform: uppercase;
+  @include font-benton-sans(regular);
+  @include font-size(14px, 21px);
+  border-bottom: 1px solid #abb5b7;
+  margin: 0 0 24px;
+  padding-bottom: 5px;
+}
+#main > h1 {
+  margin: 0 ($gutter-width / 2) 24px;
+}
+p {
+  @include font-size(12px, 18px);
+  margin-bottom: 1em;
+}
+p.cta {
+  margin-bottom: 0;
+}
+a, a:active, a:visited { color: $link-color; text-decoration: none; outline: 0; }
+a:hover { color: $link-hover-color; }
+
+a.icon-saw, span.icon-saw {
+  padding-top: 6px;
+  padding-left: 30px;
+  background-repeat: no-repeat;
+  //-background-position: left top;
+}
+//-a.pos, span.icon { background-image: image-url('icons/icon-pos.png'); }
+a.pos, span.pos {
+	@extend .sprite-icon-pos;
+}
+//-a.rebate, span.rebate { background-image: image-url('icons/icon-rebate.png'); }
+a.rebate, span.rebate {
+	@extend .sprite-icon-rebate;
+}
+
+strong, th {
+  font-weight: bold;
+}
+
+small {
+  // Use font-size mixin to convert to percentage for YUI
+  // http://developer.yahoo.com/yui/3/cssfonts/#fontsize
+  @include font-size(11px);  // approx 85% when base-font-size eq 13px
+}
+
+// Add the 'required' attribute on your
+// inputs if you want to use these
+input:valid, textarea:valid {}
+input:invalid, textarea:invalid {
+  @include border-radius(1px);
+  @include single-box-shadow(red, 0, 0, 5px, 0);
+}
+.no-boxshadow input:invalid,
+.no-boxshadow textarea:invalid { background-color: #f0dddd; }
+
+
+//-----------------------------------
+// savings-at-work-banner
+//-----------------------------------
+#savings-at-work-banner {
+  @include font-benton-sans(medium);
+  background-color: white;
+  @extend .sprite-bg-savings-at-work-banner;
+  background-repeat: repeat-x;
+  border-bottom: 2px solid white;
+  position: relative;
+  z-index: 1;
+  @include photoshop-drop-shadow(90, 2px, 0, 5px, blend-multiply(rgba(#000, 0.39), #006099));
+  height: 63px;
+  .logo {
+	@include font-benton-sans(medium);
+	@include grid-column(8);
+	color: #162B75;
+	@include font-size-only(21px);
+	border-bottom: none;
+	margin-top: 14px;
+	padding-bottom: 0;
+	em {
+	  font-style: normal;
+	  color: #8B8D8E;
+	}
+	span {
+	  @include inline-block;
+	  @include replace-text-with-dimensions('logo-savings-at-work.png');
+	  .ie7 & { /* ie7 bug; text-indent is hiding background image */
+		display: block;
+		background-position: 0 50%;
+		height: 30px;
+	  }
+	}
+	a span {
+	  cursor: pointer; /* ie7 not showing pointer */
+	}
+  }
+  p {
+	text-align: right;
+	//@include grid-column(14); - removed since AmexShareIt is not being used
+	@include grid-column(16);
+	@include font-size-only(12px);
+	margin-bottom: 0;
+	margin-top: 20px;
+  }
+  .logo, p {
+	line-height: 30px;
+	text-transform: uppercase;
+  }
+}
+
+//-----------------------------------
+// generic banner
+//-----------------------------------
+.section.banner {
+  color: white;
+  background-color: #3178a4;
+  @extend .sprite-bg-banner-small;
+  background-repeat: repeat-x;
+  //-background-image: image-url('bg-banner-small.jpg');
+  //-background-position: 50% 0;
+  height: 183px;
+  position: relative;
+  z-index: 0;
+  .content {
+	@extend .sprite-bg-banner-small;
+	background-repeat: repeat-x;
+	//-background-image: image-url('bg-banner-small.jpg');
+	//-background-position: 50% 0;
+	height: 100%;
+	position: relative;
+  }
+  .column {
+	@include grid-column(12);
+	padding-top: 50px;
+  }
+  h1 {
+	@include font-benton-sans(medium);
+	@include font-size(32px, 26px);
+	color: #fff;
+	text-transform: uppercase;
+	margin-bottom: 5px;
+	@include photoshop-text-shadow(120, 2px, 0, 1px, blend-multiply(rgba(#000, 0.47), #0064a2));
+  }
+  p {
+	color: white;
+	@include font-size(12px, 20px);
+	margin-bottom: 0;
+  }
+  .banner-image {
+	position: absolute;
+	top: 0;
+	right: 5px;
+  }
+}
+
+//-----------------------------------
+// breadcrumb
+//-----------------------------------
+#container > .section.full-width.breadcrumb { margin-bottom: 30px; }
+.breadcrumb {
+  //-background-image: image-url('bg-breadcrumb.png');
+  @extend .sprite-bg-breadcrumb;
+  background-repeat: repeat-x;
+  height: 60px;
+  border-top: 2px solid white;
+  border-bottom: 1px solid #abb5b7;
+  
+  p {
+	@include grid-column(24);
+	float: none;
+	@include font-size(14px, 21px);
+	margin-top: 19px;
+  }
+  span {
+	//@include inline-block;
+	background-image: image-url('bg-breadcrumb-nub.png');
+	background-position: center bottom;
+	//-@extend .sprite-bg-breadcrumb-nub;
+	background-repeat: no-repeat;
+	padding-bottom: 23px;
+  }
+}
+
+//-----------------------------------
+// generic section alternate (404, etc)
+//-----------------------------------
+#main .section.alternate {
+	padding-top: 54px;
+	//margin-bottom: 120px;
+	min-height: 250px;
+	h1 {
+		@include font-size(24px, 24px);
+	}
+}
+
+//-----------------------------------
+// ShareAmex buttons
+//-----------------------------------
+#shareamex {
+	float: right;
+	margin-top: 14px;
+}
+
+//-----------------------------------
+// clicktips
+//-----------------------------------
+a.clicktip {}
+span.clicktip {
+	position: absolute;
+	display: block;
+	@include grid-column(6);
+	background: #fff;
+	border: 1px solid #bfbfbf;
+	margin: 0;
+	padding: 5px 10px;
+	z-index: 4100;
+	//dropshadow
+}
+
+//-----------------------------------
+// Contact Footer
+//-----------------------------------
+.section.footer {
+  //-background-image: inline-image('bg-footer-gradient.png');
+  //-background-position: 0 0;
+  @extend .sprite-bg-footer-gradient;
+  background-repeat: repeat-x;
+  .ie7 &, .ie6 & {
+	//-background-image: image-url('bg-footer-gradient.png');
+  }
+  .content {
+	position: relative;
+	padding-top: 77px;
+	height: 86px;
+  }
+  .nub {
+	position: absolute;
+	//-@include replace-text-with-dimensions('footer-cards.jpg');
+	top: 47px;
+	left: -35px;
+	@extend .sprite-footer-cards;
+  }
+  p {
+	@include font-size(11px, 18px);
+	text-transform: uppercase;
+	padding-top: 35px;
+	@include grid-column(7);
+	@include grid-column-empty(17, before);
+  }
+}
+
+//-----------------------------------
+// Add your own custom styles below
+//-----------------------------------
+body {}
+
+#container {}
+
+header {}
+
+#main {}
+
+footer {}
+
+
+//-----------------------------------
+// Home Page
+//-----------------------------------
+@import "saw/pages/1-home";
+
+//-----------------------------------
+// Overview
+//-----------------------------------
+@import "saw/pages/2-overview";
+
+//-----------------------------------
+// Dining, Travel, Business Services
+//-----------------------------------
+@import "saw/pages/4-dining";
+
+//-----------------------------------
+// Special Savings
+//-----------------------------------
+@import "saw/pages/7-special-savings";
+
+//-----------------------------------
+// Newsletter Signup modals
+//-----------------------------------
+@import "saw/pages/8-newsletter-signup";
+
+//-----------------------------------
+// Non-modal login pages
+//-----------------------------------
+@import "saw/pages/9-non-modal-login";
+
+//-----------------------------------
+// Dialogs
+//-----------------------------------

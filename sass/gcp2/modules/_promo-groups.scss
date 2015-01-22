@@ -1,0 +1,730 @@
+/************************************/
+/* Promo Groups */
+/************************************/
+
+.promo-module-background {
+		background-color: $pengo;
+		@include responsive(lessthanlarge) {
+			@include backgroundPattern('midgrey');
+		}
+		&.white-bg {
+			background-color: #fff;
+		}
+		&.with-center-shadow {
+			&:after {
+				@include center-shadow();
+			}
+		}
+	}
+
+.promo-group-content {
+	.headlines {
+		background: none;
+		border-bottom-width: 0;
+	}
+	/**********************************/
+	/* three-col */
+	/* 3 columns of promos with images */
+	/* Used on New Corp Card Landing Page*/
+	/**********************************/
+	&.three-col {
+		margin: 20px 0 20px 0;
+		@include clearfix();
+		@extend .rel;
+		z-index: 1;
+		&:after {
+			.oldie & {
+				@include center-shadow();
+			}
+			@include responsive('largerthansmall') {
+				@include center-shadow();
+			}
+		}
+
+		// first main container should extend full width
+		// for shadow
+		> .main-container {
+			@include backgroundPattern('grey');
+			width: 100%;
+			max-width: none;
+			@include responsive('small') {
+				@include fluid-column(22,0,$grid-columns,0,false);
+				@include fluid-offset-left(1);
+				background: none;
+			}
+		}
+
+		.headlines {
+			display: block;
+			width: 100%;
+			margin: 0 auto;
+			max-width: 980px;
+			@include responsive('lessthanlarge') {
+				@include fluid-column(22,0,$grid-columns,0,false);
+				@include fluid-offset-left(1);
+			}
+			h1 {
+				text-align: center;
+				@include font-size(40px);
+				@include responsive('lessthanlarge') {
+					@include font-size(28px);
+				}
+			}
+		}
+		.promo-group-wrapper {
+			@include clearfix();
+			width: 100%;
+			max-width: 980px;
+			margin: 0 auto;
+			margin-bottom: 70px;
+			@include responsive('lessthanlarge') {
+				@include fluid-column(22,0,$grid-columns,0,false);
+				@include fluid-offset-left(1);
+				margin-bottom: 50px;
+			}
+		}
+		.main-container {
+
+			&.promo-featured-image-left {
+				background: $white;
+				@include fluid-column(7,0,$grid-columns,0,false);
+				@include fluid-offset-left(.5);
+				@include fluid-offset-right(.5);
+
+				@include responsive('lessthanlarge') {
+					@include fluid-column(22,0,22,0,false);
+					@include fluid-offset-left(1);
+					margin: 15px 0;
+				}
+
+				.promo-row {
+					margin: 0 0 10px 0;
+					.media {
+						width: 100%;
+						float: none;
+						text-align: center;
+						margin: 0;
+						.module-shadow-left-right {
+							&:before,
+							&:after {
+								// hide shadow
+								display: none;
+							}
+						}
+					}
+					.content {
+						width: 100%;
+						float: none;
+						.headlines {
+							@include clearfix();
+							text-align: center;
+							margin: 0;
+							padding: 0;
+							h2 {
+								@extend .h5;
+								padding: 20px 0;
+								@include responsive('lessthanlarge') {
+									margin-left: 0;
+								}
+							}
+							@include responsive('lessthanlarge') {
+								float: none;
+								width: 100%;
+							}
+						}
+						.copy {
+							width: 100%;
+							float: none;
+							margin: 0 auto;
+							text-align: center;
+							height: auto;
+							clear: both;
+							min-height: 132px;
+							p {
+								@include font-benton-sans('light');
+								padding: 0 15px;
+								margin-bottom: 10px; 
+							}
+						}
+						.cta {
+							width: 100%;
+							margin: 10px 0 0 0;
+							text-align: center;
+							line-height: 100%;
+							a {
+								// undo button styles
+								@include removebtn();
+								color: $darkteal;
+								line-height: 100%;
+								height: auto;
+								i.arrow-right {
+									@include arrow(right,5px,$darkteal);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	/**********************************/
+	/* three-col-featured*/
+	/* 3 columns of promos with images, with grey highlight around headline */
+	/* Used on New Corp Card Landing Page*/
+	/**********************************/
+	&.three-col-featured {
+		@include clearfix();
+		margin-top: 40px;
+		@include clearfix();
+		@extend .rel;
+		z-index: 1;
+		&:after {
+			display: block;
+			margin: 0 auto;
+			max-width: 800px;
+			@include center-shadow();
+		}
+		.headlines {
+			background: none;
+			border-bottom-width: 0;
+			padding-bottom:10px; 
+			display: block;
+			width: 100%;
+			
+			h1 {
+				@include font-size(40px);
+				text-align: center;
+				padding: 0 15%;
+
+				@include responsive('lessthanlarge') {
+					padding: 0 5%;
+				}
+
+				@include responsive('small') {
+					@include font-size(32px);
+				}
+			}
+		}
+		.promo-group-wrapper {
+			@include clearfix();
+			@extend .rel;
+			z-index: 1;
+			@include backgroundPattern('grey');
+		}
+		.main-container {
+			&.promo-featured-image-left {
+				@include fluid-column(7,0,$grid-columns,0,false);
+				@include fluid-offset-left(.5);
+				@include fluid-offset-right(.5);
+				@include responsive('small') {
+					@include fluid-column(22,0,$grid-columns,0,false);
+					@include fluid-offset-left(1);
+				}
+				.promo-row {
+					margin-top: 10px;
+					.media {
+						width: 55%;
+						float: none;
+						text-align: center;
+						margin: 0 auto;
+						@include responsive('lessthanlarge') {
+							width: 100%;
+							display: block;
+							img {
+								max-width: 300px;
+							}
+						}
+
+						.module-shadow-left-right {
+							&:before,
+							&:after {
+								// hide shadow
+								display: none;
+							}
+						}
+					}
+					.content {
+						width: 100%;
+						float: none;
+						text-align: center;
+						margin: 0;
+
+						.headlines {
+							margin-bottom:5px;
+							margin-top: 20px;
+							h2 {
+								width: 100%;
+								background: #8c8f9e;
+								color:#fff;
+								display: block;
+								padding: 10px 0;
+								margin-left: 0;
+								@extend .h5;
+							}
+						}
+						.copy {
+							width: 100%;
+							float: none;
+							text-align: center;
+							margin: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/**********************************/
+	/* product-grid */
+	/* 3 columns of promos styled in a white box */
+	/* used on all cards page*/
+	/* product-list */
+	/* one column of promos with additional body copy */
+	/* used on all solutions page*/
+	/**********************************/
+	&.product-list, 
+	&.product-grid {
+		.cta {
+			margin: 10px 0;
+		}
+		.promo-group-wrapper {
+			background: $white;
+			@extend .rel;
+			@include fluid-column(24,0,$grid-columns,0,false);
+			z-index: 1;
+			margin-bottom: 20px;
+			padding-top: 46px;
+			&:after {
+				@include center-shadow();
+			}
+			@include responsive('lessthanlarge') {
+				overflow: hidden;
+			}
+			.main-container {
+				@include fluid-column(7,0,$grid-columns,0,false);
+				@include fluid-offset-left(1);
+				// remove margin & padding on wrapper
+				// so height adjustments do not take this into account
+				padding-top: 0;
+				padding-bottom: 0;
+				@include responsive('small') {
+					@include fluid-column(22,0,$grid-columns,0,false);
+				}
+				.promo-row {
+					margin-top: 0;
+					margin-bottom: 20px;
+					.featured-promo {
+						position: static;
+						z-index: auto;
+						@include clearfix();
+						@include responsive('small') {
+							.media {
+								display: block;
+								@include fluid-column(22,0,$grid-columns,0,false);
+								@include fluid-offset-left(1);
+								text-align: center;
+							}
+						}
+					}
+					.media {
+						@include fluid-column(6,0,7,0,false);
+						margin: 0;
+						.module-shadow-left-right {
+							&:before,
+							&:after {
+								// hide shadow
+								display: none;
+							}
+						}
+					}
+					.content {
+						@include fluid-column(7,0,7,0,false);
+						.headlines {
+							text-align: left;
+							padding: 0;
+							margin: 30px 0 0 0;
+							h2 {
+								@extend .h5;
+								margin-left: 0;
+								color: $darkteal;
+							}
+						}
+						.copy {
+							width: 100%;
+							float: none;
+							margin: 0 auto;
+							p {
+								@extend .body-2;
+								margin: 15px 0 0 0;
+							}
+							ul {
+								margin: 0;
+								padding: 0;
+								list-style-position: inside;
+								li {
+									&:first-of-type {
+										margin-top: 0;
+									}
+									margin: 5px 0;
+									@extend .body-2;
+									@extend .rel;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		.disclaimer {
+			@include fluid-column(22,0,$grid-columns,0,false);
+			@include fluid-offset-left(1);
+			border-top: 1px solid $sqrl;
+			padding: 20px 0;
+			margin-top: 10px;
+			.left {
+				@include fluid-column(16,0,22,0,false);
+			}
+			.right {
+				@include fluid-column(6,0,22,0,false);
+				text-align: right;
+				margin-top: 12px;
+			}
+			p {
+				@include font-size(13px,18px);
+			}
+		}
+
+		.promo-featured-addtl-text {
+			@include clearfix;
+			margin-top: 15px;
+			padding: 30px 0 35px 0;
+			background: $white;
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			h2 {
+				@extend .h3;
+				color: $darkteal;
+			}
+
+			.media {
+				@include fluid-column(5,0,$grid-columns,0,false);
+				min-height: 180px;
+				position: relative;
+				text-align: center;
+				img {
+					width: 100%;
+					max-width: 120px;
+				}
+				@include responsive('small') {
+					display: none;
+				}
+			}
+
+			.primary-content {
+				@include fluid-column(8,0,$grid-columns,0,false);
+				position: relative;
+				min-height: 180px;
+				padding: 0;
+				.cta {
+					@extend .abs;
+					bottom: 0;
+					margin: 0;
+					a {
+						@extend .btn;
+					}
+				}
+				@include responsive('small') {
+					@include fluid-column(22,0,$grid-columns,0,false);
+					@include fluid-offset-left(1);
+					min-height: 0;
+					margin-bottom: 15px;
+					h2 {
+						@include fluid-column(16,0,22,0,false);
+					}
+					.cta {
+						position: static;
+						@include fluid-column(6,0,22,0,false);
+						text-align: right;
+					}
+				}
+			}
+
+			.featured-addtl-text {
+				@include fluid-column(10,0,$grid-columns,0,false);
+				@include fluid-offset-left(1);
+				@include responsive('small') {
+					@include fluid-column(22,0,$grid-columns,0,false);
+					display: block;
+				}
+
+				p {
+					@extend .h5;
+					margin-top: 0;
+				}
+
+				ul {
+					padding-left: 1em;
+
+					li {
+						@extend .h5;
+						margin-top: 30px;
+						color: $grey;
+						font-weight: normal !important;
+
+						&:first-child {
+							margin-top: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+	&.product-list {
+		.promo-group-wrapper {
+			background: none;
+			padding-top: 0;
+		}
+	}
+
+	/**********************************/
+	/* product-grid-2 */
+	/* 3 columns of promos styled in a white box  with small image*/
+	/* used on supplier payments page*/
+	/**********************************/
+	&.product-grid-2 {
+		.promo-group-wrapper {
+			.main-container {
+				@include fluid-column(8,0,$grid-columns,0,false);
+				@include fluid-offset-left(0);
+				@include fluid-offset-right(0);
+				padding-top: 0;
+				padding-bottom: 0;
+				background-color: $white;
+				margin-bottom: 18px;
+
+				@include responsive('lessthanlarge') {
+					@include fluid-column(11,0,$grid-columns,0,false);
+				}
+
+				@include responsive('small') {
+					@include fluid-column(24,0,$grid-columns,0,false);
+				}
+
+				.promo-row {
+					margin: 0 0 15px;
+					padding: 0;
+					.media {
+						width: 93px;
+						margin: 0;
+						position: relative;
+						top: 0;
+						left: 0;
+						z-index: 1;
+						float: left;
+						@include fluid-offset-right(1);
+
+						.module-shadow-left-right {
+							&:before,
+							&:after {
+								display: none;
+							}
+
+							img {
+								max-width: 93px;
+								max-height: 78px;
+								height: auto;
+							}
+						}
+					}
+					.content {
+						width: auto;
+						margin: 0;
+						float: none;
+
+						.content-row {
+							clear: none;
+						}
+						
+						.headlines {
+							background-color: $light-grey;
+							margin: 0 0 20px;
+							color: $darkteal;
+							min-height: 78px;
+							clear: none;
+							float: none;
+							display: block;
+
+							h2 {
+								width: auto;
+								margin-left: 0;
+								padding-top: 15px;
+								float: none;
+								@include font-size(19px, 20px);
+								@include font-benton-sans('bold');
+								text-transform: uppercase;
+								color: $darkteal;
+								.strong {
+									display: block;
+									@extend .h5;
+								}
+								@include responsive('small') {
+									width: 100%;
+									margin-left: 0;
+								}
+							}
+
+							@include responsive('small') {
+								width: 100%;
+								padding-left: 5%;
+								padding-right: 5%;
+								min-height: 0;
+							}
+						}
+						.copy {
+							width: 90%;
+							margin: 0 5%;
+							text-align: left;
+
+							p {
+								margin-bottom: 5px
+							}
+						}
+
+						.cta {
+							width: 90%;
+							margin: 0 5%;
+							text-align: left;
+
+							a {
+								padding: 0;
+								margin: 0;
+								background: none;
+								color: $darkteal;
+								@include font-size(16px);
+
+								i.arrow-right {
+									margin-left: 6px;
+									@include arrow(right,5px,$darkteal);
+								}	
+							}
+						}
+					}
+				}
+
+				&:first-of-type {
+					background-color: $darkteal;
+					.promo-row {
+						.media {
+							display: none;
+							visibility: hidden;
+						}
+						.content {
+							width: 100%;
+							margin: 0;
+
+							.headlines {
+								min-height: 0;
+								background: none;
+								padding: 15px;
+								margin-bottom: 0;
+								@include responsive('small') {
+									margin-left: 5%;
+									margin-right: 5%;
+									padding-left: 0;
+								}
+
+								h2 {
+									@extend .h4;
+									color: $white;
+									margin-left: 0;
+									width: auto;
+								}
+							}
+							.copy {
+								p {
+									color: $white;
+								}
+							}
+							.cta {
+								color: $white;
+								a {
+									color: $white;
+
+									i.arrow-right {
+										@include arrow(right,5px,$white);
+									}	
+								}
+							}
+						}
+					}
+				}
+
+				@include responsive('large') {
+					&:nth-of-type(3n+1) {
+						clear: left;
+					}
+				}
+
+				@include responsive('lessthanlarge') {
+					&:nth-of-type(2n+1) {
+						clear: left;
+					}
+				}
+			}
+		}
+	}
+}
+
+/*
+TOOLTIPS
+*/
+.tooltip {
+	@include sprite-background-image($sprite,bullet-small,false,0,0);
+	@include image-repacement();
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+}
+
+.tip {
+	position: absolute;
+	border: 2px solid $koala;
+	padding: 10px;
+	background: $white;
+	z-index: 10;
+	left: 10px;
+	top: 30px;
+	// force wraps long URLs 
+	@include force-wrap();
+	max-width: 264px;
+	width: 100%;
+	// on large screens, we can move over the tooltip
+	@include min-screen(1250px){
+		padding: 20px;
+		max-width: 350px;
+		left: 45%;
+	}
+	@include responsive('lessthanlarge') {
+		// inherits parent width 
+		max-width: 175px;
+		left: 0;
+		top: 50px;
+		padding: 0 8px 8px 8px;
+	}
+	@include responsive('small') {
+		max-width: 660px;
+	}
+	span.close {
+		width: 20px;
+		height: 25px;
+		position: absolute;
+		top: -1px;
+		right: 5px;
+		@include sprite-background-image($sprite,icon-x-sm,false,5,9);
+		@include image-repacement();
+		cursor: pointer;
+	}
+}

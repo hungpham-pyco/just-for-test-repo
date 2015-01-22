@@ -1,0 +1,79 @@
+// ==|== print styles =======================================================
+// Print styles.
+// Inlined to avoid required HTTP connection: h5bp.com/r
+// ==========================================================================
+
+@media print {
+	* {
+		//background: transparent !important;
+		// Black prints faster: h5bp.com/s 
+		color: black !important;
+		text-shadow: none !important;
+		filter:none !important;
+		-ms-filter: none !important;
+	}
+
+
+	// h5bp.com/t 
+	thead {
+		display: table-header-group;
+	} 
+
+	tr, img {
+		page-break-inside: avoid;
+	}
+
+	img {
+		max-width: 100% !important;
+	}
+
+	p, h2, h3 {
+		orphans: 3;
+		widows: 3;
+	}
+
+	h2, h3 {
+		page-break-after: avoid;
+	}
+
+	#leftColumn,
+	#mainColumn,
+	#rightColumn,
+	#contentWrapper,
+	#main,
+	#subHeaderContent {
+		float: none;
+		margin: 0;
+		text-align: left;
+		border: 0;
+	}
+	#leftColumn,
+	.footer, #contentWrapper img {
+		display: none;
+	}
+	.cta,
+	.cta a,
+	.btn {
+		border: 0 !important;
+		padding: 0 !important;
+	}
+	.header,
+	#iNav_Level1,
+	#iNavLevel2,
+	#iNav_header_wrap,
+	#iNavHeaderCont,
+	#iNavSANavLvl3,
+	#iNavSANavLvl3,
+	#iNavSANavCont,
+	#iNav_header {
+		margin: 0  !important;
+		padding: 0 !important;
+		padding-left: 0 !important;
+		text-align: left;
+	}
+	.iNav_AmexBlueBoxLogoImage {
+		display: none;
+	}
+}
+
+

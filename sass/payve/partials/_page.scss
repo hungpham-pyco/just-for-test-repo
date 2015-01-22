@@ -1,0 +1,594 @@
+body, select, input, textarea {
+  @include font-arial;
+  color: $grey;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: normal;
+}
+h1 {
+  @include font-size(43px, 43px);
+  margin-bottom: 10px;
+  color: $purple;
+  @include font-benton-sans(medium);
+}
+h2 {
+	@include font-size(30px,30px);
+	margin-bottom: 20px;
+	color: $purple;
+}
+h3 {
+	@include font-size(18px,18px);
+	margin-bottom: 15px;
+}
+h4 {
+	@include font-size(16px,16px);
+	margin-bottom: 5px;
+}
+a, a:active, a:visited {
+  color: $blue;
+  text-decoration: none;
+}
+a:hover {
+  color: $blue;
+  text-decoration: underline;
+}
+p {
+  @include font-size(13px,15px);
+  margin: 0 0 10px 0;
+  &.bold {
+    font-weight: bold;
+  }
+}
+ul {
+	padding: 0;
+	margin: 0;
+	li {
+		@include font-size(12px,14px);
+		list-style-position: inside;
+		margin-bottom: 10px;
+	}
+}
+sup {
+	@include font-size(8px,8px);
+	top: -.75em;
+		.ie7 &,
+		.ie8 &,
+		.ie9 & {
+			top: -1em;
+		}
+}
+#subHeaderWrapper {
+  width: 100%;
+  height: 58px;
+  border-bottom: 1px solid $light-grey;
+}
+#subHeaderContent {
+	h1 {
+		border-bottom: 0;
+	}
+.subHeader {
+    @include float-left;
+    width: 40%;
+		span {
+		display: block;
+		@include font-benton-sans;
+		@include font-size(15px,15px);
+
+		text-transform: uppercase;
+		color: $purple;
+		font-weight: bold;
+		margin: 13px 0 0 0;
+		padding: 0;
+		border-bottom: 0;
+		&:first-line {
+		color: $grey;
+		font-weight: normal;
+	}
+   }
+  }
+   
+.right-content {
+	float: right;
+	display: inline;
+	margin-top: 15px;
+}
+select {
+	vertical-align: top;
+	margin: 7px 10px 0 0;
+	@include font-size(12px,12px);
+	}
+}
+
+//// PAGE  ////////////////////////////////
+.headerWrapper {
+  background-color: #ededed;
+  @include box-shadow(0px 0px 3px rgba(0,0,0,0.50));
+	.ie7 &,
+	.ie8 & {
+	border-bottom: 1px solid $grey;
+	}
+}
+.header,
+.perspectives-header {
+	@extend .content;
+	height: 314px;
+	position: relative;
+
+	h1 {
+		margin: 50px 0 20px;
+		width: 60%;
+		sup {
+			@include font-size(5px,5px);
+			top: -1.5em;
+				.ie7 &,
+				.ie8 &,
+				.ie9 & {
+				top: -2em;
+			}
+		}
+	}
+	p {
+		@include font-size(20px,26px);
+		margin-bottom: 20px;
+		width: 60%;
+	}
+	
+}
+
+// nubs
+.header-left-nub,
+.header-right-nub {
+	position: absolute;
+	top: 0;
+	height: 314px;
+	width: 200px;
+}
+.header-left-nub {
+	left: -200px;
+	background: url('../i/payve/bg-header-left-nub.jpg') repeat-y 0 0;
+}
+.header-right-nub {
+	left: 960px;
+	width: 200px;
+	background: url('../i/payve/bg-header-right-nub.jpg') repeat-y 0 0;
+}
+.graphic-sidebar-content {
+	margin-top: 75px;
+	margin-bottom: 60px;
+
+	.ie7 & {
+		img {
+			@include float-left;
+			margin-bottom: 50px;
+		}
+	}
+}
+.graphic-sidebar-content-right {
+	@include grid-column(8,5px);
+	margin-left: 0;
+	@include float-right;
+	.ie7 & ul {
+		padding-left: 2px;		
+	}
+	p,
+	li {
+		@include font-size(16px,24px);
+	}
+	li {
+		list-style-position: outside; 
+		margin-left: 14px;
+	}
+}
+.benefits {
+	background-color: $background-highlight;
+	position: relative;
+	padding-bottom: 30px;
+	h2 {
+		color: $grey;
+		@include font-size(22px,22px);
+		margin-bottom: 0;
+		padding: 30px 120px 0 30px;
+	}
+	ul {
+		padding: 0 30px;
+		margin: 0;
+	}
+	li {
+		@include grid-column(7,10px);
+		@include font-size(18px,18px);
+		list-style-type: none;
+		margin: 25px 10px 0 0;
+	}
+	h3 {
+		@include font-size(16px,16px);
+		display: table-cell; 
+		vertical-align: bottom;
+		height: 35px;
+			span {
+				border-left: 1px solid $grey;
+				padding-left: 10px + 1px;
+				height: auto; 
+				display: block;
+				.ie7 & {
+					margin-bottom: 2px;
+				}
+			}
+	}
+	p {
+		margin-top: 20px;
+		line-height: 22px;
+		padding-left: 11px;
+		.ie7 & {
+			margin-top: 0;
+		}
+	}
+}
+
+img.corner {
+	position: absolute; 
+	top: -3px;
+	right: -3px;
+}
+//expandable section
+.expandable-js {
+	margin-top: 2px;
+}
+	h2 {
+		margin-bottom: 0;
+	}
+	.expandable-header {
+		background: #fff;
+		color: $purple;
+		@include font-size(30px,30px);
+		border-bottom: 0;
+		margin-top: 1px;
+		& span {
+			@extend .content;
+			display: block;
+			cursor: pointer;
+			background: url('../i/payve/expandable-minus.png') no-repeat scroll 95% 45px transparent;
+			padding-top: 45px;
+			padding-bottom: 15px;
+		}
+		&.collapsed {
+			margin-top: 0;
+			background: #f2f2f2 url('../i/payve/bg-expand-collapse-header.jpg') repeat-y 50% 0;
+			@include box-shadow(0px 0px 3px rgba(0,0,0,0.5));
+				.ie7 &,
+				.ie8 & {
+					border-bottom: 1px solid $grey;
+				}
+				& span {
+					background: url('../i/payve/expandable-plus.png') no-repeat scroll 95% 45px transparent;
+					margin-top: 1px;
+					padding-bottom: 45px;
+				}
+		}
+	}
+	.expandable-group {
+		margin-bottom: 60px;
+		& > p {
+			@include font-size(16px,24px);
+			width: 65%;
+			margin-bottom: 15px;
+		}
+	}
+	div.collapsed {
+		display: none;
+	}
+	.expandable-group + .expandable-header  {
+		border-top: 1px solid $light-grey;
+	}
+	.expandable-group.collapsed + .expandable-header,
+	.expandable-group + .expandable-header.collapsed  {
+		border-top: none;
+	}
+
+//// HOMEPAGE ////////////////////////////
+.homepage {
+	display: block;
+	h2 {
+		@include font-size(43px, 43px);
+		margin: 30px 0 10px;
+		@include font-benton-sans(medium);
+		a, 
+		a:hover {
+			color: $purple;
+			text-decoration: none;
+		}
+		sup {
+			@include font-size(5px,12px);
+			top: -1.5em;
+			.ie7 &,
+			.ie8 &,
+			.ie9 & {
+				top: -2em;
+			}
+		}
+	}
+	h2, p {
+		width: 65%;
+	}
+	img {
+		@include float-right;
+	}
+	.homepage-video {
+		@extend .ir;
+		position: absolute; 
+		width: 314px; 
+		height: 179px; 
+		display: block;
+		top: 56px;
+		right: 0;
+	}
+}
+.homepage-slide1 {
+	background: url('../i/payve/hompeage-header-slide1.jpg') no-repeat 0 0;
+}
+.homepage-slide2 {
+	background: url('../i/payve/hompeage-header-slide2.jpg') no-repeat 0 0;
+	h2 {
+		margin-top: 10px;
+	}
+}
+.homepage-slide3 {
+	background: url('../i/payve/hompeage-header-slide3.jpg') no-repeat 0 0;
+	h2, p {
+		width: 62%;
+	}
+}
+.homepage-slide4 {
+	background: url('../i/payve/spend-iq-header.jpg') no-repeat 0 0;
+}
+.homepage-slide5 {
+	background: url('../i/payve/supplier-enablement-header.jpg') no-repeat 0 0;
+}
+.slidesBottom {
+	height: 31px;
+	@include background-image(linear-gradient(left, #b8d779, #7cb558));
+	.no-cssgradients & {
+	@include filter-gradient(#b8d779, #7cb558);
+	}
+}
+.homepage-module {
+	@include grid-column(7);
+	@include grid-offset-right(1);
+	@include box-sizing(border-box);
+	.ie7 & {
+		width: 229px;
+	}
+	padding-left: 40px;
+	margin-top: 30px;
+	margin-bottom: 100px;
+	min-height: 150px;
+	height: auto;
+	border-left: 1px solid $light-grey;
+		&:first-child {
+			border-left: 0;
+			padding-left: 0;
+		}
+		&.last {
+			@include grid-column(8);
+			@include grid-offset-right(0);
+			margin-top: 30px;
+			margin-bottom: 100px;
+		}					
+		h2 {
+			@include font-size(22px,22px);
+			margin-bottom: 5px;
+		}
+		h3 {
+			color: $purple;
+			@include font-size(16px,16px);
+			margin-bottom: 25px;
+		}
+		p {
+			@include font-size(14px,18px);
+			//@include grid-column(5,20px);
+			margin-left: 0;
+			margin-right: 0;
+		}
+}
+
+// HOMEPAGE SLIDES //
+
+.slides {
+	position: relative;
+	margin: 0 auto;
+	width: 960px; 
+	height: 314px;
+}
+.indicators {
+	position: absolute;
+	z-index: 100;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+		
+	li {
+		@include float-left;
+		margin-bottom: 0;
+		margin-left: 10px;
+	}
+	
+	top: 285px;
+	left: 45%;
+		
+	a {
+		@extend .ir;
+		float: left;
+		display: inline;
+		background-color: #adafaf !important;
+		width: 13px;
+		height: 13px;
+		@include border-radius(50%);
+			
+		&.ui-state-active {
+		background-color: $purple !important;
+		}
+	}
+
+	// Extra class for indicators
+	.ui-state-disabled {
+		a {
+			cursor: default;
+		}
+	}
+}
+
+
+.slide {
+	position: absolute;
+	width: 960px;
+	height: 314px;
+	display: none;
+}
+
+.slides .ui-state-active {
+	display: block;
+}
+
+.slide-content {
+	position: absolute;
+
+}
+
+
+
+
+///// PAYMENT PLATFORM /////////////////////////////
+.payment-platform {
+	background: url('../i/payve/payment-platform-header.jpg') no-repeat 0 0;
+}
+
+///// SPEND IQ /////////////////////////////
+.spend-iq {
+	background: url('../i/payve/spend-iq-header.jpg') no-repeat 0 0;
+}
+
+///// PERSPECTIVES ///////////////////////////////////////
+.perspectives-header-wrapper {
+	background-color: #ededed;
+	border-bottom: 1px solid $grey;
+	margin-bottom: 65px;
+	.perspectives-header {
+		background: url('../i/payve/perspectives-header.jpg') no-repeat 0 0;
+		}
+	.header-left-nub,
+	.header-right-nub {
+		height: 200px;
+	}
+}
+.perspectives-header {
+	height: 200px;
+}
+.perspectives-main-left {
+	@include float-left;
+}
+.perspectives-main-right {
+	@include grid-column(6,5px);
+	@include grid-offset-right(1);
+	@include float-right;
+	margin-left: 0;
+	p {
+		@include font-size(16px,24px);
+	}
+}
+.news-events {
+	li {
+		@include float-left; 
+		list-style-type: none;
+		@include grid-column(12,5px);
+		margin-left: 0;
+		@include font-size(16px,16px);
+	}
+	
+	h4 {
+		border-left: 1px solid $grey; 
+		padding-left: 10px;
+	}
+	p {
+		padding-left: 11px;
+		margin-bottom: 30px;
+	}
+}
+ul.perspectives {
+	padding: 0;
+	margin: 0;
+	.ie7 & {
+		@extend .clearfix;
+	}
+	li {
+		@include float-left;
+		@include grid-column(11);
+		@include grid-offset-right(1);
+		@include font-size(16px,16px);
+		margin-bottom: 50px;
+		list-style-type: none;
+		min-height: 200px;
+	}
+	p {
+		@include font-size(14px,16px);
+		@include grid-column(6,5px);
+		margin-left: 0;
+	}
+	img {
+		@include float-right;
+		margin-left: 20px;
+	}
+}
+
+///// PERSPECTIVES MODULE /////////////////////////////
+.perspectives-module {
+	margin-bottom: 40px;
+	.ie7 & {
+		margin-bottom: 80px;
+	}
+	h3 {
+		border-left: 1px solid $light-grey; 
+		padding-left: 10px;
+		margin-bottom: 5px;
+		font-weight: normal;
+	}
+	p {
+		@include font-size(14px,14px);
+		margin: 0 0 40px;
+	}
+	img {
+		margin-bottom: 15px;
+	}
+}
+.expandable .perspectives-module h2 {
+	margin: 45px 0 20px;
+}
+ul.perspectives-module-list {
+	padding: 0;
+	margin: 0;
+	li {
+		@include float-left;
+		@include grid-column(7);
+		@include grid-offset-right(1);
+		@include font-size(16px,16px);
+		list-style-type: none;
+		margin-bottom: 50px;
+		margin-left: 0;
+	}
+	p {
+		padding-left: 11px;
+		margin: 0;
+	}
+}
+.perspectives-module-aside {
+	@include grid-column(8);
+}
+
+///// SUPPLIER ENABLEMENT /////////////////////////////
+
+.supplier-enablement {
+	background: url('../i/payve/supplier-enablement-header.jpg') no-repeat 0 0;
+}
+
+
+

@@ -1,0 +1,16 @@
+@import "compass/utilities/sprites";
+@import "compass/typography/text/replacement";
+
+// Similar to 'replace-text-with-dimensions' but with sprites
+// To use, create your sprite and then pass it in the `$map` param
+// The name of the image in the sprite folder should be `$img-name`
+@mixin sprite-replace-text ($map, $sprite, $dimensions: false, $offset-x: 0, $offset-y: 0) {    
+  @include hide-text;
+  @include sprite($map, $sprite, $dimensions, $offset-x, $offset-y);
+  background-image: $map;
+  background-repeat: no-repeat;
+}
+
+@mixin sprite-replace-text-with-dimensions ($map, $sprite, $offset-x: 0, $offset-y: 0){    
+  @include sprite-replace-text ($map, $sprite, true, $offset-x, $offset-y);
+}

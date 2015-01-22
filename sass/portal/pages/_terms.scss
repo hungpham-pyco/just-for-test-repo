@@ -1,0 +1,8 @@
+﻿.content-detail-b {
+	.terms {
+		ul li a {
+			//$font-size, $line-height: auto, $letter-spacing: 0, $base-font-size: $base-font-size
+			@include font-size-only(16px,16px);
+		}
+	}
+}

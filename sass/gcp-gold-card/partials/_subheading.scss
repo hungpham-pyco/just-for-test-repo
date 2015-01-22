@@ -1,0 +1,112 @@
+#subHeaderWrapper {
+	width: 100%;
+	background-color: $white;
+	padding: 8px 0;
+	min-height: 32px;
+	&.is-stuck {
+		@include responsive('morethansmall') {
+			position: fixed;
+			top: 0;
+			z-index: 1001;
+			// webkit redraw bugfix
+			-webkit-transform: scale3d(1,1,1);
+		}
+		@include responsive('small') {
+			position: static;
+			top: auto;
+			z-index: 0;
+		}
+		.oldie & {
+			position: fixed;
+			top: 0;
+			z-index: 1001;
+		}
+	}
+	@include responsive('small') {
+		@include box-shadow(rgba(0,0,0,.45) 0 1px 5px);
+		position: relative;
+		z-index: 101;
+	}
+	.subHeader {
+		@include fluid-column(7);
+		a {
+			@include sprite-background-image($sprite,icn-home,false,0,8);
+			display: block;
+			padding-left: 23px;
+			text-decoration: none;	
+			@include responsive('small') {
+				background: none;
+				padding: 0;
+				color: $darkteal;
+				width: 100%;
+				line-height: 32px;
+			}
+		}
+		span {
+			@include font-size(12px,13px);
+			@include font-benton-sans(bold);
+			background: image-url('amex/gcp-logo.png') 0 0 no-repeat;
+			color: $deepblue;
+			display: block;
+			height: 28px;
+			padding-top: 4px;
+			text-transform: uppercase;
+			text-indent: -9999px;
+			width: 164px;
+			br {
+				display: none;
+			}
+			&:first-line {
+				@include font-benton-sans(medium);
+				color: #000;
+			}
+			@include responsive('small') {
+				@include font-size(12px, 15px);
+				background: none;
+				display: inline; 
+				color: $darkteal;
+				@include font-benton-sans(medium);
+				&:first-line {
+					color: $darkteal;
+					@include font-benton-sans(medium);
+				}
+				br {
+					display: none;
+				}
+			}
+		}
+		@include responsive('small') {
+			@include fluid-column(24);
+			text-align: center;
+			padding: 0;
+		}
+	}
+	.extra-content {
+		@include fluid-column(17);
+		float: right;
+		margin: 0;
+		text-align: right;
+		@include responsive('small') {
+			display: none;
+		}
+		p {	
+			display: inline-block;
+			@include font-size(12px);
+			margin: 0 5px;
+		}
+	}
+	.btn {
+		margin-right: 4px;
+		&.request, 
+		&.grey {
+			@include btn($sqrl,#a7a6a9,$white,small);
+		}
+		&.apply, 
+		&.gold {
+			@include btn($gold1,#d9ba92,$white,small);
+		}
+		// default: gold
+		@include btn($gold1,#d9ba92,$white,small);
+	}
+}
+

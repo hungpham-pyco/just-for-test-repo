@@ -1,0 +1,192 @@
+.upgrade-form {
+	@include getPromoGradient();
+	.headlines {
+		@include fluid-page(24);
+		position: relative;
+		margin-bottom: 45px;
+		h2 {
+			@include font-benton-sans('light');
+			@include font-size(40px);
+			color: $crow;
+			padding-top: 70px;
+			text-align: left;
+			@include responsive('lessthanlarge') {
+				@include fluid-column(22,0,$grid-columns,0,true);
+				@include fluid-offset-left(1);
+			}
+			@include responsive('small') {
+				@include font-size(30px, 32px);
+			}
+		}
+		&:before {
+			@include arrow(down,20px,#fff);
+			top: 0;
+			left: 50%;
+			margin-left: -20px;
+			position: absolute;
+		}
+	}
+
+	fieldset {
+		margin-bottom: 30px;
+		@include responsive('lessthanlarge') {
+			@include fluid-column(22,0,$grid-columns,0,true);
+			@include fluid-offset-left(1);
+		}
+	}
+
+	legend {
+		border-bottom: 1px solid $wolf;
+		margin-bottom: 20px;
+		width: 100%;
+		h2 {
+			@include font-size(21px, 23px);
+			margin-bottom: 10px;
+		}
+		p {
+			@include font-size(13px, 15px);
+			margin-top: 0;
+		}
+	}
+
+	.form-row {
+		@include clearfix();
+		margin-bottom: 20px;
+	}
+
+	.form-field {
+		@include fluid-column(10,0,$grid-columns,0,false);
+		margin-right: 15px;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	// field widths
+	.field-4 {
+		@include fluid-column(4,0,$grid-columns,0,false);
+	}
+	.field-5 {
+		@include fluid-column(5,0,$grid-columns,0,false);
+	}
+	.field-6 {
+		@include fluid-column(6,0,$grid-columns,0,false);
+	}
+	.field-7 {
+		@include fluid-column(7,0,$grid-columns,0,false);
+	}
+
+	// responsive field widths, must go after non-responsive css
+	.form-field {
+		@include responsive('lessthanlarge') {
+			@include fluid-column(11,0,$grid-columns,0,false);
+			margin-bottom: 20px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+		@include responsive('small') {
+			width: 100%;
+		}
+	}
+
+	input[type="text"],
+	select,
+	textarea {
+		@include box-sizing(border-box);
+		@include font-benton-sans();
+		@include font-size(13px);
+		@include border-radius(3px);
+		border: 1px solid $wolf;
+		padding: 10px;
+		width: 100%;
+		&.error {
+			color: #c80404;
+		}
+	}
+	
+	input[type="checkbox"] {
+		margin-right: 5px;
+		vertical-align: middle;
+	}
+	
+	select {
+		padding-top: 9px;
+	}
+
+	hr {
+		border-top: 1px solid $wolf;
+	}
+
+	label {
+		@include font-size(13px, 15px);
+		&.error {
+			color: #c80404;
+			font-weight: bold;
+		}
+	}
+
+	.card-members {
+		.form-row {
+			display: none;
+		}
+		div[data-row='0'],
+		div[data-row='1'],
+		div[data-row='2'],
+		div[data-row='3'],
+		div[data-row='4'] {
+			display: block;
+		}
+	}
+
+	.add-rows {
+		input[type="text"] {
+			margin: 0 10px;
+			text-align: center;
+			width: 40px;
+		}
+		label {
+			@include font-benton-sans('bold');
+			@include font-size(14px);
+			color: #1f6c9c;
+		}
+	}
+	
+	#addMore {
+		@include sprite-background-image($sprite,icn-plus,false,0,0);
+		background-color: transparent;
+		border: 0;
+		outline: 0;
+		text-indent: -9999px;
+		width: 20px;
+	}
+
+	// captcha
+	.igc_Control {
+		clear: left;
+	}
+	.igc_ErrorLabel {
+		background-color: transparent;
+		color: $red-error;
+		display: inline-block;
+		font-family: sans-serif;
+		font-weight: bold;
+		margin-top: 10px;
+	}
+
+	.igc_SubmitButton {
+		@extend .btn;
+		@include font-size-only(12px, 13px);
+		&:hover {
+			border: 0;
+		}
+	}
+
+	.error-list {
+		li {
+			@include font-size(13px);
+			color: $red-error;
+			font-weight: bold;
+		}
+	}
+}

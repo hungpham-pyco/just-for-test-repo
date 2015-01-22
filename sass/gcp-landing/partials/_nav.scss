@@ -1,0 +1,122 @@
+.nav {
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		background: #FFF;
+	}
+	
+	li {
+		list-style: none;
+		border-bottom: 1px solid #C2C4CD;
+		margin-bottom: 0;
+		@include font-size(16px,16px);
+	}
+	
+	a,
+	span {
+		display: block;
+		text-decoration: none;
+		background: url(../i/gcp/icn-nav-arrow-lg.png) no-repeat 215px 53%;
+		padding: 15px 30px 15px 10px;
+		@include font-size(14px,18px);
+		
+		&:link,
+		&:visited {
+			color: $purple;
+		}
+		
+		&:hover,
+		&:focus {
+			background-color: #F7F7F7;
+			text-decoration: none;
+		}
+	}
+	
+	li {
+		ul {
+			display: none;
+			
+			li {
+				font-size: 12px;
+				margin: 5px 0;
+				border: 0;
+				padding: 7px 15px 7px 40px;
+				background: url(../i/gcp/icn-nav-arrow.png) no-repeat 25px 9px;
+				
+				&:after {
+					content: '\00A0\00BB';
+				}
+				&:first-child {
+					margin-top: 0;
+				}
+				&:last-child {
+				  margin-bottom: 0;
+				}
+			}
+			
+			a,
+			span {
+				@include font-size(16px,18px);
+				display: inline;
+				padding: 0 !important;
+				// Override the current class stylings
+				background-color: transparent !important;
+				font-weight: normal !important;
+				cursor: pointer !important;
+				color: $purple !important; //for span
+				&:link,
+				&:visited {
+					color: $purple !important;
+				}
+				
+				&:hover,
+				&:focus {
+					text-decoration: underline;
+				}
+			}
+			
+			.current {
+				background-color: #E5E5E5;
+				
+				.ie7 &,
+				.ie8 & {
+					margin-bottom: 0;
+				}
+				
+				/* this class should be obsolete after sitecore integration when current page will in span tag */
+				a,
+				span {
+					cursor: default !important;
+					&:hover {
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+	li.current {
+		.ie7 & {
+			zoom: 1;
+		}
+
+		a,
+		span {
+			color: #FFF;
+			font-weight: bold;
+			background-color: $blueSingaporeNav;
+			.gcp-sg & {
+				background-color: $blueSingaporeNav;
+			}
+			background-image: none;
+		}
+		
+		ul {
+			display: block;
+		}
+	}
+	
+	.home {
+		font-weight: bold;
+	}
+}

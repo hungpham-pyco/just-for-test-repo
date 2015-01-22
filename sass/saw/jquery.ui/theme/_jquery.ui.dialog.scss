@@ -1,0 +1,228 @@
+//.ui-dialog { position: absolute; padding: .2em; width: 300px; overflow: hidden; }
+//.ui-dialog .ui-dialog-titlebar { padding: .4em 1em; position: relative;}
+//.ui-dialog .ui-dialog-title { float: left; margin: .1em 16px .1em 0; } 
+//.ui-dialog .ui-dialog-titlebar-close { position: absolute; right: .3em; top: 50%; width: 19px; margin: -10px 0 0 0; padding: 1px; height: 18px; }
+//.ui-dialog .ui-dialog-titlebar-close span { display: block; margin: 1px; }
+//.ui-dialog .ui-dialog-titlebar-close:hover, .ui-dialog .ui-dialog-titlebar-close:focus { padding: 0; }
+//.ui-dialog .ui-dialog-content { position: relative; border: 0; padding: .5em 1em; background: none; overflow: auto; zoom: 1; }
+//.ui-dialog .ui-dialog-buttonpane { text-align: left; border-width: 1px 0 0 0; background-image: none; margin: .5em 0 0 0; padding: .3em 1em .5em .4em; }
+//.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset { float: right; }
+//.ui-dialog .ui-dialog-buttonpane button { margin: .5em .4em .5em 0; cursor: pointer; }
+//.ui-dialog .ui-resizable-se { width: 14px; height: 14px; right: 3px; bottom: 3px; }
+//.ui-draggable .ui-dialog-titlebar { cursor: move; }
+.ui-widget-overlay { background-color: #000; @include opacity(0.5); }
+.ui-dialog {
+	overflow: visible;
+	position: fixed;
+	background-color: #fff;
+	border: 1px solid #fff;
+	padding: 0;
+	
+	.ui-dialog-titlebar {
+		@include background-image(linear-gradient(#1891c8, #115ea5));
+		.ie8.no-cssgradients.no-svg & { //IE 7, IE 8
+			@include filter-gradient(#1891c8, #115ea5);
+		}
+		.ie7 &, .ie6 & {
+			background-color: #1891c8;
+		}
+		height: 10px;
+		padding: 0;
+	}
+	.ui-dialog-title {
+		@extend .visuallyhidden;
+	}
+	.ui-dialog-titlebar-close {
+		top: 1px;
+		right: -11px;
+		width: 29px;
+		height: 29px;
+		margin: -15px 0 0 0;
+		padding: 0;
+		span {
+			//-@include replace-text-with-dimensions('icons/close.png');
+			@extend .sprite-icon-close;
+			background-repeat: none;
+			text-indent: -999px;
+			width: image-width('icons/close.png');
+			height: image-height('icons/close.png');
+			cursor: pointer;
+		}
+		&:hover, &:focus {}
+	}
+	.ui-dialog-content {
+		padding: 0 0 30px;
+	}
+}
+.ui-dialog-login {
+	@include grid-page(12);
+	margin: 0;
+	.ui-dialog-content {
+		padding: 0 0 30px;
+		.intro {
+			color: #000;
+			@include font-size(13px, 13px * 1.2);
+			text-align: center;
+			@include background-image(linear-gradient(#fdfdfd, #f5f5f5));
+			.no-cssgradients.no-svg & { //IE 7, IE 8
+				@include filter-gradient(#fdfdfd, #f5f5f5);
+			}
+			border-bottom: 1px solid #b3bbbd;
+			padding: 12px grid-width(1, 30px);
+			margin-bottom: 20px;
+		}
+		.form {
+			color: $gray;
+			//@include font-size(12px, 12px * 1.2);
+			@include grid-column(4);
+			@include grid-column-empty(1, before);
+			//@inlcude grid-column-empty(1, after);
+			input[type=text] { width: percentage((150 - 4)/150);}
+			button {
+				width: 100%;
+			}
+		}
+		.example {
+			@include grid-column(6, -10); /* subtract 10px for IE7 bug fix */
+			@include grid-column-empty(1, before);
+			margin-top: 20px;
+		}
+	}
+}
+.ui-dialog-offer {
+	@include grid-page(20);
+	margin: 0;
+	.ui-dialog-content {
+		padding: 30px 0;
+	
+		p {
+			color: $gray;
+			@include font-size(12px, 18px);
+			margin-bottom: 1em;
+		}
+		.legal-notice
+		{
+			color: $red;
+			font-weight: bold;
+		}
+		.main-column {
+			position: relative;
+			min-height: 200px;
+			&.center-column {
+				@include grid-column(14);
+				@include grid-column-empty(1, before);
+				@include divider(13.5);
+				.content {
+					@include grid-column(9);
+				}
+			}
+			&.full-column {
+				@include grid-column(19);
+				@include grid-column-empty(1, before);
+				.content {
+					@include grid-column(14);
+					margin-bottom: 30px;
+				}
+				.offer-type {
+					bottom: 0;
+					right: 30px;
+				}
+			}
+			.aside {
+				@include grid-column(4);
+				padding-bottom: 41px;
+				.logo {
+					margin-bottom: 10px;
+				}
+				.back {
+					position: absolute;
+					left: 0;
+					bottom: 0;
+					margin-bottom: 0;
+					line-height: 1;
+				}
+			}
+			.content {
+				h3 {
+					color: $dark-blue;
+					@include font-size(14px, 14px * 1.2);
+					margin-bottom: 5px;
+				}
+			}
+		}
+		.right-column {
+			@include grid-column(4, 5);
+			.button { width: 100%; margin-bottom: 27px; }
+			h3 { 
+				color: $dark-blue;
+				@include font-arial;
+				text-transform: none;
+			}
+			.offer-type {
+				bottom: 30px;
+			}
+		}
+		.offer-type {
+			text-transform: capitalize;
+			position: absolute;
+			a.icon {
+				.ie7 & {
+					display: block;
+					padding-top: 8px;
+					line-height: 1;
+				}
+			}
+			p {
+				margin-bottom: 0;
+				line-height: 1;
+			}
+		}
+		.offer-type-pos {
+			a.clicktip.rebate {
+				display: none;
+				.ie7 & {
+					display: none;
+				}
+			}
+		}
+		.offer-type-rebate {
+			a.clicktip.pos {
+				display: none;
+				.ie7 & {
+					display: none;
+				}
+			}
+		}
+		.terms {
+			h4 {
+				font-weight: bold;
+				color: $gray;
+			}
+			h4, p {
+				@include font-size(10px, 12px);
+			}
+		}
+	}
+}
+.ui-dialog-leaving {
+	text-align: center;
+	margin: 0;
+	.ui-dialog-content {
+		padding: 0;
+		margin: 1em 1em 2em;
+	}
+	button span, .button span {
+		padding: 8px 50px 5px;
+	}
+	.ui-dialog-buttonpane {
+		margin: -1em auto 1.5em;
+		.ui-dialog-buttonset {
+			text-align: center;
+			float: none;
+			button {
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+	}
+}

@@ -1,0 +1,54 @@
+ul.savings {
+  @include no-bullets;
+  @include grid-row;
+  margin-bottom: 30px;
+  margin-right: -35px;
+  li {
+    @include grid-column(7);
+    @include grid-column-empty(1, after);
+    margin-bottom: 30px;
+  }
+  h3 {
+    @include font-size(13px, 21px);
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+  p {
+    @include font-size(13px, 14px);
+  }
+  
+  .badge {
+    display: block;
+    background-color: #ffffff;
+    border: 1px solid #b3bcbe;
+    padding: 1px 1px;
+    margin-bottom: 7px;
+    img {
+      background-color: #f6f6f6;
+      padding: 6px 7px;
+	  display: block;
+    }
+  }
+}
+.aside .box, .right-column .box {
+  &.special {
+    h3 {
+      border-bottom: 1px solid #abb5b7;
+      padding-bottom: 3px;
+      margin-bottom: 7px;
+    }
+  }
+  &.border.special {
+    h3 {
+      color: white;
+      text-align: center;
+      @include font-size(13px, 21px);
+      margin: -15px -10px 7px;
+      padding: 7px 0 8px;
+      @include background-image(linear-gradient(#2d96c9, #1566a7));
+      .no-cssgradients.no-svg & { //IE 7, IE 8
+        @include filter-gradient(#2d96c9, #1566a7);
+      }
+    }
+  }
+}

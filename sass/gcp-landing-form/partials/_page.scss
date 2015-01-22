@@ -1,0 +1,460 @@
+body {
+	.bg-body {
+		background: $background;
+	}
+
+	/* Patterns */
+	.bg-darkpurple {
+		background-color: $darkpurple;
+		@include backgroundPattern('darkpurple');
+	}
+
+	.bg-midgrey {
+		@include backgroundPattern('midgrey');
+	}
+	
+	.bg-grey {
+		@include backgroundPattern('grey');
+	}
+	
+
+	.bg-turquoise {
+		background-color: $turquoise;
+		@include backgroundPattern('turquoise');
+	}
+	
+	.bg-darkteal {
+		background-color: $darkteal;
+		@include backgroundPattern('darkteal');
+	}
+
+	.bg-koala {
+		background-color: $koala;
+	}
+
+	.bg-pengo {
+		background-color: $pengo;
+	}
+
+	.bg-white {
+		background-color: $white;
+	}
+
+	.bg-pattern-ws_45 {
+		@include worldservicepattern(45);
+	}
+
+	.bg-pattern-ws_15 {
+		@include worldservicepattern();
+	}
+	
+	.promo-module-background {
+		background-color: $pengo;
+		&.white-bg {
+			background-color: #fff;
+		}
+	}
+
+	/***********************************/
+	/* TYPOGRAPHY */
+	/***********************************/
+	@import 'gcp-landing-form/partials/type';
+
+	button {
+		&:focus {
+			outline: none;
+		}
+	}
+
+	/**********************************/
+	/* SHARE AMEX */
+	/**********************************/
+	
+	/* Detail Page A*/
+	.content-block {
+		.shareamex-container-multi {
+			@include fluid-column(6,0,$grid-columns,0,false);
+			padding-top: 50px;
+			float: right;
+			text-align: right;
+			position: relative;
+			.shareamex-morebox {
+				top: auto !important;
+				left: auto !important;
+				right: -43px;
+				bottom: -50px;
+			}
+		}
+	}
+
+	/***********************************/
+	/* BENEFITS SUBHEADS */
+	/***********************************/
+	.promo-benefits {
+		.box {
+			margin: 55px 0 60px 0;
+			border-color: #a7a6a9;
+			h2 {
+				@include font-size(36px,30px);
+				color: $crow;
+			}
+			.box-extender {
+				border-color: #a7a6a9;
+			}
+		}
+	}
+
+/***********************************/
+/* Header Promo Wrapper */
+/**********************************/
+	.promo-wrapper{
+		margin-top: 25px;
+		position: absolute;
+		width: 100%;
+		max-width: 980px;
+		min-height: 293px;
+		background-color: $white;
+		&:after {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			@include box-shadow(0 0 37px rgba(0, 0, 0, 1));
+			@include border-radius(100%);
+			bottom: 0;
+			left: 10%;
+			right: 10%;
+			width: 75%;
+			height: 20px;
+		}
+	}
+	
+	.mobile-footer {
+		display: none;
+		background-color: $deepblue;
+		text-align: center;
+		z-index: 10000;
+		bottom: 0;
+		position: fixed !important;
+		width:100%;
+		a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			padding: 10px 0;
+			letter-spacing:.04em;
+			text-align: center;
+			color: $white;
+			@include text-shadow(0 1px 1px rgba(0,0,0,.75));
+			text-decoration: none;
+			text-transform: uppercase;
+			@include font-size(12px,18px);
+			&:focus {
+				outline: thin dotted;
+				background-color: #1d4f9c
+			}
+		}
+	}
+
+
+	.main-container {
+		margin: 0 auto;
+		@include fluid-page($grid-columns,-4,true,false);
+	}
+
+	/************************************/
+	/* FAQ  */
+	/************************************/
+	.faq-wrapper {
+		background-color: #f2f2f2;
+		@include backgroundPattern('grey');
+		.faq-nav {
+			ul {
+				list-style:none;
+				li {
+					@include fluid-column(18,0,$grid-columns,0,false);
+					@extend .h5;
+					a {
+						text-decoration: none;
+						color: $darkteal;
+					}
+				}
+			}
+		}
+		.faq-answer {
+			clear: both;
+			@include fluid-column(18,0,$grid-columns,0,false);
+			a.top{ 
+				text-decoration: none;
+				i.arrow-up {
+					margin: 0 5px 5px 0;
+					line-height: 24px;
+					@include arrow(up,5px,$darkteal);
+				}
+			}
+		}
+	}
+
+	/***********************************/
+	/* ADDITIONAL RESOURCES */
+	/***********************************/
+	.related-promo-wrapper {
+		background-color: $white;
+		@extend .bg-pattern-ws_15;
+		background-image: linear-gradient(rgba(255,255,255,0) 66%, $white), image-url('gcp-landing-form/amex-ws-pattern_15.png');
+		.main-container {
+			#{headings()}{
+				color: $darkpurple;
+			}
+			h3 {
+				@extend .h5;
+			}
+		}
+	}
+}
+
+/***********************************/
+/* SUBNAVIGATION */
+/***********************************/
+@import 'gcp-landing-form/partials/subnavigation';
+
+/************************************/
+/* ARTICLE LANDING SUBNAV */
+/************************************/
+.article-nav {
+	background-color: $background;
+	border-bottom: 1px solid $mouse;
+	border-top: 1px solid $mouse;
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		.ie7 & {
+			@extend .clearfix;
+		}
+		li {
+			display: inline-block;
+			margin-right: 24px;
+			.ie7 & {
+				float: left;
+			}
+			&:last-child {
+				margin: 0;
+			}
+			a {
+				@include font-benton-sans(medium);
+				@include font-size(14px, 15px);
+				color: $grey;
+				display: block;
+				padding: 10px 0;
+				text-decoration: none;
+				&.active {
+					@include font-benton-sans(bold);
+					color: $blueSingaporeBlue;
+				}
+				.oldie & {
+					&.active {
+						@include font-benton-sans(bold);
+					}
+				}
+			}
+		}
+	}
+	.topics-btn {
+		@include font-benton-sans(bold);
+		@include font-size(12px, 35px);
+		background: $white;
+		border: 0;
+		border-bottom: 1px solid $mouse;
+		color: $grey;
+		display: none;
+		padding-left: 20px;
+		text-align: left;
+		text-decoration: none;
+		width: 100%;
+		text-transform: uppercase;
+		i.arrow {
+			margin: 0 5px 5px 2px;
+			line-height: 12px;
+			@include arrow(down,4px,$grey);
+			vertical-align: middle;
+		}
+	}
+}
+
+/************************************/
+/* BACKGROUND COLOR BLOCKS */
+/************************************/
+.bg-block {
+	position: relative;
+	.bg-color {
+		height: 80%;
+		left: 0;
+		position: absolute;
+		top: 10%;
+		width: 100%;
+		z-index: 1;
+	}
+	.main-container {
+		position: relative;
+		z-index: 2;
+	}
+	// TODO: Replace with background pattern from Jordan
+	.bg-gray-trans {
+		background: rgba(0, 0, 0, .03);
+	}
+}
+
+/*************************************/
+/* QUICK LINKS */
+/************************************/
+.quick-links {
+	h3 {
+		@extend .h5;
+		@extend .all-caps;
+	}
+	.promo-container & {
+		@include fluid-column(8,0,$grid-columns,0,false);
+		padding-left: (fluid-column-width(1) + fluid-gutter-width($grid-columns) * 3);
+		border-left: 1px solid #e4e4e4;
+		h3 {
+			@include font-size(14px,16px);
+			float: none;
+			width: 100%;
+			margin: 0;
+		}
+	}
+}	
+
+/***********************************/
+/* CARD PAGE FOOTER */
+/***********************************/
+.detail-footer-wrapper {
+	padding: 0 0 35px 0;
+	@extend .bg-grey;
+	@extend .shadow-wrapper;
+	.content-block {
+		a {
+			@include font-size(14px,35px);
+			display: inline-block;
+			font-weight: bold;
+			text-decoration: none;
+			color: $darkteal;
+		}
+	}
+	.detail-footer {
+		background-color: $white;
+		position: relative;
+		padding: 23px 0;
+		.main-container {
+			padding: 0;
+		}
+		/* SHADOW */
+		&:after {
+			position: absolute;
+			content: '';
+			z-index: -1;
+			@include box-shadow(0 0 37px rgba(0, 0, 0, .75));
+			@include border-radius(100%);
+			bottom: 0;
+			left: 20%;
+			right: 20%;
+			width: 70%;
+			height: 20px;
+		}
+		.slideshow {
+			@include clearfix();
+			@include fluid-column(20,0,$grid-columns,0,false);
+			min-height: 105px;
+			&.slideshow-wide {
+				@include fluid-row(false);
+				width: 100%;
+				margin: 0;
+			}
+		}
+		
+		.quick-links {
+			@include fluid-column(4,0,$grid-columns,0,false);
+		}	
+	}
+}
+
+.divider {
+	height: 40px;
+	&.with-title {
+		@include font-benton-sans('bold');
+		@include font-size(16px, 40px);
+		color: #fff;
+		text-align: center;
+		color: #fff;
+		margin-bottom: 30px;
+		position: relative;
+		.arrow {
+			@include arrow(down,20px,#858d90);
+			bottom: -20px;
+			left: 50%;
+			margin-left: -20px;
+			position: absolute;
+		}
+	}
+}
+
+.benefit-column {
+	@include fluid-column(12,0,$grid-columns,0,false);
+	float: right;
+	&.left {
+		float: left;
+	}
+	h3, h2 {
+		margin-top: 0;
+	}
+	.promo {
+		background-color: #fff;
+		color: $crow;
+		margin-bottom: 20px;
+		&.grey {
+			background: rgba(130, 139, 142, .15);
+			.oldie & {
+				@include oldietransbg('#26828B8E');
+			}
+		}
+		&.blue {
+			background: rgba(0, 109, 141, .08);
+			.oldie & {
+				@include oldietransbg('#14006D8D');
+			}
+		}
+		img {
+			width: 100%;
+		}
+		a.appstore {
+			width: auto;
+			display: inline-block;
+			margin: 10px 10px 0 0;
+		}
+		.content {
+			@include font-benton-sans('regular');
+			padding: 37px;
+		}
+		h3 {
+			@extend .h5;
+			margin-bottom: 10px;
+		}
+		h2 {
+			@extend .h3;
+		}
+		li {
+			margin-bottom: 5px;
+		}
+	}	
+}
+
+/************************************/
+/* CONTACT FORM */
+/************************************/
+@import 'gcp-landing-form/modules/forms';
+
+/************************************/
+/* GCP LANDING PAGE */
+/************************************/
+@import 'gcp-landing-form/pages/landing-pages';

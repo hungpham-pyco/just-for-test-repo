@@ -1,0 +1,53 @@
+// This file must be imported before loading html5-boilerplate
+
+// colors
+$dark-blue: #002663;
+$blue: #006980; //#003366; //069
+$purple: #800080;
+$black: #666;
+$gray: #4d4f53;
+$red: #dd4b47;
+$green: #619800;
+
+// boilerplate
+$base-font-family: unquote('Arial, Helvetica, sans-serif');  // default font-family
+$base-font-size: 13px;  // default font-size for YUI fonts
+$base-line-height: 1.231;  // default line-height for YUI fonts
+$font-color: $gray;
+$link-color: $blue;
+$link-hover-color: $link-color;
+$link-active-color: $link-color;
+$link-visited-color: $link-color;
+//$selected-font-color: #fff;  // color for selected text
+//$selected-background-color: #ff5E99;  // bg-color for selected text
+$list-left-margin: 2em;  // left margin for ul an ol
+
+// grid
+$column-width: 30px;
+$gutter-width: 10px;
+$columns: 24;
+
+// IE9 Gradients
+$experimental-support-for-svg: true;
+
+// Sprite maps
+	@mixin icon-sprite-img { background-image: image-url('icons/icons-sprite.png'); }
+	@mixin sprite-bgRepeats-img { background-image: image-url('sprite-bgRepeats.png'); }
+	@mixin sprite-img { background-image: image-url('sprites.png'); }
+	// Icons
+		.sprite-icon-close{ @include icon-sprite-img;background-position: 0 0; width: 29px; height: 29px; } 
+		.sprite-icon-pos{ @include icon-sprite-img;background-position: 0 -79px; } 
+		.sprite-icon-rebate{ @include icon-sprite-img;background-position: 0 -149px; } 
+	
+	// BG Repeaters
+		.sprite-bg-box-header{ @include sprite-bgRepeats-img;background-position: 0 0; } 
+		.sprite-bg-breadcrumb{ @include sprite-bgRepeats-img;background-position: 0 -60px; } 
+		.sprite-bg-footer-gradient{ @include sprite-bgRepeats-img;background-position: 0 -170px; } 
+		.sprite-bg-header{ @include sprite-bgRepeats-img;background-position: 0 -297px; } 
+		.sprite-bg-savings-at-work-banner{ @include sprite-bgRepeats-img;background-position: 0 -500px; /* 0 -478px; */ } 
+	// BGs
+		.sprite-bg-banner-large { @include sprite-img;background-position: 0 0; }
+		.sprite-bg-banner-small { @include sprite-img;background-position: 0 -369px; }
+		.sprite-bg-breadcrumb-nub { @include sprite-img;background-position: 0 -662px; width: 14px; height: 8px; } 
+		.sprite-card-example { @include sprite-img;background-position: 0 -1210px; width: 220px; height: 71px; } 
+		.sprite-footer-cards { @include sprite-img;background-position: 0 -1331px; width: 161px; height: 89px; } 

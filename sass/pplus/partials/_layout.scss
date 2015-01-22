@@ -1,0 +1,123 @@
+html, body {
+  background: $background;
+}
+body {
+	min-width: 960px;
+}
+.ie7 .body {
+	margin-top: -20px;
+}
+body.homepage {
+	min-width: 1256px;
+}
+#container {
+  min-height: 100%;
+  .ie6 & {
+    height: 100%;
+  }
+  .ie7 & {
+    z-index: 1;
+  }
+}
+
+// Page
+.body {
+  padding-bottom: 10px;
+}
+.header,
+#header {
+    #iNavHeaderCont,
+    #iNavSANavCont,
+    #iNav_header_wrap {
+      margin: 0 auto;
+  }
+}
+.footer,
+#footer {
+  #iNavNGI_FooterMain.iNavFreeFloat #iNavNGI_FooterCont,
+  #iNav_footer {
+    margin: 0 auto;
+  }
+}
+#subHeaderContent,
+#main {
+  @include grid-page();
+}
+#mainColumn {
+  @include grid-column(16,-35px);
+  @include grid-offset-right(1);
+  @include min-height(450px);
+  margin-left: 0;
+  margin-bottom: 10px;
+  padding: 40px;
+  @include box-shadow(0px 0px 3px rgba(0,0,0,0.20));
+  	.ie7 &,
+  	.ie8 & {
+  		border: 1px solid $light-grey;
+  		border-top: none;
+  		padding: 40px 39px;
+  	}
+  background: $white;
+  &.tabbed-content {
+  	@include grid-column(18,-35px);
+  	@include grid-offset-right(1);
+  	margin-left: 0;
+  	padding: 0 0 40px 0;
+  		.ie7 &,
+  		.ie8 & {
+  			@include grid-column(18,-37px);
+  			@include grid-offset-right(1);
+  			margin-left: 0;
+  		}
+  }
+}
+.demo-wrapper {
+	background-image: inline-image("pplus/bg-grey-border.png");
+  background-repeat: repeat-y;
+  background-position: 239px 0;
+    .ie7 & {
+    background-image: image-url("pplus/bg-grey-border.png");
+	}
+}
+.demo {
+	#mainColumn {
+		@include grid-column(18,10px);
+		@include box-sizing(border-box);
+		.ie7 & {
+			width: 720px - 1px; //minus one for right border
+		}
+		@include box-shadow(0px 0px 0px rgba(0,0,0,0.20));
+		border-bottom: 1px solid $light-grey;
+		border-right: 1px solid $light-grey;
+		margin: 0;
+		padding: 0;
+		z-index: 1;
+		min-height: 388px;
+		.ie9 & {
+			min-height: 395px;
+		}
+		.ie8 & {
+			min-height: 394px;
+		} 
+		.ie7 & {
+			min-height: 396px;
+		}
+		.ie7 &,
+		.ie8 & {
+			border-left: 0;
+	  		border-top: 0;
+	  	}
+	}
+	#mainColumnContent {
+		padding: 35px 40px;
+	}
+}
+#leftColumn {
+  @include grid-column(6,10px);
+  margin: 0;
+  z-index: 100;
+}
+#rightColumn {
+  @include grid-column(5);
+  @include grid-offset-right(1);
+}

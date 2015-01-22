@@ -1,0 +1,24 @@
+@mixin font-benton-sans ($style: regular) {
+		// Style
+		@if $style == medium {
+			font-family: "BentonSans Medium", Arial, Helvetica, sans-serif;
+			font-weight: normal;
+			.oldie & {
+				font-family: "BentonSans", Arial, Helvetica, sans-serif;
+				font-weight: normal;
+			}
+		} @else if $style == light {
+			font-family: "BentonSans Light", Arial, Helvetica, sans-serif;
+			font-weight: normal;
+		} @else if $style == bold {
+			font-family: BentonSans, Arial, Helvetica, sans-serif;
+			font-weight: bold;
+		} @else {
+			font-family: BentonSans, Arial, Helvetica, sans-serif;
+			font-weight: normal;
+			.oldie & {
+				font-family: "BentonSans Medium", Arial, Helvetica, sans-serif;
+			}
+		}
+		font-style: normal; 
+	}

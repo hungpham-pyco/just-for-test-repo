@@ -1,0 +1,12 @@
+﻿#iNavNGI_Header #iNavSANav #iNavSANavCont ul#iNavSANavLvl3 li {
+  &:hover a.current, &.iNavHover a.current, a:focus.current {
+	background: none repeat scroll 0 0 transparent;
+	color: #fff;
+	border-bottom-width: 0;
+  }
+}
+#iNavNGI_Header.ie9 #iNavSANav #iNavSANavCont ul#iNavSANavLvl3 li {
+  a.iNavFirstElement { border-left:2px groove #C7C9D0; }
+  a.iNavLastElement  { border-right:2px groove #C7C9D0; }
+}
+

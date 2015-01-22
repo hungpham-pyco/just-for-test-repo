@@ -1,0 +1,68 @@
+﻿// COMPASS CSS3 MIXINS
+@import 'compass';
+
+// SET BASE VARIABLES
+@import 'gcp-landing/partials/base';
+
+// PROJECT MIXINS
+@import 'gcp-landing/partials/mixins';
+
+// H5BP NORMALIZE CSS IMPLEMENTATION - KITCHEN SINK VERSION
+@import 'gcp-landing/partials/normalize';
+
+// ...OR INCLUES ONLY WHAT YOU WANT FROM NORMALIZE CSS
+// @import 'gcp-landing/partials/normalize/display';
+// @import 'gcp-landing/partials/normalize/base';
+// @import 'gcp-landing/partials/normalize/links';
+// @import 'gcp-landing/partials/normalize/typography';
+// @import 'gcp-landing/partials/normalize/lists';
+// @import 'gcp-landing/partials/normalize/embedded';
+// @import 'gcp-landing/partials/normalize/figures';
+// @import 'gcp-landing/partials/normalize/forms';
+// @import 'gcp-landing/partials/normalize/tables';
+// @import 'gcp-landing/partials/normalize/tables';
+// @import 'gcp-landing/partials/normalize/chromeframe';
+
+// ==|== primary styles =====================================================
+// Author:
+// ==========================================================================
+
+// BASE CONTENT/TYPOGRAPHY STYLES
+//@import 'gcp-landing/partials/content';
+
+// LAYOUT STYLES
+@import 'gcp-landing/partials/grid';
+@import 'gcp-landing/partials/layout';
+@import 'gcp-landing/partials/fonts';
+@import 'amex/partials/bentonsans';
+@import 'gcp-landing/partials/nav';
+@import 'gcp-landing/partials/page';
+@import 'amex/partials/postinavmsg';
+
+// jQUERY UI
+@import 'gcp-landing/partials/jquery-ui';
+@import 'gcp-landing/partials/jquery.ui.overrides';
+@import 'amex/partials/jquery.ui.dialog.video';
+
+// MODULES
+@import 'gcp-landing/modules/buttons';
+@import 'gcp-landing/modules/cta';
+@import 'gcp-landing/modules/slides';
+@import 'gcp-landing/modules/pagination';
+@import 'gcp-landing/modules/compare-table';
+@import 'gcp-landing/partials/inav_overrides';
+
+// LAYOUT-SPECIFIC
+@import 'gcp-landing/partials/page_home';
+
+// MEDIA QUERIES
+// @import 'gcp-landing/partials/mq';
+
+// H5BP NON-SEMANTIC UTILITIY CLASSES
+@import 'gcp-landing/partials/utilities';
+
+// H5BP PRINT STYLES AND YOUR OWN
+@import 'gcp-landing/partials/print';
+
+// AMEX
+@import 'amex/partials/shareamex';

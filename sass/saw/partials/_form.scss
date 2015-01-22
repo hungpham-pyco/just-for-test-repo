@@ -1,0 +1,25 @@
+form, .form {
+  .form-row {
+	margin-bottom: 10px;
+  }
+  .form-cta {
+	text-align: right;
+  }
+}
+label {
+  @include font-size(12px, 21px);
+}
+label.error { color: $red; }
+label.success { color: $green; }
+input[type=text], input[type=email], input[type=url], input[type=tel] {
+  @include font-size(12px, 19px);
+}
+input[type=checkbox], input[type=radio] {
+  margin-right: 5px;
+  position: relative;
+  bottom: -2px;
+}
+.js .filters-submit
+{
+	display: none;
+}

@@ -1,0 +1,1217 @@
+// articles list
+.articles {
+	background-color: $white;
+	margin: 45px 0 20px 0;
+	padding: 40px 0 20px 0;
+	position: relative;
+	&.full-height {
+		margin-bottom: 0;
+		.detail &{
+			// revert on detail pages
+			margin: 0 0 45px 0;
+		}
+	}
+	@include responsive(med) {
+		@include fluid(24, -10px);
+		margin-left: auto;
+		margin-right: auto;
+	}
+	@include responsive(small) {
+		width: 100%;
+	}
+	&.promo-item {
+		background-color: #FFF;
+		margin-bottom: 0;
+		@include responsive(lessthanlarge) {
+			box-sizing: border-box;
+			width: 100%;
+		}
+		@include responsive(small) {
+			margin: 0;
+		}
+	}
+	h2 {
+		@include fluid-offset(1,0,left);
+		@extend .h5;
+		background-color: $darkteal;
+		color: $white;
+		text-transform: uppercase;
+		display: inline-block;
+		left: 0px;
+		margin-bottom: 0;
+		margin-top: 0;
+		padding: 10px 15px;
+		position: absolute;
+		top: -20px;
+	}
+	h3 {
+		@extend .h2;
+	}
+	.extender {
+		@include fluid-offset(1,0,left);
+		padding: 15px 0 15px 23px;
+		margin-bottom: 50px;
+		h2{
+			@include font-benton-sans('light');
+			@include font-size(40px,40px);
+			background: none;
+			position: static;
+			padding: 0;
+			margin: 0;
+			color: $koala;
+			z-index: 1;
+			text-transform: none;
+			.ie7 & {
+				zoom: 1;
+				display: inline;
+			}
+			@include responsive(lessthanlarge) {
+				@include fluid-offset(1,0,left);
+			}
+		}
+	}
+	strong {
+		display: block;
+		@extend .h5;
+	}
+	
+	.playlist {
+		list-style: none;
+		margin: 0;
+		@include fluid-column(8,0,$grid-columns,0,false);
+		@include fluid-offset-left(1,0);
+		@include fluid-offset-right(1,0);
+		padding: 0;
+		@include responsive(lessthanlarge){ 
+			@include fluid-column(22,0,$grid-columns,0,false);
+			margin-top: 30px;
+		}
+		li {
+			margin-top: 8px;
+			cursor: pointer;
+			@include clearfix();
+			h4 {
+				@extend .body-2;
+			}
+			&.selected {
+				.thumbnail {
+					border: 5px solid $darkteal;
+				}
+			}
+			&:first-child {
+				margin-top: 0;
+			}
+			&:last-child {
+				.bottom-border {
+					border-bottom: none;
+				}
+			}
+			.bottom-border {
+				clear: both;
+				@include fluid-column(5,0,8,0,false);
+				@include fluid-offset(9,0,left);
+				padding-top: 15px;
+				border-bottom: 1px solid #a6a7a9;
+				@include responsive(med) {
+					@include fluid-column(18,0,22,0,false);
+					@include fluid-offset(4,0,left,22);
+				}
+			}
+			.thumbnail {
+				@include fluid-column(3,0,8,0,false);
+				max-height: 70px;
+				border: 5px solid white;
+				@include clearfix();
+				@include responsive(med) {
+					@include fluid-column(4,0,22,0,false);
+				}
+				@include responsive(small) {
+					max-height: 10000px;
+				}
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+			h4 {
+				color: $crow;
+				@include fluid-column(5,0,8,0,false);
+				@include font-benton-sans('medium');
+				@include font-size(16px,18px);
+				letter-spacing:-.025em;
+				margin: 0;
+				margin-left: 2%;
+				padding: 0 5px;
+				@include responsive(med) {
+					@include fluid-column(18,0,22,0,false);
+				}
+				@include responsive(small){ 
+					@include fluid-column(12,0,24,0,false);
+				}
+			}
+		}
+	}
+
+	.listview {
+		@include fluid-column(9,0,$grid-columns,0,false);
+		@include fluid-offset(1,0,left);
+		margin-bottom: 40px;
+		float: left;
+		.ie7 & {
+			padding-bottom: 40px;
+		}
+		&:nth-child(even) {
+			@include fluid-offset(3,0,left);
+			@include responsive(small) {
+				@include fluid-offset(1,0,left);
+			}
+		}
+		&.even {
+			@include fluid-offset(3,0,left);
+			@include responsive(small) {
+				@include fluid-offset(1,0,left);
+			}
+		}
+		strong {
+			@extend .h5;
+			a {
+				color: $crow;
+				font-size: 100%;
+			}
+		}
+		ul {
+			list-style-type: none;
+			padding: 0;
+			li {
+				margin-bottom: 10px;
+				@extend .body-1;
+			}
+			a {
+				text-transform: none;
+			}
+		}
+		@include responsive(small) {
+			@include fluid(22);
+			@include fluid-offset(1,0,left);
+			float: none;
+		}	
+	}
+
+	&.promo-item-2 {
+		margin-bottom: 0;
+		padding-bottom: 0;
+
+		@include responsive('med') {
+			width: 100%;
+		}
+		
+		.main-container {
+			z-index: 1;
+			position: relative;
+
+			&:after {
+				@include center-shadow();
+			}
+
+			.article-promo-wrapper {
+				@include clearfix;
+				background: $white;
+			}
+		}
+
+		h2 {
+			@extend .h2;
+			body & {
+				@include font-size(40px,44px);
+			}
+			@include fluid-column(18,0,$grid-columns,0,false);
+			position: static;
+			display: block;
+			margin: 0 0 45px 0;
+			padding: 0;
+			background: none;
+			text-transform: none;
+
+			color: $sqrl;
+			
+			@include responsive('med') {
+				@include fluid-offset(1,0,left);
+			}
+			
+			@include responsive('small') {
+				@include fluid-column(22,0,$grid-columns,0,false);
+				@include fluid-offset(1,0,left);
+				display: block;
+				margin-bottom: 10px;
+			}
+		}
+
+		.cta {
+			@include fluid-column(4,0,$grid-columns,0,false);
+			float: right;
+			margin: 20px 0;
+
+			@include font-size(16px);
+			font-weight: bold;
+			text-align: right;
+			text-transform: uppercase;
+
+			.arrow-right {
+				margin-left: 6px;
+				@include arrow(right,5px,$darkteal);
+			}
+			
+			a:hover {
+				.arrow-right {
+					@include arrow(right,5px,#5daac0);
+				}
+			}
+			
+			@include responsive('med') {
+				@include fluid-offset(1,0,right);
+			}
+			
+			@include responsive('small') {
+				@include fluid-column(22,0,$grid-columns,0,false);
+				@include fluid-offset(1,0,left);
+				display: block;
+				margin-top: 0;
+
+				text-align: left;
+			}
+		}
+
+		.summary {
+			@include clearfix;
+			text-align: center;
+			@include fluid-column(20,0,$grid-columns,0,false);
+			@include fluid-offset-left(2);
+			@include responsive('lessthanlarge') {
+				@include fluid-column(22,0,$grid-columns,0,false);
+				@include fluid-offset-left(1);
+			}
+
+
+			li {
+				@include fluid-column(8,0,20,0,false);
+				@include fluid-offset(5,0);
+				
+				@include responsive('med') {
+					@include fluid-column(10,0,22,0,false);
+					@include fluid-offset(2,0);
+				}
+
+				@include box-sizing(border-box);
+				@include box-shadow(rgba(0,0,0,.4) 1px 1px 10px);
+				margin-bottom: 50px;
+				padding-bottom: 0;
+				text-align: left;
+				
+				.figure {
+					float: none;
+					width: 100%;
+					text-align: center;
+
+					img {
+						width: auto;
+						height: 180px;
+						@include responsive('lessthanlarge') {
+							width: 100%;
+							height: auto;
+						}
+					}
+
+					.figcaption {
+						position: static;
+						display: block;
+						max-width: none;
+						background: $crow;
+						text-align: left;
+
+						.arrow-right {
+							margin-left: 6px;
+							@include arrow(right,5px,$white);
+						}
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+				}
+
+				.content {
+					float: none;
+					width: auto;
+					padding: 15px 10px;
+
+					h4 {
+						@extend .h4;
+						color: $grey;
+						font-weight: normal !important;
+					}
+
+					a {
+						display: block;
+						margin-top: 10px;
+						text-transform: none;
+					}
+
+					.cta {
+						float: none;
+						width: auto;
+						text-align: left;
+						a {
+							font-size: 16px;
+							text-transform: uppercase;
+							color: $darkteal;
+						}
+						@include responsive('small') {
+							margin-left: 0;
+						}
+					}
+
+					.arrow-right {
+						margin-left: 6px;
+						@include arrow(right,5px,$darkteal);
+					}
+				}
+
+				&.no-image {
+					.figcaption {
+						margin: 0;
+					}
+				}
+
+				@include responsive('morethansmall') {
+					&:first-child {
+						margin-left: 0;
+					}
+				}
+				@include responsive('small') {
+					@include fluid-column(22,0,$grid-columns,0,false);
+					@include fluid-offset(1,0,left);
+					display: block;
+					margin-top: 0;
+
+					.figcaption {
+						margin: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+ul.flow-view { 
+	list-style: none;
+	@include clearfix();
+	padding: 0;
+	margin-bottom: 20px;
+	@include fluid-offset(1,0,left);
+	@include fluid-offset(1,0,right);
+	@include responsive(lessthanlarge) {
+		padding: 0;
+		@include fluid(22);
+		@include fluid-offset(1,0,left);
+	}
+	li { 
+		@include font-benton-sans(regular);
+		@extend .body-1;
+		@include fluid-column(10,0,$grid-columns,0,false);
+		margin-bottom: 20px;
+		&:nth-child(odd) {
+			@include fluid-offset-right(2,0);
+		}
+		a {
+			display: block;
+			margin-top: 10px;
+		}
+		@include responsive(small) {
+			width: 100%;
+			margin: 15px 0;
+			&:nth-child(odd) {
+				margin-right: 0;
+			}
+		}
+	}
+	// tabbed promo modifications
+	.tabbed-promo & {
+		padding: 0;
+		margin-top: 40px;
+		@include responsive(small) {
+			width: 100%;
+			margin: 15px 0 0 0;
+		}
+		li {
+			@include fluid-column(7,0,15,0,false);
+			margin-bottom: 30px;
+			
+			h4 {
+				width: 100%;
+				float: none;
+				margin-left: 0;
+			}
+			p {
+				margin-top: 0;
+				@include responsive(small) {
+					@include font-size(16px,24px);
+				}
+			}
+			&:nth-child(odd) {
+				@include fluid-offset-right(1,0);
+			}
+			&.odd {
+				@include fluid-offset-right(1,0);
+			}
+			a {
+				margin-top: 6px;
+				@include font-size(14px, 20px);
+			}
+			@include responsive(small) {
+				width: 100%;
+				float: none;
+			}
+			ul {
+				margin: 0 0 15px 15px;
+				padding: 0;
+				li {
+					width: 100%;
+					float: none;
+					list-style-type: disc;
+					margin-bottom: 5px;
+				}
+			}
+		}
+		&.promo-count-1, 
+		&.promo-count-2 {
+			li {
+				@include fluid-column(14,0,15,0,false);
+			}
+		}
+	}
+}
+
+ul.summary {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	h3 {
+		margin: 0 0 20px 0;
+		.promo-item &{
+			margin-bottom: 15px;
+		}
+	}
+	p {
+		margin: 0;
+		margin-bottom: 10px;
+		.promo-item & {
+			margin-bottom: 10px;
+		}
+	}
+	a {
+		@extend .cta-link;
+	}
+	.content {
+		ul {
+			@extend .body-1;
+			li {
+				&:before {
+					display: none;
+				}
+				border: none;
+				padding-bottom: 0;
+				margin-bottom: 5px;
+			}
+		}
+	}
+	li {
+		@extend .clearfix;
+		@include fluid(22);
+		@include fluid-offset(1,0,left);
+		border-bottom: 1px solid $mouse;
+		margin-bottom: 35px;
+		padding-bottom: 35px;
+		&:last-child {
+			border: 0;
+			padding: 0;
+		}
+		&.last {
+			border: 0;
+			margin-bottom: 0;
+			padding: 0;
+		}
+		&.with-border {
+			border-top: 1px solid $mouse;
+			border-bottom: 0;
+			margin-top: 35px;
+			padding-top: 35px;
+			&:first-child{
+				border-top-width: 0;
+				margin-top: 0;
+				padding-top: 0;
+			}
+		}
+		&:nth-child(even) {
+			.figure {
+				float: right;
+				margin-right: 0;
+			}
+			.content {
+				float: left;
+			}
+		}
+		&.even {
+			.figure {
+				float: right;
+				margin-right: 0;
+			}
+			.content {
+				float: left;
+			}
+		}
+		&.no-image {
+			.figure {
+				float: none;
+				width: 100%;
+				@include responsive(small) {
+					margin-bottom: 0;
+					.figcaption {
+						margin-top: 0;
+					}
+				}
+			}
+			.figcaption {
+				display: inline-block;
+				margin: 10px 0 15px 0;
+				position: static;
+				text-transform: uppercase;
+			}
+			.module-shadow-left-right:after {
+				box-shadow: none;
+			}
+			.content {
+				float: none;
+				width: 100%;
+			}
+		}
+	}
+	.figure {
+		@include fluid(10, 0, 22);
+		float: left;
+		position: relative;
+		z-index: 1;
+		img {
+			width: 100%;
+			max-width: 100%;
+			height: auto;
+		}
+	}
+	.figcaption {
+		@include font-benton-sans(bold);
+		@include font-size(12px, 14px);
+		background-color: $sqrl;
+		color: $white;
+		left: -18px;
+		max-width: 95%; 
+		padding: 8px 10px;
+		position: absolute;
+		text-transform: uppercase;
+		top: 20px;
+	}
+	.content {
+		@include fluid(11, 0, 22);
+		float: right;
+	}
+	.module-shadow-left-right:after {
+		@include border-radius(40%);
+		height: 70%;
+		top: 16%;
+	}
+	&.topic-view {
+		li {
+			.figure {
+				float: left;
+			}
+			.content {
+				float: right;
+			}
+			&:nth-child(odd) {
+				.figure {
+					float: right;
+					margin-right: 0;
+				}
+				.content {
+					float: left;
+				}
+			}
+			&.odd {
+				.figure {
+					float: right;
+					margin-right: 0;
+				}
+				.content {
+					float: left;
+				}
+			}
+		}
+	}
+	@include responsive(med) {
+		h3 {
+			@include font-size(30px, 32px);
+		}
+		p {
+			@include font-size(15px, 22px);
+		}
+		.figure {
+			@include fluid(12, 0, 22);
+		}
+		.content {
+			@include fluid(9, 0, 22);
+		}
+	}
+	@include responsive(small) {
+		h3 {
+			@include font-size(30px, 32px);
+		}
+		p,
+		a {
+			@include font-size(15px, 22px);
+		}
+		.figure {
+			float: none;
+			width: 100%;
+			margin-bottom: 0;
+			img {
+				display: none;
+			}
+			&.module-shadow-left-right:after {
+				box-shadow: none;
+			}
+		}
+		.figcaption {
+			display: inline-block;
+			margin: 10px 0 15px 0;
+			position: static;
+			text-transform: uppercase;
+		}
+		.content {
+			float: none;
+			width: 100%;
+		}
+	}
+}
+
+// pagination
+.pagination {
+	@extend .clearfix;
+	@include fluid(22);
+	@include font-size(14px, 14px);
+	border-top: 1px solid $mouse;
+	margin: 0 auto -20px auto;
+	padding: 12px 0;
+	ul {
+		display: inline-block;
+		float: right;
+		list-style-type: none;
+		margin: 0;
+	}
+	li {
+		@include font-benton-sans('regular');
+		color: $wolf;
+		display: inline;
+		text-transform: uppercase;
+		&.current {
+			@include font-benton-sans('bold');
+			color: $darkteal;
+			cursor: default;
+			padding: 1px 5px;
+		}
+		&.first {
+			@include font-benton-sans('bold');
+			padding-right: 5px;
+			.arrow {
+				@include arrow(left,5px,$wolf);
+				margin-right: 2px;
+				&.on {
+					@include arrow(left,5px,$darkteal);
+				}
+			}
+		}
+		&.last {
+			@include font-benton-sans('bold');
+			padding-left: 5px;
+			.arrow {
+				@include arrow(right,5px,$wolf);
+				margin-left: 2px;
+				&.on {
+					@include arrow(right,5px,$darkteal);
+				}
+			}
+		}
+	}
+	a {
+		color: $darkteal;
+		display: inline-block;
+		padding: 1px 5px;
+		text-decoration: none;
+	}
+}
+
+// card benefits section list
+.card-benefits {
+	padding-top: 35px;
+	background-color: #f0f0f0;
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	.title {
+		margin-bottom: 10px;
+		position: relative;
+		a {
+			@include font-benton-sans(regular);
+			@include font-size(13px, 14px);
+			display: block;
+			text-decoration: none;
+			&.top {
+				@include font-size(12px, 12px);
+				color: $crow;
+				margin-bottom: 10px;
+			}
+			.arrow {
+				@include arrow(up,5px,$crow);
+				vertical-align: middle;
+				.ie7 & {
+					margin-right: 5px;
+				}
+			}
+		}
+		.ie7 & {
+			min-height: 1px;
+		}
+		&.has-image {
+			margin-bottom: 130px;
+			@include responsive(med) {
+				margin-bottom: 40px;
+			}
+			@include responsive(small) {
+				margin-bottom: 0;
+			}
+			h2, a {
+				padding-left: 492px;
+				@include responsive(med) {
+					padding-left: 326px;
+				}
+				@include responsive(small) {
+					padding-left: 0;
+				}
+			}
+		}
+		@include responsive(med) {
+			padding-left: 37px;
+		}
+		@include responsive(small) {
+			@include fluid-column(20);
+			@include fluid-offset(2,0,left);
+		}
+	}
+	.figure {
+		max-height: 248px;
+		left: 0;
+		position: absolute;
+		top: -3px;
+		max-width: 450px;
+		z-index: 1;
+		img {
+			width: 100%;
+			height: auto;
+		}
+		@include responsive(med) {
+			max-height: 178px;
+			max-width: 325px;
+		}
+		@include responsive(small) {
+			position: relative;
+			margin-top: 10px;
+		}
+	}
+	.module-shadow-left-right:after {
+		@include border-radius(30%);
+		@include box-shadow(0 0 30px #000);
+		width: 99%;
+		@include responsive(small) {
+			height: 60%;
+			top: 20%;
+		}
+	}
+	.box {
+		border-color: $koala;
+		border-style: solid;
+		border-width: 3px 3px 3px 0;
+		color: $grey;
+		display: inline-block;
+		margin: 0 0 10px 0;
+		h2 {
+			display: inline-block;
+			@include font-benton-sans(bold);
+			@include font-size(36px, 30px);
+			letter-spacing: -.03em;
+			.box-extender {
+				border-color: $koala;
+			}
+		}
+		.box-extender {
+			border-color: $koala;
+		}
+	}
+	ul {
+		@extend .clearfix;
+		list-style-type: none;
+		margin: 0 0 30px 0;
+		padding: 0;
+		@include responsive(med) {
+			@include fluid-column(22,5px,$grid-columns,0,false);
+			@include fluid-offset(1,0,left);
+			float: none;
+		}
+		/* TODO: Simplify .tag-n with mixin later */
+		&.tag-5 {
+			li {
+				@include fluid-column(4,5px,$grid-columns,0,false);
+				@include fluid-offset(1,0,right);
+				&.fifth {
+					margin-right: 0;
+				}
+				&:nth-child(5n) {
+					@include responsive('large'){
+						margin-right: 0;
+					}
+				}
+			}
+		}
+		&.tag-4 {
+			li {
+				@include fluid-column(5,5px,$grid-columns,0,false);
+				@include fluid-offset(1,0,right);
+				&.fourth {
+					margin-right: 0;
+				}
+				&:nth-child(4n) {
+					@include responsive('large'){
+						margin-right: 0;
+					}
+				}
+			}
+		}
+		&.tag-3 {
+			li {
+				@include fluid-column(6,5px,$grid-columns,0,false);
+				@include fluid-offset(2,0,right);
+				&.third {
+					margin-right: 0;
+				}
+				&:nth-child(3n) {
+					@include responsive('large'){
+						margin-right: 0;
+					}
+				}
+			}
+		}
+		&.tag-2 {
+			li {
+				@include fluid-column(10,0,22,0,false);
+				@include fluid-offset(2,0,right,22);
+				&.second {
+					margin-right: 0;
+				}
+				&:nth-child(2n) {
+					@include responsive('large'){
+						margin-right: 0;
+					}
+				}
+			}
+		}
+		&.tag-5,
+		&.tag-4,
+		&.tag-3,
+		&.tag-2 {
+			li {
+				@include responsive(med) {
+					@include fluid-column(10,0,22,0,false);
+					@include fluid-offset(2,0,right,22);
+					&:nth-child(2n) {
+						margin-right: 0;
+					}
+				}
+				@include responsive(small) {
+					@include fluid-column(20,0,$grid-columns,0,false);
+					@include fluid-offset(2,0,left);
+				}
+				@include responsive(large) {
+					&.push {
+						@include fluid-offset(5,0,right);
+						+ li {
+							@include fluid-offset(1,0,right);
+						}
+					}
+				}
+				.ie7 & {
+					margin-bottom: 1em;
+				}
+				.oldie & {
+					&.push {
+						@include fluid-offset(5,0,right);
+						+ li {
+							@include fluid-offset(1,0,right);
+						}
+					}
+				}
+			}
+		}
+		li {
+			@include font-benton-sans();
+			margin-bottom: 10px;
+			ul {
+				list-style-type: disc;
+				padding-left: 10%;
+				margin-bottom: 13px;
+				li {
+					@extend .body-2;
+					color: $crow;
+					display: list-item;
+					float: none !important;
+					margin: 10px 0 0 0;
+					width: 100% !important;
+					&:first-of-type {
+						margin-top: 0;
+					}
+				}
+			}
+		}
+		h3 {
+			@extend .h5;
+		}
+		p {
+			@extend .body-2;
+			color: $crow;
+			a {
+				font-size: 100%;
+				font-weight: normal;
+				text-decoration: underline;
+			}
+		}
+		a {
+			@include font-benton-sans('medium');
+			@include font-size(13px, 16px);
+			text-decoration: none;
+			.arrow {
+				@include arrow(right,4px,$blue);
+			}
+		}
+	}
+}
+.card-benefits-nav {
+	background: $white;
+	padding: 25px 0 25px 0;
+	ul {
+		@extend .clearfix;
+		list-style-type: none;
+		margin: 0 0 0 -20px;
+		padding: 0;
+		@include responsive(med) {
+			@include fluid-column(22,0,$grid-columns,0,false);
+			@include fluid-offset(1,0,left);
+		}
+		@include responsive(small) {
+			@include fluid-column(20,0,$grid-columns,0,false);
+			@include fluid-offset(2,0,left);
+		}
+		li {
+			float: left;
+			margin: 0 0 0 20px;
+			@include responsive(med) {
+				margin: 0 20px 0 0;
+			}
+			@include responsive(small) {
+				margin: 0;
+				width: 100%;
+			}
+			&.title {
+				@include font-benton-sans(bold);
+				@include font-size(13px);
+				color: $grey;
+				line-height: 30px;
+				width: 100%;
+				@include responsive(small) {
+					width: auto;
+				}
+			}
+		}
+	}
+	a {
+		@include font-benton-sans(medium);
+		@include font-size(15px);
+		line-height: 30px;
+		text-decoration: none;
+		@include responsive(lessthanlarge) {
+			@include font-size(14px);
+		}
+	}
+}
+.anchor {
+	height: 20px;
+	margin-top: -20px;
+}
+
+// quick links 
+.quick-links {
+	.detail-footer-wrapper & {
+		ul {
+			list-style: none;
+			margin: 10px 0;
+			padding: 0px;
+			li {
+				@extend .body-2;
+				letter-spacing: -0.02em;
+				a {
+					text-decoration: none;
+					color: $darkteal;
+				}
+			}
+			@include responsive(med) {
+				@include fluid-column(18,0,$grid-columns,0,false);
+				@include fluid-offset-right(1);
+				margin: 0;
+				li {
+					float:left;
+					margin: 0 10px;
+				}
+			}
+			@include responsive(small) {
+				margin: 0;
+				@include fluid-column(16,0,$grid-columns,0,false);
+				@include fluid-offset-left(1);
+				@include fluid-offset-right(1);
+				li {
+					display: inline-block;
+					float: none;
+					margin: 0 15px 0 0;
+				}
+			}
+		}
+	}
+	.promo-container & {
+		ul {
+			list-style: none;
+			margin: 17px 0 0 0;
+			padding: 0px;
+			li {
+				background: image-url('gcp2/sprite/black-arrow-right-tiny.png') no-repeat center right;
+				@include font-benton-sans('regular');
+				letter-spacing: 0;
+				@include font-size(15px,15px);
+				border-bottom: 1px solid #e4e4e4;
+				letter-spacing: -0.02em;
+				padding-right: 10px;
+				&:first-of-type {
+					border-top: 1px solid #e4e4e4;
+				}
+				a {
+					padding: 11px 0 11px 2px;
+					display: block;
+					width: 100%;
+					text-decoration: none;
+					color: $darkteal;
+					&:hover {
+						color: #5daac0;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Tabs
+ul.tabbed-nav {
+	@include clearfix();
+	margin: 30px auto;
+	margin-bottom: 60px;
+	padding: 0;
+	list-style:none;
+	@include font-benton-sans('medium');
+	letter-spacing:.025em;
+	@include font-size(15px,22px);
+	color: $white;
+	text-transform: uppercase;
+	display: table;
+	width: 100%;
+
+	// Change width based on # of tabs
+	// max = 5 cols
+	@for $i from 2 through 5 {
+		&.tabs-#{$i} {
+			li {
+				width: percentage(1 / $i);
+			}
+		}
+	}
+	
+	&.tabs-1 {
+		.oldie &,
+		.ie9 & {
+			li {
+				float: none; // full width if one tab
+			}
+		}
+	}
+	li {
+		box-sizing: border-box;
+		border-right: 1px solid #49484a;
+		border-left: 1px solid #e6e4e4;
+		text-align: center;
+		@include bg-grad(#d2d1d4, #b4b2b5,top);
+		/* Display table-cell fixes a Firefox wrapping issue */
+		display: table-cell;
+		position: static;
+		float:none;
+		.oldie &, 
+		.ie9 & {
+			/* Display table-cell doesn't work in < ie10 to show borders */
+			display: block;
+			float: left;
+			border-right: 1px solid #49484a;
+			border-left: 1px solid #e6e4e4;
+			&.last {
+				border-right-width: 0;
+			}
+		}
+		&:last-child {
+			border-right-width: 0;
+		}
+		&.ui-tabs-selected {
+			@include bg-grad(#807f81, #717072,top);
+			border-left-color: #777777;
+		}
+		&:hover {
+			@include bg-grad(#949295, #807e81,top);
+		}
+		a {
+			display: block;
+			padding: 16px 0;
+			color: $white;
+			text-decoration: none;
+			text-align: center;
+		}
+	}
+	@include responsive(lessthanlarge) {
+		display: none;
+	}
+}
+
+.content-row {
+	.copy {
+		ul {
+			li {
+				@extend .body-1;
+				color: $crow;
+			}
+		}
+	}
+}

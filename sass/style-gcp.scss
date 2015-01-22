@@ -1,0 +1,69 @@
+// COMPASS CSS3 MIXINS
+@import 'compass';
+
+// SET BASE VARIABLES
+@import 'gcp/partials/base';
+
+// PROJECT MIXINS
+@import 'gcp/partials/mixins';
+
+// H5BP NORMALIZE CSS IMPLEMENTATION - KITCHEN SINK VERSION
+@import 'gcp/partials/normalize';
+
+// ...OR INCLUES ONLY WHAT YOU WANT FROM NORMALIZE CSS
+// @import 'gcp/partials/normalize/display';
+// @import 'gcp/partials/normalize/base';
+// @import 'gcp/partials/normalize/links';
+// @import 'gcp/partials/normalize/typography';
+// @import 'gcp/partials/normalize/lists';
+// @import 'gcp/partials/normalize/embedded';
+// @import 'gcp/partials/normalize/figures';
+// @import 'gcp/partials/normalize/forms';
+// @import 'gcp/partials/normalize/tables';
+// @import 'gcp/partials/normalize/tables';
+// @import 'gcp/partials/normalize/chromeframe';
+
+// ==|== primary styles =====================================================
+// Author:
+// ==========================================================================
+
+// BASE CONTENT/TYPOGRAPHY STYLES
+//@import 'gcp/partials/content';
+
+// LAYOUT STYLES
+@import 'gcp/partials/grid';
+@import 'amex/partials/inav';
+@import 'gcp/partials/layout';
+@import 'gcp/partials/fonts';
+@import 'amex/partials/bentonsans';
+@import 'gcp/partials/nav';
+@import 'gcp/partials/page';
+@import 'amex/partials/postinavmsg';
+
+// jQUERY UI
+@import 'gcp/partials/jquery-ui';
+@import 'gcp/partials/jquery.ui.overrides';
+@import 'amex/partials/jquery.ui.dialog.video';
+
+// MODULES
+@import 'gcp/modules/buttons';
+@import 'gcp/modules/cta';
+@import 'gcp/modules/slides';
+@import 'gcp/modules/pagination';
+@import 'gcp/modules/compare-table';
+@import 'gcp/partials/inav_overrides';
+
+// LAYOUT-SPECIFIC
+@import 'gcp/partials/page_home';
+
+// MEDIA QUERIES
+// @import 'gcp/partials/mq';
+
+// H5BP NON-SEMANTIC UTILITIY CLASSES
+@import 'gcp/partials/utilities';
+
+// H5BP PRINT STYLES AND YOUR OWN
+@import 'gcp/partials/print';
+
+// AMEX
+@import 'amex/partials/shareamex';

@@ -1,0 +1,32 @@
+// BASE BLOCK BUTTON STYLES
+.btn {
+	background-color: $purple;
+	@include border-radius(5px, 5px);
+	color: #FFF !important;
+	font-size: 12px;
+	//font-weight: bold;
+	display: inline-block;
+	text-decoration: none;
+	line-height: 25px;
+	height: 25px;
+	margin: 3px 0;
+	padding: 0 15px;
+	text-align: center;
+	
+	&:hover,
+	&:focus,
+	&:visited {
+		color: #FFF;
+		text-decoration: none;
+	}
+}
+
+
+// google voice revision
+.btn span.gc-cs-link {
+	color: #fff !important;
+}
+// iOS revision to override phone number linking
+.btn a {
+	color: #fff !important;
+}

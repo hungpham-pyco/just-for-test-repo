@@ -1,0 +1,70 @@
+﻿.shareamex-container-multi {
+	@include float-left;
+
+	.shareamex-container-first {
+		padding-right: 0;
+	}
+	shareamex .shareamex-container {
+		margin-left: -3px; // remove extra space between containers
+		padding-left: 0;
+	}
+}
+
+// margin for language dropdown when preceeded by share icons
+.shareamex-container-multi +  select#language {
+	margin-left: 10px !important;
+}
+
+.coBrowse .shareamex-bgimg {
+	background-repeat: no-repeat;
+
+	.shareamex-32 & {
+		background-image: image-url('amex/icon-cobrowse-l.png');
+	}
+	.shareamex-26 & {
+		background-image: image-url('amex/icon-cobrowse-m.png');
+	}
+	.shareamex-16 & {
+		background-image: image-url('amex/icon-cobrowse-s.png');
+	}
+}
+// these styles should be set by Amex CSS,
+// but if ShareAmex CSS doesn't load, we need min styling
+.shareamex-container-first {
+	span {
+		display: inline-block;
+	}
+	li {
+		list-style-type: none;
+	}
+}
+.shareamex-16 {
+	span.shareamex-bgimg {
+		height: 16px;
+		width: 16px;
+	}
+	a {
+		padding-top: 8px;
+		padding-bottom: 8px;
+	}
+}
+.shareamex-26 {
+	span.shareamex-bgimg {
+		height: 26px;
+		width: 26px;
+	}
+	a {
+		padding-top: 13px;
+		padding-bottom: 13px;
+	}
+}
+.shareamex-32 {
+	span.shareamex-bgimg {
+		height: 32px;
+		width: 32px;
+	}
+	a {
+		padding-top: 16px;
+		padding-bottom: 16px;
+	}
+}

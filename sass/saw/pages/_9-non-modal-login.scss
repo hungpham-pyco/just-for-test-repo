@@ -1,0 +1,29 @@
+.non-modal-login {
+	@extend .ui-dialog-login;
+	@include grid-column(16);
+	margin: 0;
+	.form-row input[type=text] {
+		display: block;
+	}
+	.form-cta {
+		float: left;
+		text-align: left;
+	}
+	.example {
+		float: right;
+		width: 65%;
+		margin-top: 25px;
+	}
+	.form-cta {
+		.button span,
+		button span {
+			font-size: 85%;;
+			padding: 5px 25px;
+			width: 120px;
+		}
+	}
+}
+
+.section.login {
+	border-bottom: 1px solid #ABB5B7;
+}

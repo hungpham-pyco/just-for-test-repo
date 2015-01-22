@@ -1,0 +1,39 @@
+// COMPASS CSS3 MIXINS
+@import 'compass';
+ 
+@import 'gcp-platinum-card/partials/grid';
+@import 'gcp-platinum-card/partials/fluid';
+
+@import 'gcp-platinum-card/partials/jquery-ui/jquery-ui-tabs';
+@import 'gcp-platinum-card/partials/jquery-ui/jquery-ui-dialog';
+
+// SET BASE VARIABLES
+@import 'gcp-platinum-card/partials/base';
+@import 'gcp-platinum-card/partials/fonts';
+@import 'gcp-platinum-card/partials/bentonsans';
+@import 'gcp-platinum-card/partials/sprites';
+
+// MEDIA QUERIES MIXINS
+@import 'gcp-platinum-card/partials/media-queries';
+
+// PROJECT MIXINS
+@import 'gcp-platinum-card/partials/mixins';
+
+@import 'gcp-platinum-card/partials/buttons';
+// H5BP NORMALIZE CSS IMPLEMENTATION - KITCHEN SINK VERSION
+@import 'gcp-platinum-card/partials/normalize';
+
+// ==|== primary styles =====================================================
+// Author: 
+// ==========================================================================
+
+@import 'amex/partials/inav';
+@import 'gcp-platinum-card/partials/utilities';
+@import 'gcp-platinum-card/modules/subnavigation';
+
+@import 'gcp-platinum-card/partials/page';
+@import 'gcp2/modules/breadcrumbs';
+
+
+// AMEX
+@import 'amex/partials/shareamex';

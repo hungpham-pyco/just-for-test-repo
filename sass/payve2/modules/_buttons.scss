@@ -1,0 +1,97 @@
+// BASE BLOCK BUTTON STYLES
+
+.ctaButton {
+	font-size:13px;
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+	display:block;
+	height:	26px;
+	line-height:26px;
+	margin-top:2px;
+	padding:0 16px;
+	background:#862075;
+	border-radius:5px;
+	position:absolute;
+	top:20px;
+	right:0;
+	color:#fff;
+	text-decoration:none;
+}
+
+
+/*.btn {
+	background-color: #64264D;
+	color: #FFF;
+	font-size: 12px;
+	font-weight: bold;
+	display: block;
+	text-transform: uppercase;
+	text-decoration: none;
+	line-height: 40px;
+	height: 40px;
+	margin: 5px 0;
+	padding: 0 10px 0 45px;
+	border: 1px solid #C2C4CD;
+	background-repeat: no-repeat;
+	background-position: 10px 50%;
+	
+	&:hover,
+	&:focus,
+	&:visited {
+		color: #FFF;
+		text-decoration: none;
+	}
+}
+.btn-nobox {
+	color: #64264D;
+	font-weight: bold;
+	display: block;
+	text-align: center;
+	span {
+		font-weight: normal;
+	}
+}
+.btn-two-line {
+	@extend .btn;
+	min-height: 40px;
+	height: auto;
+	line-height: 17px;
+	padding-top: 9px;
+	padding-bottom: 3px;
+}
+
+.phone-btn {
+	background-image: url(../i/gcp/icn-btn-phone.png);
+}
+
+.email-btn {
+	background-image: url(../i/gcp/icn-btn-email.png);
+}
+
+// google voice revision
+.btn span.gc-cs-link {
+	color: #fff !important;
+}
+// iOS revision to override phone number linking
+.btn a {
+	color: #fff !important;
+}
+
+// news feed download button
+.news-download {
+	 @include border-radius(5px);
+	 @include background-image(linear-gradient(#235dc0, #234278));
+	 @include inline-block;
+	 font-weight: bold;
+	 font-size: 12px;
+	 background-color: #22519f;
+	 background-position: 0 50%;
+	 padding: 11px 13px;
+	 border: 0;
+	 height: auto;
+	 line-height: 18px;
+	 text-transform: none;
+	 a { color: #fff; }
+}	
+
+*/

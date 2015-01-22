@@ -1,0 +1,225 @@
+.tabbed-nav {
+	padding: 0;
+}
+
+.list-wrapper {
+	ul:first-of-type {
+		padding: 0;
+		list-style-type: none;
+	}
+}
+
+/* TAB NAV */
+.tabbed-nav-container {
+	border-bottom: 1px solid #dbdcdd;
+	@include responsive('small') {
+		border-bottom: none;
+	}
+	.tabbed-nav {
+		@include fluid-page(24);
+		margin: 0 auto;
+		list-style:none;
+		li {
+			position: relative;
+			overflow: hidden;
+			@include fluid-column(6,0,$grid-columns,0,true);
+			text-align: center;
+			padding: 1px;
+			&:after {
+				content: '';
+				@include getColor(1,'background-color');
+				height: 2px;
+				width: 100%;
+				bottom: 0;
+				left: -100%;
+				position: absolute;
+				@include single-transition(left .25s ease-in);
+			}
+			&:hover {
+				a {
+					@include getColor(1);
+				}
+				&:after {
+					left: 0;
+				}
+			}
+			a {
+				@extend .h5;
+				@extend .all-caps;
+				display: block;
+				width: 100%;
+				line-height: 40px;
+				color: $grey;
+				@include single-transition(color .25s ease-in);
+				&:focus {
+					outline: thin dotted $crow;
+				}
+				&:active {
+					background: none;
+				}
+			}
+			&.ui-tabs-selected {
+				a {
+					@include getColor(1);
+				}
+				&:after {
+					left: 0;
+				}
+				
+			}
+			&:hover {
+				a {
+					@include getColor(1);
+				}
+			}
+		}
+		@include responsive('small') {
+			display: none;
+		}
+	}
+}
+
+/* TAB CONTENT */
+.tab-content {
+	@include fluid-page(24);
+	@extend .rel;
+	margin: 0 auto;
+
+	h3 {
+		display: none;
+	}
+	h4 {
+		@extend .h5;
+		@extend .all-caps;
+		@include font-size(14px,16px);
+		margin-bottom: 0;
+	}
+	p {
+		margin-top: 5px;
+	}
+	
+	.cta-link {
+		background: none;
+		@extend .all-caps;
+		@include font-benton-sans('medium');
+		letter-spacing: .025em;
+		color: $crow;
+		text-align: left;
+		padding: 0;
+		@include font-size(14px,16px);
+		margin-bottom: 15px;
+		i.arrow-right {
+			margin-left: 5px;
+			@include arrow(right,5px,$crow);
+		}
+	}
+
+	@include responsive('med') {
+		@include fluid-column(22,0,$grid-columns,0,true);
+		@include fluid-offset-left(1);
+	}
+	@include responsive('small') {
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	// override default accordion heading behavior
+	.show-only-ltl {
+		position: relative;
+		padding: 20px (100%/24);
+		padding-bottom: 18px;
+		border-top: 1px solid #dbdcdd;
+		&.last { 
+			border-bottom: 1px solid #dbdcdd;
+			&.ui-state-active {
+				border-bottom-width: 0;
+			}
+		}
+		@extend .h5;
+		@include font-size(12px,14px);
+		@include getColor(1);
+		@extend .all-caps;
+		margin-bottom: 0;
+		display: none;
+		@include responsive('small') {
+			display: block;
+		}
+		
+		// arrow indicator 
+		i.arrow {
+			position: absolute;
+			right: 20px;
+			top: 15px;
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			@include getThemeCarat();
+		}
+		&.ui-state-active {
+			i.arrow {
+				@include rotate(90deg);
+				right: 29px;
+				top: 20px;
+			}
+		}
+	}
+	
+	.list-wrapper {
+		@extend .clearfix;
+		
+		@include responsive('morethansmall') {
+			min-height: 425px;
+		}
+
+		ul {
+			@include responsive('morethansmall') {
+				@include clearfix();
+			}
+			margin-top: 15px;
+			list-style:none;
+			li {
+				@include fluid-column(11,0,$grid-columns,0,true);
+				@include fluid-offset-right(1);
+				padding-bottom: 25px;
+				/* nested lists */
+				ul {
+					margin: 0 0 11px 0;
+					padding: 0 0 0 15px;
+					list-style: disc;
+					list-style-position: outside;
+					li {
+						@extend p;
+						width: 100%;
+						min-height: 0;
+						float: none;
+						margin: 0; 
+						padding: 7px 0;
+					}
+				}
+				@include responsive('morethansmall') {
+					min-height: 150px;
+				}
+				@include responsive('med') {
+					@include fluid-column(10,0,22,0,true);
+					@include fluid-offset-right(1);
+				}
+				@include responsive('small') {
+					@include fluid-column(22,0,$grid-columns,0,true);
+					@include fluid-offset-left(1);
+					margin-bottom: 10px;
+				}
+			}
+		}
+	}
+}
+
+/* ACCORDION OVERRIDES */
+.ui-accordion-content-active {
+	@include responsive('small') {
+		margin: 0;
+		padding: 0;
+		border-top-width: 3px;
+		border-top-style: solid;
+		@include getColor(1,'border-top-color');
+	}
+}

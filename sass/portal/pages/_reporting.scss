@@ -1,0 +1,268 @@
+.report-hdr {
+	@include clearfix;
+	margin-bottom: 20px;
+	.content {
+		@include fluid-column(12);
+		margin: 0;
+	}
+	.aside {
+		@include fluid-column(12);
+		float: right;
+		margin: 0;
+		fieldset {
+			@include fluid-column(12);
+		}
+	}
+	h2 {
+		@include font-benton-sans(book);
+		@include font-size(34px, 40px);
+		letter-spacing: -.05em;
+		margin-bottom: 2px;
+		@include responsive(small) {
+			@include font-size(28px, 32px);
+		}
+	}
+	h3 {
+		@include font-size(22px, 28px);
+		@include font-benton-sans(medium);
+		color: $grey-five;
+		padding-bottom: 5px;
+		span {
+			@include font-size(20px, 22px);
+			display: block;
+		}
+	}
+	h4 {
+		color: $grey-three;
+	}
+	p {
+		@include font-benton-sans(medium);
+		@include font-size(14px, 18px);
+		color: $black;
+		margin-top: 0;
+	}
+}
+
+.report-hdr, 
+.report-details {
+	a.more {
+		@include font-size(11px, 16px);
+		@include font-benton-sans(bold);
+		text-transform: uppercase;
+		&:after {
+			display: inline-block;
+			content: "";
+			border-top: 2px solid $blue-one;
+			border-right: 2px solid $blue-one;
+			width: 6px;
+			height: 6px;
+			transform: rotate(45deg);
+		}
+	}
+}
+
+.report-summary-hdr, 
+.report-detail-footer {
+	@include clearfix;
+	@include font-size(28px, 30px);
+	@include font-benton-sans(normal);
+	$negative-gutter: -3.9%;
+	margin: 0 $negative-gutter 20px;
+	padding: 10px $negative-gutter * -1 20px;
+	background: $background;
+	label {
+		@include font-size(8px, 12px);
+		@include font-benton-sans(medium);
+		color: $grey-nine;
+	}
+	.section {
+		color: $grey-five;
+		float: left;
+		margin-right: 40px;
+	}
+}
+
+.report-detail-footer {
+	margin-bottom: -30px;
+	color: $white;
+	label {
+		color: $white;
+	}
+	background-color: $grey-eight;
+}
+
+.bar-chart {
+	padding: 20px 0 40px;
+	width: 870px;
+	/* this has to be absolute to prevent chart from "wrapping" when screen is resized */
+	@include clearfix;
+}
+
+.bar-chart-y-axis {
+	@include font-benton-sans(medium);
+	color: $grey-nine;
+	width: 30px;
+	height: 300px;
+	display: inline-table;
+	float: left;
+	ul {
+		margin: -10px 0 0 0;
+		padding: 0;
+	}
+	li {
+		float: left;
+		list-style-type: none;
+		text-align: right;
+		display: table-cell;
+		width: 30px;
+		font-size: 12px;
+		height: 30px;
+		padding-right: 5px;
+	}
+}
+
+.bar-chart-bars {
+	float: left;
+	position: relative;
+	border-left: 1px solid $grey-two;
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+	li {
+		@include font-benton-sans(medium);
+		text-transform: uppercase;
+		color: $grey-nine;
+		list-style-type: none;
+		width: 22px;
+		padding: 0 22px;
+		margin-left: -1px;
+		float: left;
+		font-size: 12px;
+		height: 300px;
+		text-align: center;
+		border-right: 1px solid $grey-ten;
+		border-bottom: 1px solid $grey-two;
+		span {
+			background-color: $blue-one;
+			@include background-image(linear-gradient(darken($blue-one, 10), $blue-one));
+			width: 20px;
+			position: absolute;
+			bottom: 0;
+			display: block;
+		}
+		label {
+			position: absolute;
+			bottom: -20px;
+			margin-left: -2px;
+			display: block;
+		}
+		&.year-break {
+			width: 0;
+			padding: 0;
+			span {
+				margin-left: -19px;
+				padding: 3px 5px;
+				width: 30px;
+				height: 15px;
+				position: absolute;
+				top: 0;
+				background: {
+					image: none;
+					color: $grey-ten;
+				}
+				&:after {
+					display: block;
+					content: "";
+					width: 5px;
+					height: 5px;
+					background: $grey-ten;
+					margin-left: 12px;
+					transform: rotate(45deg);
+				}
+			}
+		}
+	}
+}
+
+.report-payments {
+	@include font-benton-sans(normal);
+	ul {
+		color: $grey-five;
+		margin: 20px 0;
+		padding: 0;
+	}
+	li {
+		@include fluid-column(6);
+		margin: 0;
+		float: left;
+		list-style-type: none;
+		padding-right: 20px;
+		h3 {
+			text-transform: uppercase;
+			@include font-size(14px, 18px);
+			background: $background;
+			padding: 10px;
+			margin-bottom: 15px;
+		}
+		p {
+			@include font-size(14px, 16px);
+			padding: 10px;
+			margin: 0;
+			border-bottom: 1px solid $grey-ten;
+			&:last-child {
+				border-bottom: none;
+			}
+		}
+		label {
+			color: $grey-three;
+		}
+		span {
+			float: right;
+		}
+	}
+}
+
+.report-details {
+	@include font-benton-sans(normal);	
+	padding-bottom: 20px;
+	h3 {
+		@include font-size(28px, 30px);
+		font-weight: normal;
+		color: $grey-three;
+		padding-bottom: 20px;
+	}
+	h4 {
+		text-transform: uppercase;
+		padding-bottom: 10px;
+	}
+	ul {
+		@include clearfix;
+		margin: 0 0 20px 0;
+		padding: 0;
+	}
+	li {
+		list-style-type: none;
+		padding: 5px 10px;
+		@include clearfix;
+		&:nth-child(odd) {
+			background-color: $background;
+		}
+		label {
+			max-width: 200px;
+			float: left;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		span {
+			float: right;
+		}
+		&.sublist {
+			@include fluid-column(8);
+			float: left;
+			padding: 0 20px 40px 0;
+			background: $white;
+		}
+	}
+}

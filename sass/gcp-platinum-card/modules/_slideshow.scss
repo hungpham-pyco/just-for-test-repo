@@ -1,0 +1,455 @@
+/************************************/
+/* Carousels */
+/************************************/
+
+/* HIDE BY DEFAULT */
+.carousel-outer-wrapper {
+	&.slideshow-homepage {
+		@include responsive('large') {
+			height: 351px;
+			overflow: hidden;
+		}
+		.oldie & {
+			height: 351px;
+			overflow: hidden;
+		}
+		.crsl-items, 
+		.crsl-nav {
+			display: none;
+		}
+	}
+}
+
+.carousel-outer-wrapper {
+	z-index: 0;
+	@include fluid-row(true);
+	@include responsive(small){
+		margin-bottom: 0;
+	}
+
+	/* General Item Description Text Styles */
+	.item-description {
+		box-sizing: border-box;
+		color: $darkteal;
+		strong {
+			display: block;
+		}
+		a {
+			text-decoration: none;
+			text-transform: uppercase;
+			color: $teal;
+			@include font-size(16px);
+			&.cta-link {
+				@include font-size(14px);
+				@extend .antibtn;
+				.arrow-right {
+					display: inline-block;
+					margin-left: 5px;
+					@include arrow('right',4px,$teal);
+				}
+			}
+		}
+	}
+
+	/* SLIDESHOW SPECIFIC ITEM DESCRIPTIONS */
+
+	/* TEXT ONLY */
+	li.slideshow-textonly .slide-container .item-description {
+		a {
+			strong {
+				@extend .h5;
+				text-transform: uppercase;
+			}
+		}
+		p {
+			@extend .body-1;
+		}
+		@include responsive(lessthanlarge) {
+			padding: 0 15px;
+		}
+		@include responsive(med) {
+			p {
+				padding-right: 0;
+			}
+		}
+		@include responsive(small) {
+			p {
+				padding-right: 0;
+				margin-top: 0;
+			}
+		}
+	}
+
+	
+	/* GENERAL CAROUSEL NAV STYLES */
+	.carousel-nav {
+		@include fluid-column(2,0,8,0,false);
+		&.hide-nav { 
+			button {
+				@extend .vh;
+			}
+		}
+		&.slideshow-homepage {
+			@include fluid-column(2,0,15,0,false);
+			@include responsive(small) {
+				@include fluid-column(5,0,$grid-columns,0,false);
+				text-align: center;
+			}
+			@include responsive(med) {
+				@include fluid-column(4,0,$grid-columns,0,false);
+				text-align: center;
+			}
+		}
+		button {
+			display: block;
+			@include border-radius(100%);
+			border: 3px solid $wolf;
+			background: $white;
+			height: 44px;
+			width: 44px;
+			padding: 0;
+			margin: 0 auto;
+			margin-top: 30px;
+			&:focus {
+				outline: thin dotted;
+			}
+			&.arrow-prev {
+				@include sprite-background-image($sprite,grey-arrow-left-44,false,10,8);
+			}
+			&.arrow-next {
+				@include sprite-background-image($sprite,grey-arrow-right-44,false,13,8);
+			}
+		}
+		&.slideshow-cardlanding {
+			button {
+				display: block;
+				@include border-radius(100%);
+				border: 3px solid $wolf;
+				width: 58px;
+				height: 58px;
+				&.arrow-prev {
+					@include sprite-background-image($sprite,grey-arrow-left-58,false,15,9);
+				}
+				&.arrow-next {
+					@include sprite-background-image($sprite,grey-arrow-right-58,false,18,9);
+				}
+				@include responsive(small) {
+					width: 44px;
+					height: 44px;
+					&.arrow-prev {
+						@include sprite-background-image($sprite,grey-arrow-left-44,false,10,8);
+					}
+					&.arrow-next {
+						@include sprite-background-image($sprite,grey-arrow-right-44,false,13,8);
+					}
+				}
+				@include max-screen(365px) {
+					height: 32px;
+					width: 32px;
+					&.arrow-prev {
+						@include sprite-background-image($sprite,grey-arrow-left-32,false,6,5);
+					}	
+					&.arrow-next {
+						@include sprite-background-image($sprite,grey-arrow-right-32,false,9,5);
+					}
+				}
+			}
+		}
+		&.slideshow-card, 
+		&.slideshow-textonly {
+			button {
+				width: 44px;
+				height: 44px;
+				&.arrow-prev {
+					@include sprite-background-image($sprite,grey-arrow-left-44,false,10,8);
+				}
+				&.arrow-next {
+					@include sprite-background-image($sprite,grey-arrow-right-44,false,13,8);
+				}
+			}
+		}
+		&.slideshow-cardlanding {
+			@include max-screen(365px) {
+				button {
+					margin-top: 0;
+				}
+			}
+		}
+
+		&.hide-nav {
+			button {
+				border: none;
+				background: none;
+				cursor: default;
+			}
+		}
+	}
+
+
+
+	.main-container {
+		position: relative;
+		.row { 
+			@include responsive(small) {
+				padding-bottom:5px;
+			}
+		}
+		.carousel-mid-wrapper {
+			@include fluid-row(true);
+			@extend .clearfix;
+			.slideshow-homepage & {
+				padding: 50px 0 25px 0;
+			}
+			position: relative;
+			@include responsive(lessthanlarge) { 
+				margin: 0;
+			}
+			body div.homepage & {
+				padding: 0;
+				@include responsive(small) {
+					padding-bottom: 23px;
+				}
+				@include screen(350px,400px) {
+					padding-bottom: 43px;
+				}
+			}
+
+			
+
+			/* TEXT ONLY SLIDESHOW STYLES */
+			&.slideshow-textonly {
+				.row {
+					@include fluid-column(8,0,20,0,false);
+					@include responsive(med) {
+						@include fluid-column(6,0,22,0,false);
+						@include fluid-offset-right(3);
+					}
+					@include responsive(small) {
+						@include clearfix();
+						width: 100%;
+						margin-bottom: 30px;
+					}
+					.carousel-copy {
+						width: 80%;
+						margin: 0;
+						p {
+							display: none;
+						}
+						h2 {
+							color: #636366;
+							@include font-size(34px, 38px);
+						}
+						@include responsive(small) {
+							h2 {
+								text-align: center;
+								display: block;
+							}
+						}
+					}
+					.carousel-cta {
+						width: 100%;
+						@include clearfix();
+						text-transform: uppercase;
+						.btn {
+							@include btn($deepblue,#fff,#fff,13px);
+						}
+						@include responsive(med) {
+							@include fluid-offset-left(0,0,$grid-columns,0);
+							@include fluid-offset-right(0,0,$grid-columns,0);
+						}
+						@include responsive(small) {
+							position: static;
+						}
+
+					}
+				}
+				.carousel-item-wrapper {
+					max-height: 150px;
+					ul {
+						li { 
+							@include font-benton-sans('regular');
+							.oldie & { 
+								height: 120px;
+								width: 185px;
+							}
+							.slide-container{
+								.item-description {
+									p {
+										padding-right: 35px;
+										margin-top: 5px;
+										margin-bottom: 5px;
+									}
+									.cta-link {
+										text-transform: uppercase;
+									}
+									@include responsive(small) {
+										p {
+											margin-top: 0;
+											padding-right: 0;
+										}
+									}
+								}
+							}
+							@include responsive('small') {
+								padding: 0;
+								margin: 0;
+							}
+						}
+					}
+				}
+			}
+
+			.carousel-cta {
+				@include fluid-column(5,0,15,0,false);
+				float: right;
+				@include responsive(med) {
+					@include fluid-column(7,0,$grid-columns,0,false);
+					@include fluid-offset-left(2,0,$grid-columns,0);
+					@include fluid-offset-right(1,0,$grid-columns,0);
+				}
+				@include responsive(small) {
+					position: absolute;
+					@include fluid-column(24,0,$grid-columns,0,false);
+					bottom: 0;
+					text-align: center;
+				}
+				.btn {
+					margin: 0;
+					@include btn($deepblue,#1d4f9c,$white,small);
+				}
+			}
+			
+			.carousel-item-wrapper {
+				position: relative;
+				overflow: hidden;
+				.carousel-positioner {
+					left: 0;
+					top: 0;
+				}
+			}
+		}
+	}
+}
+
+
+/* Styles for detail footer slideshows (full width) */
+
+.slideshow-wide {
+	@include responsive(lessthanlarge) {
+		padding: 15px 0;
+	}
+}
+
+.slideshow-wide .carousel-outer-wrapper {
+	.main-container {
+		padding: 0;
+		.carousel-mid-wrapper{
+			.row {
+				@include fluid-column(10,0,$grid-columns,0,false);
+				@include responsive(med) {
+					@include fluid-column(8,0,22,0,false);
+					@include fluid-offset-right(1);
+				}
+				@include responsive(small) {
+					@include clearfix();
+					width: 100%;
+					margin-bottom: 30px;
+				}
+				.carousel-copy {
+					width: 80%;
+					margin: 0;
+					p {
+						@include font-size(16px,24px);
+					}
+					h2 {
+						color: $crow;
+					}
+					@include responsive(med) {
+						h2 {
+							margin-top: 0;
+						}
+					}
+
+					@include responsive(small) {
+						@include fluid-column(24,0,$grid-columns,0,false);
+						h2 {
+							display: block;
+							text-align: center;
+							width: 100%;
+							float: none;
+						}
+					}
+				}
+				.carousel-cta {
+					width: 100%;
+					margin-top: 15px;
+					@include clearfix();
+					.btn {
+						@include btn($deepblue,#1d4f9c,$white,small);
+					}
+					@include responsive(med) {
+						@include fluid-offset-left(0,0,$grid-columns,0);
+						@include fluid-offset-right(0,0,$grid-columns,0);
+					}
+					@include responsive(small) {
+						position: static;
+					}
+				}
+			}
+			.carousel-nav {
+				@include fluid-column(2,0,$grid-columns,0,false);
+				height: 50px;
+				&.prev {
+					text-align: left;
+				}
+				&.nxt {
+					text-align: right;
+				}
+				@include responsive(small) {
+					@include fluid-column(2,0,$grid-columns,0,false);
+					&.prev {
+						@include fluid-offset-left(1);
+						text-align: right;
+					}
+					&.nxt {
+						@include fluid-offset-right(1);
+						text-align: left;
+					}
+				}
+				button {
+					height: 47px;
+					width: 47px;
+					&.arrow-prev {
+						@include sprite-background-image($sprite,grey-arrow-left-44,false,12,8);
+					}
+					&.arrow-next {
+						@include sprite-background-image($sprite,grey-arrow-right-44,false,13,8);
+					}
+					@include responsive (small) {
+						height: 32px;
+						width: 32px;
+						&.arrow-prev {
+							@include sprite-background-image($sprite,grey-arrow-left-32,false,6,5);
+						}
+						&.arrow-next {
+							@include sprite-background-image($sprite,grey-arrow-right-32,false,9,5);
+						}
+					}
+				}
+				&.hide-nav {
+					button {
+						border: none;
+						background: none;
+						cursor: default;
+					}
+				}
+			}
+			.carousel-item-wrapper {
+				@include fluid-column(10,0,$grid-columns,0,false);
+				@include responsive(small) {
+					@include fluid-column(18,0,$grid-columns,0,false);
+				}
+			}
+		}
+	}
+}

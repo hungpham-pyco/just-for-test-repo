@@ -1,0 +1,32 @@
+//////////////////////////////////////
+// COLORS
+//////////////////////////////////////
+
+//////////////////////////////////////
+// BASE SETTINGS
+//////////////////////////////////////
+$base-font-size: 16px;
+
+// Colors
+$black: #222;
+$white: #fff;
+$light-grey: #ccc;
+$grey: #4d4f53;
+$purple: #002663;
+$blue: #006890;
+$red: #c30;
+$green: #00693C;
+$background: #fefefe;
+$background-zebra: #f8f9f9;
+$link-selected-color: $red;
+
+// Grid
+$column-width: 30px;
+$gutter-width: 10px;
+$columns: 24;
+
+// Pie
+// $pie-behavior: url("css/PIE.htc");
+
+// SVG Gradients for IE9 and some versions of Opera.
+//$experimental-support-for-svg: true;

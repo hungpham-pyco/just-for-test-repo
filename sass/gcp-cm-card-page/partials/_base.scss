@@ -1,0 +1,154 @@
+//////////////////////////////////////
+// BASE SETTINGS
+//////////////////////////////////////
+$base-font-size: 16px;
+//////////////////////////////////////
+// COLORS
+//////////////////////////////////////
+$black: #222;
+$white: #fff;
+$light-grey: #ccc;
+$grey: #4d4f53;
+$mid-grey: #5e6064;
+$blue: #006890;
+$blueSingaporeBlue: #002663;
+$blueSingaporeNav: #006890;
+$teal: #0097b0;
+$red: #c30;
+$red-error: #c80404;
+$green: #00693C;
+$background: #f4f4f4;
+
+//gcp2 Colors 
+$deepblue: #053379;
+$turquoise: #00a1bb;
+$darkpurple: #61194b;
+$darkteal: #006d8d;
+$lightteal: #88d3e1;
+
+//gcp2 grays
+$crow: #4e4d4f;
+$wolf: #deddd5;
+$sqrl: #717072;
+$koala: #7f8a8d;
+$elfnt: #e6e6e6;
+$mouse: #a7a6a9;
+$pengo: #f0f0f0;
+
+
+
+// Grid
+$grid-column-width: 31px;
+$grid-gutter-width: 10px;
+$grid-columns: 24;
+
+$grid-css: true;
+$grid-clearfix-extend: false;
+@mixin grid-clearfix($extend) {
+	@extend .clearfix;
+}
+
+//////////////////////////////////////
+// BREAKPOINTS
+//////////////////////////////////////
+$break-lg: 800px;
+$break-md: 660px;
+$break-sm: 320px;
+
+/////////////////////////////////////
+// COLOR SCHEMES
+////////////////////////////////////
+
+// List of four color shades used in the scheme / subtheme.
+// Position Key: Primary Color, Secondary Color, Tertary Color; Nav Primary Color; Nav Secondary / Hover Color
+$gold: #bd9b60, #ab833d, #e6d9c2, #bd9b60, #ab833d;
+$plat: #8c9598, #4d4f53, #b7b7b8, #8c9598, #4d4f53;
+$blue: #053379, #031b41, #053379, #053379, #031b41;
+$green: #45801f, #97c5b8, #45801f, #053379, #031b41;
+$defaultScheme: #006d8d, #88d3e1, #006d8d, #053379, #031b41;
+
+// Returns the color based on the passed-in color scheme and shade number
+// Note: Shade lines up to index of an item in the color list and
+// does not indicate any particular hierarchy of color
+@function getColorScheme($colorScheme, $colorShade) {
+	@return nth($colorScheme, $colorShade);
+}
+
+// Sets a css attribute based on color scheme and color shade
+@mixin getColor($colorShade, $cssAttribute: 'color') {
+	#{$cssAttribute}: getColorScheme($defaultScheme, $colorShade);
+	.gold &{
+		#{$cssAttribute}: getColorScheme($gold, $colorShade);
+	}
+	.platinum & {
+		#{$cssAttribute}: getColorScheme($plat, $colorShade);
+	}
+	.blue & {
+		#{$cssAttribute}: getColorScheme($blue, $colorShade);
+	}
+	.green & {
+		#{$cssAttribute}: getColorScheme($green, $colorShade);
+	}
+}
+
+@mixin getNavGradient($colorScheme) {
+	@include background-image(linear-gradient(left,color-stops($white, $white 50%, getColorScheme($colorScheme, 4) 51%, getColorScheme($colorScheme, 4) 100%)));
+	.oldie & {
+		background: getColorScheme($colorScheme, 4); 
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#{getColorScheme($colorScheme, 4)}',GradientType=1 );
+	}
+}
+
+@mixin getNavigationColor() {
+	
+	@include getNavGradient($defaultScheme);
+
+	.platinum &{
+		@include getNavGradient($plat);
+	}
+
+	.gold &{
+		@include getNavGradient($gold);
+	}
+}
+
+@mixin getThemeCarat() {
+
+	@include sprite-background-image($sprite,carat-default,false,0,0);
+
+	.platinum &{
+		@include sprite-background-image($sprite,carat-plat,false,0,0);
+	}
+
+	.gold &{
+		@include sprite-background-image($sprite,carat-gold,false,0,0);
+	}
+
+	.green &{
+		@include sprite-background-image($sprite,carat-green,false,0,0);
+	}
+
+	.blue &{
+		@include sprite-background-image($sprite,carat-blue,false,0,0);
+	}
+}
+
+@mixin getHeroGradient() {
+	
+	// default:
+	@include background-image(linear-gradient(top,color-stops(#f4f3f0, #f7f7f7 50%)));
+
+	.gold & {
+		@include background-image(linear-gradient(top,color-stops(#f9f6f1, #fcfaf7 50%)));
+	}
+}
+
+@mixin getPromoGradient() {
+	
+	// default:
+	@include background-image(linear-gradient(top,color-stops(#c1c1c1, #fcfaf7 50%)));
+
+	.gold & {
+		@include background-image(linear-gradient(top,color-stops(#f3ede3, #fcfaf7 50%)));
+	}
+}
